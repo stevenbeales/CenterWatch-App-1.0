@@ -1,0 +1,30 @@
+{
+	"_id": "2160937",
+	"_icon": "C:\\Users\\sbeales\\OneDrive\\Alpha Anywhere Projects.WebProjects\\CenterWatch App 1.0\\CenterWatch App.WebProjects\\Default.WebProject\\apple-touch-icon.png",
+	"_ssL": "C:\\Users\\sbeales\\OneDrive\\Alpha Anywhere Projects.WebProjects\\CenterWatch App 1.0\\CenterWatch App.WebProjects\\Default.WebProject\\splash-landscape.png",
+	"_ssP": "C:\\Users\\sbeales\\OneDrive\\Alpha Anywhere Projects.WebProjects\\CenterWatch App 1.0\\CenterWatch App.WebProjects\\Default.WebProject\\splash.png",
+	"_initialUxComponent": "ClinicalTrials",
+	"_componentLastUpdated": "07/12/2016 05:48:56 09 pm",
+	"_ajaxUrl": "http://69.7.228.180/centerappv1",
+	"_additionalFiles": "",
+	"_userName": "xzeouPUz1CjBB+bh4G74x0KUiDcQ+onH",
+	"_pw": "G5SzCI4H7S3ewqVyuz8Aqg==",
+	"_token": "",
+	"timeout": {
+		"phoneGapBuild": "<default>",
+		"phoneGapBuildLogin": "<default>",
+		"getAppIcon": "<default>"
+	},
+	"apperian": {
+		"enableOptions": false,
+		"loginName": "osLnGM4pUcQ=",
+		"password": "c5JMXi9Y+Ko=",
+		"serverURL": "https://easesvc.apperian.com/ease.interface.php"
+	},
+	"backupConfigFile": true,
+	"useImageMagick": true,
+	"indexHTMLMetaTags": "<meta name=\"mobile-web-app-capable\" content=\"yes\" />\n<meta name=\"apple-mobile-web-app-title\" content=\"CenterWatch\">\n<meta name=\"apple-mobile-web-app-status-bar-style\" content=\"black-transparent\">\n<meta name=\"format-detection\" content=\"telephone=yes\">\n<meta name=\"theme-color\" content=\"#ffffff\">\n",
+	"genAppZipFile": true,
+	"zipFileLocation": "C:\\Users\\sbeales\\OneDrive\\Alpha Anywhere Projects.WebProjects\\CenterWatch App 1.0\\Zip\\",
+	"_sqlitedbdefined": false
+}

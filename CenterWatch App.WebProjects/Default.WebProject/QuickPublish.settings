@@ -1,0 +1,13 @@
+<profile="Demo">
+<pubType=3>
+<files="C:\Users\sbeales\OneDrive\Alpha Anywhere Projects.WebProjects\CenterWatch App\CenterWatch App.WebProjects\Default.WebProject\FindByKeywords.a5wcmp">
+<optimize=.T.>
+<pubALB=.F.>
+<pubSecurity=.F.>
+<default_page="index.a5w">
+<open_in_browser=.T.>
+<pubSupport=.T.>
+<pubSelected=.F.>
+<flagCreateAex=.T.>
+<flagCheckSec=.F.>
+<remoteTest=.F.>

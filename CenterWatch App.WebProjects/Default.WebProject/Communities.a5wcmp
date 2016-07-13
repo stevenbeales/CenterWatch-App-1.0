@@ -1,0 +1,453 @@
+{
+    "$schema": "UX",
+    "$definition": {
+        "style_name": "iOS7",
+        "style_type": "Alpha Five",
+        "resolveAbstractClassNames": true,
+        "builderVersionNumber": 1,
+        "overrideStyleName": "Default",
+        "FontSize": "Medium",
+        "A5ContainerClassPadding": "0px",
+        "A5ContainerClassPaddingForContainerWidthMode": "4px",
+        "layoutType": "ContainerWidth",
+        "previewMode": "Default",
+        "useDragScrolling": "Always",
+        "pageTitle": "Patient Communities",
+        "waitMsg": {
+            "message": {
+                "text": "Wait...",
+                "waitIcon": "css/A5System/Images/wait.gif"
+            },
+            "cssAnimation": {
+                "size": "32"
+            }
+        },
+        "globalSettings": {
+            "labelWidth": "1in"
+        },
+        "serverSideEvents": {
+            "canAjaxCallback": "",
+            "afterAjaxCallback": ""
+        },
+        "onTimerEventInterval": 60,
+        "securityDeniedAction": "Redirect to login page",
+        "clientSideEvents": {
+            "_canAjaxCallback": "",
+            "__afterAjaxCallbackComplete": "",
+            "onAjaxCallbackFailed": "",
+            "onAjaxCallbackNotAvailable": "",
+            "onServerSideEventHandlerError": "",
+            "onFieldValidationError": "",
+            "beforePrepare": "",
+            "afterPrepare": "",
+            "afterValidate": "",
+            "onTabPaneChanged": "",
+            "beforeRptSectionRowPrepare": "",
+            "afterRptSectionRowPrepare": "",
+            "canRptSectionRowAdd": "",
+            "afterRptSectionRowAdd": "",
+            "canRptSectionRowDelete": "",
+            "afterRptSectionRowDelete": "",
+            "onStateChange": "",
+            "onDataStateChange": "",
+            "onControlFocus": "",
+            "onRptSectionFocus": "",
+            "onRptSectionRowChange": "",
+            "canResetForm": "",
+            "afterResetForm": "",
+            "canRecordNavigate": "",
+            "afterRecordNavigate": "",
+            "onSynchronizeDialog": "",
+            "afterPopulateFromTable": "",
+            "onRenderComplete": "",
+            "onPanelActivate": "",
+            "afterSaveToRepository": "",
+            "afterLoadFromRepository": "",
+            "afterGoogleVisualization": "",
+            "canDeleteParentRecord": "",
+            "afterDeleteParentRecord": "",
+            "onOrientationChange": "",
+            "onKeyboard": "",
+            "onCordovaReady": "",
+            "onPhoneGapReady": "",
+            "onImageError": "",
+            "onSignatureCaptureToggle": "",
+            "onSignatureCaptureAccept": "",
+            "onTimer": "",
+            "beforeOnTimer": "",
+            "canLogin": "",
+            "afterLogin": "",
+            "afterFailedLogin": "",
+            "canLogout": "",
+            "afterLogout": "",
+            "onSessionTimeoutWarning": "",
+            "onServerSideListSummaryCompute": "",
+            "beforeHTMLReportExport": "",
+            "onConnectionChange": "",
+            "appCache_cached": "",
+            "appCache_checking": "",
+            "appCache_downloading": "",
+            "appCache_error": "",
+            "appCache_noupdate": "",
+            "appCache_obsolete": "",
+            "appCache_progress": "",
+            "appCache_updateready": "",
+            "onControlBlur": "",
+            "onControlChange": "",
+            "onBeforePersistControlValuesToLocalStorage": "",
+            "onPersistControlValuesToLocalStorage": "",
+            "onRestoreVariablesFromLocalStorage": "",
+            "onRestoreComponentStateFromLocalStorage": "",
+            "localStorageEncryption": "",
+            "localStorageDecryption": "",
+            "securityNotAuthenticated": "",
+            "securityPermissionDenied": "",
+            "webSocketOnMessage": "",
+            "webSocketServerClose": "",
+            "webSocketSendMessageFail": ""
+        },
+        "OnlyValidateEditedFields": true,
+        "onlyValidateChangedFields": true,
+        "edit": {
+            "field_error_style": {
+                "type": "Block",
+                "showWarning": true,
+                "icon": "<Specified by Style>",
+                "controlContainer_classname": ""
+            },
+            "row_errors_window_title": "Error",
+            "row_errors_window_style": "color: red; width: 6in; height: 2in;",
+            "fieldValidationErrorMessage": "Form has errors."
+        },
+        "submitDialogIfHasClientSideValidationErrors": true,
+        "activeLanguage": "<Default>",
+        "datePicker": {
+            "dayNames": "Sun,Mon,Tue,Wed,Thu,Fri,Sat",
+            "monthNames": "January,February,March,April,May,June,July,August,September,October,November,December",
+            "firstDayOfWeek": 1,
+            "todayButtonText": "Today",
+            "closeButtonText": "Close"
+        },
+        "clientSideDateFormat": "MM/dd/yyyy",
+        "fontScalingOption": "All",
+        "helpTableType": "DBF",
+        "fieldHelpWindowStyle": "modal-resizeable",
+        "customization": {
+            "resetFormMessage": "Are you sure you want to reset the form?",
+            "resetFormTitle": "Warning",
+            "resetFormIcon": "<Specified by Style>",
+            "resetFormYesButton": "Yes",
+            "resetFormNoButton": "No",
+            "windowTitleDirection": "ltr",
+            "dirtyWarning": "You must first save your changes or cancel changes by clicking the Reset button.",
+            "dirtyWarningTitle": "Notice",
+            "dirtyWarningIcon": "<Specified by Style>",
+            "deleteRecordWarningTitle": "Delete Record",
+            "deleteRecordWarningMessage": "Are you sure you want to delete this record?"
+        },
+        "dataBinding": {
+            "computeDataBindingCodeAtDesignTime": true,
+            "computeDataBindingCodeAtDesignTimePrompt": "Prompt",
+            "autoRefreshSchemaOnLoad": true,
+            "autoRefreshPromptFirst": "Prompt",
+            "precalc": {
+                "flagCodeComputed": false
+            }
+        },
+        "panelLayoutHTML": {
+            "computeAtDesignTime": true
+        },
+        "info": {
+            "createdBy": "sbeales",
+            "dateCreated": "2016-6-30",
+            "dateLastEdited": "2016-7-12"
+        },
+        "flagShowCommentsInTree": true,
+        "treeCommentOffset": "6",
+        "renderUXLocation": {
+            "type": "window",
+            "sizeToElement": true
+        },
+        "checkSessionEvery": 1,
+        "warningIntervalBeforeExpiration": 1,
+        "sessionTimeOutWarningMessage": "Your session will expire in {secondsToSessionEnd} seconds. Click the button to extend your session.",
+        "sessionExtendSessionButtonLabel": "Extend Session",
+        "sessionTimeoutWarningDialogTitle": "Warning",
+        "sessionHasExpiredMessage": "Your session has expired.",
+        "sessionHasExpiredButtonLabel": "OK",
+        "sessionHasExpiredAction": "Nothing",
+        "sessionHasExpiredRedirectPage": "<self>",
+        "sessionHasExpiredDialogTitle": "Notice",
+        "sessionHasExpiredOKButtonJavascript": "<ReloadThisPage>",
+        "login": {
+            "errorMessageStyle": "color: red;",
+            "logoutDoesFullPageReload": true
+        },
+        "applyResponsiveDesignSettings": true,
+        "responseDesignRulesMode": "FirstTrue",
+        "localStorage": {
+            "namespace": "<Default>",
+            "__version": 1,
+            "workingPreviewTestingMode": "Browser",
+            "compressData": true,
+            "minify": true,
+            "variablesToNotPersist": ""
+        },
+        "preRenderUXatDesignTime": true,
+        "preRenderComputeWhen": "Every time component is saved",
+        "page_fields": [
+            {
+                "controlType": "layout_directive_PanelCardBegin",
+                "display": "{C=#104+150+112,White}{B=White,#104+150+112}{F=+B}{Data=d6702cf6_05ab_4748_9868_3992c7f4ea9c}{I:'$$web.panel.card'} [Panel Card: PANELCARD_COMMUNITIES]",
+                "displayODFlat": "{Data=d6702cf6_05ab_4748_9868_3992c7f4ea9c}{I:'$$web.panel.Card'} [Panel Card: PANELCARD_8]",
+                "idInternal": "d6702cf6_05ab_4748_9868_3992c7f4ea9c",
+                "lastIndex": 2,
+                "parentContainer": -1,
+                "displayOD": "{C=#104+150+112,White}{B=White,#104+150+112}{F=+B}{Data=d6702cf6_05ab_4748_9868_3992c7f4ea9c}{I:'$$web.panel.Card'} [Panel Card: PANELCARD_8]",
+                "repeatingSectionParentId": -1,
+                "displayODtree": "{C=#104+150+112,White}{B=White,#104+150+112}{F=+B}{Data=d6702cf6_05ab_4748_9868_3992c7f4ea9c}{I:'$$web.panel.card'} [Panel Card: PANELCARD_COMMUNITIES]",
+                "crc": "4294919765",
+                "v": {
+                    "container": {
+                        "id": "PANELCARD_COMMUNITIES"
+                    },
+                    "panelInstance": {
+                        "sections": {
+                            "name": "<UsePanelId>",
+                            "renderMethod": "Auto-Create-Destroy"
+                        }
+                    },
+                    "panelCard": {
+                        "javascript": {
+                            "_onsize": "if(typeof {dialog.object} != 'undefined') {\n\tif(typeof {dialog.object}._findActiveLayoutRule != 'undefined') { \n\t\t{dialog.object}._findActiveLayoutRule();\n\t\t//alert('system on size');\n\t}\n}\n"
+                        },
+                        "allowBodyScrolling": true,
+                        "bodyScrolling": {
+                            "axis": "Both"
+                        },
+                        "pull": {
+                            "pullpastEnd": {
+                                "YSetting": "auto",
+                                "XSetting": "auto"
+                            }
+                        },
+                        "scrolling": {
+                            "indicator": {
+                                "v": {
+                                    "show": true,
+                                    "location": "right",
+                                    "offset": "0px",
+                                    "top": "0px",
+                                    "bottom": "0px"
+                                },
+                                "h": {
+                                    "show": true,
+                                    "location": "right",
+                                    "offset": "0px",
+                                    "left": "0px",
+                                    "right": "0px"
+                                }
+                            }
+                        },
+                        "type": "IFrame",
+                        "iframeURL": "http://www.centerwatch.com/health-resources/general/"
+                    }
+                },
+                "indentTree": 0,
+                "precalc": {
+                    "ControlHTML": "'xbasic\n\nv._dirty = .f.\n\n\n",
+                    "DesignViewHTML": "",
+                    "javascript": {
+                        "panel": "new A5.PanelCard({\n\ttheme: '{dialog.style}',\n\tbody: {\n\t\tcontent: {\n\t\t\ttype: 'url',\n\t\t\tsrc: 'http://www.centerwatch.com/health-resources/general/'\n\t\t},\n\t\tscroll: {\n\t\t\taxis: 'both',\n\t\t\tstopPropogation: false,\n\t\t\tpull: {\n\t\t\t\ty: 'auto',\n\t\t\t\tx: 'auto'\n\t\t\t},\n\t\t\tindicator: {\n\t\t\t\tshow: true,\n\t\t\t\th: {\n\t\t\t\t\tshow: true,\n\t\t\t\t\tlocation: 'right',\n\t\t\t\t\toffset: '0px',\n\t\t\t\t\tleft: '0px',\n\t\t\t\t\tright: '0px'\n\t\t\t\t},\n\t\t\t\tv: {\n\t\t\t\t\tshow: true,\n\t\t\t\t\tlocation: 'right',\n\t\t\t\t\toffset: '0px',\n\t\t\t\t\ttop: '0px',\n\t\t\t\t\tbottom: '0px'\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t},\n\theader: {\n\t\thtml: '<div style=\"display:none;\"><!--A5HiddenFields--></div>'\n\t},\n\tfooter: {\n\t},\n\toverlay: {\n\t},\n\tonSize: function() {;if(typeof {dialog.object} != 'undefined') {\n\tif(typeof {dialog.object}._findActiveLayoutRule != 'undefined') { \n\t\t{dialog.object}._findActiveLayoutRule();\n\t\t\n\t}\n}}\n})"
+                    }
+                },
+                "isCollapsed": false,
+                "parentIsCollapsed": false
+            },
+            {
+                "controlType": "layout_directive_PanelCardEnd",
+                "display": "{C=#104+150+1120,White}{B=White,#104+150+112}{F=+B}{Data=840dc469_3dd0_482d_80eb_0367291c57de}{I:'vertLineCap'} [Panel Card End: PANELCARD_COMMUNITIES]",
+                "displayODFlat": "{Data=840dc469_3dd0_482d_80eb_0367291c57de}{I:'vertlinecap'} [Panel Card End]",
+                "idInternal": "840dc469_3dd0_482d_80eb_0367291c57de",
+                "parentContainer": -1,
+                "displayOD": "{C=#104+150+1120,White}{B=White,#104+150+112}{F=+B}{Data=840dc469_3dd0_482d_80eb_0367291c57de}{I:'vertlinecap'} [Panel Card End]",
+                "repeatingSectionParentId": -1,
+                "displayODtree": "{C=#104+150+1120,White}{B=White,#104+150+112}{F=+B}{Data=840dc469_3dd0_482d_80eb_0367291c57de}{I:'vertLineCap'} [Panel Card End: PANELCARD_COMMUNITIES]",
+                "crc": "4294946516",
+                "indentTree": 0,
+                "precalc": {
+                    "ControlHTML": "'xbasic\nv._dirty = .f.\n",
+                    "DesignViewHTML": ""
+                },
+                "parentIsCollapsed": false,
+                "containerStartIndex": 1
+            }
+        ],
+        "builderType": "Dialog2",
+        "guid": "53bda28a-44a4-4c83-be37-82a7d93b7860",
+        "componentName": "COMMUNITIES",
+        "componentFilename": "C:\\Users\\sbeales\\OneDrive\\Alpha Anywhere Projects.WebProjects\\CenterWatch App 1.0\\CenterWatch App.WebProjects\\Default.WebProject\\Communities.a5wcmp",
+        "_style_versionNumber": -1,
+        "controlflowdirection": "ltr",
+        "SVGLinkedFiles": "",
+        "localsvg": "",
+        "showLineNumbersInControlsList": false,
+        "customSettingsJSON": "",
+        "saveFileType": "Formatted JSON",
+        "keyboardShortcutsJSON": "",
+        "selected": "840dc469_3dd0_482d_80eb_0367291c57de\n",
+        "designPaneIndex": 1,
+        "masterPaneC": "controls",
+        "serverSideEventIndex": 1,
+        "clientSideEventIndex": 1,
+        "clientSideEventIndexC": "1",
+        "lastControlSelected": "",
+        "__WPhostName": "Internet Explorer",
+        "repeatingSectionsAreDirty": true,
+        "toolBox_value": "",
+        "addinBuildNumber": "4694",
+        "addinBuildNumberHighestUsed": "4694",
+        "alphaFiveBuildNumber": "12",
+        "openedFromTemplate": false,
+        "builtWithVersionNumer": 1,
+        "securityEnabled": false,
+        "showHideIsUsed": false,
+        "precalc": {
+            "customControl": {
+                "js_beforePrepare": "\n__replaceAtRuntime_CustomControlsSystemBeforePrepare",
+                "js_afterRender": "\n__replaceAtRuntime_CustomControlsSystemAfterRender",
+                "customControl_xbasicFunctions": ""
+            },
+            "injectibleHTML": "",
+            "containerWindowHTML": "",
+            "repeatingsectionInfoJs": "",
+            "framesInfoJS": "{dialog.object}.framesInfo = {\n\n};\n",
+            "jsActionJavascriptGlobalFunctions": "",
+            "xbActionJavascriptGlobalFunctions": "",
+            "javascriptSetupForGridLookups": "{\n}",
+            "javascript": {
+                "showWaitMessage": "",
+                "hideWaitMessage": "",
+                "embeddedUXComponents": ""
+            },
+            "fileUpload_controlInfo": "",
+            "javascript_cascadingDropdowns": "{dialog.object}._cascadingControls = [];\n{dialog.object}._cascadingControlsChildren = [];",
+            "template_html": "<!--div GLOBALERRORS-->\n<div class=\"errorTip\" style=\"margin-bottom: 2px; display: none; width: 8in; \" id=\"{dialog.componentname}.GLOBALERRORS\"></div>\n<!--End div GLOBALERRORS-->\n\n<div id=\"{dialog.componentname}.R1\">\n'xbasic\n\nv._dirty = .f.\n\n\n\n'xbasic\nv._dirty = .f.\n\n\n\n</div>\n<!--div DEBUGUPDATECOMMANDS-->\n<div class=\"\" style=\"display: none; \" id=\"{dialog.componentname}.DEBUGUPDATECOMMANDS\"></div>\n<!--End div DEBUGUPDATECOMMANDS-->\n",
+            "panelDisplayNames": "PANELCARD_COMMUNITIES : 'PANELCARD_COMMUNITIES'",
+            "controlJavascript": "",
+            "controlJavascriptRepeatingSections": "",
+            "template_js": "",
+            "sessionVarsInShowHideExpns": "",
+            "themeSearchReplaceString": "",
+            "flagHasHTML5ImageCapture": false,
+            "flagUsesCordova": false,
+            "flagUseAmazonS3FileUpload": false,
+            "flagUseStripe": false,
+            "flagUseAudioPlayer": false,
+            "flagUseInk": false,
+            "flagUsesAudioLibrary": false,
+            "flagUsesPhoneGapFileSystemFunctions": false,
+            "flagUsesGetAccurateLocation": false,
+            "editorSet_for_editor": "{dialog.object}._EDITOR_EDITORSET = {};",
+            "otherJS": "",
+            "javascript_layoutRules": "",
+            "javascript_controlNesting": "{\n\n}",
+            "appcacheEvents": "",
+            "IconMap": "{images.RowExpander.Open}=\"<Specified by Style>\"\n{images.RowExpander.Close}=\"<Specified by Style>\"\n{images.EmbeddedSearch.Search}=\"<Specified by Style>\"\n{images.EmbeddedSearch.ClearSearch}=\"<Specified by Style>\"\n{images.EmbeddedSearch.ShowHideEmbeddedSearch}=\"<Specified by Style>\"\n{images.GridRow.NewRecordRow.NoFocus}=\"<Specified by Style>\"\n{images.GridRow.NewRecordRow.HasFocus}=\"<Specified by Style>\"\n{images.GridRow.SaveRecord}=\"<Specified by Style>\"\n{images.GridRow.SaveRecord.Disabled}=\"<Specified by Style>\"\n{images.GridRow.UndoChanges}=\"<Specified by Style>\"\n{images.GridRow.UndoChanges.Disabled}=\"<Specified by Style>\"\n{images.GridRow.EditRecord}=\"<Specified by Style>\"\n{images.GridRow.EditRecord.Disabled}=\"<Specified by Style>\"\n{images.GridRow.DeleteRecord}=\"<Specified by Style>\"\n{images.GridRow.DeleteRecord.Disabled}=\"<Specified by Style>\"\n{images.GridRow.CancelEditRecord}=\"<Specified by Style>\"\n{images.GridRow.CancelEditRecord.Disabled}=\"<Specified by Style>\"\n{images.GridRow.HasError}=\"<Specified by Style>\"\n{images.QBE.OperatorIsSelected}=\"<Specified by Style>\"\n{images.QBE.OpenQBEMenu}=\"<Specified by Style>\"\n{images.QBE.ShowHideQBERow}=\"<Specified by Style>\"\n{images.PopUpWindow.Lookup.Close}=\"<Specified by Style>\"\n{images.PopUpWindow.DetailView.Close}=\"<Specified by Style>\"\n{images.CollapseContainer.Open}=\"<Specified by Style>\"\n{images.CollapseContainer.Close}=\"<Specified by Style>\"\n{images.FieldHelpIcon}=\"<Specified by Style>\"\n{images.SearchPart.SaveSearchCriteria}=\"<Specified by Style>\"\n{images.SearchPart.LoadSearchCriteria}=\"<Specified by Style>\"\n{images.SearchPart.RunSearch}=\"<Specified by Style>\"\n{images.SearchPart.ClearSearch}=\"<Specified by Style>\"\n{images.GridRow.SelectionPointer}=\"<Specified by Style>\"\n{images.Grid.SortAsc}=\"<Specified by Style>\"\n{images.Grid.SortAscDisabled}=\"<Specified by Style>\"\n{images.Grid.sortDesc}=\"<Specified by Style>\"\n{images.grid.sortDescDisabled}=\"<Specified by Style>\"\n{images.grid.firstPage}=\"<Specified by Style>\"\n{images.grid.firstPageDisabled}=\"<Specified by Style>\"\n{images.grid.prevPage}=\"<Specified by Style>\"\n{images.grid.prevPageDisabled}=\"<Specified by Style>\"\n{images.grid.nextPage}=\"<Specified by Style>\"\n{images.grid.nextPageDisabled}=\"<Specified by Style>\"\n{images.grid.lastPage}=\"<Specified by Style>\"\n{images.grid.lastPageDisabled}=\"<Specified by Style>\"\n{images.edit.dropdownArrow}=\"<Specified by Style>\"\n{images.edit.datePicker}=\"<Specified by Style>\"\n{images.edit.dateTimePicker}=\"<Specified by Style>\"\n{images.edit.timePicker}=\"<Specified by Style>\"\n{images.edit.calculator}=\"<Specified by Style>\"\n{images.edit.lookup}=\"<Specified by Style>\"\n{images.javascript.deleteRowConfirmation}=\"<Specified by Style>\"\n{images.javascript.cancelEditRowConfirmation}=\"<Specified by Style>\"\n{images.javascript.UndoEditsConfirmation}=\"<Specified by Style>\"\n{images.javascript.UndoAllEditsConfirmation}=\"<Specified by Style>\"\n{images.javascript.dirtyRecordWarning}=\"<Specified by Style>\"\n{images.dv.close}=\"<Specified by Style>\"\n{images.dv.firstRecord}=\"<Specified by Style>\"\n{images.dv.prevRecord}=\"<Specified by Style>\"\n{images.dv.nextRecord}=\"<Specified by Style>\"\n{images.dv.lastRecord}=\"<Specified by Style>\"\n{images.dv.newRecord}=\"<Specified by Style>\"\n{images.dv.cancelEdits}=\"<Specified by Style>\"\n{images.dv.deleteRecord}=\"<Specified by Style>\"\n{images.dv.saveRecord}=\"<Specified by Style>\"\n{images.dv.saveAndEnter}=\"<Specified by Style>\"\n{images.dv.switchToEdit}=\"<Specified by Style>\"\n{images.dv.switchToView}=\"<Specified by Style>\"\n{images.disabled.dv.newRecord}=\"<Specified by Style>\"\n{images.disabled.dv.cancelEdits}=\"<Specified by Style>\"\n{images.disabled.dv.deleteRecord}=\"<Specified by Style>\"\n{images.disabled.dv.saveRecord}=\"<Specified by Style>\"\n{images.disabled.dv.saveAndEnter}=\"<Specified by Style>\"\n{images.dv.cancelNewRecord}=\"<Specified by Style>\"\n{images.grid.editError}=\"<Specified by Style>\"\n{images.dialog.editError}=\"<Specified by Style>\"\n{images.tabbedUI.menuExpandLeft}=\"<Specified by Style>\"\n{images.tabbedUI.menuCollapseLeft}=\"<Specified by Style>\"\n{images.tabbedUI.menuExpandRight}=\"<Specified by Style>\"\n{images.tabbedUI.menuCollapseRight}=\"<Specified by Style>\"",
+            "absoluteLayoutSetButtonSizes": "",
+            "js_editorSetInitialization": "",
+            "AdditionalGridStyles": ""
+        },
+        "FieldsInRepeatingSectionsDeletedBySecurity": "",
+        "repeatingSectionsToRecalc": "",
+        "dialogObject": "if(typeof {dialog.componentName}_DlgObj == 'object') {dialog.componentName}_DlgObj._destroy();\nvar {dialog.componentName}_DlgObj = new A5.DialogComponentHelper('{dialog.componentName}',{\n\tajaxURL: '{dialog.ajaxUrl}',\n\t_embeddedMode: {dialog.embeddedMode},\n\t_livePreviewInBuilder: {livePreviewInBuilder},\n\tcomponentGUID: '53bda28a-44a4-4c83-be37-82a7d93b7860',\n\tcolumnInfo: {columninfo},\n\toriginalValues: {dialog.jsOriginalValues},\n\tdefaultValues: {dialog.jsDefaultValues},\n\tdatePickerMonthNames: [{datePickerMonthNames}],\n\tdatePickerDayNames: [{datePickerDayNames}],\n\tdatePickerTodayButton: '{datePickerTodayButton}',\n\tdatePickerCloseButton: '{datePickerCloseButton}',\n\tdatePickerFirstDayOfWeek: {datePickerFirstDayOfWeek},\n\tresetFormMessage: '{resetFormMessage}',\n\tresetFormTitle: '{resetFormTitle}',\n\tresetFormIcon: '{resetFormIcon}',\n\tdirtyFormMessage: '{dirtyFormMessage}',\n\tdirtyFormTitle: '{dirtyFormTitle}',\n\tdirtyFormIcon: '{dirtyFormIcon}',\n\tdeleteRecordDialogTitle: '{deleteRecordTitle}',\n\tdeleteRecordDialogMessage: '{deleteRecordMessage}',\t\n\tssDateFormat: '{serverSideDateFormat}',\n\tstyleName: '{dialog.style}',\n\t_fieldHelpers_DIALOG2: [],\n\tparentComponentAlias: '{parentComponentAlias}',\n\tsubmitIfHasClientSideErrors: true, \n\trowErrors: {\n\t\t\t\tshowMessageBox: false,\n\t\t\t\tmessageBoxTitle: 'Error',\n\t\t\t\tstyle: 'color: red; width: 6in; height: 2in;'\n\t\t},\n\tfieldErrors: {\n\t\ttype: 'block', \n\t\tclassName: 'errorText',\n\t\tinputClassName: '[class.gridInputError]',\n\t\tedit: { \n\t\t\tcontainer: { className: '[class.gridInputContainerError]'}\n\t\t},\n\t\ticon: '{images.dialog.editError}',\n\t\tglobal: {\n\t\t\tcontId: '{dialog.componentname}.GLOBALERRORS',\n\t\t\thoverClassName: 'errorTextHighlight',\n\t\t\thoverInputClassName: 'errorInputHighlight'\n\t\t}\n\t}\n\n\t});\n\n",
+        "xbasiccode": {
+            "blankInitialValueIfVarNotFound": "",
+            "setValueProperties": "",
+            "setValueProperties2": "",
+            "setValueUnformattedProperties": ""
+        },
+        "componentType": "Dialog2",
+        "version": 1,
+        "recNav": {
+            "slider": {
+                "showSlider": false
+            },
+            "listView": {
+                "showlistView": false
+            }
+        },
+        "flagDropdownCascadingChanged": false,
+        "Livepreview_permissions": "",
+        "_flagDoTreeview": true,
+        "__allowCascadingRecalc": true,
+        "temp": {
+            "_onRenderComplete": ""
+        },
+        "_flagStaticHTMLMode": false,
+        "showTimer": false,
+        "__flagUseFakeRequestVariables": false,
+        "__specialMode": false,
+        "alias": "{UXPRERENDEREDALIAS}",
+        "systemXbasicFunctionDeclarations": "",
+        "localPreviewFlag": false,
+        "flagStaticHTMLMode": false,
+        "flagInitialLoadIsAjax": false,
+        "_forceInitialLoadIsAjax": false,
+        "override_settings": "",
+        "flagForcerecalc": false,
+        "flagSaveDialogCache": true,
+        "__argumentValues": "",
+        "__argumentsFromGrid": "",
+        "flagExecuteOnDialogInitializeEvent": true,
+        "flagExecuteOnDialogExecuteEvent": true,
+        "__livePreviewMode": false,
+        "iconMapOverrides": "",
+        "resolveAbstractIconNamesAtDesignTime": true,
+        "customizationString": {
+            "javascriptDialogs": "",
+            "DetailView": {
+                "toolbar": ""
+            }
+        },
+        "linkedResources": "",
+        "flagReloadComponent": false,
+        "__flagPrerender": false,
+        "panelRootId": "{UXPRERENDEROUTPUTDIV}",
+        "__flagstatichtmlorphonegap": false,
+        "_sections": {
+            "flagHasSections": false
+        },
+        "disableAbstractEvents": false,
+        "jsRunAtBeginning": "",
+        "flagLoadDetailViewImageCaptureJS": false,
+        "_flagUsesAudioLibrary": false,
+        "_flagUsesInk": false,
+        "__staticHTML_setStaticHTMLFlag": false,
+        "sassProcessor": true,
+        "debugMode": false,
+        "bumpFilename": true,
+        "EmbeddedMode": false,
+        "containerSubTypeNew": "",
+        "containerSubTypeOld": "",
+        "prerendered": {
+            "panelLayoutHTML": {
+                "precalcPanelLayoutHTML": ""
+            },
+            "_styledataVersion": 3,
+            "output": {
+                "Head": {
+                    "JavaScript": "\n<script type=\"text/javascript\" src=\"javascript/a5.js\"></script>\n<script type=\"text/javascript\" src=\"javascript/a5_url.js\"></script>\n\n\n\n<script>\n\tif(typeof jQuery != 'undefined') jQuery.noConflict();\n</script>\n\n<script type=\"text/javascript\"  src=\"main.js\"></script>\n\n<link rel=\"stylesheet\" type=\"text/css\" href=\"css/main.css\">\n\n\n__replaceatRuntime__cssstyletweaks__\n\n",
+                    "CSS_Link": "<style type=\"text/css\">\nhtml { -webkit-tap-highlight-color: rgba(0,0,0,0); -webkit-user-select: none; -ms-touch-action: none;}\n.A5container {float:left;padding:0px;}\n.A5CWLayout {padding: 4px; float: left; box-sizing: border-box; -moz-box-sizing: border-box; -ms-box-sizing: border-box; -webkit-box-sizing: border-box;}\n.A5GridHideErrorCol .A5GridErrorCol {display:none; }\n.A5GridRowErrorIcon {display:none;}\n.A5GridHasRowError .A5GridRowErrorIcon {display:inline;}\n.A5GridRowViewMode {display:block;}\n.A5GridRowEditMode {display:none;}\n.A5GridRowInEditMode .A5GridRowViewMode {display:none;}\n.A5GridRowInEditMode .A5GridRowEditMode {display:block;}\n.A5GridRowDirty {display:none;}\n.A5GridRowClean {display:inline;}\n.A5GridRowIsDirty .A5GridRowDirty {display:inline;}\n.A5GridRowIsDirty .A5GridRowClean {display:none;}\n.errorText {color:red;font-size:8pt;}\n.errorTextHighlight {font-weight:bold;font-size:8pt;}\n.errorTip {color:red;background:#fffafa url('images/$box/$size/8x8/$fill/Up%5FDiagonal:White%3A%23255%2C239%2C239.png.a5image');border:1px solid #f88;margin-top:2px;padding:2px;font-size:8pt;}\n.errorInput {color:red;border:1px solid red;margin:1px;}\n.errorInputHighlight {color:red;border:2px solid red;margin:0px;}\n.A5SelectedButton {opacity:.5;filter:alpha(opacity=50);}\n.A5InvisibleLock {background: rgba(0,0,0,0); }\n\n.A5AccordionTitleOn, .A5AccordionTitleOff, .A5AccordionTitleDisabled {display: block;border: 1px solid #999;padding: 2px;text-decoration: none;cursor: pointer;margin-bottom: 2px; padding: 2px}\n.A5AccordionPane {border: 1px solid #999;border-top: none;margin-bottom: 2px;margin-top: -2px;}\n.A5TabTopOn, .A5TabTopOff, .A5TabTopDisabled {display: block;float: left;border: 1px solid #999;border-bottom: none;margin-right: 2px;padding: 2px;text-decoration: none;cursor: pointer;}\n.A5TabTopOn {margin-bottom: -1px;padding-bottom: 3px;}\n.A5TabBottomOn, .A5TabBottomOff, .A5TabBottomDisabled {display: block;float: left;border: 1px solid #999;margin-right: 2px;padding: 2px;text-decoration: none;cursor: pointer;}\n.A5TabBottomOn {border-top: none;padding-top: 3px;}\n.A5TabLeftOn, .A5TabLeftOff, .A5TabLeftDisabled {display: block;border: 1px solid #999;margin-bottom: 2px;padding: 2px;text-decoration: none;cursor: pointer;}\n.A5TabLeftOn {margin-right: -1px;padding-right: 3px;border-right: none;}\n.A5TabRightOn, .A5TabRightOff, .A5TabRightDisabled {display: block;border: 1px solid #999;border-left: none;margin-bottom: 2px;padding: 2px;text-decoration: none;cursor: pointer;}\n.A5TabRightOn {margin-left: -1px;padding-left: 3px;}\n.A5TabTopPane, .A5TabBottomPane, .A5TabLeftPane, .A5TabRightPane {border: 1px solid #999; padding: 2px;}\n\n\n.A5TabBand {border: 1px solid #999; padding: 0px;}\n.A5TabBandTabOn, .A5TabBandTabOff, .A5TabBandTabDisabled {position: relative;display: block;border: 1px solid #999;border-bottom: none;margin-right: 2px;margin-top: 2px;padding: 2px;text-decoration: none;cursor: pointer;white-space: nowrap;}\n.A5TabBandTabOn {margin-bottom: -1px;padding-bottom: 3px;}\n.A5TabBandSeparator {border: none;border-top: 1px solid #999;height: 3px;padding: 0px;font: 0pt arial;}\n.A5TabBandLeftScroll {position: relative;display: block;padding: 2px;margin-bottom: -1px;padding-bottom: 3px;text-decoration: none;border: 1px solid #999;border-left: none;border-bottom: none;}\n.A5TabBandRightScroll {position: relative;display: block;padding: 2px;margin-bottom: -1px;padding-bottom: 3px;text-decoration: none;border: 1px solid #999;border-right: none;border-bottom: none;}\n.A5TabBandTabDisabled, .A5TabTopDisabled, .A5TabLeftDisabled, .A5TabRightDisabled, .A5TabBottomDisabled, .A5AccordionTitleDisabled {opacity: .5; filter: alpha(opacity: 50)}\n.A5Window {-moz-border-radius: 3px; -webkit-border-radius: 3px;}\n.A5WindowLock{border: 1px solid #000;background: #222;opacity: .25;filter: alpha(opacity: 25);}\n\n.A5AccordionTitleOn:hover, .A5AccordionTitleOff:hover, .A5TabBandTabOff:hover, .A5TabTopOff:hover, .A5TabLeftOff:hover, .A5TabRightOff:hover, .A5TabBottomOff:hover{text-decoration: underline;}\n\n.A5MenuItem {text-decoration:none;}\n.A5DialogRSSeparator {border-top: 1px dotted #ccc; line-height:5px; margin-top: 5px;}\n.A5DialogRSFooter {margin-top: 10px;}\n\n\n\n\n\n\n</style>\n\n<link rel=\"stylesheet\" type=\"text/css\" href=\"css/iOS7/style.css\">\n<script type=\"text/javascript\" src=\"css/iOS7/style.js\"></script>\n<style>\n</style>\n",
+                    "title": "<title>Patient Communities</title>"
+                },
+                "body": {
+                    "body_tag": "<body class=\"iOS7Page\">",
+                    "dialog2_html": "<style>\n</style><iframe style=\"display:none;\" id=\"{UXPRERENDEREDALIAS}.__IFRAME1\"></iframe>\n<input type=\"hidden\" value=\"\" id=\"{UXPRERENDEREDALIAS}.PARAMETERBUCKET\"/>\n<input type=\"file\" style=\"position:absolute; top:-1000px;visibility:hidden;\" accept=\"image/*\" id=\"{UXPRERENDEREDALIAS}._GETPHOTO\"/><input type=\"file\" style=\"position:absolute; top:-1000px;visibility:hidden;\" name=\"files[]\" multiple = \"\" id=\"{UXPRERENDEREDALIAS}._GETFILEMULTI\"/><input type=\"file\" style=\"position:absolute; top:-1000px;visibility:hidden;\" name=\"files[]\" id=\"{UXPRERENDEREDALIAS}._GETFILE\"/>\n<script type=\"text/javascript\" language=\"javascript\">\n\nif(typeof {UXPRERENDEREDALIAS}_DlgObj == 'object') {\n\t{UXPRERENDEREDALIAS}_DlgObj._destroy();\n\ttry {\n\t\tdelete {UXPRERENDEREDALIAS}_DlgObj;\n\t} catch(e) {\n\t\t{UXPRERENDEREDALIAS}_DlgObj = undefined;\n\t}\n};\n;if(typeof {UXPRERENDEREDALIAS}_PanelObj != 'undefined') {\n\tvar ele = $({UXPRERENDEREDALIAS}_PanelObj.getPanelId());\n\tif(ele) {\n\t\tif(ele.parentNode) ele.parentNode.removeChild(ele);\n\t}\n\tdelete {UXPRERENDEREDALIAS}_PanelObj;\n}\n;window['{UXPRERENDEREDALIAS}_PanelObj'] = new A5.PanelCard({\n\ttheme: 'iOS7',\n\tbody: {\n\t\tcontent: {\n\t\t\ttype: 'url',\n\t\t\tsrc: 'http://www.centerwatch.com/health-resources/general/'\n\t\t},\n\t\tscroll: {\n\t\t\taxis: 'both',\n\t\t\tstopPropogation: false,\n\t\t\tpull: {\n\t\t\t\ty: 'auto',\n\t\t\t\tx: 'auto'\n\t\t\t},\n\t\t\tindicator: {\n\t\t\t\tshow: true,\n\t\t\t\th: {\n\t\t\t\t\tshow: true,\n\t\t\t\t\tlocation: 'right',\n\t\t\t\t\toffset: '0px',\n\t\t\t\t\tleft: '0px',\n\t\t\t\t\tright: '0px'\n\t\t\t\t},\n\t\t\t\tv: {\n\t\t\t\t\tshow: true,\n\t\t\t\t\tlocation: 'right',\n\t\t\t\t\toffset: '0px',\n\t\t\t\t\ttop: '0px',\n\t\t\t\t\tbottom: '0px'\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t},\n\theader: {\n\t\thtml: '<div style=\"display:none;\"></div>'\n\t},\n\tfooter: {\n\t},\n\toverlay: {\n\t},\n\tonSize: function() {;if(typeof {UXPRERENDEREDALIAS}_DlgObj != 'undefined') {\n\tif(typeof {UXPRERENDEREDALIAS}_DlgObj._findActiveLayoutRule != 'undefined') { \n\t\t{UXPRERENDEREDALIAS}_DlgObj._findActiveLayoutRule();\n\t}\n}}\n})\nvar ele = window['{UXPRERENDEREDALIAS}_PanelObj'].create('{UXPRERENDEREDALIAS}.R1');\n\t\tvar panelRootId = '{UXPRERENDEROUTPUTDIV}';\n\t\tvar flagSizeToParent = true;\n\t\tvar wf_alias = '{UXPRERENDEREDALIAS}';\n\t\tif(panelRootId != '') { \n\t\t\tif (!$(panelRootId)) panelRootId = '';\n\t\t}\n\t\tif(panelRootId != '') { \n\t\t\t$(panelRootId).appendChild(ele);\n\t\t\tif(flagSizeToParent) { \n\t\t\t\twindow[wf_alias + '_PanelObj'].bindSize('parent');\n\t\t\t}\n\t\t} else { \n\t\t\tdocument.body.insertBefore(ele,document.body.firstChild);\n\t\t\twindow[wf_alias + '_PanelObj'].bindSize('window');\n\t\t}\n{UXPRERENDEREDALIAS}_PanelObj._panelPath = {\n}\n{UXPRERENDEREDALIAS}_PanelObj._displayNames = {\nPANELCARD_COMMUNITIES : 'PANELCARD_COMMUNITIES'\n};\nif(typeof {UXPRERENDEREDALIAS}_DlgObj == 'object') {UXPRERENDEREDALIAS}_DlgObj._destroy();\nvar {UXPRERENDEREDALIAS}_DlgObj = new A5.DialogComponentHelper('{UXPRERENDEREDALIAS}',{\n\tajaxURL: '{UXPRERENDERAJAXURL}',\n\t_embeddedMode: false,\n\t_livePreviewInBuilder: false,\n\tcomponentGUID: '53bda28a-44a4-4c83-be37-82a7d93b7860',\n\tcolumnInfo: {},\n\toriginalValues: [{\n}],\n\tdefaultValues: {\n},\n\tdatePickerMonthNames: ['January','February','March','April','May','June','July','August','September','October','November','December'],\n\tdatePickerDayNames: ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'],\n\tdatePickerTodayButton: 'Today',\n\tdatePickerCloseButton: '',\n\tdatePickerFirstDayOfWeek: 1,\n\tresetFormMessage: 'Are you sure you want to reset the form?',\n\tresetFormTitle: 'Warning',\n\tresetFormIcon: 'cssIcon=iOS7Icon iOS7IconHelp',\n\tdirtyFormMessage: 'You must first save your changes or cancel changes by clicking the Reset button.',\n\tdirtyFormTitle: 'Notice',\n\tdirtyFormIcon: 'cssIcon=iOS7Icon iOS7IconInfo',\n\tdeleteRecordDialogTitle: 'Delete Record',\n\tdeleteRecordDialogMessage: 'Are you sure you want to delete this record?',\t\n\tssDateFormat: 'MM/dd/yyyy',\n\tstyleName: 'iOS7',\n\t_fieldHelpers_DIALOG2: [],\n\tparentComponentAlias: '',\n\tsubmitIfHasClientSideErrors: true, \n\trowErrors: {\n\t\t\t\tshowMessageBox: false,\n\t\t\t\tmessageBoxTitle: 'Error',\n\t\t\t\tstyle: 'color: red; width: 6in; height: 2in;'\n\t\t},\n\tfieldErrors: {\n\t\ttype: 'block', \n\t\tclassName: 'errorText',\n\t\tinputClassName: 'iOS7EditError',\n\t\tedit: { \n\t\t\tcontainer: { className: 'iOS7EditBGError'}\n\t\t},\n\t\ticon: 'cssIcon=iOS7Icon iOS7IconError',\n\t\tglobal: {\n\t\t\tcontId: '{UXPRERENDEREDALIAS}.GLOBALERRORS',\n\t\t\thoverClassName: 'errorTextHighlight',\n\t\t\thoverInputClassName: 'errorInputHighlight'\n\t\t}\n\t}\n\t});\n{UXPRERENDEREDALIAS}_DlgObj._onOrientationChange =  function(e) { ;\n{UXPRERENDEREDALIAS}_DlgObj._findActiveLayoutRule();\n;  };\nA5.__componentObj = {UXPRERENDEREDALIAS}_DlgObj;\n__replaceAtRuntime_SystemAfterInitialize\n__replaceAtRuntime_SystemBeforePrepare\n__replaceDataForRadioOrCheckBoxRenderedAsButtonListAtRuntime__\n{UXPRERENDEREDALIAS}_DlgObj._tabObjects = [];\n{UXPRERENDEREDALIAS}_DlgObj.lookups = {\n};\n{UXPRERENDEREDALIAS}_DlgObj.setStateInfo({\n\t__dialogGuid: '8a9b9a1e-94ff-4a63-8db6-bd30214fb4fc',\n\targumentsBoundToCotrols: '',\n\t__sgr: '',\n\t__dtfmt: 'MM/dd/yyyy',\n\t__tfmt: ''\n});\n{UXPRERENDEREDALIAS}_DlgObj._cascadingControls = [];\n{UXPRERENDEREDALIAS}_DlgObj._cascadingControlsChildren = [];\n{UXPRERENDEREDALIAS}_DlgObj.setStateInfo({ });\nA5.msgBox.theme = 'iOS7';\nA5.msgBox.buttonWidth = '1in';\n{UXPRERENDEREDALIAS}_DlgObj._defaultWindowTitleDirection = 'ltr';\n{UXPRERENDEREDALIAS}_DlgObj._controlContainers = {}\n{UXPRERENDEREDALIAS}_DlgObj._panelCardControls = {\n}\n{UXPRERENDEREDALIAS}_DlgObj._buttons = {};\n{UXPRERENDEREDALIAS}_DlgObj.setVariables({});\n{UXPRERENDEREDALIAS}_DlgObj._dataBoundControls = [];\n{UXPRERENDEREDALIAS}_DlgObj._primaryTableAlias = '';\n{UXPRERENDEREDALIAS}_DlgObj._hasPanels = true;\n{UXPRERENDEREDALIAS}_DlgObj._hasOnSynchronizeEvent = false;\nA5.__dtfmt = 'MM/dd/yyyy';A5.__tfmt = '';\nA5.__flagWorkingPreview = false;\nA5.__flagIIS = false;\nA5.__flagSimulateIIS = true;\n{UXPRERENDEREDALIAS}_DlgObj._functions.calcOrientation = function() { \n\tif(typeof {UXPRERENDEREDALIAS}_DlgObj == 'undefined') return '';\n\tvar orientation = {UXPRERENDEREDALIAS}_DlgObj.getOrientation();\n\tif( orientation == 'landscape') {\n\t\t\t//landscape\n\t\t\tif({UXPRERENDEREDALIAS}_DlgObj._orientation != 'landscape') {\n\t\t\t\t{UXPRERENDEREDALIAS}_DlgObj._fireWatches(1);\t\n\t\t\t\t{UXPRERENDEREDALIAS}_DlgObj._orientation = 'landscape';\n\t\t\t\t{UXPRERENDEREDALIAS}_DlgObj._executeEvent('onOrientationChange',{orientation: 'landscape'});\n\t\t\t}\n\t} else {\n\t\t//portrait\n\t\tif({UXPRERENDEREDALIAS}_DlgObj._orientation != 'portrait') {\n\t\t\t\t{UXPRERENDEREDALIAS}_DlgObj._fireWatches(1);\t\n\t\t\t\t{UXPRERENDEREDALIAS}_DlgObj._orientation = 'portrait';\n\t\t\t\t{UXPRERENDEREDALIAS}_DlgObj._executeEvent('onOrientationChange',{orientation: 'portrait'});\n\t\t\t}\n\t}\n}\n\tA5.flags.cordovaLoaded = true;\n\ttry {\n\t\tdocument.addEventListener('deviceready', function() { \n\t\t\t{UXPRERENDEREDALIAS}_DlgObj._executeEvent('onCordovaReady',{});\n\t\t\t{UXPRERENDEREDALIAS}_DlgObj._executeEvent('onPhoneGapReady',{});\n\t\t\t{UXPRERENDEREDALIAS}_DlgObj._cordovaReady = true;\n\t\t\tnavigator.geolocation.getAccuratePosition = function(geolocationSuccess, geolocationError, options) {\n\tvar _lastCheckedPosition = null;\n\tvar _locationEventCount = 0;\n\toptions = options || {};\n\toptions.context = this;\n    function _checkLocation(pos) {\n        _lastCheckedPosition = pos;\n        _locationEventCount++;\n        if ((pos.coords.accuracy <= options.desiredAccuracy) && (_locationEventCount > options.ignoreResultCount)) {\n            clearTimeout(_timerID);\n            navigator.geolocation.clearWatch(_watchID);\n            _foundPosition(pos);\n        } \n    }\n    function _stopLocationCheck() {\n    \t var error = {};\n    \t error.code = 0;\n    \t error.message = 'Timeout: No results';\n        navigator.geolocation.clearWatch(_watchID);\n        _lastCheckedPosition ? _foundPosition(_lastCheckedPosition) : geolocationError.call(options.context,error);\n    }\n    function _onError(error) {\n        clearTimeout(_timerID);\n        navigator.geolocation.clearWatch(_watchID);\n        geolocationError.call(options.context,error);\n    }\n    function _foundPosition(pos) {\n        geolocationSuccess.call(options.context,pos);\n    }\n    if (!options.maxWait) {            \n    \toptions.maxWait = 10000; \n    }\t\n    if (!options.desiredAccuracy) {\n    \t  options.desiredAccuracy = 20; \n    }\n    if (!options.timeout) {\n        options.timeout = options.maxWait;\n\t }\n\t if (!options.ignoreResultCount) {\n\t \t\toptions.ignoreResultCount = 1;\n\t }\n    options.maximumAge = 0; \n    options.enableHighAccuracy = true; \n    var _watchID = navigator.geolocation.watchPosition(_checkLocation, _onError, options);\n    var _timerID = setTimeout(_stopLocationCheck, options.maxWait); \n}\n\t\t} , false);\t\n\t}\n\tcatch(err) {}\n{UXPRERENDEREDALIAS}_DlgObj._waitGif = 'css/A5System/Images/wait.gif';\n{UXPRERENDEREDALIAS}_DlgObj._layoutMode = 'containerwidth';\n{UXPRERENDEREDALIAS}_DlgObj._responsiveRulesMode = 'firsttrue';\n{UXPRERENDEREDALIAS}_DlgObj.__controlNesting = {\n}\n{UXPRERENDEREDALIAS}_DlgObj._listsDV = [];\n{UXPRERENDEREDALIAS}_DlgObj._listControls = [];\n{UXPRERENDEREDALIAS}_DlgObj._localStorageSettings = {namespace: 'ALPHA_53bda28a44a44c83be3782a7d93b7860',friendlyName: '',description: '',persistVariableValues: false,__version: 1,persistComponentState: false,workingPreviewTestingFolder: '',restore: {variables: false,data: false,state: false},compressData: true,minify: true,variablesToNotPersist: '',workingPreviewTestingMode: 'Browser',compressListData: true}\n{UXPRERENDEREDALIAS}_DlgObj.__r = ['3rkeltoSdQc=']\n{UXPRERENDEREDALIAS}_DlgObj._staticHTMLMode = false\n{UXPRERENDEREDALIAS}_DlgObj._EDITOR_EDITORSET = {};\n{UXPRERENDEREDALIAS}_DlgObj.styleName = 'iOS7';\n{UXPRERENDEREDALIAS}_DlgObj.styleVersion = 3\n{UXPRERENDEREDALIAS}_DlgObj.framesInfo = {\n};\n{UXPRERENDEREDALIAS}_DlgObj._noPersist = []\n\n__replaceAtRuntime_CustomControlsSystemBeforePrepare\n{UXPRERENDEREDALIAS}_DlgObj.prepare();{UXPRERENDEREDALIAS}_DlgObj.populate({UXPRERENDEREDALIAS}_DlgObj.originalValues[0]);\n{UXPRERENDEREDALIAS}_DlgObj._fireWatches(1);\n\n\nif(!A5.flags.isMobile) $e.add(window,'resize',{UXPRERENDEREDALIAS}_DlgObj._functions.calcOrientation);\nelse $e.add(window,'orientationchange',{UXPRERENDEREDALIAS}_DlgObj._orientationChangeHandler,{UXPRERENDEREDALIAS}_DlgObj,true);\n{UXPRERENDEREDALIAS}_DlgObj._functions.calcOrientation();\n\n\n\n\n\n\nsetTimeout(function() { },0);\n\n\n{UXPRERENDEREDALIAS}_DlgObj._executeEvent('onInitializeComplete');\n{UXPRERENDEREDALIAS}_DlgObj.initialized = true;\n\n\n\n\n\n__replaceAtRuntime_CustomControlsSystemAfterRender\n\n{UXPRERENDEREDALIAS}_DlgObj._onRenderComplete = function() { {UXPRERENDEREDALIAS}_DlgObj._runJSOnLoad(); {UXPRERENDEREDALIAS}_DlgObj._findActiveLayoutRule(); }; \n\nsetTimeout(function() { var p = {UXPRERENDEREDALIAS}_DlgObj.panelGet('PANELCARD_COMMUNITIES'); if(p._sizing == 'window') { p._sizeWindow();} else { p.refresh(); } },100);\nsetTimeout(function() {{UXPRERENDEREDALIAS}_DlgObj._executeEvent('onRenderComplete'); {UXPRERENDEREDALIAS}_DlgObj.flagRenderComplete = true;  {UXPRERENDEREDALIAS}_DlgObj._restoreFromLocalStorage(); },1);\n\nvar o2 = 'portrait';\nif(window.innerHeight < window.innerWidth) o2 = 'landscape';\n{UXPRERENDEREDALIAS}_DlgObj._screen = {h: window.innerHeight, w: window.innerWidth, o: o2};\n\n{UXPRERENDEREDALIAS}_DlgObj._getOnlineStatus();\ntry {\nwindow.addEventListener(\"offline\",function() { {UXPRERENDEREDALIAS}_DlgObj._fireOnConnectionChangeEvent() });\nwindow.addEventListener(\"online\",function() { {UXPRERENDEREDALIAS}_DlgObj._fireOnConnectionChangeEvent() });\n} catch(err){}\n\n\nsetTimeout(function() {$e.execute('device.screen','a5resize')},1);\nsetTimeout(function() { },10);;\n{UXPRERENDEREDALIAS}_DlgObj._activeLanguage = '';\n</script>\n<script>\n\n</script>"
+                },
+                "ajaxResponse": "A5.u.element.setContent('{UXPRERENDEROUTPUTDIV}','<style>\\n</style><iframe style=\"display:none;\" id=\"{UXPRERENDEREDALIAS}.__IFRAME1\"></iframe>\\n<input type=\"hidden\" value=\"\" id=\"{UXPRERENDEREDALIAS}.PARAMETERBUCKET\"/>\\n<input type=\"file\" style=\"position:absolute; top:-1000px;visibility:hidden;\" accept=\"image/*\" id=\"{UXPRERENDEREDALIAS}._GETPHOTO\"/><input type=\"file\" style=\"position:absolute; top:-1000px;visibility:hidden;\" name=\"files[]\" multiple = \"\" id=\"{UXPRERENDEREDALIAS}._GETFILEMULTI\"/><input type=\"file\" style=\"position:absolute; top:-1000px;visibility:hidden;\" name=\"files[]\" id=\"{UXPRERENDEREDALIAS}._GETFILE\"/>');\n\nif(typeof {UXPRERENDEREDALIAS}_DlgObj == 'object') {\n\t{UXPRERENDEREDALIAS}_DlgObj._destroy();\n\ttry {\n\t\tdelete {UXPRERENDEREDALIAS}_DlgObj;\n\t} catch(e) {\n\t\t{UXPRERENDEREDALIAS}_DlgObj = undefined;\n\t}\n};\n;if(typeof {UXPRERENDEREDALIAS}_PanelObj != 'undefined') {\n\tvar ele = $({UXPRERENDEREDALIAS}_PanelObj.getPanelId());\n\tif(ele) {\n\t\tif(ele.parentNode) ele.parentNode.removeChild(ele);\n\t}\n\tdelete {UXPRERENDEREDALIAS}_PanelObj;\n}\n;window['{UXPRERENDEREDALIAS}_PanelObj'] = new A5.PanelCard({\n\ttheme: 'iOS7',\n\tbody: {\n\t\tcontent: {\n\t\t\ttype: 'url',\n\t\t\tsrc: 'http://www.centerwatch.com/health-resources/general/'\n\t\t},\n\t\tscroll: {\n\t\t\taxis: 'both',\n\t\t\tstopPropogation: false,\n\t\t\tpull: {\n\t\t\t\ty: 'auto',\n\t\t\t\tx: 'auto'\n\t\t\t},\n\t\t\tindicator: {\n\t\t\t\tshow: true,\n\t\t\t\th: {\n\t\t\t\t\tshow: true,\n\t\t\t\t\tlocation: 'right',\n\t\t\t\t\toffset: '0px',\n\t\t\t\t\tleft: '0px',\n\t\t\t\t\tright: '0px'\n\t\t\t\t},\n\t\t\t\tv: {\n\t\t\t\t\tshow: true,\n\t\t\t\t\tlocation: 'right',\n\t\t\t\t\toffset: '0px',\n\t\t\t\t\ttop: '0px',\n\t\t\t\t\tbottom: '0px'\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t},\n\theader: {\n\t\thtml: '<div style=\"display:none;\"></div>'\n\t},\n\tfooter: {\n\t},\n\toverlay: {\n\t},\n\tonSize: function() {;if(typeof {UXPRERENDEREDALIAS}_DlgObj != 'undefined') {\n\tif(typeof {UXPRERENDEREDALIAS}_DlgObj._findActiveLayoutRule != 'undefined') { \n\t\t{UXPRERENDEREDALIAS}_DlgObj._findActiveLayoutRule();\n\t}\n}}\n})\nvar ele = window['{UXPRERENDEREDALIAS}_PanelObj'].create('{UXPRERENDEREDALIAS}.R1');\n\t\tvar panelRootId = '{UXPRERENDEROUTPUTDIV}';\n\t\tvar flagSizeToParent = true;\n\t\tvar wf_alias = '{UXPRERENDEREDALIAS}';\n\t\tif(panelRootId != '') { \n\t\t\tif (!$(panelRootId)) panelRootId = '';\n\t\t}\n\t\tif(panelRootId != '') { \n\t\t\t$(panelRootId).appendChild(ele);\n\t\t\tif(flagSizeToParent) { \n\t\t\t\twindow[wf_alias + '_PanelObj'].bindSize('parent');\n\t\t\t}\n\t\t} else { \n\t\t\tdocument.body.insertBefore(ele,document.body.firstChild);\n\t\t\twindow[wf_alias + '_PanelObj'].bindSize('window');\n\t\t}\n{UXPRERENDEREDALIAS}_PanelObj._panelPath = {\n}\n{UXPRERENDEREDALIAS}_PanelObj._displayNames = {\nPANELCARD_COMMUNITIES : 'PANELCARD_COMMUNITIES'\n};\nif(typeof {UXPRERENDEREDALIAS}_DlgObj == 'object') {UXPRERENDEREDALIAS}_DlgObj._destroy();\nwindow['{UXPRERENDEREDALIAS}_DlgObj'] = new A5.DialogComponentHelper('{UXPRERENDEREDALIAS}',{\n\tajaxURL: '{UXPRERENDERAJAXURL}',\n\t_embeddedMode: false,\n\t_livePreviewInBuilder: false,\n\tcomponentGUID: '53bda28a-44a4-4c83-be37-82a7d93b7860',\n\tcolumnInfo: {},\n\toriginalValues: [{\n}],\n\tdefaultValues: {\n},\n\tdatePickerMonthNames: ['January','February','March','April','May','June','July','August','September','October','November','December'],\n\tdatePickerDayNames: ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'],\n\tdatePickerTodayButton: 'Today',\n\tdatePickerCloseButton: '',\n\tdatePickerFirstDayOfWeek: 1,\n\tresetFormMessage: 'Are you sure you want to reset the form?',\n\tresetFormTitle: 'Warning',\n\tresetFormIcon: 'cssIcon=iOS7Icon iOS7IconHelp',\n\tdirtyFormMessage: 'You must first save your changes or cancel changes by clicking the Reset button.',\n\tdirtyFormTitle: 'Notice',\n\tdirtyFormIcon: 'cssIcon=iOS7Icon iOS7IconInfo',\n\tdeleteRecordDialogTitle: 'Delete Record',\n\tdeleteRecordDialogMessage: 'Are you sure you want to delete this record?',\t\n\tssDateFormat: 'MM/dd/yyyy',\n\tstyleName: 'iOS7',\n\t_fieldHelpers_DIALOG2: [],\n\tparentComponentAlias: '',\n\tsubmitIfHasClientSideErrors: true, \n\trowErrors: {\n\t\t\t\tshowMessageBox: false,\n\t\t\t\tmessageBoxTitle: 'Error',\n\t\t\t\tstyle: 'color: red; width: 6in; height: 2in;'\n\t\t},\n\tfieldErrors: {\n\t\ttype: 'block', \n\t\tclassName: 'errorText',\n\t\tinputClassName: 'iOS7EditError',\n\t\tedit: { \n\t\t\tcontainer: { className: 'iOS7EditBGError'}\n\t\t},\n\t\ticon: 'cssIcon=iOS7Icon iOS7IconError',\n\t\tglobal: {\n\t\t\tcontId: '{UXPRERENDEREDALIAS}.GLOBALERRORS',\n\t\t\thoverClassName: 'errorTextHighlight',\n\t\t\thoverInputClassName: 'errorInputHighlight'\n\t\t}\n\t}\n\t});\n{UXPRERENDEREDALIAS}_DlgObj._onOrientationChange =  function(e) { ;\n{UXPRERENDEREDALIAS}_DlgObj._findActiveLayoutRule();\n;  };\nA5.__componentObj = {UXPRERENDEREDALIAS}_DlgObj;\n__replaceAtRuntime_SystemAfterInitialize\n__replaceAtRuntime_SystemBeforePrepare\n__replaceDataForRadioOrCheckBoxRenderedAsButtonListAtRuntime__\n{UXPRERENDEREDALIAS}_DlgObj._tabObjects = [];\n{UXPRERENDEREDALIAS}_DlgObj.lookups = {\n};\n{UXPRERENDEREDALIAS}_DlgObj.setStateInfo({\n\t__dialogGuid: '8a9b9a1e-94ff-4a63-8db6-bd30214fb4fc',\n\targumentsBoundToCotrols: '',\n\t__sgr: '',\n\t__dtfmt: 'MM/dd/yyyy',\n\t__tfmt: ''\n});\n{UXPRERENDEREDALIAS}_DlgObj._cascadingControls = [];\n{UXPRERENDEREDALIAS}_DlgObj._cascadingControlsChildren = [];\n{UXPRERENDEREDALIAS}_DlgObj.setStateInfo({ });\nA5.msgBox.theme = 'iOS7';\nA5.msgBox.buttonWidth = '1in';\n{UXPRERENDEREDALIAS}_DlgObj._defaultWindowTitleDirection = 'ltr';\n{UXPRERENDEREDALIAS}_DlgObj._controlContainers = {}\n{UXPRERENDEREDALIAS}_DlgObj._panelCardControls = {\n}\n{UXPRERENDEREDALIAS}_DlgObj._buttons = {};\n{UXPRERENDEREDALIAS}_DlgObj.setVariables({});\n{UXPRERENDEREDALIAS}_DlgObj._dataBoundControls = [];\n{UXPRERENDEREDALIAS}_DlgObj._primaryTableAlias = '';\n{UXPRERENDEREDALIAS}_DlgObj._hasPanels = true;\n{UXPRERENDEREDALIAS}_DlgObj._hasOnSynchronizeEvent = false;\nA5.__dtfmt = 'MM/dd/yyyy';A5.__tfmt = '';\nA5.__flagWorkingPreview = false;\nA5.__flagIIS = false;\nA5.__flagSimulateIIS = true;\n{UXPRERENDEREDALIAS}_DlgObj._functions.calcOrientation = function() { \n\tif(typeof {UXPRERENDEREDALIAS}_DlgObj == 'undefined') return '';\n\tvar orientation = {UXPRERENDEREDALIAS}_DlgObj.getOrientation();\n\tif( orientation == 'landscape') {\n\t\t\t//landscape\n\t\t\tif({UXPRERENDEREDALIAS}_DlgObj._orientation != 'landscape') {\n\t\t\t\t{UXPRERENDEREDALIAS}_DlgObj._fireWatches(1);\t\n\t\t\t\t{UXPRERENDEREDALIAS}_DlgObj._orientation = 'landscape';\n\t\t\t\t{UXPRERENDEREDALIAS}_DlgObj._executeEvent('onOrientationChange',{orientation: 'landscape'});\n\t\t\t}\n\t} else {\n\t\t//portrait\n\t\tif({UXPRERENDEREDALIAS}_DlgObj._orientation != 'portrait') {\n\t\t\t\t{UXPRERENDEREDALIAS}_DlgObj._fireWatches(1);\t\n\t\t\t\t{UXPRERENDEREDALIAS}_DlgObj._orientation = 'portrait';\n\t\t\t\t{UXPRERENDEREDALIAS}_DlgObj._executeEvent('onOrientationChange',{orientation: 'portrait'});\n\t\t\t}\n\t}\n}\n\tA5.flags.cordovaLoaded = true;\n\ttry {\n\t\tdocument.addEventListener('deviceready', function() { \n\t\t\t{UXPRERENDEREDALIAS}_DlgObj._executeEvent('onCordovaReady',{});\n\t\t\t{UXPRERENDEREDALIAS}_DlgObj._executeEvent('onPhoneGapReady',{});\n\t\t\t{UXPRERENDEREDALIAS}_DlgObj._cordovaReady = true;\n\t\t\tnavigator.geolocation.getAccuratePosition = function(geolocationSuccess, geolocationError, options) {\n\tvar _lastCheckedPosition = null;\n\tvar _locationEventCount = 0;\n\toptions = options || {};\n\toptions.context = this;\n    function _checkLocation(pos) {\n        _lastCheckedPosition = pos;\n        _locationEventCount++;\n        if ((pos.coords.accuracy <= options.desiredAccuracy) && (_locationEventCount > options.ignoreResultCount)) {\n            clearTimeout(_timerID);\n            navigator.geolocation.clearWatch(_watchID);\n            _foundPosition(pos);\n        } \n    }\n    function _stopLocationCheck() {\n    \t var error = {};\n    \t error.code = 0;\n    \t error.message = 'Timeout: No results';\n        navigator.geolocation.clearWatch(_watchID);\n        _lastCheckedPosition ? _foundPosition(_lastCheckedPosition) : geolocationError.call(options.context,error);\n    }\n    function _onError(error) {\n        clearTimeout(_timerID);\n        navigator.geolocation.clearWatch(_watchID);\n        geolocationError.call(options.context,error);\n    }\n    function _foundPosition(pos) {\n        geolocationSuccess.call(options.context,pos);\n    }\n    if (!options.maxWait) {            \n    \toptions.maxWait = 10000; \n    }\t\n    if (!options.desiredAccuracy) {\n    \t  options.desiredAccuracy = 20; \n    }\n    if (!options.timeout) {\n        options.timeout = options.maxWait;\n\t }\n\t if (!options.ignoreResultCount) {\n\t \t\toptions.ignoreResultCount = 1;\n\t }\n    options.maximumAge = 0; \n    options.enableHighAccuracy = true; \n    var _watchID = navigator.geolocation.watchPosition(_checkLocation, _onError, options);\n    var _timerID = setTimeout(_stopLocationCheck, options.maxWait); \n}\n\t\t} , false);\t\n\t}\n\tcatch(err) {}\n{UXPRERENDEREDALIAS}_DlgObj._waitGif = 'css/A5System/Images/wait.gif';\n{UXPRERENDEREDALIAS}_DlgObj._layoutMode = 'containerwidth';\n{UXPRERENDEREDALIAS}_DlgObj._responsiveRulesMode = 'firsttrue';\n{UXPRERENDEREDALIAS}_DlgObj.__controlNesting = {\n}\n{UXPRERENDEREDALIAS}_DlgObj._listsDV = [];\n{UXPRERENDEREDALIAS}_DlgObj._listControls = [];\n{UXPRERENDEREDALIAS}_DlgObj._localStorageSettings = {namespace: 'ALPHA_53bda28a44a44c83be3782a7d93b7860',friendlyName: '',description: '',persistVariableValues: false,__version: 1,persistComponentState: false,workingPreviewTestingFolder: '',restore: {variables: false,data: false,state: false},compressData: true,minify: true,variablesToNotPersist: '',workingPreviewTestingMode: 'Browser',compressListData: true}\n{UXPRERENDEREDALIAS}_DlgObj.__r = ['3rkeltoSdQc=']\n{UXPRERENDEREDALIAS}_DlgObj._staticHTMLMode = false\n{UXPRERENDEREDALIAS}_DlgObj._EDITOR_EDITORSET = {};\n{UXPRERENDEREDALIAS}_DlgObj.styleName = 'iOS7';\n{UXPRERENDEREDALIAS}_DlgObj.styleVersion = 3\n{UXPRERENDEREDALIAS}_DlgObj.framesInfo = {\n};\n{UXPRERENDEREDALIAS}_DlgObj._noPersist = []\n\n__replaceAtRuntime_CustomControlsSystemBeforePrepare\n{UXPRERENDEREDALIAS}_DlgObj.prepare();{UXPRERENDEREDALIAS}_DlgObj.populate({UXPRERENDEREDALIAS}_DlgObj.originalValues[0]);\n{UXPRERENDEREDALIAS}_DlgObj._fireWatches(1);\n\n\nif(!A5.flags.isMobile) $e.add(window,'resize',{UXPRERENDEREDALIAS}_DlgObj._functions.calcOrientation);\nelse $e.add(window,'orientationchange',{UXPRERENDEREDALIAS}_DlgObj._orientationChangeHandler,{UXPRERENDEREDALIAS}_DlgObj,true);\n{UXPRERENDEREDALIAS}_DlgObj._functions.calcOrientation();\n\n\n\n\n\n\nsetTimeout(function() { },0);\n\n\n{UXPRERENDEREDALIAS}_DlgObj._executeEvent('onInitializeComplete');\n{UXPRERENDEREDALIAS}_DlgObj.initialized = true;\n\n\n\n\n\n__replaceAtRuntime_CustomControlsSystemAfterRender\n\n{UXPRERENDEREDALIAS}_DlgObj._onRenderComplete = function() { {UXPRERENDEREDALIAS}_DlgObj._runJSOnLoad(); {UXPRERENDEREDALIAS}_DlgObj._findActiveLayoutRule(); }; \n\nsetTimeout(function() { var p = {UXPRERENDEREDALIAS}_DlgObj.panelGet('PANELCARD_COMMUNITIES'); if(p._sizing == 'window') { p._sizeWindow();} else { p.refresh(); } },100);\nsetTimeout(function() {{UXPRERENDEREDALIAS}_DlgObj._executeEvent('onRenderComplete'); {UXPRERENDEREDALIAS}_DlgObj.flagRenderComplete = true;  {UXPRERENDEREDALIAS}_DlgObj._restoreFromLocalStorage(); },1);\n\nvar o2 = 'portrait';\nif(window.innerHeight < window.innerWidth) o2 = 'landscape';\n{UXPRERENDEREDALIAS}_DlgObj._screen = {h: window.innerHeight, w: window.innerWidth, o: o2};\n\n{UXPRERENDEREDALIAS}_DlgObj._getOnlineStatus();\ntry {\nwindow.addEventListener(\"offline\",function() { {UXPRERENDEREDALIAS}_DlgObj._fireOnConnectionChangeEvent() });\nwindow.addEventListener(\"online\",function() { {UXPRERENDEREDALIAS}_DlgObj._fireOnConnectionChangeEvent() });\n} catch(err){}\n\n\nsetTimeout(function() {$e.execute('device.screen','a5resize')},1);\nsetTimeout(function() { },10);;\n{UXPRERENDEREDALIAS}_DlgObj._activeLanguage = '';"
+            },
+            "iconMap": "{images.RowExpander.Open}=\"cssIcon=iOS7Icon iOS7IconRight\"\n{images.RowExpander.Close}=\"cssIcon=iOS7Icon iOS7IconDown\"\n{images.EmbeddedSearch.Search}=\"cssIcon=iOS7Icon iOS7IconSearch\"\n{images.EmbeddedSearch.ClearSearch}=\"cssIcon=iOS7Icon iOS7IconDisabled iOS7IconFilter\"\n{images.EmbeddedSearch.ShowHideEmbeddedSearch}=\"cssIcon=iOS7Icon iOS7IconFilter\"\n{images.GridRow.NewRecordRow.NoFocus}=\"cssIcon=iOS7Icon iOS7IconDisabled iOS7IconNew\"\n{images.GridRow.NewRecordRow.HasFocus}=\"cssIcon=iOS7Icon iOS7IconNew\"\n{images.GridRow.SaveRecord}=\"cssIcon=iOS7Icon iOS7IconSave\"\n{images.GridRow.SaveRecord.Disabled}=\"cssIcon=iOS7Icon iOS7IconDisabled iOS7IconSave\"\n{images.GridRow.UndoChanges}=\"cssIcon=iOS7Icon iOS7IconUndo\"\n{images.GridRow.UndoChanges.Disabled}=\"cssIcon=iOS7Icon iOS7IconDisabled iOS7IconUndo\"\n{images.GridRow.EditRecord}=\"cssIcon=iOS7Icon iOS7IconEdit\"\n{images.GridRow.EditRecord.Disabled}=\"cssIcon=iOS7Icon iOS7IconDisabled iOS7IconEdit\"\n{images.GridRow.DeleteRecord}=\"cssIcon=iOS7Icon iOS7IconDelete\"\n{images.GridRow.DeleteRecord.Disabled}=\"cssIcon=iOS7Icon iOS7IconDisabled iOS7IconDelete\"\n{images.GridRow.CancelEditRecord}=\"cssIcon=iOS7Icon iOS7IconCancelEdit\"\n{images.GridRow.CancelEditRecord.Disabled}=\"cssIcon=iOS7Icon iOS7IconDisabled iOS7IconCancelEdit\"\n{images.GridRow.HasError}=\"cssIcon=iOS7Icon iOS7IconError\"\n{images.QBE.OperatorIsSelected}=\"cssIcon=iOS7IconSm iOS7IconCheck\"\n{images.QBE.OpenQBEMenu}=\"cssIcon=iOS7Icon iOS7IconFilter\"\n{images.QBE.ShowHideQBERow}=\"cssIcon=iOS7Icon iOS7IconFilter\"\n{images.PopUpWindow.Lookup.Close}=\"cssIcon=iOS7Icon iOS7IconClose\"\n{images.PopUpWindow.DetailView.Close}=\"cssIcon=iOS7Icon iOS7IconClose\"\n{images.CollapseContainer.Open}=\"cssIcon=iOS7Icon iOS7IconRight\"\n{images.CollapseContainer.Close}=\"cssIcon=iOS7Icon iOS7IconDown\"\n{images.FieldHelpIcon}=\"cssIcon=iOS7Icon iOS7IconHelp\"\n{images.SearchPart.SaveSearchCriteria}=\"cssIcon=iOS7Icon iOS7IconSave\"\n{images.SearchPart.LoadSearchCriteria}=\"cssIcon=iOS7Icon iOS7IconLoad\"\n{images.SearchPart.RunSearch}=\"cssIcon=iOS7Icon iOS7IconSearch\"\n{images.SearchPart.ClearSearch}=\"cssIcon=iOS7Icon iOS7IconDisabled iOS7IconFilter\"\n{images.GridRow.SelectionPointer}=\"cssIcon=iOS7Icon iOS7IconRight\"\n{images.Grid.SortAsc}=\"cssIcon=iOS7IconSm iOS7IconUp\"\n{images.Grid.SortAscDisabled}=\"cssIcon=iOS7IconSm iOS7IconDisabled iOS7IconUp\"\n{images.Grid.sortDesc}=\"cssIcon=iOS7IconSm iOS7IconDown\"\n{images.grid.sortDescDisabled}=\"cssIcon=iOS7IconSm iOS7IconDisabled iOS7IconDown\"\n{images.grid.firstPage}=\"cssIcon=iOS7Icon iOS7IconFirst\"\n{images.grid.firstPageDisabled}=\"cssIcon=iOS7Icon iOS7IconDisabled iOS7IconFirst\"\n{images.grid.prevPage}=\"cssIcon=iOS7Icon iOS7IconLeft\"\n{images.grid.prevPageDisabled}=\"cssIcon=iOS7Icon iOS7IconDisabled iOS7IconLeft\"\n{images.grid.nextPage}=\"cssIcon=iOS7Icon iOS7IconRight\"\n{images.grid.nextPageDisabled}=\"cssIcon=iOS7Icon iOS7IconDisabled iOS7IconRight\"\n{images.grid.lastPage}=\"cssIcon=iOS7Icon iOS7IconLast\"\n{images.grid.lastPageDisabled}=\"cssIcon=iOS7Icon iOS7IconDisabled iOS7IconLast\"\n{images.edit.dropdownArrow}=\"cssIcon=iOS7Icon iOS7IconDown\"\n{images.edit.datePicker}=\"cssIcon=iOS7Icon iOS7IconDown\"\n{images.edit.dateTimePicker}=\"cssIcon=iOS7Icon iOS7IconDown\"\n{images.edit.timePicker}=\"cssIcon=iOS7Icon iOS7IconDown\"\n{images.edit.calculator}=\"cssIcon=iOS7Icon iOS7IconDown\"\n{images.edit.lookup}=\"cssIcon=iOS7Icon iOS7IconDown\"\n{images.javascript.deleteRowConfirmation}=\"cssIcon=iOS7Icon iOS7IconHelp\"\n{images.javascript.cancelEditRowConfirmation}=\"cssIcon=iOS7Icon iOS7IconHelp\"\n{images.javascript.UndoEditsConfirmation}=\"cssIcon=iOS7Icon iOS7IconInfo\"\n{images.javascript.UndoAllEditsConfirmation}=\"cssIcon=iOS7Icon iOS7IconInfo\"\n{images.javascript.dirtyRecordWarning}=\"cssIcon=iOS7Icon iOS7IconInfo\"\n{images.dv.close}=\"cssIcon=iOS7Icon iOS7IconClose\"\n{images.dv.firstRecord}=\"cssIcon=iOS7Icon iOS7IconFirst\"\n{images.dv.prevRecord}=\"cssIcon=iOS7Icon iOS7IconLeft\"\n{images.dv.nextRecord}=\"cssIcon=iOS7Icon iOS7IconRight\"\n{images.dv.lastRecord}=\"cssIcon=iOS7Icon iOS7IconLast\"\n{images.dv.newRecord}=\"cssIcon=iOS7Icon iOS7IconNew\"\n{images.dv.cancelEdits}=\"cssIcon=iOS7Icon iOS7IconCancelEdit\"\n{images.dv.deleteRecord}=\"cssIcon=iOS7Icon iOS7IconDelete\"\n{images.dv.saveRecord}=\"cssIcon=iOS7Icon iOS7IconSave\"\n{images.dv.saveAndEnter}=\"cssIcon=iOS7Icon iOS7IconSaveAndEnter\"\n{images.dv.switchToEdit}=\"cssIcon=iOS7Icon iOS7IconEdit\"\n{images.dv.switchToView}=\"cssIcon=iOS7Icon iOS7IconCancel\"\n{images.disabled.dv.newRecord}=\"cssIcon=iOS7Icon iOS7IconNew\"\n{images.disabled.dv.cancelEdits}=\"cssIcon=iOS7Icon iOS7IconCancelEdit\"\n{images.disabled.dv.deleteRecord}=\"cssIcon=iOS7Icon iOS7IconDelete\"\n{images.disabled.dv.saveRecord}=\"cssIcon=iOS7Icon iOS7IconSave\"\n{images.disabled.dv.saveAndEnter}=\"cssIcon=iOS7Icon iOS7IconSaveAndEnter\"\n{images.dv.cancelNewRecord}=\"cssIcon=iOS7Icon iOS7IconCancelEdit\"\n{images.grid.editError}=\"cssIcon=iOS7Icon iOS7IconError\"\n{images.dialog.editError}=\"cssIcon=iOS7Icon iOS7IconError\"\n{images.tabbedUI.menuExpandLeft}=\"cssIcon=iOS7Icon iOS7IconLast\"\n{images.tabbedUI.menuCollapseLeft}=\"cssIcon=iOS7Icon iOS7IconFirst\"\n{images.tabbedUI.menuExpandRight}=\"cssIcon=iOS7Icon iOS7IconFirst\"\n{images.tabbedUI.menuCollapseRight}=\"cssIcon=iOS7Icon iOS7IconLast\"\n{images.dialog.repeatingSectionActiveRowIcon}=\"cssIcon=iOS7Icon iOS7IconRight\"\n{images.dialog.repeatingSectionAddRowIcon}=\"cssIcon=iOS7IconBtn iOS7IconAdd\"\n{images.dialog.repeatingSectionDeleteRowIcon}=\"cssIcon=iOS7IconBtn iOS7IconDelete\"\n{images.dialog.repeatingSectionErrorRowIcon}=\"cssIcon=iOS7IconBtn iOS7IconError\"\n{images.dialog.deleteRowMessage.icon}=\"cssIcon=iOS7Icon iOS7IconHelp\"\n{images.dialog.resetForm.icon}=\"cssIcon=iOS7Icon iOS7IconHelp\"\n{images.dialog.dirtyForm.icon}=\"cssIcon=iOS7Icon iOS7IconInfo\"\n{images.dialog.editError}=\"cssIcon=iOS7Icon iOS7IconError\"\n{images.dialog.listNav}=\"cssIcon=iOS7Icon iOS7IconRight\"\n{images.dialog.listNavSubtle}=\"cssIcon=iOS7Icon iOS7IconRight\"\n{images.dialog.menu}=\"cssIcon=iOS7Icon iOS7IconMenu\"\n{images.dialog.refresh}=\"cssIcon=iOS7Icon iOS7IconRefresh\"\n{images.dialog.refreshDisabled}=\"cssIcon=iOS7Icon iOS7IconDisabled iOS7IconRefresh\""
+        }
+    }
+}

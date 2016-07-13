@@ -1,0 +1,2013 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<META HTTP-EQUIV="MSThemeCompatible" content="Yes"/>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-title" content="CenterWatch">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-transparent">
+<meta name="format-detection" content="telephone=yes">
+<meta name="theme-color" content="#ffffff">
+
+<style type="text/css">
+html { -webkit-tap-highlight-color: rgba(0,0,0,0); -webkit-user-select: none; -ms-touch-action: none;}
+.A5container {float:left;padding:0px;}
+.A5CWLayout {padding: 4px; float: left; box-sizing: border-box; -moz-box-sizing: border-box; -ms-box-sizing: border-box; -webkit-box-sizing: border-box;}
+.A5GridHideErrorCol .A5GridErrorCol {display:none; }
+.A5GridRowErrorIcon {display:none;}
+.A5GridHasRowError .A5GridRowErrorIcon {display:inline;}
+.A5GridRowViewMode {display:block;}
+.A5GridRowEditMode {display:none;}
+.A5GridRowInEditMode .A5GridRowViewMode {display:none;}
+.A5GridRowInEditMode .A5GridRowEditMode {display:block;}
+.A5GridRowDirty {display:none;}
+.A5GridRowClean {display:inline;}
+.A5GridRowIsDirty .A5GridRowDirty {display:inline;}
+.A5GridRowIsDirty .A5GridRowClean {display:none;}
+.errorText {color:red;font-size:8pt;}
+.errorTextHighlight {font-weight:bold;font-size:8pt;}
+.errorTip {color:red;background:#fffafa url('a5images/boxsize8x8fillUp5FDiagonalWhite3A232552C2392C239.png');border:1px solid #f88;margin-top:2px;padding:2px;font-size:8pt;}
+.errorInput {color:red;border:1px solid red;margin:1px;}
+.errorInputHighlight {color:red;border:2px solid red;margin:0px;}
+.A5SelectedButton {opacity:.5;filter:alpha(opacity=50);}
+.A5InvisibleLock {background: rgba(0,0,0,0); }
+
+.A5AccordionTitleOn, .A5AccordionTitleOff, .A5AccordionTitleDisabled {display: block;border: 1px solid #999;padding: 2px;text-decoration: none;cursor: pointer;margin-bottom: 2px; padding: 2px}
+.A5AccordionPane {border: 1px solid #999;border-top: none;margin-bottom: 2px;margin-top: -2px;}
+.A5TabTopOn, .A5TabTopOff, .A5TabTopDisabled {display: block;float: left;border: 1px solid #999;border-bottom: none;margin-right: 2px;padding: 2px;text-decoration: none;cursor: pointer;}
+.A5TabTopOn {margin-bottom: -1px;padding-bottom: 3px;}
+.A5TabBottomOn, .A5TabBottomOff, .A5TabBottomDisabled {display: block;float: left;border: 1px solid #999;margin-right: 2px;padding: 2px;text-decoration: none;cursor: pointer;}
+.A5TabBottomOn {border-top: none;padding-top: 3px;}
+.A5TabLeftOn, .A5TabLeftOff, .A5TabLeftDisabled {display: block;border: 1px solid #999;margin-bottom: 2px;padding: 2px;text-decoration: none;cursor: pointer;}
+.A5TabLeftOn {margin-right: -1px;padding-right: 3px;border-right: none;}
+.A5TabRightOn, .A5TabRightOff, .A5TabRightDisabled {display: block;border: 1px solid #999;border-left: none;margin-bottom: 2px;padding: 2px;text-decoration: none;cursor: pointer;}
+.A5TabRightOn {margin-left: -1px;padding-left: 3px;}
+.A5TabTopPane, .A5TabBottomPane, .A5TabLeftPane, .A5TabRightPane {border: 1px solid #999; padding: 2px;}
+
+
+.A5TabBand {border: 1px solid #999; padding: 0px;}
+.A5TabBandTabOn, .A5TabBandTabOff, .A5TabBandTabDisabled {position: relative;display: block;border: 1px solid #999;border-bottom: none;margin-right: 2px;margin-top: 2px;padding: 2px;text-decoration: none;cursor: pointer;white-space: nowrap;}
+.A5TabBandTabOn {margin-bottom: -1px;padding-bottom: 3px;}
+.A5TabBandSeparator {border: none;border-top: 1px solid #999;height: 3px;padding: 0px;font: 0pt arial;}
+.A5TabBandLeftScroll {position: relative;display: block;padding: 2px;margin-bottom: -1px;padding-bottom: 3px;text-decoration: none;border: 1px solid #999;border-left: none;border-bottom: none;}
+.A5TabBandRightScroll {position: relative;display: block;padding: 2px;margin-bottom: -1px;padding-bottom: 3px;text-decoration: none;border: 1px solid #999;border-right: none;border-bottom: none;}
+.A5TabBandTabDisabled, .A5TabTopDisabled, .A5TabLeftDisabled, .A5TabRightDisabled, .A5TabBottomDisabled, .A5AccordionTitleDisabled {opacity: .5; filter: alpha(opacity: 50)}
+.A5Window {-moz-border-radius: 3px; -webkit-border-radius: 3px;}
+.A5WindowLock{border: 1px solid #000;background: #222;opacity: .25;filter: alpha(opacity: 25);}
+
+.A5AccordionTitleOn:hover, .A5AccordionTitleOff:hover, .A5TabBandTabOff:hover, .A5TabTopOff:hover, .A5TabLeftOff:hover, .A5TabRightOff:hover, .A5TabBottomOff:hover{text-decoration: underline;}
+
+.A5MenuItem {text-decoration:none;}
+.A5DialogRSSeparator {border-top: 1px dotted #ccc; line-height:5px; margin-top: 5px;}
+.A5DialogRSFooter {margin-top: 10px;}
+
+
+
+
+
+
+</style>
+
+<link rel="stylesheet" type="text/css" href="css/iOS7/style.css">
+
+<style>
+</style>
+
+<script src="phonegap.js"></script>
+
+
+<script type="text/javascript" src="javascript/a5.js"></script>
+<script type="text/javascript" src="javascript/a5_url.js"></script>
+
+<script type="text/javascript" src="css/iOS7/style.js"></script>
+
+
+<script>
+	if(typeof jQuery != 'undefined') jQuery.noConflict();
+</script>
+
+<script type="text/javascript"  src="main.js"></script>
+
+<link rel="stylesheet" type="text/css" href="css/main.css">
+
+
+<script type="text/javascript" language="javascript">
+A5._windowDefaults={title:{tools:{defaults:{'close':{action:'close',name:'close',image:'a5images/windowbuttonclose.png'}}}}}
+A5.serverSideDateFormat = 'MM/dd/yyyy';
+</script>
+
+
+
+<script type="text/javascript" src="_phoneGapSettings.js"></script>
+<script type="text/javascript" src="main.js"></script>
+
+</head>
+<body class="iOS7Page">
+<iframe style="display:none;" id="DLG1.__IFRAME1"></iframe>
+<input type="hidden" value="" id="DLG1.PARAMETERBUCKET"/>
+<input type="file" style="position:absolute; top:-1000px;visibility:hidden;" accept="image/*" id="DLG1._GETPHOTO"/><input type="file" style="position:absolute; top:-1000px;visibility:hidden;" name="files[]" multiple = "" id="DLG1._GETFILEMULTI"/><input type="file" style="position:absolute; top:-1000px;visibility:hidden;" name="files[]" id="DLG1._GETFILE"/><input type="hidden" id="DLG1.V.R1.LIST_MENU" name="V.R1.LIST_MENU" />
+
+<script type="text/javascript" language="javascript">
+
+A5.u.drag.useDragScrolling = 'always';
+if(typeof DLG1_DlgObj == 'object') {
+	DLG1_DlgObj._destroy();
+	try {
+		delete DLG1_DlgObj;
+	} catch(e) {
+		DLG1_DlgObj = undefined;
+	}
+};
+;if(typeof DLG1_PanelObj != 'undefined') {
+	var ele = $(DLG1_PanelObj.getPanelId());
+	if(ele) {
+		if(ele.parentNode) ele.parentNode.removeChild(ele);
+	}
+	delete DLG1_PanelObj;
+}
+;window['DLG1_PanelObj'] = new A5.PanelNavigator([
+{
+	name: 'PANEL_MAIN',
+	src: new A5.PanelCard({
+	theme: 'iOS7',
+	body: {
+		content: {
+			type: 'html',
+			src: '<div class="A5CWLayout" style="width: 100%" >\n\t\n<div  class="iOS7List"   style="padding:0px; border: 0px;"  >\n\t<div id="DLG1.V.R1.LIST_MENU.CONTROL"  class="DLG1_LIST_MENU" style="overflow: auto; width: 100%; "></div>\n</div>\n\n</div>\n<div style="clear: both; font: 0px arial; height: 0px; width: 0px;"></div>'
+		},
+		scroll: {
+			axis: 'both',
+			stopPropogation: false,
+			pull: {
+				y: 'auto',
+				x: 'auto'
+			},
+			indicator: {
+				show: true,
+				h: {
+					show: true,
+					location: 'right',
+					offset: '0px',
+					left: '0px',
+					right: '0px'
+				},
+				v: {
+					show: true,
+					location: 'right',
+					offset: '0px',
+					top: '0px',
+					bottom: '0px'
+				}
+			}
+		}
+	},
+	header: {
+		html: '<div style="display:table; margin:auto;"><div class="A5CWLayout" style="width: " > \t<img id="DLG1.V.R1.IMAGE_LOGO"  src="images/logo.png" class="" style="border-width: 0px; padding: 5px; max-width: 100%; max-height: auto; box-sizing: border-box; -moz-box-sizing: border-box; -ms-box-sizing: border-box; -webkit-box-sizing: border-box;" title=""     onerror="if(typeof DLG1_DlgObj != \'undefined\') DLG1_DlgObj._executeEvent(\'onImageError\',{element: this});"  /> </div> </div><div style="display:none;"></div>',
+		show: true,
+		style: 'background-color: white; font-size: 0px; border: 0px inset; width: 100%; height: 5%; z-index: 0; '
+	},
+	footer: {
+	},
+	overlay: {
+	},
+	onSize: function() {;
+if(typeof DLG1_DlgObj != 'undefined') {var mObj = DLG1_DlgObj.getControl('LIST_MENU'); if(mObj) mObj.refresh();}}
+})
+},
+{
+	name: 'PANELCARD_CONDITION',
+	src: new A5.PanelCard({
+	theme: 'iOS7',
+	body: {
+		content: {
+			type: 'html',
+			src: '<div class="">\n\t<td valign="top"><div><a class="iOS7NavigatorLink" id="74d3c296-9e7e-424a-b013-cb593148c673_CLOSEBUTTON" href="#" onclick="$(\'DLG1_DIVCONTAINER_74d3c296_9e7e_424a_b013_cb593148c673\').innerHTML = \'\'; $(\'74d3c296-9e7e-424a-b013-cb593148c673_CLOSEBUTTON\').style.display = \'none\';" style="display:none;">Close</a></div><div id="DLG1_DIVCONTAINER_74d3c296_9e7e_424a_b013_cb593148c673"></div></td>\n</div>\n\n<div style="clear: both; font: 0px arial; height: 0px; width: 0px;"></div>'
+		},
+		scroll: false,
+		style: 'padding-bottom: 2px; margin-bottom-2px;'
+	},
+	header: {
+		html: '<div style="display:none;"></div>'
+	},
+	footer: {
+	},
+	overlay: {
+	}
+})
+},
+{
+	name: 'PANELCARD_LOCATION',
+	src: new A5.PanelCard({
+	theme: 'iOS7',
+	body: {
+		content: {
+			type: 'html',
+			src: '<div class="">\n\t<td valign="top"><div><a class="iOS7NavigatorLink" id="41b8fc79-ea86-4753-b61d-13a5409bd943_CLOSEBUTTON" href="#" onclick="$(\'DLG1_DIVCONTAINER_41b8fc79_ea86_4753_b61d_13a5409bd943\').innerHTML = \'\'; $(\'41b8fc79-ea86-4753-b61d-13a5409bd943_CLOSEBUTTON\').style.display = \'none\';" style="display:none;">Close</a></div><div id="DLG1_DIVCONTAINER_41b8fc79_ea86_4753_b61d_13a5409bd943"></div></td>\n</div>\n\n<div style="clear: both; font: 0px arial; height: 0px; width: 0px;"></div>'
+		},
+		scroll: false
+	},
+	header: {
+		html: '<div style="display:none;"></div>'
+	},
+	footer: {
+	},
+	overlay: {
+	}
+})
+},
+{
+	name: 'PANELCARD_KEYWORDS',
+	src: new A5.PanelCard({
+	theme: 'iOS7',
+	body: {
+		content: {
+			type: 'html',
+			src: '<div class="">\n\t<td valign="top"><div><a class="iOS7NavigatorLink" id="f322a130-31c3-4e99-bcda-26240ab4b90c_CLOSEBUTTON" href="#" onclick="$(\'DLG1_DIVCONTAINER_f322a130_31c3_4e99_bcda_26240ab4b90c\').innerHTML = \'\'; $(\'f322a130-31c3-4e99-bcda-26240ab4b90c_CLOSEBUTTON\').style.display = \'none\';" style="display:none;">Close</a></div><div id="DLG1_DIVCONTAINER_f322a130_31c3_4e99_bcda_26240ab4b90c"></div></td>\n</div>\n\n<div style="clear: both; font: 0px arial; height: 0px; width: 0px;"></div>'
+		},
+		scroll: false
+	},
+	header: {
+		html: '<div style="display:none;"></div>'
+	},
+	footer: {
+	},
+	overlay: {
+	}
+})
+},
+{
+	name: 'PANELCARD_COMMUNITIES',
+	src: new A5.PanelCard({
+	theme: 'iOS7',
+	body: {
+		content: {
+			type: 'html',
+			src: '<div class="">\n\t<td valign="top"><div><a class="iOS7NavigatorLink" id="8099bab9-d1c1-4b80-bd8c-f13d1fe94b87_CLOSEBUTTON" href="#" onclick="$(\'DLG1_DIVCONTAINER_8099bab9_d1c1_4b80_bd8c_f13d1fe94b87\').innerHTML = \'\'; $(\'8099bab9-d1c1-4b80-bd8c-f13d1fe94b87_CLOSEBUTTON\').style.display = \'none\';" style="display:none;">Close</a></div><div id="DLG1_DIVCONTAINER_8099bab9_d1c1_4b80_bd8c_f13d1fe94b87"></div></td>\n</div>\n\n<div style="clear: both; font: 0px arial; height: 0px; width: 0px;"></div>'
+		},
+		scroll: false
+	},
+	header: {
+		html: '<div \tid="DLG1.V.R1.LEFT_BUTTONS"    \t\t\tclass="A5CWLayout "  style="position: absolute; left: 2px; "  > <div class="A5CWLayout" style="width: " > \t<button type="button" id="DLG1.V.R1.BUTTON_BACK"    ></button> </div> <div style="font: 0pt arial;clear:both;"></div> \t</div> <div style="display:none;"></div>',
+		show: true,
+		style: 'height: 35px; min-height: 35px; '
+	},
+	footer: {
+	},
+	overlay: {
+	}
+})
+},
+{
+	name: 'PANELCARD_EDUCATIONMATERIAL',
+	src: new A5.PanelCard({
+	theme: 'iOS7',
+	body: {
+		content: {
+			type: 'html',
+			src: '<div class="A5CWLayout">\n\t<td valign="top"><div><a class="iOS7NavigatorLink" id="65483301_e6ca_4cb2_bf01_12f04f523072_CLOSEBUTTON" href="#" onclick="$(\'DLG1_DIVCONTAINER_65483301_e6ca_4cb2_bf01_12f04f523072\').innerHTML = \'\'; $(\'65483301_e6ca_4cb2_bf01_12f04f523072_CLOSEBUTTON\').style.display = \'none\';" style="display:none;">Close</a></div><div id="DLG1_DIVCONTAINER_65483301_e6ca_4cb2_bf01_12f04f523072"></div></td>\n</div>\n\n<div style="clear: both; font: 0px arial; height: 0px; width: 0px;"></div>'
+		},
+		scroll: false
+	},
+	header: {
+		html: '<div style="display:none;"></div>'
+	},
+	footer: {
+	},
+	overlay: {
+	}
+})
+},
+{
+	name: 'PANELCARD_MYPROFILE',
+	src: new A5.PanelCard({
+	theme: 'iOS7',
+	body: {
+		content: {
+			type: 'html',
+			src: '<div class="">\n\t<td valign="top"><div><a class="iOS7NavigatorLink" id="4cf5a318_15ca_470f_a9b7_156863ee5c88_CLOSEBUTTON" href="#" onclick="$(\'DLG1_DIVCONTAINER_4cf5a318_15ca_470f_a9b7_156863ee5c88\').innerHTML = \'\'; $(\'4cf5a318_15ca_470f_a9b7_156863ee5c88_CLOSEBUTTON\').style.display = \'none\';" style="display:none;">Close</a></div><div id="DLG1_DIVCONTAINER_4cf5a318_15ca_470f_a9b7_156863ee5c88"></div></td>\n</div>\n\n<div style="clear: both; font: 0px arial; height: 0px; width: 0px;"></div>'
+		},
+		scroll: false
+	},
+	header: {
+		html: '<div style="display:none;"></div>'
+	},
+	footer: {
+	},
+	overlay: {
+	}
+})
+}
+],{
+	type: 'programmatic',
+	flow: 'ltr',
+	loopNavigate: true,
+	onPanelActivate: function() {var panelName = this.state.activePanel;
+if(panelName == 'PANELCARD_CONDITION') {
+	DLG1_DlgObj._functions.runAction_74d3c296_9e7e_424a_b013_cb593148c673();;
+}	
+var panelName = this.state.activePanel;
+if(panelName == 'PANELCARD_LOCATION') {
+	DLG1_DlgObj._functions.runAction_41b8fc79_ea86_4753_b61d_13a5409bd943();;
+}	
+var panelName = this.state.activePanel;
+if(panelName == 'PANELCARD_KEYWORDS') {
+	DLG1_DlgObj._functions.runAction_f322a130_31c3_4e99_bcda_26240ab4b90c();;
+}	
+var panelName = this.state.activePanel;
+if(panelName == 'PANELCARD_COMMUNITIES') {
+	DLG1_DlgObj._functions.runAction_8099bab9_d1c1_4b80_bd8c_f13d1fe94b87();;
+}	
+var panelName = this.state.activePanel;
+if(panelName == 'PANELCARD_EDUCATIONMATERIAL') {
+	DLG1_DlgObj._functions.runAction_65483301_e6ca_4cb2_bf01_12f04f523072();;
+}	
+var panelName = this.state.activePanel;
+if(panelName == 'PANELCARD_MYPROFILE') {
+	DLG1_DlgObj._functions.runAction_4cf5a318_15ca_470f_a9b7_156863ee5c88();;
+}
+DLG1_DlgObj.refreshClientSideComputations();},
+	onPanelActivateComplete: function() {if(this.state.activePanel == 'PANELCARD_CONDITION') { 
+	var pChild = DLG1_DlgObj.getChildObject('FINDBYCONDITION','UX');
+	if(pChild) pChild._executeEvent('onPanelActivate');
+};
+if(this.state.activePanel == 'PANELCARD_LOCATION') { 
+	var pChild = DLG1_DlgObj.getChildObject('FINDBYLOCATION','UX');
+	if(pChild) pChild._executeEvent('onPanelActivate');
+};
+if(this.state.activePanel == 'PANELCARD_KEYWORDS') { 
+	var pChild = DLG1_DlgObj.getChildObject('FINDBYKEYWORDS','UX');
+	if(pChild) pChild._executeEvent('onPanelActivate');
+};
+if(this.state.activePanel == 'PANELCARD_COMMUNITIES') { 
+	var pChild = DLG1_DlgObj.getChildObject('COMMUNITIES','UX');
+	if(pChild) pChild._executeEvent('onPanelActivate');
+};
+if(this.state.activePanel == 'PANELCARD_EDUCATIONMATERIAL') { 
+	var pChild = DLG1_DlgObj.getChildObject('EDUCATIONMATERIAL','UX');
+	if(pChild) pChild._executeEvent('onPanelActivate');
+};
+if(this.state.activePanel == 'PANELCARD_MYPROFILE') { 
+	var pChild = DLG1_DlgObj.getChildObject('MYPROFILE','UX');
+	if(pChild) pChild._executeEvent('onPanelActivate');
+};},
+	onSize: function() {;if(typeof DLG1_DlgObj != 'undefined') {
+	if(typeof DLG1_DlgObj._findActiveLayoutRule != 'undefined') { 
+		DLG1_DlgObj._findActiveLayoutRule();
+	}
+}},
+	theme: 'iOS7',
+	header: {
+		show: false
+	},
+	footer: {
+		show: true,
+		html: '<div style="width:" class="A5CWLayout"> \t<div id="DLG1.V.R1.FREEFORM_GOOGLEANALYTICS" class="" style=""   >\u003Cscript>   (function(i,s,o,g,r,a,m)=r;i[r]=i[r]||function(){   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)   })(window,document,\'script\',\'https://www.google-analytics.com/analytics.js\',\'ga\');    ga(\'create\', \'UA-80638188-1\', \'auto\');   ga(\'send\', \'pageview\');  \u003C/script\u003E</div> </div><br  style="clear:both; " /> ',
+		style: 'display: none;'
+	},
+	overlay: {
+	},
+	controls: {
+		prev: {
+			has: false
+		},
+		next: {
+			has: false
+		},
+		back: {
+			has: false
+		},
+		forward: {
+			has: false
+		}
+	},
+	body: {
+	},
+	animation: {
+		type: 'fade',
+		duration: 400
+	}
+})
+var ele = window['DLG1_PanelObj'].create('DLG1.R1');
+		var panelRootId = '{UXPRERENDEROUTPUTDIV}';
+		var flagSizeToParent = true;
+		var wf_alias = 'DLG1';
+		if(panelRootId != '') { 
+			if (!$(panelRootId)) panelRootId = '';
+		}
+		if(panelRootId != '') { 
+			$(panelRootId).appendChild(ele);
+			if(flagSizeToParent) { 
+				window[wf_alias + '_PanelObj'].bindSize('parent');
+			}
+		} else { 
+			document.body.insertBefore(ele,document.body.firstChild);
+			window[wf_alias + '_PanelObj'].bindSize('window');
+		}
+DLG1_PanelObj._panelPath = {
+	PANEL_MAIN: 'PANEL_MAIN',
+	PANELCARD_CONDITION: 'PANELCARD_CONDITION',
+	PANELCARD_LOCATION: 'PANELCARD_LOCATION',
+	PANELCARD_KEYWORDS: 'PANELCARD_KEYWORDS',
+	PANELCARD_COMMUNITIES: 'PANELCARD_COMMUNITIES',
+	PANELCARD_EDUCATIONMATERIAL: 'PANELCARD_EDUCATIONMATERIAL',
+	PANELCARD_MYPROFILE: 'PANELCARD_MYPROFILE'
+}
+DLG1_PanelObj._displayNames = {
+PANEL_MAIN : 'PANEL_MAIN',PANELCARD_CONDITION : 'PANELCARD_CONDITION',PANELCARD_LOCATION : 'PANELCARD_LOCATION',PANELCARD_KEYWORDS : 'PANELCARD_KEYWORDS',PANELCARD_COMMUNITIES : 'PANELCARD_COMMUNITIES',PANELCARD_EDUCATIONMATERIAL : 'PANELCARD_EDUCATIONMATERIAL',PANELCARD_MYPROFILE : 'PANELCARD_MYPROFILE',PANELNAVIGATOR_HOME : 'PANELNAVIGATOR_HOME'
+};
+if(typeof DLG1_DlgObj == 'object') DLG1_DlgObj._destroy();
+var DLG1_DlgObj = new A5.DialogComponentHelper('DLG1',{
+	ajaxURL: 'http://69.7.228.180/centerappv1/CLINICALTRIALS.a5wcmp?__virtualPage=__a5RunDialog.a5w&__dialogFilename=CLINICALTRIALS&__alias=DLG1&__unsaved=no',
+	_embeddedMode: false,
+	_livePreviewInBuilder: false,
+	componentGUID: 'f0e954d2-9dbd-458f-a7e0-e45d295f18b1',
+	columnInfo: {'LIST_MENU': {info: {controlType: 'List'}, hiddenVal: false, type: 'control', isCalc: false, hlp: '', isArray: false, dataType: 'C'  }},
+	originalValues: [{
+	'LIST_MENU': ''
+}],
+	defaultValues: {
+	LIST_MENU: ''
+},
+	datePickerMonthNames: ['January','February','March','April','May','June','July','August','September','October','November','December'],
+	datePickerDayNames: ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'],
+	datePickerTodayButton: 'Today',
+	datePickerCloseButton: '',
+	datePickerFirstDayOfWeek: 1,
+	resetFormMessage: '<div style="padding: .25in;">Are you sure you want to reset the form?<div>',
+	resetFormTitle: '',
+	resetFormIcon: '',
+	dirtyFormMessage: '<div style="padding: .25in;">You must first save your changes or cancel changes by clicking the Reset button.<div>',
+	dirtyFormTitle: '',
+	dirtyFormIcon: '',
+	deleteRecordDialogTitle: '',
+	deleteRecordDialogMessage: '',	
+	ssDateFormat: 'MM/dd/yyyy',
+	styleName: 'iOS7',
+	_fieldHelpers_DIALOG2: [],
+	parentComponentAlias: '',
+	submitIfHasClientSideErrors: false, 
+	rowErrors: {
+				showMessageBox: false,
+				messageBoxTitle: 'Error',
+				style: 'color: red; width: 6in; height: 2in;'
+		},
+	fieldErrors: {
+		type: 'block', 
+		className: 'errorText',
+		inputClassName: 'iOS7EditError',
+		edit: { 
+			container: { className: 'iOS7EditBGError'}
+		},
+		icon: 'cssIcon=iOS7Icon iOS7IconError',
+		global: {
+			contId: 'DLG1.GLOBALERRORS',
+			hoverClassName: 'errorTextHighlight',
+			hoverInputClassName: 'errorInputHighlight'
+		}
+	},
+		afterAjaxCallbackComplete: function(e) {
+DLG1_DlgObj.hideWaitMessage('page');
+		},
+		_canAjaxCallback: function(e) {
+DLG1_DlgObj.showWaitMessage('page',{useCSSAnimation: true,cssAnimationSettings: {size: '32'}});
+		},
+		__afterAjaxCallbackComplete: function(e) {
+DLG1_DlgObj.hideWaitMessage('page');
+		},
+		canAjaxCallback: function(e) {
+if (DLG1_DlgObj.serverOnlineFlag == false) {
+	if (typeof window.plugins == 'object'){
+		window.plugins.toast.showShortCenter('Device is offline');
+	}
+	else { 
+		console.log('Device is offline'); 
+	}
+}
+else {
+	DLG1_DlgObj.showWaitMessage('page', DLG1_DlgObj._waitMsg);
+}
+		},
+		onAjaxCallbackNotAvailable: function(e) {
+if (typeof window.plugins == 'object') {
+	window.plugins.toast.showShortCenter('Device is offline');
+}
+else { 
+	console.log('Device is offline'); 
+}
+		},
+		onInitializeComplete: function(e) {
+DLG1_DlgObj._waitMsg = {};
+DLG1_DlgObj._waitMsg.message = 'Loading...';
+DLG1_DlgObj.appVars={};
+DLG1_DlgObj.appVars.debug=false;
+DLG1_DlgObj.appVars.msg = '';
+DLG1_DlgObj.serverOnlineFlag = true;
+DLG1_DlgObj._a5ServerCheckTimer = setInterval(function() {
+	if (DLG1_DlgObj._getOnlineStatus()) {
+		DLG1_DlgObj.serverIsAvailable(750, function() {
+			DLG1_DlgObj.serverOnlineFlag = true;		
+		}, function() {
+			DLG1_DlgObj.serverOnlineFlag = false;		
+		});
+	}	else {
+			DLG1_DlgObj.serverOnlineFlag = false;
+  }
+}, 3000);
+		},
+		onConnectionChange: function(e) {
+var _state = e.online ? 'online.' : 'offline.';
+if (typeof window.plugins == 'object') {
+	window.plugins.toast.showShortCenter('Device is now ' + _state);
+}
+else { 
+	console.log('Device is offline ' + _state); 
+}
+		}
+	});
+DLG1_DlgObj._onOrientationChange =  function(e) { ;
+DLG1_DlgObj._findActiveLayoutRule();
+;  };
+A5.__componentObj = DLG1_DlgObj;
+DLG1_DlgObj._tabObjects = [];
+A5.loadJavascript('document.addEventListener(\'deviceready\', onDeviceReady, false);\n\nfunction onDeviceReady() {\n\tStatusBar.overlaysWebView(false);\n\tStatusBar.hide();\n}\n\nfunction executeMenuAction(item) {\n\tswitch (item) {\n\t\tcase \'FindByCondition\':\n\t    DLG1_DlgObj.panelSetActive(\'PANELCARD_CONDITION\', true);\n  \t \tbreak;\n\t\tcase \'FindByLocation\':\n\t    DLG1_DlgObj.panelSetActive(\'PANELCARD_LOCATION\', true);\n\t\t\tbreak;\n\t\tcase \'FindByKeywords\':\n\t    DLG1_DlgObj.panelSetActive(\'PANELCARD_KEYWORDS\', true);\n\t\t\tbreak;\n\t\tcase \'GotoCommunity\':\n\t\t   DLG1_DlgObj.panelSetActive(\'PANELCARD_COMMUNITIES\', true);\n\t\t   break;\n\t\tcase \'FindEducationalMaterials\':\n\t\t   DLG1_DlgObj.panelSetActive(\'PANELCARD_EDUCATIONMATERIAL\', true);\n\t\t   break;\n\t\tcase \'MyProfile\':\n\t    DLG1_DlgObj.panelSetActive(\'PANELCARD_MYPROFILE\', true);\n\t\t\tbreak;\n\t\tcase \'\':\n\t\t\tbreak;\n\t\tdefault:\n\t\t\tconsole.log(item + \' not found.\');\n\t};\n};',true);
+DLG1_DlgObj._functions.runAction_74d3c296_9e7e_424a_b013_cb593148c673 = function() {
+		var go = new Object();
+		go.dialog2Name = 'FindByCondition';
+	go.type = 'dialog2';
+	go.alias = 'DLG1_FINDBYCONDITION';
+	go.workingMessage = '<img src="loading.gif">';
+	go.flagTimer = 'F';
+	go.flagQueryEcho = 'F';
+	go.flagDebugMode = 'F';
+	go.userFilter = '';
+	go.baseFilter = '';
+	go.userOrder = '';
+	go.overrideSettings = 'style_name=`iOS7`'+'||';
+	go.arguments = '';
+	go.localArguments = '';
+	go.linkDefinition = '';
+	go.placeHolderValues = '';
+	go.parameterBucket = $gvs('DLG1.PARAMETERBUCKET');
+	go.argumentValueBucket = $gvs('DLG1.ARGUMENTVALUES');
+	go.a5_default_path = 'C_colon_|A5Webroot|livepreview';
+	go.onLoadCompleteJavascript = 'DestroySiblings(DLG1_DlgObj);';
+	if(typeof DLG1_DlgObj.gridId != 'undefined') go._thisGridAlias = DLG1_DlgObj.gridId;
+	if(typeof DLG1_DlgObj.dialogId != 'undefined') go._thisGridAlias = DLG1_DlgObj.dialogId;
+	var panelCardId = DLG1_DlgObj.panelGetId('PANELCARD_CONDITION','body');
+if($(panelCardId + '.SCROLLWRAPPER')) panelCardId = panelCardId + '.SCROLLWRAPPER';
+go.dialog2Div = panelCardId;
+	A5.component.runGenericComponent(go);
+}
+DLG1_DlgObj._functions.runAction_41b8fc79_ea86_4753_b61d_13a5409bd943 = function() {
+		var go = new Object();
+		go.dialog2Name = 'FindByLocation';
+	go.type = 'dialog2';
+	go.alias = 'DLG1_FINDBYLOCATION';
+	go.workingMessage = '<img src="loading.gif">';
+	go.flagTimer = 'F';
+	go.flagQueryEcho = 'F';
+	go.flagDebugMode = 'F';
+	go.userFilter = '';
+	go.baseFilter = '';
+	go.userOrder = '';
+	go.overrideSettings = 'style_name=`iOS7`'+'||';
+	go.arguments = '';
+	go.localArguments = '';
+	go.linkDefinition = '';
+	go.placeHolderValues = '';
+	go.parameterBucket = $gvs('DLG1.PARAMETERBUCKET');
+	go.argumentValueBucket = $gvs('DLG1.ARGUMENTVALUES');
+	go.a5_default_path = 'C_colon_|A5Webroot|livepreview';
+	go.onLoadCompleteJavascript = '';
+	if(typeof DLG1_DlgObj.gridId != 'undefined') go._thisGridAlias = DLG1_DlgObj.gridId;
+	if(typeof DLG1_DlgObj.dialogId != 'undefined') go._thisGridAlias = DLG1_DlgObj.dialogId;
+	var panelCardId = DLG1_DlgObj.panelGetId('PANELCARD_LOCATION','body');
+if($(panelCardId + '.SCROLLWRAPPER')) panelCardId = panelCardId + '.SCROLLWRAPPER';
+go.dialog2Div = panelCardId;
+	A5.component.runGenericComponent(go);
+}
+DLG1_DlgObj._functions.runAction_f322a130_31c3_4e99_bcda_26240ab4b90c = function() {
+		var go = new Object();
+		go.dialog2Name = 'FindByKeywords';
+	go.type = 'dialog2';
+	go.alias = 'DLG1_FINDBYKEYWORDS';
+	go.workingMessage = '<img src="loading.gif">';
+	go.flagTimer = 'F';
+	go.flagQueryEcho = 'F';
+	go.flagDebugMode = 'F';
+	go.userFilter = '';
+	go.baseFilter = '';
+	go.userOrder = '';
+	go.overrideSettings = 'style_name=`iOS7`'+'||';
+	go.arguments = '';
+	go.localArguments = '';
+	go.linkDefinition = '';
+	go.placeHolderValues = '';
+	go.parameterBucket = $gvs('DLG1.PARAMETERBUCKET');
+	go.argumentValueBucket = $gvs('DLG1.ARGUMENTVALUES');
+	go.a5_default_path = 'C_colon_|A5Webroot|livepreview';
+	go.onLoadCompleteJavascript = '';
+	if(typeof DLG1_DlgObj.gridId != 'undefined') go._thisGridAlias = DLG1_DlgObj.gridId;
+	if(typeof DLG1_DlgObj.dialogId != 'undefined') go._thisGridAlias = DLG1_DlgObj.dialogId;
+	var panelCardId = DLG1_DlgObj.panelGetId('PANELCARD_KEYWORDS','body');
+if($(panelCardId + '.SCROLLWRAPPER')) panelCardId = panelCardId + '.SCROLLWRAPPER';
+go.dialog2Div = panelCardId;
+	A5.component.runGenericComponent(go);
+}
+DLG1_DlgObj._functions.runAction_8099bab9_d1c1_4b80_bd8c_f13d1fe94b87 = function() {
+		var go = new Object();
+		go.dialog2Name = 'Communities';
+	go.type = 'dialog2';
+	go.alias = 'DLG1_COMMUNITIES';
+	go.workingMessage = '<img src="loading.gif">';
+	go.flagTimer = 'F';
+	go.flagQueryEcho = 'F';
+	go.flagDebugMode = 'F';
+	go.userFilter = '';
+	go.baseFilter = '';
+	go.userOrder = '';
+	go.overrideSettings = 'style_name=`iOS7`'+'||';
+	go.arguments = '';
+	go.localArguments = '';
+	go.linkDefinition = '';
+	go.placeHolderValues = '';
+	go.parameterBucket = $gvs('DLG1.PARAMETERBUCKET');
+	go.argumentValueBucket = $gvs('DLG1.ARGUMENTVALUES');
+	go.a5_default_path = 'C_colon_|A5Webroot|livepreview';
+	go.onLoadCompleteJavascript = '';
+	if(typeof DLG1_DlgObj.gridId != 'undefined') go._thisGridAlias = DLG1_DlgObj.gridId;
+	if(typeof DLG1_DlgObj.dialogId != 'undefined') go._thisGridAlias = DLG1_DlgObj.dialogId;
+	var panelCardId = DLG1_DlgObj.panelGetId('PANELCARD_COMMUNITIES','body');
+if($(panelCardId + '.SCROLLWRAPPER')) panelCardId = panelCardId + '.SCROLLWRAPPER';
+go.dialog2Div = panelCardId;
+	A5.component.runGenericComponent(go);
+}
+DLG1_DlgObj._functions.runAction_65483301_e6ca_4cb2_bf01_12f04f523072 = function() {
+		var go = new Object();
+		go.dialog2Name = 'EducationMaterial';
+	go.type = 'dialog2';
+	go.alias = 'DLG1_EDUCATIONMATERIAL';
+	go.workingMessage = '<img src="loading.gif">';
+	go.flagTimer = 'F';
+	go.flagQueryEcho = 'F';
+	go.flagDebugMode = 'F';
+	go.userFilter = '';
+	go.baseFilter = '';
+	go.userOrder = '';
+	go.overrideSettings = 'style_name=`iOS7`'+'||';
+	go.arguments = '';
+	go.localArguments = '';
+	go.linkDefinition = '';
+	go.placeHolderValues = '';
+	go.parameterBucket = $gvs('DLG1.PARAMETERBUCKET');
+	go.argumentValueBucket = $gvs('DLG1.ARGUMENTVALUES');
+	go.a5_default_path = 'C_colon_|A5Webroot|livepreview';
+	go.onLoadCompleteJavascript = '';
+	if(typeof DLG1_DlgObj.gridId != 'undefined') go._thisGridAlias = DLG1_DlgObj.gridId;
+	if(typeof DLG1_DlgObj.dialogId != 'undefined') go._thisGridAlias = DLG1_DlgObj.dialogId;
+	var panelCardId = DLG1_DlgObj.panelGetId('PANELCARD_EDUCATIONMATERIAL','body');
+if($(panelCardId + '.SCROLLWRAPPER')) panelCardId = panelCardId + '.SCROLLWRAPPER';
+go.dialog2Div = panelCardId;
+	A5.component.runGenericComponent(go);
+}
+DLG1_DlgObj._functions.runAction_4cf5a318_15ca_470f_a9b7_156863ee5c88 = function() {
+		var go = new Object();
+		go.dialog2Name = 'MyProfile';
+	go.type = 'dialog2';
+	go.alias = 'DLG1_MYPROFILE';
+	go.workingMessage = '<img src="loading.gif">';
+	go.flagTimer = 'F';
+	go.flagQueryEcho = 'F';
+	go.flagDebugMode = 'F';
+	go.userFilter = '';
+	go.baseFilter = '';
+	go.userOrder = '';
+	go.overrideSettings = 'style_name=`iOS7`'+'||';
+	go.arguments = '';
+	go.localArguments = '';
+	go.linkDefinition = '';
+	go.placeHolderValues = '';
+	go.parameterBucket = $gvs('DLG1.PARAMETERBUCKET');
+	go.argumentValueBucket = $gvs('DLG1.ARGUMENTVALUES');
+	go.a5_default_path = 'C_colon_|A5Webroot|livepreview';
+	go.onLoadCompleteJavascript = '';
+	if(typeof DLG1_DlgObj.gridId != 'undefined') go._thisGridAlias = DLG1_DlgObj.gridId;
+	if(typeof DLG1_DlgObj.dialogId != 'undefined') go._thisGridAlias = DLG1_DlgObj.dialogId;
+	var panelCardId = DLG1_DlgObj.panelGetId('PANELCARD_MYPROFILE','body');
+if($(panelCardId + '.SCROLLWRAPPER')) panelCardId = panelCardId + '.SCROLLWRAPPER';
+go.dialog2Div = panelCardId;
+	A5.component.runGenericComponent(go);
+}
+DLG1_DlgObj.lookups = {
+};
+DLG1_DlgObj.setStateInfo({
+	__dialogGuid: 'add404b6-aff6-44e9-8011-58bb0cab6656',
+	argumentsBoundToCotrols: '',
+	__sgr: '',
+	__dtfmt: 'MM/dd/yyyy',
+	__tfmt: ''
+});
+DLG1_DlgObj._cascadingControls = [];
+DLG1_DlgObj._cascadingControlsChildren = [];
+DLG1_DlgObj.setStateInfo({ });
+A5.msgBox.theme = 'iOS7';
+A5.msgBox.buttonWidth = '1in';
+DLG1_DlgObj._defaultWindowTitleDirection = 'ltr';
+DLG1_DlgObj._controlContainers = {}
+DLG1_DlgObj._panelCardControls = {
+LIST_MENU:'PANEL_MAIN'
+}
+DLG1_DlgObj._buttons = {};
+DLG1_DlgObj._buttons['BUTTON_BACK'] = new A5.Button({
+	layout: 'text',
+	style: 'box-sizing: border-box; -moz-box-sizing: border-box; -ms-box-sizing: border-box; -webkit-box-sizing: border-box;',
+	html: 'Back',
+	onClick: function() { 
+},
+	theme: 'iOS7:left'
+});
+DLG1_DlgObj._buttons['BUTTON_BACK'].bind('DLG1.V.R1.BUTTON_BACK');
+DLG1_DlgObj._listViewSettings['LIST_MENU'] = {
+	_dataSourceType: 'Static',
+	_listFields: [
+	{
+		name: 'MenuName',
+		defaultValue: 'return this._controlDefaultValueForListField(\'MenuName\');'
+	},
+	{
+		name: 'Image',
+		defaultValue: 'return this._controlDefaultValueForListField(\'Image\');'
+	},
+	{
+		name: 'Action',
+		defaultValue: 'return this._controlDefaultValueForListField(\'Action\');'
+	},
+	{
+		name: 'Icon',
+		defaultValue: 'return this._controlDefaultValueForListField(\'Icon\');'
+	}
+],
+	_searchPartHas: false,
+	_mediaFields: [],
+	_mediaTypes: {
+},
+	_phoneGap: {
+		mediaFiles: {
+			protectedRead: false,
+			target: 'server',
+			targetFilenameFunction: 'return \'<DeviceId>_\' +e.object.listFieldName + \'_\' + A5.ts() + \'_\' +e.name',
+			showProgress: false,
+			download: {
+				autodownloadFilesOnPullSynch: false,
+				deleteOrphansAfterSync: false,
+				targetFolder: '_AAFiles',
+				showProgress: false
+			},
+			onErrorFunction: function(array,fileNumber,error) { }
+		}
+	},
+	_dvmode: 'enter',
+	_hasDetailView: false,
+	theme: 'iOS7',
+	scroll: {
+		axis: 'both',
+		indicator: {
+			show: true,
+			h: {
+				show: true,
+				location: 'right',
+				offset: '0px',
+				left: '0px',
+				right: '0px'
+			},
+			v: {
+				show: true,
+				location: 'right',
+				offset: '0px',
+				top: '0px',
+				bottom: '0px'
+			}
+		},
+		momentum: {
+			allow: true
+		},
+		pull: {
+			y: 'auto',
+			x: 'auto'
+		}
+	},
+	layout: 'Default',
+	listVariableName: 'LIST_MENU',
+	listVariableNameTrueCase: 'LIST_MENU',
+	_hostComponentId: 'DLG1',
+	_includeCRC: false,
+	allParentLists: [],
+	onBeforeItemDraw: function(data,index) {;
+data.Image_FIXEDCSSICON = A5.u.icon.html(data.Image,'style="float: left; "');
+data.Icon_FIXEDCSSICON = A5.u.icon.html(data.Icon,'style="float: right;  color: #646464; "');
+;
+;},
+	__flagPersist: false,
+	onBeforeUpdateRow: function(index,data){;},
+	onUpdateRow: function(index,data){;},
+	onBeforeAddRows: function(data,info){;},
+	onAddRows: function(data,info){;},
+	onBeforeRemoveRows: function(rows){;},
+	onRemoveRows: function(rows){;},
+	onListDraw: function(data,startIndex) {
+if(A5.flags.isMobile) $e.add(this.contId+'.CONTENT','abstractdown',function(e) {$e.preventDefault(e);});},
+	childLists: [],
+	childListEndpoints: ['LIST_MENU'],
+	_populateAllChildLists: function() { },
+	onSelect: function() {DLG1_DlgObj._listRowSelect('LIST_MENU',this);
+;
+this._selectedRow = this.selection[0];},
+	onClick: function() {
+executeMenuAction(this.selectionData[0].Action);
+DLG1_DlgObj._listSystemOnClick('LIST_MENU',this.selection[0]);},
+	layouts: {
+		Default: {
+			type: 'column',
+			showColumnTitles: false,
+			item: {
+				style: 'color: #646464; font-size: 0px; border-color: #f7f7f7; padding-top: 20px; padding-bottom: 20px;'
+			},
+			columns: [
+				{
+					header: {
+						html: 'Image'
+					},
+					resize: false,
+					data: {
+						template: '<span id="DLG1.LIST_MENU.IMAGE.I.{*dataRow}"><i>{Image_FIXEDCSSICON}</i></span>&nbsp;'
+					},
+					order: 'Image',
+					width: 'flex(1)'
+				},
+				{
+					header: {
+						html: 'Menuname'
+					},
+					resize: false,
+					data: {
+						template: '<span class="MenuName" style="font-size: 18px; "><span id="DLG1.LIST_MENU.MENUNAME.I.{*dataRow}">{MenuName}</span></span>&nbsp;'
+					},
+					order: 'MenuName',
+					width: 'flex(5)'
+				},
+				{
+					header: {
+						html: 'Icon'
+					},
+					resize: false,
+					data: {
+						template: '<span id="DLG1.LIST_MENU.ICON.I.{*dataRow}"><i>{Icon_FIXEDCSSICON}</i></span>&nbsp;'
+					},
+					order: 'Icon',
+					width: 'flex(1)'
+				}			
+]
+		}
+	},
+	content: {
+		header: {
+			show: false
+		},
+		footer: {
+			show: false
+		}
+	},
+	systemEvents: {
+		onTap: function(e) {},
+		afterAjaxCallback: function(e) {},
+		afterClientSideFilter: function(e) {},
+		beforeServerSideSort: function(e) {},
+		afterServerSideSort: function(e) {},
+		onSwipe: function(e) {},
+		onScroll: function(e) {},
+		onPullRelease: function(e) {},
+		onPull: function(e) {},
+		onPullEnd: function(e) {},
+		afterSearchComplete: function(e) {},
+		beforeSearch: function(e) {},
+		onSearchResultTooLarge: function(e) {},
+		onSearchResultTooLargeForLocalStorage: function(e) {},
+		onBeforePersistToLocalStorage: function(e) {},
+		onPersistToLocalStorage: function(e) {},
+		onRestoreFromLocalStorage: function(e) {},
+		afterRenderComplete: function(e) {},
+		beforeFetchMore: function(e) {},
+		afterFetchMore: function(e) {},
+		beforePageNavigate: function(e) {},
+		afterPageNavigate: function(e) {},
+		beforeRefreshRow: function(e) {},
+		afterRefreshRow: function(e) {},
+		afterServerSideSummaryCompute: function(summary) {},
+		_afterAjaxCallback: function() {this._refreshStateMessages();}
+	},
+	_clientsideSummary: [],
+	computeClientSideSummaryValues: function(e) {},
+	_executeEvent: function(event,obj) { 
+	return DLG1_DlgObj._list_executeEvent('LIST_MENU',event,obj);
+}
+,
+	_selectAll: function() {
+	var v = this._values;
+	var v2 = [].concat(v);
+	this.setValue(v2,false);
+}
+,
+	searchList: function() { 
+	if(this._searchPartStyle == 'querybyform') { 
+		if(this._dvmode != 'search') return false;
+	}
+	var obj = typeof arguments[0] != 'undefined' ? arguments[0] : {};
+	var mode = 'serverSide';
+	if(typeof obj.searchMode != 'undefined') mode = obj.searchMode;
+	mode = mode.toLowerCase();
+	if(mode.indexOf('auto') == 0) { 
+		if(this.listIsDirty()) mode = 'clientside';
+		else {
+			if(this._dataSourceType.toLowerCase() == 'sql' || this._dataSourceType.toLowerCase() == 'dbf') {
+				mode = 'serverside';
+			} else { 
+				mode = 'clientside';
+			}
+		}
+	}
+	if(this._dataSourceType.toLowerCase() == 'static') mode = 'clientside';
+	var parentList = this.parentList;
+	if(typeof parentList != 'undefined') {
+		if(parentList != '') mode = 'clientside';
+	}
+	var flagDirty = false;
+	if(this.listIsDirty) flagDirty = this.listIsDirty();
+	var flagResult = DLG1_DlgObj._list_executeEvent(this.listVariableName,'beforeSearch',{searchMode: 'search', searchWhere: mode, listIsDirty: flagDirty});
+	if(!flagResult) return false;
+	if(mode == 'serverside') {
+		this._searchListServerSide(obj);
+	} else if(mode == 'clientside') { 
+		this._searchPartSubmit_clientSideFilter();
+		var rowCount = this._rData.length;
+		DLG1_DlgObj._list_executeEvent(this.listVariableName,'afterSearchComplete',{searchMode: 'search', searchWhere: mode, recordsInQuery: rowCount});
+	}
+}
+,
+	_searchListServerSide: function() { 
+	var obj = typeof arguments[0] != 'undefined' ? arguments[0] : {};
+	var _d={};
+	var flagDirty = false;
+	if(this.listIsDirty) flagDirty = this.listIsDirty();
+	if(flagDirty) { 
+		alert('Can\'t execute server-side search because List has edits that have not yet been synchronized.');
+		return false;
+	}
+	_d.listId = this.listVariableName
+	var _data = A5.ajax.buildURLParam('__searchInfo',JSON.stringify(_d));
+	_data = _data + '&' + A5.ajax.buildURLParam('__searchOptions',JSON.stringify(obj));
+	this.filter = false;
+	DLG1_DlgObj.ajaxCallback('','','system:ListSearchPart','',_data);
+}
+,
+	clearSearchList: function() { 
+	var obj = typeof arguments[0] != 'undefined' ? arguments[0] : {};
+	var mode = 'serverSide';
+	if(typeof obj.searchMode != 'undefined') mode = obj.searchMode;
+	mode = mode.toLowerCase();
+	if(mode.indexOf('auto') == 0) { 
+		if(this.listIsDirty()) mode = 'clientside';
+		else mode = 'serverside';
+	}
+	if(this._dataSourceType.toLowerCase() == 'static') mode = 'clientside';
+	var parentList = this.parentList;
+	if(typeof parentList != 'undefined') {
+		if(parentList != '') mode = 'clientside';
+	}
+	var flagResult = DLG1_DlgObj._list_executeEvent(this.listVariableName,'beforeSearch',{searchMode: 'clear', searchWhere: mode});
+	if(!flagResult) return false;
+	if(mode == 'serverside') {
+		this._clearSearchListServerSide();
+	} else if(mode == 'clientside') { 
+		this._searchPartSubmit_clientSideFilterClear();
+		var rowCount = this._rData.length;
+		DLG1_DlgObj._list_executeEvent(this.listVariableName,'afterSearchComplete',{searchMode: 'clear', searchWhere: mode, recordsInQuery: rowCount});
+	}
+}
+,
+	_clearSearchListServerSide: function() { 
+	var _d={};
+	_d.listId = this.listVariableName
+	var _data = A5.ajax.buildURLParam('__searchInfo',JSON.stringify(_d));
+	DLG1_DlgObj.ajaxCallback('','','system:ListSearchPartClear','',_data);
+}
+,
+	_str: function(txt) {
+	txt = txt.replace("'","\\'");
+	txt = '\'' + txt + '\'';
+	return txt;
+}
+,
+	_QBF: function(txt) { 
+	var o = {};
+	o.v2 = '';
+	o.v1 = txt;
+	o.flag = false;
+	if(txt.indexOf('>=') >= 0) {
+		o.op = '>=';
+		o.v1 = txt.substr(2);
+		o.flag = true;
+	} else if (txt.indexOf('<=') >= 0 ) { 
+		o.op = '<=';
+		o.v1 = txt.substr(2);
+		o.flag = true;
+	} else if (txt.indexOf('>') >= 0 ) {
+		o.op = '>';
+		o.v1 = txt.substr(1);
+		o.flag = true;
+	} else if (txt.indexOf('<') >= 0)  { 
+		o.op = '<';
+		o.v1 = txt.substr(1);
+		o.flag = true;
+	} else if (txt.indexOf('..') == 0)  {
+		o.op = '<=';
+		o.v1 = txt.substr(2);
+		o.flag = true;
+	} else if ( txt.indexOf('..', txt.length - '..'.length) !== -1 ) { 
+		//ends with ..
+		o.op = '>=';
+		txt = txt.split('..')
+		o.v1 = txt[0];
+		o.flag = true;
+	} else if (txt.indexOf('..') > 0 ) {
+		o.op = 'between'
+		txt = txt.split('..');
+		o.v1 = txt[0];
+		o.v2 = txt[1];
+		o.flag = true;
+	}
+	return o;
+}
+,
+	_match: function(data,field,val,obj) { 
+	var flagKeyword = false;
+	if(typeof obj.flagKeyword != 'undefined') flagKeyword = obj.flagKeyword;
+	if(flagKeyword) { 
+		var obj_i = this._searchFieldOptions[field.toUpperCase()];
+		this._setSearchOps(obj,obj_i);
+	}
+	var _d = '';
+	var _v = val;
+	var flagC = false;
+	if(obj.type == 'c') {
+		flagC = true;
+		if(!obj.caseSensitive) _v = _v.toLowerCase();
+	} else { 
+		//non mumeric searches are only mode 1 or -1
+		if(obj.mode > 1) obj.mode = 1;
+		if(obj.mode < -1) obj.mode = -1;
+	}
+	var flag = false;
+	obj.usesQBFOperator = false;
+	if(obj.qbf) { 
+		_v = _v.split(',');
+	} else {
+		_v = [_v];
+	}
+	var o = {}
+	var r = '';
+	var _vals = [];
+	for(var i = 0; i < _v.length; i++) { 
+		if(obj.qbf) {
+			o = this._QBF(_v[i]);
+		} else {
+			o.flag = false;
+			o.v1 = _v[i];
+			o.v2 = '';
+		}
+		if(typeof data[field] != 'undefined') {
+			if(data[field] != null) { 
+				_d = data[field];
+				if(obj.type == 'n') { 
+					o.v1 = Number(o.v1);
+					o.v2 = Number(o.v2);
+					_d = Number(_d);
+				} else if (obj.type == 'l') { 
+					o.v1 = $u.s.toBool(o.v1);
+					o.v2 = $u.s.toBool(o.v2);
+					_d = $u.s.toBool(_d);
+				} else if (obj.type == 'd') { 
+					o.v1 = A5.stringToDate(o.v1,obj.dateFormat);
+					o.v2 = A5.stringToDate(o.v2,obj.dateFormat);
+					if(typeof _d == 'string') _d = A5.stringToDate(_d,obj.dateFormat);
+					if(o.v1 != '' && o.v1 != null ) o.v1 = o.v1.getTime();
+					if(o.v2 != '' && o.v2 != null ) o.v2 = o.v2.getTime();
+					if(_d != '' && _d != null ) _d = _d.getTime();
+				}
+				if(flagC) {if(!obj.caseSensitive && typeof _d == 'string') _d = _d.toLowerCase();}
+				if(o.flag) { 
+					//has qbf operators
+					if(o.op == 'between') {
+						if(flagC) {
+							if(_d.substr(0,o.v1.length) >= o.v1 && _d.substr(0,o.v2.length) <= o.v2 ) flag = true;
+						} else { 
+							if(_d >= o.v1 && _d <= o.v2 && (typeof _d == typeof o.v1)  ) flag = true;
+						}
+					} else { 
+						if(flagC) _d = _d.substr(0,o.v1.length)
+						if(o.op == '>=') if( _d >= o.v1) flag = true;
+						if(o.op == '<=') if( _d <= o.v1) flag = true;
+						if(o.op == '>') if(_d > o.v1) flag = true;
+						if(o.op == '<') if(_d < o.v1) flag = true;
+					}
+				} else { 
+					if(obj.mode == 1 || obj.mode == -1 ) {
+						if(obj.mode == 1) if(_d == o.v1) flag = true;; //match
+						if(obj.mode == -1) if(!(_d == o.v1)) flag = true;; //match
+					} else if (obj.mode == 2 || obj.mode == -2) { 
+						if(obj.mode == 2) if(_d.indexOf(o.v1) > -1) flag = true; //contains
+						if(obj.mode == -2) if(!(_d.indexOf(o.v1) > -1)) flag = true;
+					} else if (obj.mode == 3 || obj.mode == -3) { 
+						if(obj.mode == 3) if(_d.indexOf(o.v1) == 0) flag = true; //starts with
+						if(obj.mode == -3) if(!(_d.indexOf(o.v1) == 0)) flag = true; //starts with
+					}
+				}
+				if(o.v1 != '') {
+					if(_vals.indexOf(o.v1) == -1) { 
+						_vals.push(o.v1);
+					}
+				}
+				if(o.v2 != '') {
+					if(_vals.indexOf(o.v2) == -1) { 
+						_vals.push(o.v2);
+					}
+				}
+			}
+		}
+	}
+	if(flag) { 
+		if(typeof this._state.highlight == 'undefined') this._state.highlight = {};
+		this._state.highlight[field.toUpperCase()] = _vals;
+	} else { 
+		//this._state.highlight[field.toUpperCase()] = [];
+	}
+	return flag;
+}
+,
+	_setSearchOps: function(obj,obj_i) { 
+	obj.mode = obj_i.option;
+	obj.qbf = obj_i.qbf;
+	obj.type = obj_i.type;
+	//obj.treatAs = obj_i.treatAs;
+}
+,
+	_searchPartOperator: '&&',
+	_searchPartSubmit_clientSideFilter: function() { 
+	if(!this._searchPartHas) return true;
+	//_searchPartStyle: 'individualcontrols'
+	this._state.highlight = {};
+	if(this._searchPartStyle == 'singlekeywordcontrol') { 
+		var searchFor = DLG1_DlgObj.getValue(this._keywordSearchControl);
+		var arr = this._keywordSearchFields;
+		var expn = [];
+		var expn_i = '';
+		var obj = {};
+		//obj.caseSensitive = false;
+		//obj.qbf = true;
+		//obj.mode = 1;
+		obj.flagKeyword = true;
+		var objStr = JSON.stringify(obj)
+		for(var i = 0; i < arr.length; i++) { 
+			expn_i = 'this._match(data,' +this._str(arr[i]) + ',' + this._str(searchFor) + ','+objStr+')';
+			expn.push(expn_i);
+		}
+		expn = expn.join('||');
+		//alert(expn);
+	} else if ( this._searchPartStyle == 'individualcontrols' || this._searchPartStyle == 'querybyform'  ) { 
+		var map = this._searchPart.fieldMap;
+		var val = '';
+		var expn = [];
+		var expn_i = '';
+		var obj = {};
+		obj.caseSensitive = false;
+		//obj.qbf = true;
+		//obj.mode = 2;
+		//var objStr = JSON.stringify(obj)
+		var ac = [];
+		var aco = {};
+		var _highlight = {};
+		if(this._searchPartStyle == 'individualcontrols') {
+			for(var i = 0; i < map.length; i++) { 
+				val = DLG1_DlgObj.getValue(map[i].control);
+				if(val != '') {
+					obj_i = this._searchFieldOptions[map[i].field.toUpperCase()];
+					this._setSearchOps(obj,obj_i);
+					expn_i = 'this._match(data,' +this._str(map[i].field) + ',' + this._str(val) + ','+JSON.stringify(obj)+')';
+					expn.push(expn_i);
+				}
+			}
+		} else if (this._searchPartStyle == 'querybyform' ) { 
+			var controlName = '';
+			for(var i = 0; i < this._listFields.length; i++) { 
+				controlName = this._getUXDetailViewControlName(this._listFields[i].name);
+				if(controlName != '') {
+					val = DLG1_DlgObj.getValue(controlName);
+					if(val != '') {
+						obj_i = this._searchFieldOptions[map[i].field.toUpperCase()];
+						this._setSearchOps(obj,obj_i);
+						expn_i = 'this._match(data,' +this._str(this._listFields[i].name) + ',' + this._str(val) + ','+JSON.stringify(obj)+')';
+						expn.push(expn_i);
+						aco.control = controlName;
+						aco.value = val;
+						ac.push(aco);
+					}
+				}
+			}
+			this.__queryByFormValues = ac;
+			DLG1_DlgObj._setDVClean(this);
+		}	
+		var operator = '&&';
+		if(typeof this._searchPartOperator != 'undefined') operator = this._searchPartOperator;
+		expn = expn.join(' '+operator+' ');
+	} 
+	if (this._showSearchDebugInfo) {
+		var ele = $('DLG1.V.R1.' + this._searchDebugPH);
+		if(ele) ele.innerHTML = expn;
+	}
+	//user did not fill in any search fields
+	if(expn == '') return true;
+	var fnTxt = 'if(' + expn + ') {return true;} else { return false;}'
+	var searchFunction = new Function('data',fnTxt);
+	this.setFilter(searchFunction);
+	if(this._rData.length > 0) this.setValue(0);
+}
+,
+	_searchPartSubmit_clientSideFilterClear: function() { 
+if(!this._searchPartHas) return true;
+	this._state.highlight = {};
+	this.setFilter(false);
+	var map = this._searchPart.fieldMap;
+	var val = '';
+	var od = DLG1_DlgObj.originalValues[0];
+	for(var i = 0; i < map.length; i++) {
+		var val = od[map[i].control.toUpperCase()];
+		if(typeof val != 'undefined') DLG1_DlgObj.setValue(map[i].control,val,false);
+	}
+	this.setFilter(false);
+	delete this.__queryByFormValues;
+	DLG1_DlgObj._setDVClean(this);
+	if(this._data.length > 0) this.setValue(0);
+	if (this._showSearchDebugInfo) {
+		var ele = $('DLG1.V.R1.' + this._searchDebugPH);
+		if(ele) ele.innerHTML = '';
+	}
+}
+,
+	detailViewIsDirty: function() { return false; },
+	populateUXControls: function() { return true; },
+	listIsDirty: function() { return false; },
+	lookupValue: function(key,name,keyValue) {	var _d = this._data;
+	var indx = A5FindPropInArray(_d,key,keyValue);
+	var rv = '';
+	if(indx >=0) {
+		if(name == '__rowData__') return _d[indx];
+		rv =  _d[indx][name];
+	} else {
+		//null out all properties in row
+		var _d2 = {};
+		if(typeof _d[0] == 'undefined') { return {}} ;
+		for(var n in _d[0]) {
+			_d2[n] = '&nbsp;';
+		}
+		rv = _d2;
+	}
+	return rv;
+}
+,
+	allowNullSelection: true,
+	allowNullDeselection: false,
+	loopNavigate: false,
+	loopNavigateNullSelection: false,
+	refreshChildLists: function() {DLG1_DlgObj._listRefreshCascadingLists('LIST_MENU'); },
+	rowExpander: function(rowNumber) { 
+	var mode = typeof arguments[2] != 'undefined' ? arguments[2] : 'toggle';
+	if(typeof rowNumber == 'undefined' || rowNumber == '' ) {
+		rowNumber = this.selection[0];
+		if(typeof rowNumber == 'undefined') return false;
+	}
+	var animObj = typeof arguments[1] != 'undefined' ? arguments[1] : {};
+	var ele = $(this._hostComponentId + '.' + this.listVariableName + '.ROWEXPANDER.' + rowNumber);
+	if(ele) {
+		if(mode == 'toggle') A5.u.element.toggle(ele,animObj);
+		if(mode == 'show') A5.u.element.show(ele,animObj);
+		if(mode == 'hide') A5.u.element.hide(ele,animObj);
+	}
+}
+,
+	afterClientSideSummaryCompute: function(csSummary) { },
+	selectCurrentLayout: function(name) { 
+var pl = this.layouts[name];
+if(typeof pl == 'undefined') return false;
+this.setLayout(name);
+if(pl.type == 'column') {
+	this.columnLayout.header.show = this.layouts[name].showColumnTitles; 
+	this.refresh();
+}
+},
+	onFilter: function() { 	var e = {}; 
+	e.rowCount = this._values.length;  
+	var ele = $('DLG1.__listId__.RECORDCOUNT'); 
+	if(ele) {ele.innerHTML = e.rowCount;}; 
+	if(this.persistToStorage) { this.persistToStorage({});} 
+	(function(e) {   })(e);
+}
+,
+	serverSideSort: function(column) {
+var e = {};
+e.column = column;
+var result = this.systemEvents.beforeServerSideSort(e);
+if(result == false) return false;
+var obj = {};
+obj.cmd = 'sort';
+obj.column = column;
+obj.layoutName = this.layout;
+obj.listState = this._state;
+var data = '_listId=LIST_MENU&' + A5.ajax.buildURLParam('_cmdObj',$u.o.toJSON(obj));
+DLG1_DlgObj.ajaxCallback('','','system:listServerSideSort','',data);
+},
+	filterListClientSide: function(searchFor) {
+//var result = this.systemEvents.beforeClientSideFilter();
+//if(result == false) return false;
+if(searchFor != '') {
+	//fixes bug in Chrome when searching on dates strings that use forward slashes
+	searchFor = searchFor.replace(/\//g,'\\/');
+	this.setFilter({'MenuName': RegExp('' + searchFor,'i'), 'Action': RegExp('' + searchFor,'i')});
+} else this.setFilter(false);
+var rowCount = this._values.length;
+//var e = {};
+//e.rowCount = rowCount;
+//this.systemEvents.afterClientSideFilter(e);
+var ele = $('DLG1.LIST_MENU.RECORDCOUNT');
+if(ele) ele.innerHTML = rowCount;
+}
+,
+	scrollToClosestValue: function(val) { 	
+	if(typeof val != 'string') val = val.join('');
+	var flagCI = typeof arguments[1] != 'undefined' ? arguments[1] : false;
+	var pos = typeof arguments[2] != 'undefined' ? arguments[2] : 'top';
+	var anim = typeof arguments[3] != 'undefined' ? arguments[3] : {}
+	var _d = this._rData;
+	var len = val.length;
+	var _d2;
+	var i2 = -1;
+	if(flagCI) val = val.toLowerCase();
+	for(var i = 0 ; i < _d.length; i++) {
+		i2 = i;
+		_d2 = String(_d[i]['*value']);
+		_d2 = _d2.substr(0,len);
+		_d2 = $u.s.pad(_d2,len,' ','l');
+		if(flagCI) _d2 = _d2.toLowerCase();
+		if(val <= _d2){
+			 break;
+		}
+	}
+	if(i2 > -1) { 
+		this.scrollToItem(i2,{mode: pos, animation: anim});
+	}
+}
+,
+	_refreshStateMessages: function() {
+	var ele = '';
+	ele = $('DLG1.LIST_MENU.PAGENUMBER');
+	if(ele) ele.innerHTML = this._state.page;
+	ele = $('DLG1.LIST_MENU.PAGECOUNT');
+	if(ele) ele.innerHTML = this._state.pageCount;
+	ele = $('DLG1.LIST_MENU.PAGECOUNT.PAGESELECTOR');
+	if(ele) ele.innerHTML = this._state.pageCount;	
+	ele = $('DLG1.LIST_MENU.LISTSTATE');
+	if(ele) {
+		var listState = $u.o.toJSON(this._state);
+		ele.innerHTML = listState;
+	}
+	//navigation buttons	
+	ele = DLG1_DlgObj._buttons['BUTTON_LISTNAV_NEXT.LIST_MENU'];
+	if(ele) {
+		if(this._state.page == this._state.pageCount || this._state.pageCount == 0) ele.setDisabled(true);
+		else ele.setDisabled(false);
+	}
+	ele = DLG1_DlgObj._buttons['BUTTON_LISTNAV_LAST.LIST_MENU'];
+	if(ele) {
+		if(this._state.page == this._state.pageCount || this._state.pageCount == 0) ele.setDisabled(true);
+		else ele.setDisabled(false);
+	}
+	ele = DLG1_DlgObj._buttons['BUTTON_LISTNAV_FIRST.LIST_MENU'];
+	if(ele) {
+		if(this._state.page == 1 || this._state.pageCount == 0) ele.setDisabled(true);
+		else ele.setDisabled(false);
+	}
+	ele = DLG1_DlgObj._buttons['BUTTON_LISTNAV_PREV.LIST_MENU'];
+	if(ele) {
+		if(this._state.page == 1 || this._state.pageCount == 0 ) ele.setDisabled(true);
+		else ele.setDisabled(false);
+	}
+	ele = $('DLG1.V.R1.A5SYSTEM_LIST_PAGESELECTOR_LIST_MENU');
+	if(ele) {
+		var data = this._recordNavigatorLinks;
+		if(data) A5.form.populateSelect(ele,this._state.page,data,true);
+	}
+}
+,
+	columnLayout: {
+		header: {
+			show: false
+		}
+	},
+	_getRoute: function() { 
+	var obj  = typeof arguments[1] != 'undefined' ? arguments[1] : [];
+	var mode = typeof arguments[0] != 'undefined' ? arguments[0] : 'rowNumber'; //
+	if(typeof this.selection[0] == 'undefined') return false;
+	if(typeof this.getData(this.selection[0]) == 'undefined') return false;
+	if(mode == 'rowNumber') obj.push({list: this.listVariableName, row: this.getData(this.selection[0])['*key']});
+	else obj.push({list: this.listVariableName, row: this.getData(this.selection[0]).__primaryKey});
+	for(var i = 0; i < this.childLists.length; i++) { 
+		var lname = this.childLists[i];
+		var lObj = window[this._hostComponentId + '_DlgObj'].getControl(lname);
+		if(lObj) lObj._getRoute(mode,obj);
+	}
+	return obj;
+}
+,
+	_setRoute: function(route) { 
+	if(typeof route == 'undefined') { 
+		route = this.__currentRoute;
+		if(typeof route == 'undefined') return false;
+	}
+	var lObj = '';
+	var row = '';
+	for(var i = 0; i < route.length; i++) {
+		lObj = window[this._hostComponentId + '_DlgObj'].getControl(route[i].list);
+		row = route[i].row;
+		var flag = typeof this._restoringList != 'undefined' ? !this._restoringList : true;
+		if(typeof row != 'undefined') {
+			var rowFixed = '';
+			if(typeof lObj._dataMap == 'undefined') return false;
+			//var msg = JSON.stringify(lObj._dataMap);
+			//alert('route[i].row:' + route[i].row + ' ------ ' + msg);
+			rowFixed = lObj._dataMap.indexOf(route[i].row);
+			lObj.setValue(rowFixed,flag);
+			if(this._clearServerSideErrors) this._clearServerSideErrors();
+			if(this._showServerSideErrors) this._showServerSideErrors();
+			if(this._showWriteConflictErrors) this._showWriteConflictErrors();
+		}
+	}
+}
+,
+	_useServerSideSyncLog: false,
+	_searchHighlighting: false
+};
+DLG1_DlgObj._listViewData['LIST_MENU'] = A5DataArrayToObject(['MenuName','Image','Action','Icon'],[['By Medical Condition','svgIcon=#cwcaduceus-blue:24','FindByCondition','svgIcon=#cwarrow:14'],['By Location','svgIcon=#cwmagnifier-tool-on-earth-globe:24','FindByLocation','svgIcon=#cwarrow:14'],['By Keywords','svgIcon=#cwkeyword-search:24','FindByKeywords','svgIcon=#cwarrow:14'],['Patient Communities','svgIcon=#cwCommunity:24','GotoCommunity','svgIcon=#cwarrow:14'],['Educational Materials','svgIcon=#cwEducation:24','FindEducationalMaterials','svgIcon=#cwarrow:14'],['My Profile','svgIcon=#cwprofile:24','MyProfile','svgIcon=#cwarrow:14']]);
+;
+DLG1_DlgObj.setStateInfo({ 	__dialogGuid: 'add404b6-aff6-44e9-8011-58bb0cab6656', 	__dtfmt: 'MM/dd/yyyy' });
+DLG1_DlgObj._controls['LIST_MENU'] =  { type: 'list',  data: DLG1_DlgObj._listViewData['LIST_MENU'],  settings: DLG1_DlgObj._listViewSettings['LIST_MENU'] }
+DLG1_DlgObj.setVariables({});
+DLG1_DlgObj._dataBoundControls = [];
+DLG1_DlgObj._primaryTableAlias = '';
+DLG1_DlgObj._listControlsInfo = {};
+DLG1_DlgObj._functions.__fillContainer_LIST_MENU = function() { 
+	var path = DLG1_PanelObj._panelPath['PANEL_MAIN'];
+	if(typeof path != 'undefined') {
+		var panel = DLG1_PanelObj.getPanel(path);
+		var id = panel.src.getPanelId('body');
+	} else {
+		var id = DLG1_PanelObj.getPanelId('body');
+	}
+	DLG1_DlgObj._listViewSettings['LIST_MENU'].containerId = id;
+	//blow away any existing content in the panel
+	$(id).innerHTML = '';
+}
+DLG1_DlgObj._functions.__fillContainer_LIST_MENU();
+DLG1_DlgObj._hasPanels = true;
+DLG1_DlgObj._hasOnSynchronizeEvent = false;
+A5.__dtfmt = 'MM/dd/yyyy';A5.__tfmt = '';
+A5.__flagWorkingPreview = false;
+A5.__flagIIS = false;
+A5.__flagSimulateIIS = true;
+DLG1_DlgObj._functions.calcOrientation = function() { 
+	if(typeof DLG1_DlgObj == 'undefined') return '';
+	var orientation = DLG1_DlgObj.getOrientation();
+	if( orientation == 'landscape') {
+			//landscape
+			if(DLG1_DlgObj._orientation != 'landscape') {
+				DLG1_DlgObj._fireWatches(1);	
+				DLG1_DlgObj._orientation = 'landscape';
+				DLG1_DlgObj._executeEvent('onOrientationChange',{orientation: 'landscape'});
+			}
+	} else {
+		//portrait
+		if(DLG1_DlgObj._orientation != 'portrait') {
+				DLG1_DlgObj._fireWatches(1);	
+				DLG1_DlgObj._orientation = 'portrait';
+				DLG1_DlgObj._executeEvent('onOrientationChange',{orientation: 'portrait'});
+			}
+	}
+}
+	A5.flags.cordovaLoaded = true;
+	try {
+		document.addEventListener('deviceready', function() { 
+			DLG1_DlgObj._executeEvent('onCordovaReady',{});
+			DLG1_DlgObj._executeEvent('onPhoneGapReady',{});
+			DLG1_DlgObj._cordovaReady = true;
+			navigator.geolocation.getAccuratePosition = function(geolocationSuccess, geolocationError, options) {
+	var _lastCheckedPosition = null;
+	var _locationEventCount = 0;
+	options = options || {};
+	options.context = this;
+    function _checkLocation(pos) {
+        _lastCheckedPosition = pos;
+        _locationEventCount++;
+        if ((pos.coords.accuracy <= options.desiredAccuracy) && (_locationEventCount > options.ignoreResultCount)) {
+            clearTimeout(_timerID);
+            navigator.geolocation.clearWatch(_watchID);
+            _foundPosition(pos);
+        } 
+    }
+    function _stopLocationCheck() {
+    	 var error = {};
+    	 error.code = 0;
+    	 error.message = 'Timeout: No results';
+        navigator.geolocation.clearWatch(_watchID);
+        _lastCheckedPosition ? _foundPosition(_lastCheckedPosition) : geolocationError.call(options.context,error);
+    }
+    function _onError(error) {
+        clearTimeout(_timerID);
+        navigator.geolocation.clearWatch(_watchID);
+        geolocationError.call(options.context,error);
+    }
+    function _foundPosition(pos) {
+        geolocationSuccess.call(options.context,pos);
+    }
+    if (!options.maxWait) {            
+    	options.maxWait = 10000; 
+    }	
+    if (!options.desiredAccuracy) {
+    	  options.desiredAccuracy = 20; 
+    }
+    if (!options.timeout) {
+        options.timeout = options.maxWait;
+	 }
+	 if (!options.ignoreResultCount) {
+	 		options.ignoreResultCount = 1;
+	 }
+    options.maximumAge = 0; 
+    options.enableHighAccuracy = true; 
+    var _watchID = navigator.geolocation.watchPosition(_checkLocation, _onError, options);
+    var _timerID = setTimeout(_stopLocationCheck, options.maxWait); 
+}
+		} , false);	
+	}
+	catch(err) {}
+DLG1_DlgObj._waitGif = 'css/A5System/Images/wait.gif';
+DLG1_DlgObj._embeddedUXComponents = {
+'FINDBYCONDITION' : {arguments: []},'FINDBYLOCATION' : {arguments: []},'FINDBYKEYWORDS' : {arguments: []},'COMMUNITIES' : {arguments: []},'EDUCATIONMATERIAL' : {arguments: []},'MYPROFILE' : {arguments: []}
+}
+DLG1_DlgObj._layoutMode = 'containerwidth';
+DLG1_DlgObj._responsiveRulesMode = 'firsttrue';
+DLG1_DlgObj.__controlNesting = {
+PANELHEADER_MAIN: [],
+PANELHEADER_COMMUNITIES: ['container:LEFT_BUTTONS'],
+LEFT_BUTTONS: [],
+PANELFOOTER_ANALYTICS: []
+}
+DLG1_DlgObj._listsDV = [];
+DLG1_DlgObj._listControls = ['LIST_MENU']
+DLG1_DlgObj._localStorageSettings = {namespace: 'ALPHA_CWHome',friendlyName: 'Center Watch Home',description: 'Home screen',persistVariableValues: false,__version: 1,persistComponentState: false,workingPreviewTestingFolder: 'Local Storage Testing',restore: {variables: true,data: false,state: true},compressData: true,minify: true,variablesToNotPersist: '',workingPreviewTestingMode: 'Filesystem',compressListData: true}
+DLG1_DlgObj.__r = ['3rkeltoSdQc=']
+DLG1_DlgObj._staticHTMLMode = false
+DLG1_DlgObj._EDITOR_EDITORSET = {};
+DLG1_DlgObj.styleName = 'iOS7';
+DLG1_DlgObj.styleVersion = 3
+DLG1_DlgObj.framesInfo = {
+};
+DLG1_DlgObj._noPersist = []
+$e.add('DLG1.V.R1.BUTTON_BACK',A5.d.evnts.click,function(e) {
+DLG1_DlgObj.panelSetActive('PANEL_MAIN', true);
+DLG1_DlgObj.destroyChildComponent('COMMUNITIES');
+},this,false,'DLG1.V.R1.BUTTON_BACK');
+
+DLG1_DlgObj.prepare();DLG1_DlgObj.populate(DLG1_DlgObj.originalValues[0]);
+DLG1_DlgObj._fireWatches(1);
+
+
+if(!A5.flags.isMobile) $e.add(window,'resize',DLG1_DlgObj._functions.calcOrientation);
+else $e.add(window,'orientationchange',DLG1_DlgObj._orientationChangeHandler,DLG1_DlgObj,true);
+DLG1_DlgObj._functions.calcOrientation();
+
+
+
+
+
+
+
+var listObj = DLG1_DlgObj.getControl('LIST_MENU');
+if(listObj) listObj._state.recordCount = 6;
+if(listObj) listObj._state.recordCountFormatted = '6';
+if(listObj) listObj._state.lastBreakValue = '<None>';
+if(listObj) listObj._state.pageCount = 0;
+if(listObj) listObj._state.pageSize = 20;
+if(listObj) {var ele = $('DLG1.LIST_MENU.RECORDCOUNT'); if(ele) ele.innerHTML = listObj._state.recordCountFormatted;};
+if(listObj) listObj._state.paginated = false;
+
+if(listObj) listObj._state.filter = '';
+if(listObj) listObj._state.having = '';
+if(listObj) listObj._state.order = '';
+if(listObj) listObj._state.filterParameters = '';
+if(listObj) listObj._state.highlight = {  };
+if(listObj) listObj._state.whereClause = '';
+if(listObj) listObj._state.whereParameters = '';
+		
+		var flagPersist = false;
+		if(typeof listObj._flagPersistDataOK != 'undefined') { 
+			if(listObj._flagPersistDataOK) { 
+				var data = listObj._data;
+				listObj.persistToStorage({mode:'populate', data: data});
+			}
+		}
+		
+		
+;
+DLG1_DlgObj._list_executeEvent('LIST_MENU','afterRenderComplete',{});
+
+if(listObj._refreshStateMessages) listObj._refreshStateMessages();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+setTimeout(function() { },0);
+DLG1_DlgObj._listsWithJSFuncDataSource = {};
+
+
+DLG1_DlgObj._executeEvent('onInitializeComplete');
+DLG1_DlgObj.initialized = true;
+
+
+
+
+
+
+
+DLG1_DlgObj._onRenderComplete = function() { DLG1_DlgObj._runJSOnLoad(); DLG1_DlgObj._findActiveLayoutRule(); }; 
+
+setTimeout(function() { var p = DLG1_DlgObj.panelGet('PANELNAVIGATOR_HOME'); if(p._sizing == 'window') { p._sizeWindow();} else { p.refresh(); } },100);
+setTimeout(function() {DLG1_DlgObj._executeEvent('onRenderComplete'); DLG1_DlgObj.flagRenderComplete = true;  DLG1_DlgObj._restoreFromLocalStorage(); },1);
+
+var o2 = 'portrait';
+if(window.innerHeight < window.innerWidth) o2 = 'landscape';
+DLG1_DlgObj._screen = {h: window.innerHeight, w: window.innerWidth, o: o2};
+
+DLG1_DlgObj._getOnlineStatus();
+try {
+window.addEventListener("offline",function() { DLG1_DlgObj._fireOnConnectionChangeEvent() });
+window.addEventListener("online",function() { DLG1_DlgObj._fireOnConnectionChangeEvent() });
+} catch(err){}
+
+
+setTimeout(function() {$e.execute('device.screen','a5resize')},1);
+setTimeout(function() { },10);;
+DLG1_DlgObj._activeLanguage = '<Default>';
+</script>
+<script>
+
+var _arr = [];
+_arr.push('<svg width="0" heigth="0">');
+_arr.push('	<defs>');
+_arr.push('		<symbol viewbox = "0 0 379.999 379.999" id = "cwkeyword-search" > ');
+_arr.push('		<g>');
+_arr.push('			<g>');
+_arr.push('				<g>');
+_arr.push('					<path d="M179.099,94.233c-8.055,0-15.489,4.167-20.932,11.734c-3.621,5.034-6.055,11.219-7.124,17.907H69.44     c-4.312,0-7.806,3.495-7.806,7.806c0,4.239,3.383,7.684,7.597,7.793v21.086c0,4.311,3.495,7.805,7.805,7.805     c4.312,0.001,7.805-3.495,7.805-7.806v-21.073h10.408l-0.001,21.074c0.001,4.311,3.495,7.806,7.807,7.806     c4.311,0,7.806-3.496,7.806-7.807v-21.073h40.184c1.071,6.688,3.503,12.872,7.124,17.907     c5.441,7.567,12.876,11.735,20.932,11.734c8.057,0,15.489-4.167,20.93-11.734c5-6.947,7.75-16.079,7.75-25.713     c0-9.634-2.752-18.766-7.75-25.713C194.588,98.4,187.155,94.232,179.099,94.233z M179.099,154.526     c-8.036,0-14.828-10.463-14.828-22.847c0-12.381,6.79-22.845,14.828-22.845c8.041,0,14.831,10.464,14.829,22.846     C193.928,144.063,187.139,154.526,179.099,154.526z" fill="#b47ad6"/>');
+_arr.push('					<path d="M368.088,310.574l-66.061-66.062c-7.292-7.289-16.664-11.221-26.202-11.82l-22.438-22.438     c33.337-53,26.958-124.013-19.145-170.118c-53.516-53.516-140.592-53.515-194.106,0c-53.515,53.515-53.515,140.591,0.001,194.106     c46.103,46.104,117.114,52.48,170.116,19.146l22.438,22.438c0.601,9.541,4.532,18.91,11.82,26.199l66.063,66.062     c15.883,15.883,41.632,15.881,57.514,0C383.968,352.209,383.971,326.459,368.088,310.574z M205.482,205.484     c-37.656,37.658-98.933,37.658-136.589,0c-37.661-37.66-37.66-98.935-0.001-136.593c37.656-37.659,98.93-37.659,136.59,0.002     C243.141,106.553,243.142,167.827,205.482,205.484z" fill="#b47ad6"/>');
+_arr.push('				</g>');
+_arr.push('			</g>');
+_arr.push('		</g>');
+_arr.push('		<g>');
+_arr.push('		</g>');
+_arr.push('		<g>');
+_arr.push('		</g>');
+_arr.push('		<g>');
+_arr.push('		</g>');
+_arr.push('		<g>');
+_arr.push('		</g>');
+_arr.push('		<g>');
+_arr.push('		</g>');
+_arr.push('		<g>');
+_arr.push('		</g>');
+_arr.push('		<g>');
+_arr.push('		</g>');
+_arr.push('		<g>');
+_arr.push('		</g>');
+_arr.push('		<g>');
+_arr.push('		</g>');
+_arr.push('		<g>');
+_arr.push('		</g>');
+_arr.push('		<g>');
+_arr.push('		</g>');
+_arr.push('		<g>');
+_arr.push('		</g>');
+_arr.push('		<g>');
+_arr.push('		</g>');
+_arr.push('		<g>');
+_arr.push('		</g>');
+_arr.push('		<g>');
+_arr.push('		</g>');
+_arr.push('		</symbol>');
+_arr.push('		<symbol viewbox = "0 0 485.216 485.216" id = "cwmagnifier-tool-on-earth-globe" > ');
+_arr.push('		<g>');
+_arr.push('			<g>');
+_arr.push('				<path d="M474.108,420.504l-91.807-91.839c-14.747,20.731-32.87,38.858-53.605,53.635l91.806,91.806    c14.813,14.813,38.793,14.813,53.606,0C488.917,459.302,488.917,435.312,474.108,420.504z" fill="#91DC5A"/>');
+_arr.push('				<path d="M394.236,197.119C394.236,88.255,305.981,0,197.117,0C88.255,0,0.001,88.255,0.001,197.119    s88.254,197.114,197.116,197.114C305.981,394.233,394.236,305.983,394.236,197.119z M220.101,291.534    c-1.984,10.981-1.214,22.593-5.538,33.108c-3.556,7.107,0.073,15.546-2.606,22.598c-4.958,0.499-9.759,1.508-14.839,1.508    c-83.604,0-151.626-68.027-151.626-151.629c0-32.875,10.781-63.108,28.621-87.986c-0.518,2.1-1.05,4.203-1.094,6.396    c-0.521,8.274,0.917,17.235,6.531,23.662c2.856,3.747,7.908,4.886,10.587,8.839c3.433,4.8,10.352,4.812,13.726,9.698    c3.05,4.175,6.396,8.146,9.565,12.249c2.31,2.87,2.875,7.208,6.44,8.942c8.102,4.116,18.039,2.961,25.72,8.13    c13.357,7.803,26.243,16.762,40.737,22.39c4.991,2.324,12.424-0.327,15.59,5.253c2.387,6.606-5.33,10.529-6.424,16.423    c-0.842,3.733,0.679,8.142-2.161,11.225c2.989,7.399,7.906,13.831,12.272,20.43c3.631,5.302,10.058,7.705,13.861,12.797    C222.054,280.454,220.604,286.288,220.101,291.534z M231.236,344.538c2.028-4.116,3.704-8.405,6.604-12.022    c1.54-1.745,0.947-5.181,3.82-5.68c4.175-0.92,9.829-0.477,11.546-5.423c-0.621-0.621-1.186-1.274-1.745-1.862    c2.608-0.065,5.185-0.299,7.789-0.271c5.899-7.668,12.886-14.57,17.119-23.34c2.455-4.615,8.531-4.672,11.729-8.494    c2.692-2.931,5.866-5.656,7.695-9.273c1.251-5.12-0.62-11.131,2.969-15.578c3.463-3.995,8.111-7.458,9.03-12.998    c1.032-3.379-1.129-6.723-4.148-8.086c-9.979-5.036-22.122-4.056-31.508-10.543c-2.875-2.606-1.871-7.208-4.359-10.13    c-3.257-4.308-8.938-5.047-13.739-6.56c-3.906-1.02-6.66-4.161-10.247-5.834c-8.707-4.335-18.51-6.515-28.224-5.967    c-3.818,0.166-7.757,1.631-9.743,5.11c-1.006,2.072-3.388,0.712-4.898,0.103c-7.775-3.834-16.214-7.787-20.969-15.429    c-0.99-1.879-2.961-2.726-4.765-3.584c0.931-4.189,4.737-7.372,4.352-11.89c-4.933-1.659-9.908,0.964-14.881,0.383    c-3.066-0.458-2.728-4.233-3.038-6.543c-0.606-4.576,0.432-9.742,4.501-12.482c5.02-3.643,11.729-7.537,18.022-4.826    c5.302,2.264,5.407,9.388,10.396,11.99c2.947-4.987-0.829-10.51-0.875-15.737c2.873-4.235,7.598-6.515,11.257-9.922    c2.679-2.072-1.141-5.538,1.153-7.803c4.487-6.13,9.183-12.571,15.919-16.377c4.485-2.618,9.743-0.31,14.601-0.681    c3.792-1.244,5.833-5.167,9.299-6.945c5.092-3.003,11.225-2.471,16.792-1.524c-1.866-3.715-3.463-9.504-8.265-9.997    c-3.823,1.407-4.798,6.665-8.976,7.88c-3.937,2.294-7.787-0.919-10.363-3.704c-4.592,1.883-9.285,3.659-14.186,4.579    c10.069-4.459,21.114-6.459,30.943-11.477c1.451-0.861,4.06-2.224,2.818-4.249c-3.085-5.657-9.772-8.13-12.914-13.773    c-2.044-2.961-2.31-7.019-5.062-9.432c-3.941-1.717-8.025,2.324-11.994,0.521c-4.947-2.401-8.396-7.451-13.98-8.59    c-3.08-0.698-7.12-1.468-9.521,1.111c-1.689,5.433,2.28,10.557,2.518,15.917c-2.177,4.205-3.376,8.751-4.844,13.222    c-0.917,3.199-4.411,4.578-7.477,3.869c-0.147-3.11,1.659-7.747-2.236-9.227c-7.374-2.978-15.058-5.274-22.285-8.574    c-4.756-1.645-9.565-6.958-6.025-11.966c4.562-6.13,11.906-9.136,17.709-13.8c0.518-0.399,0.961-0.931,1.438-1.407    c5.698-0.651,11.266-1.731,17.128-1.731c3.72,0,7.197,0.831,10.855,1.097c-1.972,1.094-3.953,2.175-5.687,3.626    c2.873,1.438,6.144,0.858,9.225,1.333c7.33,0.371,11.966,8.055,19.31,8.127c1.513-3.731-4.531-2.975-5.196-6.025    c2.856-0.311,6.027,1.064,8.629-0.43c0.267-1.407-0.324-2.235-1.122-2.933c9.402,2.312,18.461,5.407,27.095,9.388    c-0.023,0.712,0.047,1.421-0.5,2.18c-1.866,3.643-8.592,2.175-8.736,6.765c2.604,6.679,7.762,12.232,13.176,16.837    c3.733,2.756,9.623,5.376,13.684,1.822c3.468-3.376,4.709-9.15,8.237-12.349c37.784,27.601,62.66,71.92,62.66,122.191    C348.746,268.95,298.407,328.964,231.236,344.538z" fill="#91DC5A"/>');
+_arr.push('			</g>');
+_arr.push('		</g>');
+_arr.push('		<g>');
+_arr.push('		</g>');
+_arr.push('		<g>');
+_arr.push('		</g>');
+_arr.push('		<g>');
+_arr.push('		</g>');
+_arr.push('		<g>');
+_arr.push('		</g>');
+_arr.push('		<g>');
+_arr.push('		</g>');
+_arr.push('		<g>');
+_arr.push('		</g>');
+_arr.push('		<g>');
+_arr.push('		</g>');
+_arr.push('		<g>');
+_arr.push('		</g>');
+_arr.push('		<g>');
+_arr.push('		</g>');
+_arr.push('		<g>');
+_arr.push('		</g>');
+_arr.push('		<g>');
+_arr.push('		</g>');
+_arr.push('		<g>');
+_arr.push('		</g>');
+_arr.push('		<g>');
+_arr.push('		</g>');
+_arr.push('		<g>');
+_arr.push('		</g>');
+_arr.push('		<g>');
+_arr.push('		</g>');
+_arr.push('		</symbol>');
+_arr.push('		<symbol viewbox = "0 0 535.579 535.579" id = "cwprofile" > ');
+_arr.push('		<g>');
+_arr.push('			<g>');
+_arr.push('				<g>');
+_arr.push('					<path d="M368.288,529.163c0,0,69.858-5.228,104.788-63.442c34.929-58.216-69.858-204.347-69.858-204.347     s-58.215,63.442-139.715,58.215c-81.5-5.228-116.431-58.215-116.431-58.215S18.997,377.804,65.57,470.948     S368.288,529.163,368.288,529.163z" fill="#006DF0"/>');
+_arr.push('					<circle cx="275.791" cy="150.712" r="150.712" fill="#006DF0"/>');
+_arr.push('				</g>');
+_arr.push('			</g>');
+_arr.push('			<g>');
+_arr.push('			</g>');
+_arr.push('			<g>');
+_arr.push('			</g>');
+_arr.push('			<g>');
+_arr.push('			</g>');
+_arr.push('			<g>');
+_arr.push('			</g>');
+_arr.push('			<g>');
+_arr.push('			</g>');
+_arr.push('			<g>');
+_arr.push('			</g>');
+_arr.push('			<g>');
+_arr.push('			</g>');
+_arr.push('			<g>');
+_arr.push('			</g>');
+_arr.push('			<g>');
+_arr.push('			</g>');
+_arr.push('			<g>');
+_arr.push('			</g>');
+_arr.push('			<g>');
+_arr.push('			</g>');
+_arr.push('			<g>');
+_arr.push('			</g>');
+_arr.push('			<g>');
+_arr.push('			</g>');
+_arr.push('			<g>');
+_arr.push('			</g>');
+_arr.push('			<g>');
+_arr.push('			</g>');
+_arr.push('		</g>');
+_arr.push('		<g>');
+_arr.push('		</g>');
+_arr.push('		<g>');
+_arr.push('		</g>');
+_arr.push('		<g>');
+_arr.push('		</g>');
+_arr.push('		<g>');
+_arr.push('		</g>');
+_arr.push('		<g>');
+_arr.push('		</g>');
+_arr.push('		<g>');
+_arr.push('		</g>');
+_arr.push('		<g>');
+_arr.push('		</g>');
+_arr.push('		<g>');
+_arr.push('		</g>');
+_arr.push('		<g>');
+_arr.push('		</g>');
+_arr.push('		<g>');
+_arr.push('		</g>');
+_arr.push('		<g>');
+_arr.push('		</g>');
+_arr.push('		<g>');
+_arr.push('		</g>');
+_arr.push('		<g>');
+_arr.push('		</g>');
+_arr.push('		<g>');
+_arr.push('		</g>');
+_arr.push('		<g>');
+_arr.push('		</g>');
+_arr.push('		</symbol>');
+_arr.push('		<symbol viewbox = "0 0 920.828 920.828" id = "cwcaduceus-blue" > ');
+_arr.push('		<g>');
+_arr.push('			<g>');
+_arr.push('				<path d="M401.867,239.564v-42.1c-34.399-33.4-57.699-77.8-97.1-105.9c-44.8-31.9-99.8-43.4-153.8-35.4    c-46.4,6.9-98.7,17.9-144.2,1.2c-4.1-1.5-8,2.5-6.4,6.5c13.8,34.9,68.7,141.6,220,153.3    C332.567,225.864,377.867,232.164,401.867,239.564z" fill="#3293d9"/>');
+_arr.push('				<path d="M913.968,57.464c-45.5,16.7-97.8,5.7-144.2-1.2c-54-8-109,3.5-153.8,35.4c-39.4,28-62.7,72.4-97.101,105.9v42.1    c24-7.4,69.301-13.8,181.5-22.5c151.2-11.7,206.101-118.4,220.101-153.2C922.067,59.964,918.067,55.964,913.968,57.464z" fill="#3293d9"/>');
+_arr.push('				<path d="M419.367,157.564c5.101,4.7,11,8.6,17.5,11.3v208.4l-17.5-8.3l-17.5-8.3l-79.899-37.7h57.399c10,0,18.5-6.5,21.5-15.5    c0.801-2.3,1.2-4.7,1.2-7.2v-22.4c0-2.5-0.399-5-1.2-7.2c-3-9-11.5-15.5-21.5-15.5h-98c-12.6,0-22.7,10.2-22.7,22.7v75.2    c0,9,5.3,17.101,13.4,20.7l110.7,49.8l-68.3,40.8c-6.9,4.101-11.101,11.5-11.101,19.5v10.4c0,8.8,5.101,16.8,13.101,20.6    l71.5,33.601l-46.7,26.1c-7.2,4-11.6,11.601-11.6,19.8v10.9c0,8.7,5,16.7,12.8,20.5l49.3,23.9l-44.7,31    c-6.1,4.199-9.8,11.199-9.8,18.699v14.4c0,9.2,5.6,17.5,14.1,21l41.601,17.2l-17.2,17.1c-4.3,4.3-6.7,10-6.7,16.101l0,0    c0,9,5.3,17.1,13.4,20.699l3.8,1.7c4.9,2.2,10.4,2.601,15.5,1.101c1.3-0.4,2.6-0.9,3.9-1.5l13.6-6.801l17.5-8.699v54.1    c0,12.2,9.8,22,22,22h2.9c12.199,0,22-9.8,22-22v-53.9l17.5,8.7l13.6,6.7c1.2,0.6,2.5,1.1,3.9,1.5c5.1,1.5,10.6,1.1,15.5-1.1    l3.8-1.7c8.2-3.7,13.399-11.8,13.399-20.7l0,0c0-6-2.399-11.8-6.699-16.1l-16.9-17.2l41.6-17.2c8.5-3.5,14.101-11.8,14.101-21    v-14.5c0-7.5-3.601-14.4-9.8-18.7l-44.7-31l49.3-23.899c7.8-3.801,12.8-11.7,12.8-20.5v-10.9c0-8.2-4.399-15.8-11.6-19.8l-46.7-26    l71.5-33.601c8-3.699,13.1-11.8,13.1-20.6v-10.4c0-8-4.199-15.399-11.1-19.5l-68.3-40.8l110.8-49.7    c8.2-3.699,13.4-11.8,13.4-20.699v-75.2c0-12.6-10.2-22.7-22.7-22.7l-97.9-0.3c-10,0-18.5,6.5-21.5,15.5c-0.8,2.3-1.2,4.7-1.2,7.3    v22.4c0,2.5,0.4,5,1.2,7.3c3,9,11.5,15.5,21.5,15.5l57.2,0.3l-80,37.5l-17.5,8.3l-17.5,8.3v-208.5c6.5-2.8,12.4-6.6,17.5-11.3    c8.4-7.8,14.6-18.1,17.5-29.6c1.2-4.7,1.8-9.5,1.8-14.6c0-5-0.6-9.9-1.8-14.6c-1.5-5.9-3.8-11.5-6.9-16.6    c-10.6-17.4-29.699-29.1-51.6-29.1s-41,11.6-51.6,29.1c-3.101,5.1-5.4,10.7-6.9,16.6c-1.2,4.7-1.8,9.5-1.8,14.6    c0,5,0.6,9.9,1.8,14.6C404.768,139.464,410.968,149.664,419.367,157.564z M436.867,618.364l-35.199-18.8l35.199-18.8V618.364z     M387.867,487.165l49-24.801v49.601L387.867,487.165z M401.668,701.964l35.199-18.8v37.6L401.668,701.964z M483.768,720.764v-37.5    l35.2,18.8L483.768,720.764z M483.768,618.364v-37.5l35.2,18.801L483.768,618.364z M532.768,487.165l-49,24.8v-49.601    L532.768,487.165z" fill="#3293d9"/>');
+_arr.push('			</g>');
+_arr.push('		</g>');
+_arr.push('		<g>');
+_arr.push('		</g>');
+_arr.push('		<g>');
+_arr.push('		</g>');
+_arr.push('		<g>');
+_arr.push('		</g>');
+_arr.push('		<g>');
+_arr.push('		</g>');
+_arr.push('		<g>');
+_arr.push('		</g>');
+_arr.push('		<g>');
+_arr.push('		</g>');
+_arr.push('		<g>');
+_arr.push('		</g>');
+_arr.push('		<g>');
+_arr.push('		</g>');
+_arr.push('		<g>');
+_arr.push('		</g>');
+_arr.push('		<g>');
+_arr.push('		</g>');
+_arr.push('		<g>');
+_arr.push('		</g>');
+_arr.push('		<g>');
+_arr.push('		</g>');
+_arr.push('		<g>');
+_arr.push('		</g>');
+_arr.push('		<g>');
+_arr.push('		</g>');
+_arr.push('		<g>');
+_arr.push('		</g>');
+_arr.push('		</symbol>');
+_arr.push('		<symbol viewbox = "0 0 50 50" id = "cwarrow" > <rect fill="none" height="50" width="50"/><polygon points="15,2.75 12.914,4.836 33.078,25 12.914,45.164 15,47.25 37.25,25 "/>');
+_arr.push('		</symbol>');
+_arr.push('		<symbol viewbox = "0 0 297.23 297.23" id = "cwCommunity" > ');
+_arr.push('		  <g>');
+_arr.push('		    <path d="m149.416,61.02c14.139,0 25.642-11.503 25.642-25.642 0-14.139-11.503-25.642-25.642-25.642s-25.642,11.503-25.642,25.642c0,14.139 11.503,25.642 25.642,25.642z" fill="#f0a505"/>');
+_arr.push('		    <path d="m108.813,139.678h80.845c5.265,0 9.533-4.268 9.533-9.533v-35.25c0-9.758-6.271-18.41-15.544-21.448l-.043-.014-13.563-2.246c-1.154-0.355-2.388,0.256-2.803,1.395l-15.389,42.224c-0.888,2.436-4.333,2.436-5.221,0l-15.389-42.224c-0.335-0.92-1.203-1.496-2.133-1.496-0.22,0-0.445,0.033-0.667,0.101l-13.566,2.243c-9.349,3.115-15.595,11.782-15.595,21.582v35.133c0.002,5.265 4.27,9.533 9.535,9.533z" fill="#f0a505"/>');
+_arr.push('		    <path d="m50.188,208.836c14.139,0 25.642-11.503 25.642-25.642s-11.503-25.642-25.642-25.642c-14.139,0-25.642,11.503-25.642,25.642s11.503,25.642 25.642,25.642z" fill="#f0a505"/>');
+_arr.push('		    <path d="m84.368,221.262l-.043-.014-13.563-2.246c-1.154-0.355-2.388,0.256-2.803,1.395l-15.389,42.224c-0.888,2.436-4.333,2.436-5.221,0l-15.389-42.224c-0.335-0.92-1.203-1.496-2.133-1.496-0.22,0-0.445,0.033-0.667,0.101l-13.566,2.243c-9.348,3.115-15.594,11.782-15.594,21.582v35.133c0,5.265 4.268,9.533 9.533,9.533h80.845c5.265,0 9.533-4.268 9.533-9.533v-35.25c0-9.757-6.27-18.41-15.543-21.448z" fill="#f0a505"/>');
+_arr.push('		    <path d="m247.277,208.836c14.139,0 25.642-11.503 25.642-25.642s-11.503-25.642-25.642-25.642c-14.139,0-25.642,11.503-25.642,25.642s11.502,25.642 25.642,25.642z" fill="#f0a505"/>');
+_arr.push('		    <path d="m281.686,221.262l-.043-.014-13.563-2.246c-1.154-0.355-2.388,0.256-2.803,1.395l-15.389,42.224c-0.888,2.436-4.333,2.436-5.221,0l-15.389-42.224c-0.335-0.92-1.203-1.496-2.133-1.496-0.22,0-0.445,0.033-0.667,0.101l-13.566,2.243c-9.349,3.115-15.595,11.782-15.595,21.582v35.133c0,5.265 4.268,9.533 9.533,9.533h80.845c5.265,0 9.533-4.268 9.533-9.533v-35.25c0.002-9.757-6.269-18.41-15.542-21.448z" fill="#f0a505"/>');
+_arr.push('		    <path d="m157.872,146.894h-16.922v38.55l-39.834,39.834c3.606,4.936 5.679,10.989 5.679,17.431v0.822l42.616-42.617 40.975,40.976c0.205-6.527 2.528-12.62 6.417-17.515l-38.931-38.931v-38.55z" fill="#f0a505"/>');
+_arr.push('		    <path d="m155.539,71.055c-0.667-0.726-1.641-1.092-2.627-1.092h-7.353c-0.986,0-1.96,0.365-2.627,1.092-1.032,1.124-1.182,2.748-0.449,4.018l3.93,5.925-1.84,15.522 3.623,9.638c0.353,0.969 1.724,0.969 2.078,0l3.623-9.638-1.84-15.522 3.93-5.925c0.733-1.27 0.584-2.894-0.448-4.018z" fill="#f0a505"/>');
+_arr.push('		    <path d="m56.259,218.901c-0.667-0.726-1.641-1.092-2.627-1.092h-7.353c-0.986,0-1.96,0.365-2.627,1.092-1.032,1.124-1.182,2.748-0.449,4.018l3.93,5.925-1.84,15.521 3.623,9.638c0.353,0.969 1.724,0.969 2.077,0l3.623-9.638-1.84-15.521 3.93-5.925c0.734-1.269 0.585-2.893-0.447-4.018z" fill="#f0a505"/>');
+_arr.push('		    <path d="m253.577,218.901c-0.667-0.726-1.641-1.092-2.627-1.092h-7.353c-0.986,0-1.96,0.365-2.627,1.092-1.032,1.124-1.182,2.748-0.449,4.018l3.93,5.925-1.84,15.521 3.623,9.638c0.353,0.969 1.724,0.969 2.077,0l3.623-9.638-1.84-15.521 3.93-5.925c0.735-1.269 0.585-2.893-0.447-4.018z" fill="#f0a505"/>');
+_arr.push('		  </g>');
+_arr.push('		</symbol>');
+_arr.push('		<symbol viewbox = "0 0 791.803 791.803" id = "cwEducation" > ');
+_arr.push('		<g>');
+_arr.push('			<path d="M395.904,475.016l-236.203-72.7v71.524v49.896c0,56.133,105.787,101.644,236.274,101.644   c130.48,0,236.285-45.511,236.285-101.644c0-0.442-0.145-0.886-0.154-1.318V402.316L395.904,475.016z" fill="#808080"/>');
+_arr.push('			<path d="M0,318.734l84.383,30.185l7.191-15.401l31-2.635l4.42,4.599l-26.601,6.308l-3.877,11.475   c-0.007,0-60.087,125.604-51.263,187.05c0,0,37.502,22.37,74.988,0l9.962-168v-13.984l55.8-12.588l-3.941,9.705l-41.604,13.529   l19.242,6.874l236.203,72.7l236.201-72.7l159.699-57.116l-395.9-152.313L0,318.734z" fill="#808080"/>');
+_arr.push('		</g>');
+_arr.push('		<g>');
+_arr.push('		</g>');
+_arr.push('		<g>');
+_arr.push('		</g>');
+_arr.push('		<g>');
+_arr.push('		</g>');
+_arr.push('		<g>');
+_arr.push('		</g>');
+_arr.push('		<g>');
+_arr.push('		</g>');
+_arr.push('		<g>');
+_arr.push('		</g>');
+_arr.push('		<g>');
+_arr.push('		</g>');
+_arr.push('		<g>');
+_arr.push('		</g>');
+_arr.push('		<g>');
+_arr.push('		</g>');
+_arr.push('		<g>');
+_arr.push('		</g>');
+_arr.push('		<g>');
+_arr.push('		</g>');
+_arr.push('		<g>');
+_arr.push('		</g>');
+_arr.push('		<g>');
+_arr.push('		</g>');
+_arr.push('		<g>');
+_arr.push('		</g>');
+_arr.push('		<g>');
+_arr.push('		</g>');
+_arr.push('		</symbol>');
+_arr.push('	</defs>');
+_arr.push('</svg>');
+_arr.push('');
+_arr.push('<?xml version="1.0" encoding="iso-8859-1"?>');
+_arr.push('<!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->');
+_arr.push('<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">');
+_arr.push('<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"');
+_arr.push('	 width="510px" height="510px" viewBox="0 0 510 510" style="enable-background:new 0 0 510 510;" xml:space="preserve">');
+_arr.push('<g>');
+_arr.push('	<g id="add-circle">');
+_arr.push('		<path d="M255,0C114.75,0,0,114.75,0,255s114.75,255,255,255s255-114.75,255-255S395.25,0,255,0z M382.5,280.5h-102v102h-51v-102');
+_arr.push('			h-102v-51h102v-102h51v102h102V280.5z"/>');
+_arr.push('	</g>');
+_arr.push('</g>');
+_arr.push('<g>');
+_arr.push('</g>');
+_arr.push('<g>');
+_arr.push('</g>');
+_arr.push('<g>');
+_arr.push('</g>');
+_arr.push('<g>');
+_arr.push('</g>');
+_arr.push('<g>');
+_arr.push('</g>');
+_arr.push('<g>');
+_arr.push('</g>');
+_arr.push('<g>');
+_arr.push('</g>');
+_arr.push('<g>');
+_arr.push('</g>');
+_arr.push('<g>');
+_arr.push('</g>');
+_arr.push('<g>');
+_arr.push('</g>');
+_arr.push('<g>');
+_arr.push('</g>');
+_arr.push('<g>');
+_arr.push('</g>');
+_arr.push('<g>');
+_arr.push('</g>');
+_arr.push('<g>');
+_arr.push('</g>');
+_arr.push('<g>');
+_arr.push('</g>');
+_arr.push('</svg>');
+var _svg = _arr.join('');
+delete _arr;
+var ele = document.createElement('div');
+ele.id = '_alphaAnywhereSVGIconsLinked';
+ele.style.display = 'none';
+var ele2 = $('_alphaAnywhereSVGIconsLinked');
+if(!ele2) { 
+	ele.innerHTML = _svg;
+	document.body.appendChild(ele);
+}
+
+</script>
+</body>
+</html>

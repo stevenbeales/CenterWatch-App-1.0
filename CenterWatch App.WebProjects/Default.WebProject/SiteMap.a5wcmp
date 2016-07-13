@@ -1,0 +1,844 @@
+{
+    "$schema": "UX",
+    "$definition": {
+        "style_name": "iOS7",
+        "style_type": "Alpha Five",
+        "resolveAbstractClassNames": true,
+        "builderVersionNumber": 1,
+        "overrideStyleName": "Default",
+        "FontSize": "Medium",
+        "A5ContainerClassPadding": "0px",
+        "A5ContainerClassPaddingForContainerWidthMode": "4px",
+        "JavaScriptFunctionDeclarations": "/* For iOS only with cordova-background-geolocation-lt plugin\n* See: https://github.com/transistorsoft/cordova-background-geolocation-lt\n* \n*\n* Tested on: iPhone 6, iOS Version: 9.2.1\n*\n* See onPhoneGapReady event handler for initialization code\n*\n* Make sure to include below in PhoneGap config xml file:\n* Required for iOS 9, include audio and airplay for debug only\n*\n* <gap:config-file platform=\"ios\" parent=\"UIBackgroundModes\" overwrite=\"true\">\n*    \t<array>\n*        \t<string>location</string>\n*\t\t\t<string>audio</string>\n*\t\t\t<string>airplay</string>\n*   \t\t</array>\n* </gap:config-file>\n*\n*/\n\n\n// initializeGeo is called by onPhoneGapReady event\nfunction initializeGeo() {\n\t\n\tvar prefix = '{dialog.ComponentName}.V.R1.';\n\t\n\t// init ele pointers, used for efficiency in callbacks\n\t{dialog.object}._latEle = $(prefix + 'LAT_TEXT'); \n\t{dialog.object}._lonEle = $(prefix + 'LON_TEXT');\n\t{dialog.object}._mapObj = {dialog.object}.getControl('map1');\n\t\n\t// initialize _mapMarkerNumber\n\t{dialog.object}._mapMarkerNumber = 0;\n\t\n\n\t// The app must execute at least one call for the current position from the stock geolocation plugin in order to\n\t// prompt the use for location permission.\n\n\twindow.navigator.geolocation.getCurrentPosition(function(obj) {\n\t\tconsole.log('getCurrentPosition: '+ JSON.stringify(obj));\n\t});\n\t\n\t//instantiate global _bgGeo object\n\t{dialog.object}._bgGeo = window.BackgroundGeolocation;\n\n\t// set _bgGeo options\n\tvar backgroundGeoOptions = {\n\t\t// geolocation config\n\t\tdesiredAccuracy: 10,\n\t\tstationaryRadius: 10,\n\t\tdistanceFilter: 10,\n\t\tactivityRecognitionInterval: 1000,\n\t\tstopTimeout: 5,\n\t\tactivityType: 'AutomotiveNavigation',\n\t\t\n\t\t// application config\n\t\tdebug: true,\n\t\tstopOnTerminate: true\t\n\t}\n\t// set initial configuration\n\t{dialog.object}._bgGeo.configure(backgroundGeoSuccess,geoFail,backgroundGeoOptions);\n\t\n\t// set style on iOS status bar, force panel card resize\n\tStatusBar.overlaysWebView(false);\n\tStatusBar.styleDefault();\n\n\tsetTimeout(function() {\n\t\tvar pObj = {dialog.object}.getPanelObject();\n\t\tpObj.resize();\n\t},100);\n}\n\nfunction startTrackingGeolocation() {\t\n\tvar geoOptions = {\n\t\tenableHighAccuracy: true,\n\t\tmaximumAge: 10000\n\t}\n\t\n\t{dialog.object}._latEle.innerHTML='Determining Lat, wait ...';\n\t{dialog.object}._lonEle.innerHTML='Determining Lon, wait ...';\n\t\n\t// for foreground tracking\n\t//{dialog.object}._watchId = navigator.geolocation.watchPosition(geoSuccess,geoFail,geoOptions);\n\t\n\t// for background tracking\n\t{dialog.object}._bgGeo.start();\n\t{dialog.object}._bgGeo.getCurrentPosition(function(location,taskId) {\n\t\t\tprocessResult(location);\n\t\t\t{dialog.object}._bgGeo.finish(taskId);\n\t\t}, function(e) {\n\t\t\talert('Error: getCurrentPosition error code: ' + e);\n\t\t}, {\n\t\t\ttimeout: 30,\n\t\t\tmaximumAge: 5000,\n\t\t\tminimumAccuary: 10\n\t\t}\n\t);\n}\n\nfunction stopTrackingGeolocation() {\n\t// navigator.geolocation.clearWatch({dialog.object}._watchId);\n\t{dialog.object}._bgGeo.stop();\n\t{dialog.object}._latEle.innerHTML='Not tracking';\n\t{dialog.object}._lonEle.innerHTML='Not tracking';\n}\n\nfunction processResult(location) {\n\n\ttry {\n\t\tconsole.log('geoSuccess: location = ' + JSON.stringify(location));\n\t\t{dialog.object}._mapMarkerNumber++;\n\t\t\n\t\tvar mapId = 'marker_' + {dialog.object}._mapMarkerNumber;\n\t\tvar loc = location.coords.latitude + ',' + location.coords.longitude;\n\t\n\t\t{dialog.object}._latEle.innerHTML = location.coords.latitude;\n\t\t{dialog.object}._lonEle.innerHTML = location.coords.longitude;\n\t\t\n\t\tvar settings = {\n\t\t\ticon: {\n\t\t\t\tanchor: {\n\t\t\t\t}\n\t\t\t},\n\t\t\tdetail: {\n\t\t\t\thas: false\n\t\t\t},\n\t\t\toverlay: {\n\t\t\t\thas: false,\n\t\t\t\tdata: '1mi',\n\t\t\t\tfill: {\n\t\t\t\t\topacity: 1\n\t\t\t\t},\n\t\t\t\tstroke: {\n\t\t\t\t\twidth: 1,\n\t\t\t\t\topacity: 1\n\t\t\t\t}\n\t\t\t},\n\t\t\tdraggable: false,\n\t\t\tanimation: false,\n\t\t\temphasis: false,\n\t\t\temphasize: false,\n\t\t\tonAddComplete: function(markerSettings,markerObject) {\n\t\t\t\tthis.viewMarkers(mapId);\n\t\t\t}\n\t\t};\n\t\t\n\t\tif (loc) {\n\t\t\t {dialog.object}._mapObj.addMarker(mapId,loc,settings);\n\t\t}\n\t} catch(e) {\n\t\tconsole.log('Error in processResult: '+e);\n\t}\n}\n\n\n// callbacks\n\nfunction geoSuccess(location){\n\tprocessResult(location);\n}\n\nfunction backgroundGeoSuccess(location,taskId){\n\tprocessResult(location);\t\n\t{dialog.object}._bgGeo.finish(taskId);\n}\n\nfunction geoFail(error) {\n\t//failed to get location\n\t\n\t{dialog.object}._latEle.innerHTML='Error determining Lat';\n\t{dialog.object}._lonEle.innerHTML='Error determining Lon';\n\t\n\talert('Unable to retrieve your current location.');\n}",
+        "layoutType": "ContainerWidth",
+        "previewMode": "Default",
+        "useDragScrolling": "Auto",
+        "pageTitle": "UX",
+        "waitMsg": {
+            "message": {
+                "text": "Wait...",
+                "waitIcon": "css/A5System/Images/wait.gif"
+            },
+            "cssAnimation": {
+                "size": "32"
+            }
+        },
+        "globalSettings": {
+            "labelWidth": "1in"
+        },
+        "serverSideEvents": {
+            "canAjaxCallback": "",
+            "afterAjaxCallback": ""
+        },
+        "onTimerEventInterval": 60,
+        "securityDeniedAction": "Redirect to login page",
+        "clientSideEvents": {
+            "_canAjaxCallback": "",
+            "__afterAjaxCallbackComplete": "",
+            "onAjaxCallbackFailed": "",
+            "onAjaxCallbackNotAvailable": "",
+            "onFieldValidationError": "",
+            "beforePrepare": "",
+            "afterPrepare": "",
+            "afterValidate": "",
+            "onTabPaneChanged": "",
+            "beforeRptSectionRowPrepare": "",
+            "afterRptSectionRowPrepare": "",
+            "canRptSectionRowAdd": "",
+            "afterRptSectionRowAdd": "",
+            "canRptSectionRowDelete": "",
+            "afterRptSectionRowDelete": "",
+            "onStateChange": "",
+            "onDataStateChange": "",
+            "onControlFocus": "",
+            "onRptSectionFocus": "",
+            "onRptSectionRowChange": "",
+            "canResetForm": "",
+            "afterResetForm": "",
+            "canRecordNavigate": "",
+            "afterRecordNavigate": "",
+            "onSynchronizeDialog": "",
+            "afterPopulateFromTable": "",
+            "onRenderComplete": "",
+            "onPanelActivate": "",
+            "afterSaveToRepository": "",
+            "afterLoadFromRepository": "",
+            "afterGoogleVisualization": "",
+            "canDeleteParentRecord": "",
+            "afterDeleteParentRecord": "",
+            "onOrientationChange": "",
+            "onKeyboard": "",
+            "onCordovaReady": "",
+            "onPhoneGapReady": "",
+            "onImageError": "",
+            "onSignatureCaptureToggle": "",
+            "onSignatureCaptureAccept": "",
+            "onTimer": "",
+            "beforeOnTimer": "",
+            "canLogin": "",
+            "afterLogin": "",
+            "afterFailedLogin": "",
+            "canLogout": "",
+            "afterLogout": "",
+            "onSessionTimeoutWarning": "",
+            "onServerSideListSummaryCompute": "",
+            "beforeHTMLReportExport": "",
+            "onConnectionChange": "",
+            "appCache_cached": "",
+            "appCache_checking": "",
+            "appCache_downloading": "",
+            "appCache_error": "",
+            "appCache_noupdate": "",
+            "appCache_obsolete": "",
+            "appCache_progress": "",
+            "appCache_updateready": "",
+            "onControlBlur": "",
+            "onControlChange": "",
+            "onBeforePersistControlValuesToLocalStorage": "",
+            "onPersistControlValuesToLocalStorage": "",
+            "onRestoreVariablesFromLocalStorage": "",
+            "onRestoreComponentStateFromLocalStorage": "",
+            "localStorageEncryption": "",
+            "localStorageDecryption": "",
+            "securityNotAuthenticated": "",
+            "securityPermissionDenied": "",
+            "webSocketOnMessage": "",
+            "webSocketServerClose": "",
+            "webSocketSendMessageFail": ""
+        },
+        "onlyValidateChangedFields": true,
+        "edit": {
+            "field_error_style": {
+                "type": "Block",
+                "showWarning": true,
+                "icon": "<Specified by Style>",
+                "controlContainer_classname": ""
+            },
+            "row_errors_window_title": "Error",
+            "row_errors_window_style": "color: red; width: 6in; height: 2in;",
+            "fieldValidationErrorMessage": "Form has errors."
+        },
+        "submitDialogIfHasClientSideValidationErrors": true,
+        "activeLanguage": "<Default>",
+        "datePicker": {
+            "dayNames": "Sun,Mon,Tue,Wed,Thu,Fri,Sat",
+            "monthNames": "January,February,March,April,May,June,July,August,September,October,November,December",
+            "firstDayOfWeek": 1,
+            "todayButtonText": "Today",
+            "closeButtonText": "Close"
+        },
+        "clientSideDateFormat": "MM/dd/yyyy",
+        "fontScalingOption": "All",
+        "helpTableType": "DBF",
+        "fieldHelpWindowStyle": "modal-resizeable",
+        "customization": {
+            "resetFormMessage": "Are you sure you want to reset the form?",
+            "resetFormTitle": "Warning",
+            "resetFormIcon": "<Specified by Style>",
+            "resetFormYesButton": "Yes",
+            "resetFormNoButton": "No",
+            "windowTitleDirection": "ltr",
+            "dirtyWarning": "You must first save your changes or cancel changes by clicking the Reset button.",
+            "dirtyWarningTitle": "Notice",
+            "dirtyWarningIcon": "<Specified by Style>",
+            "deleteRecordWarningTitle": "Delete Record",
+            "deleteRecordWarningMessage": "Are you sure you want to delete this record?"
+        },
+        "dataBinding": {
+            "computeDataBindingCodeAtDesignTime": true,
+            "computeDataBindingCodeAtDesignTimePrompt": "Prompt",
+            "autoRefreshSchemaOnLoad": true,
+            "autoRefreshPromptFirst": "Prompt",
+            "precalc": {
+                "flagCodeComputed": false
+            }
+        },
+        "info": {
+            "createdBy": "sbeales",
+            "dateCreated": "2016-6-27",
+            "dateLastEdited": "2016-7-11"
+        },
+        "flagShowCommentsInTree": true,
+        "treeCommentOffset": "6",
+        "renderUXLocation": {
+            "type": "window",
+            "sizeToElement": true
+        },
+        "checkSessionEvery": 1,
+        "warningIntervalBeforeExpiration": 1,
+        "sessionTimeOutWarningMessage": "Your session will expire in {secondsToSessionEnd} seconds. Click the button to extend your session.",
+        "sessionExtendSessionButtonLabel": "Extend Session",
+        "sessionTimeoutWarningDialogTitle": "Warning",
+        "sessionHasExpiredMessage": "Your session has expired.",
+        "sessionHasExpiredButtonLabel": "OK",
+        "sessionHasExpiredAction": "Nothing",
+        "sessionHasExpiredRedirectPage": "<self>",
+        "sessionHasExpiredDialogTitle": "Notice",
+        "sessionHasExpiredOKButtonJavascript": "<ReloadThisPage>",
+        "login": {
+            "errorMessageStyle": "color: red;",
+            "logoutDoesFullPageReload": true
+        },
+        "applyResponsiveDesignSettings": true,
+        "responseDesignRulesMode": "FirstTrue",
+        "localStorage": {
+            "namespace": "<Default>",
+            "__version": 1,
+            "workingPreviewTestingMode": "Browser",
+            "variablesToNotPersist": ""
+        },
+        "preRenderUXatDesignTime": true,
+        "preRenderComputeWhen": "Every time component is saved",
+        "page_fields": [
+            {
+                "controlType": "layout_directive_PanelCardBegin",
+                "display": "{C=#104+150+112,White}{B=White,#104+150+112}{F=+B}{Data=ee15c0ef-8ac8-4acc-9b60-afd44b5b542c}{I:'$$web.panel.card'} [Panel Card: PANELCARD]",
+                "displayODFlat": "{Data=ee15c0ef-8ac8-4acc-9b60-afd44b5b542c}{I:'$$web.panel.card'} [Panel Card: PANELCARD_1]",
+                "idInternal": "ee15c0ef-8ac8-4acc-9b60-afd44b5b542c",
+                "lastIndex": 7,
+                "parentContainer": -1,
+                "displayOD": "{C=#104+150+112,White}{B=White,#104+150+112}{F=+B}{Data=ee15c0ef-8ac8-4acc-9b60-afd44b5b542c}{I:'$$web.panel.card'} [Panel Card: PANELCARD_1]",
+                "repeatingSectionParentId": -1,
+                "displayODtree": "{C=#104+150+112,White}{B=White,#104+150+112}{F=+B}{Data=ee15c0ef-8ac8-4acc-9b60-afd44b5b542c}{I:'$$web.panel.card'} [Panel Card: PANELCARD]",
+                "crc": "4294966823",
+                "v": {
+                    "container": {
+                        "id": "PANELCARD"
+                    },
+                    "panelInstance": {
+                        "sections": {
+                            "name": "<UsePanelId>",
+                            "renderMethod": "Auto-Create-Destroy"
+                        }
+                    },
+                    "panelCard": {
+                        "javascript": {
+                            "_onsize": "if(typeof {dialog.object} != 'undefined') {\n\tif(typeof {dialog.object}._findActiveLayoutRule != 'undefined') { \n\t\t{dialog.object}._findActiveLayoutRule();\n\t\t//alert('system on size');\n\t}\n}\n"
+                        },
+                        "allowBodyScrolling": true,
+                        "bodyScrolling": {
+                            "axis": "Both"
+                        },
+                        "pull": {
+                            "pullpastEnd": {
+                                "YSetting": "auto",
+                                "XSetting": "auto"
+                            }
+                        },
+                        "scrolling": {
+                            "indicator": {
+                                "v": {
+                                    "show": true,
+                                    "location": "right",
+                                    "offset": "0px",
+                                    "top": "0px",
+                                    "bottom": "0px"
+                                },
+                                "h": {
+                                    "show": true,
+                                    "location": "right",
+                                    "offset": "0px",
+                                    "left": "0px",
+                                    "right": "0px"
+                                }
+                            }
+                        },
+                        "type": "Default"
+                    }
+                },
+                "indentTree": 0,
+                "precalc": {
+                    "ControlHTML": "'xbasic\n\nv._dirty = .f.\n\n\n",
+                    "DesignViewHTML": "",
+                    "javascript": {
+                        "panel": "new A5.PanelCard({\n\ttheme: '{dialog.style}',\n\tbody: {\n\t\tcontent: {\n\t\t\ttype: 'html',\n\t\t\tsrc: '<div class=\"A5CWLayout\" style=\"width: 100%\" >\\n\\t<!--LblS--><label id=\"{grid.componentname}.LBL.R{grid.rownumber}.FROM\" for=\"{grid.componentname}.V.R{grid.rownumber}.FROM\" title=\"\" class=\"[class.dialogFieldLabel]\" style=\"display:block;\">From</label>\\n<!--LblE-->\\n\\t<!--FldS--><input\\ttype=\"text\" id=\"{grid.componentname}.V.R{grid.rownumber}.FROM\" title=\"\"     class=\"[class.dialogInput]\" style=\"width: 100%; box-sizing: border-box; -moz-box-sizing: border-box; -ms-box-sizing: border-box; -webkit-box-sizing: border-box;\"    name=\"V.R{grid.rownumber}.FROM\"    value=\"\"    />\\n<!--FldE-->\\n</div><!--breakbegin--><br  style=\"clear:both; \" /><!--breakend-->\\n<div class=\"A5CWLayout\" style=\"width: 100%\" >\\n\\t<!--LblS--><label id=\"{grid.componentname}.LBL.R{grid.rownumber}.TO\" for=\"{grid.componentname}.V.R{grid.rownumber}.TO\" title=\"\" class=\"[class.dialogFieldLabel]\" style=\"display:block;\">To</label>\\n<!--LblE-->\\n\\t<!--FldS--><input\\ttype=\"text\" id=\"{grid.componentname}.V.R{grid.rownumber}.TO\" title=\"\"     class=\"[class.dialogInput]\" style=\"width: 100%; box-sizing: border-box; -moz-box-sizing: border-box; -ms-box-sizing: border-box; -webkit-box-sizing: border-box;\"    name=\"V.R{grid.rownumber}.TO\"    value=\"\"    />\\n<!--FldE-->\\n</div><!--breakbegin--><br  style=\"clear:both; \" /><!--breakend-->\\n<div class=\"A5CWLayout\" style=\"width: \" >\\n\\t<button type=\"button\" id=\"{dialog.componentName}.V.R{dialog.rownumber}.BUTTON_DIRECTIONS\"    ></button>\\n</div><!--breakbegin--><br  style=\"clear:both; \" /><!--breakend-->\\n<div class=\"A5CWLayout\" style=\"width: \" >\\n\\t<div id=\"{dialog.componentName}.V.R{dialog.rownumber}.DIV_ROUTEPANEL\" title=\"\"  class=\"\" style=\"box-sizing: border-box; -moz-box-sizing: border-box; -ms-box-sizing: border-box; -webkit-box-sizing: border-box;\"   ><span id=\"route-panel-id\"> </span></div>\\n</div>\\n<div class=\"A5CWLayout\" style=\"width: 100%\" >\\n\\t<!--LblS--><label id=\"{grid.componentname}.LBL.R{grid.rownumber}.SITESMAP\" for=\"{grid.componentname}.V.R{grid.rownumber}.SITESMAP\" title=\"\" class=\"[class.dialogFieldLabel]\" style=\"display:block;\">&nbsp;</label>\\n<!--LblE-->\\n\\t<!--FldS--><div id=\"{grid.componentname}.V.R{grid.rownumber}.SITESMAP.CONTROL\"  style=\"width: 100%; height: 8in; box-sizing: border-box; -moz-box-sizing: border-box; -ms-box-sizing: border-box; -webkit-box-sizing: border-box; \"></div>\\n<!--FldE-->\\n</div><!--breakbegin--><br  style=\"clear:both; \" /><!--breakend-->\\n<div style=\"clear: both; font: 0px arial; height: 0px; width: 0px;\"></div>'\n\t\t},\n\t\tscroll: {\n\t\t\taxis: 'both',\n\t\t\tstopPropogation: false,\n\t\t\tpull: {\n\t\t\t\ty: 'auto',\n\t\t\t\tx: 'auto'\n\t\t\t},\n\t\t\tindicator: {\n\t\t\t\tshow: true,\n\t\t\t\th: {\n\t\t\t\t\tshow: true,\n\t\t\t\t\tlocation: 'right',\n\t\t\t\t\toffset: '0px',\n\t\t\t\t\tleft: '0px',\n\t\t\t\t\tright: '0px'\n\t\t\t\t},\n\t\t\t\tv: {\n\t\t\t\t\tshow: true,\n\t\t\t\t\tlocation: 'right',\n\t\t\t\t\toffset: '0px',\n\t\t\t\t\ttop: '0px',\n\t\t\t\t\tbottom: '0px'\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t},\n\theader: {\n\t\thtml: '<div style=\"display:none;\"><!--A5HiddenFields--></div>'\n\t},\n\tfooter: {\n\t},\n\toverlay: {\n\t},\n\tonSize: function() {;if(typeof {dialog.object} != 'undefined') {\n\tif(typeof {dialog.object}._findActiveLayoutRule != 'undefined') { \n\t\t{dialog.object}._findActiveLayoutRule();\n\t\t\n\t}\n}}\n})"
+                    }
+                }
+            },
+            {
+                "controlType": "dialog_formcontrol",
+                "display": "{B=White,Light Blue}{I:'vertLine'}{Data=7ad9d912_6e04_4aec_a9f8_bec67d1ecc94}{I:'$$control.edit'} [From] �",
+                "displayODFlat": "{Data=7ad9d912_6e04_4aec_a9f8_bec67d1ecc94}{I:'$$control.edit'} [From]",
+                "idInternal": "7ad9d912_6e04_4aec_a9f8_bec67d1ecc94",
+                "parentContainer": 1,
+                "displayOD": "{B=White,Light Blue}{I:'vertLine'}{Data=7ad9d912_6e04_4aec_a9f8_bec67d1ecc94}{I:'$$control.edit'} [From]",
+                "repeatingSectionParentId": -1,
+                "displayODtree": "{B=White,Light Blue}{I:'vertLine'}{Data=7ad9d912_6e04_4aec_a9f8_bec67d1ecc94}{I:'$$control.edit'} [From] �",
+                "crc": "4294964595",
+                "v": {
+                    "controlType": "Textbox",
+                    "variableName": "From",
+                    "type": "Character",
+                    "maxLength": -1,
+                    "watermark": {
+                        "text": "<FieldLabel>"
+                    },
+                    "precalc": {
+                        "javascriptAbstractSetupCode": ""
+                    },
+                    "textboxAutocorrect": true,
+                    "textboxAutoCapitalize": true,
+                    "label": "From",
+                    "defaultValue": "1 IMS Drive, Plymouth Meeting, PA",
+                    "class": "<Default>",
+                    "width": "100%",
+                    "breakType": "After",
+                    "breakHeight": ".1in",
+                    "breakHorizontalSpace": ".1in",
+                    "labelClass": "<Default>",
+                    "labelPosition": "Above",
+                    "labelWidth": "{Global.LabelWidth}",
+                    "labelAlignment": "Left",
+                    "repeatingSectionColumnHeading": "<FieldLabel>",
+                    "helpIcon": "images/$$generic.help.png.a5image",
+                    "showHelpIcon": "None",
+                    "helpIconBehavior": "ShowHelpOnClick",
+                    "clientSideFormat": {
+                        "type": "Mask"
+                    },
+                    "onChange_ValidationOption": "Client-side only",
+                    "dataBinding": {
+                        "updateable": true,
+                        "image": {
+                            "type": "JPG",
+                            "noImageFoundImage": "<None>",
+                            "newRecordImage": "<None>"
+                        }
+                    },
+                    "textboxSubTheme": "",
+                    "datePicker": {
+                        "displayTimePicker": false,
+                        "openMethod": "ClickIcon",
+                        "dateFormat": "<Default>",
+                        "iconNumber": 2,
+                        "OKButtonLabel": "OK",
+                        "CancelButtonLabel": "Cancel",
+                        "userMustSelectFromDatePicker": false,
+                        "multiple": {
+                            "allow": false,
+                            "separators": ".."
+                        },
+                        "hasMask": false,
+                        "format": {
+                            "mask": ""
+                        },
+                        "timePickerOptionsDefined": false,
+                        "display": false
+                    },
+                    "displayAsSlider": false,
+                    "flags": {
+                        "clientSideDefinition": false
+                    }
+                },
+                "indentTree": 1,
+                "precalc": {
+                    "ControlHTML": "<div class=\"A5CWLayout\" style=\"width: 100%\" >\n\t<!--LblS--><label id=\"{grid.componentname}.LBL.R{grid.rownumber}.FROM\" for=\"{grid.componentname}.V.R{grid.rownumber}.FROM\" title=\"\" class=\"[class.dialogFieldLabel]\" style=\"display:block;\">From</label>\n<!--LblE-->\n\t<!--FldS--><input\ttype=\"text\" id=\"{grid.componentname}.V.R{grid.rownumber}.FROM\" title=\"\"     class=\"[class.dialogInput]\" style=\"width: 100%; box-sizing: border-box; -moz-box-sizing: border-box; -ms-box-sizing: border-box; -webkit-box-sizing: border-box;\"    name=\"V.R{grid.rownumber}.FROM\"    value=\"\"    />\n<!--FldE-->\n</div><!--breakbegin--><br  style=\"clear:both; \" /><!--breakend-->",
+                    "DesignViewHTML": "",
+                    "columnInfo": "'FROM': {info: {controlType: 'Textbox'}, hiddenVal: false, type: 'input,label', isCalc: false, hlp: '', isArray: false, dataType: 'C'  }\n"
+                },
+                "inPanelCard": true,
+                "inTreeControl": false
+            },
+            {
+                "controlType": "dialog_formcontrol",
+                "display": "{B=White,Light Blue}{I:'vertLine'}{Data=1b93d5e9_afb9_4be5_a7e1_ae1b9ef5a4fd}{I:'$$control.edit'} [To] �",
+                "displayODFlat": "{Data=1b93d5e9_afb9_4be5_a7e1_ae1b9ef5a4fd}{I:'$$control.edit'} [To]",
+                "idInternal": "1b93d5e9_afb9_4be5_a7e1_ae1b9ef5a4fd",
+                "parentContainer": 1,
+                "displayOD": "{B=White,Light Blue}{I:'vertLine'}{Data=1b93d5e9_afb9_4be5_a7e1_ae1b9ef5a4fd}{I:'$$control.edit'} [To]",
+                "repeatingSectionParentId": -1,
+                "displayODtree": "{B=White,Light Blue}{I:'vertLine'}{Data=1b93d5e9_afb9_4be5_a7e1_ae1b9ef5a4fd}{I:'$$control.edit'} [To] �",
+                "crc": "4294913502",
+                "v": {
+                    "controlType": "Textbox",
+                    "variableName": "To",
+                    "type": "Character",
+                    "maxLength": -1,
+                    "watermark": {
+                        "text": "<FieldLabel>"
+                    },
+                    "precalc": {
+                        "javascriptAbstractSetupCode": ""
+                    },
+                    "textboxAutocorrect": true,
+                    "textboxAutoCapitalize": true,
+                    "label": "To",
+                    "defaultValue": "212 Carnegie Center, Princeton, NJ",
+                    "class": "<Default>",
+                    "width": "100%",
+                    "breakType": "After",
+                    "breakHeight": ".1in",
+                    "breakHorizontalSpace": ".1in",
+                    "labelClass": "<Default>",
+                    "labelPosition": "Above",
+                    "labelWidth": "{Global.LabelWidth}",
+                    "labelAlignment": "Left",
+                    "repeatingSectionColumnHeading": "<FieldLabel>",
+                    "helpIcon": "images/$$generic.help.png.a5image",
+                    "showHelpIcon": "None",
+                    "helpIconBehavior": "ShowHelpOnClick",
+                    "clientSideFormat": {
+                        "type": "Mask"
+                    },
+                    "onChange_ValidationOption": "Client-side only",
+                    "dataBinding": {
+                        "updateable": true,
+                        "image": {
+                            "type": "JPG",
+                            "noImageFoundImage": "<None>",
+                            "newRecordImage": "<None>"
+                        }
+                    },
+                    "textboxSubTheme": "",
+                    "datePicker": {
+                        "displayTimePicker": false,
+                        "openMethod": "ClickIcon",
+                        "dateFormat": "<Default>",
+                        "iconNumber": 2,
+                        "OKButtonLabel": "OK",
+                        "CancelButtonLabel": "Cancel",
+                        "userMustSelectFromDatePicker": false,
+                        "multiple": {
+                            "allow": false,
+                            "separators": ".."
+                        },
+                        "hasMask": false,
+                        "format": {
+                            "mask": ""
+                        },
+                        "timePickerOptionsDefined": false,
+                        "display": false
+                    },
+                    "displayAsSlider": false,
+                    "flags": {
+                        "clientSideDefinition": false
+                    }
+                },
+                "indentTree": 1,
+                "precalc": {
+                    "ControlHTML": "<div class=\"A5CWLayout\" style=\"width: 100%\" >\n\t<!--LblS--><label id=\"{grid.componentname}.LBL.R{grid.rownumber}.TO\" for=\"{grid.componentname}.V.R{grid.rownumber}.TO\" title=\"\" class=\"[class.dialogFieldLabel]\" style=\"display:block;\">To</label>\n<!--LblE-->\n\t<!--FldS--><input\ttype=\"text\" id=\"{grid.componentname}.V.R{grid.rownumber}.TO\" title=\"\"     class=\"[class.dialogInput]\" style=\"width: 100%; box-sizing: border-box; -moz-box-sizing: border-box; -ms-box-sizing: border-box; -webkit-box-sizing: border-box;\"    name=\"V.R{grid.rownumber}.TO\"    value=\"\"    />\n<!--FldE-->\n</div><!--breakbegin--><br  style=\"clear:both; \" /><!--breakend-->",
+                    "DesignViewHTML": "",
+                    "columnInfo": "'TO': {info: {controlType: 'Textbox'}, hiddenVal: false, type: 'input,label', isCalc: false, hlp: '', isArray: false, dataType: 'C'  }\n"
+                },
+                "inPanelCard": true,
+                "inTreeControl": false
+            },
+            {
+                "controlType": "layout_directive_button",
+                "display": "{B=White,Light Blue}{I:'vertLine'}{Data=2c8fb0a9_dec9_415c_9e68_f45ffb737c63}{I:'$$control.button'} [Button: Directions] �",
+                "displayODFlat": "{Data=2c8fb0a9_dec9_415c_9e68_f45ffb737c63}{I:'$$control.button'} [Button]",
+                "idInternal": "2c8fb0a9_dec9_415c_9e68_f45ffb737c63",
+                "parentContainer": 1,
+                "displayOD": "{B=White,Light Blue}{I:'vertLine'}{Data=2c8fb0a9_dec9_415c_9e68_f45ffb737c63}{I:'$$control.button'} [Button]",
+                "repeatingSectionParentId": -1,
+                "displayODtree": "{B=White,Light Blue}{I:'vertLine'}{Data=2c8fb0a9_dec9_415c_9e68_f45ffb737c63}{I:'$$control.button'} [Button: Directions] �",
+                "crc": "4294942147",
+                "indentTree": 1,
+                "precalc": {
+                    "ControlHTML": "<div class=\"A5CWLayout\" style=\"width: \" >\n\t<button type=\"button\" id=\"{dialog.componentName}.V.R{dialog.rownumber}.BUTTON_DIRECTIONS\"    ></button>\n</div><!--breakbegin--><br  style=\"clear:both; \" /><!--breakend-->",
+                    "DesignViewHTML": ""
+                },
+                "inPanelCard": true,
+                "inTreeControl": false,
+                "v": {
+                    "buttonText": "Directions",
+                    "Class": "<Default>",
+                    "BreakType": "After",
+                    "breakHeight": ".1in",
+                    "breakHorizontalSpace": ".1in",
+                    "id": "BUTTON_DIRECTIONS",
+                    "advancedButtonStyling": true,
+                    "labelClass": "<Default>",
+                    "labelPosition": "None",
+                    "labelWidth": "{Global.LabelWidth}",
+                    "labelAlignment": "Left",
+                    "advancedButton": {
+                        "subTheme": "",
+                        "buttonClass": "",
+                        "buttonClassDisabled": "",
+                        "buttonClassHover": "",
+                        "buttonClassPressed": "",
+                        "buttonInlineStyle": "",
+                        "buttonstyle": "Text only",
+                        "disabledImageName": "",
+                        "hoverImageName": "",
+                        "displayDropdownIconOnButton": false,
+                        "displayAsSplitButton": false,
+                        "hyperlinkClass": "[class.gridHyperlinkButton]",
+                        "hyperlinkImagePosition": "None",
+                        "hyperlinkInlineStyle": "",
+                        "imageClass": "",
+                        "imageInlineStyle": "",
+                        "imageName": "",
+                        "pressedImageName": "",
+                        "textClass": "",
+                        "textInlineStyle": "",
+                        "type": "Button"
+                    },
+                    "securityGroups": "",
+                    "showHideExpn": "",
+                    "clientSideconditionalStyle": "",
+                    "CalcExpression": "",
+                    "EnableExpression": "",
+                    "ShowExpression": "",
+                    "abstractJavascript": {
+                        "click": "{dialog.object}.getControl('SitesMap').plotRoute({dialog.object}.getValue('From'), {dialog.object}.getValue('To'));"
+                    },
+                    "precalc": {
+                        "javascriptClientSideWatches": "",
+                        "javascriptAbstractSetupCode": "$e.add('{dialog.componentName}.V.R{dialog.rownumber}.BUTTON_DIRECTIONS',A5.d.evnts.click,function(e) {\n{dialog.object}.getControl('SitesMap').plotRoute({dialog.object}.getValue('From'), {dialog.object}.getValue('To'));\n},this,false,'{dialog.componentName}.V.R{dialog.rownumber}.BUTTON_DIRECTIONS');\n",
+                        "javascriptAdvancedButton": "",
+                        "javascriptAdvancedButton_control": "{dialog.object}._buttons['BUTTON_DIRECTIONS'] = new A5.Button({\n\tlayout: 'text',\n\tstyle: 'box-sizing: border-box; -moz-box-sizing: border-box; -ms-box-sizing: border-box; -webkit-box-sizing: border-box;',\n\thtml: 'Directions',\n\tonClick: function() { \n\n},\n\ttheme: '{grid.style}'\n});",
+                        "javascriptAdvancedButton_bind": "{dialog.object}._buttons['BUTTON_DIRECTIONS'].bind('{DIALOG.COMPONENTNAME}.V.R{DIALOG.ROWNUMBER}.BUTTON_DIRECTIONS');"
+                    },
+                    "javascript": {
+                        "onclick": ""
+                    },
+                    "consumedInSpecialPanelButton": false
+                }
+            },
+            {
+                "controlType": "layout_directive_statictext",
+                "display": "{B=White,Light Blue}{I:'vertLine'}{Data=1747c0d4_bcd0_4774_a708_aede0b193079}{I:'$$format.text'} [Static Text: ]",
+                "displayODFlat": "{Data=1747c0d4_bcd0_4774_a708_aede0b193079}{I:'$$format.text'} [Static Text]",
+                "idInternal": "1747c0d4_bcd0_4774_a708_aede0b193079",
+                "parentContainer": 1,
+                "displayOD": "{B=White,Light Blue}{I:'vertLine'}{Data=1747c0d4_bcd0_4774_a708_aede0b193079}{I:'$$format.text'} [Static Text]",
+                "repeatingSectionParentId": -1,
+                "displayODtree": "{B=White,Light Blue}{I:'vertLine'}{Data=1747c0d4_bcd0_4774_a708_aede0b193079}{I:'$$format.text'} [Static Text: ]",
+                "crc": "4294951447",
+                "v": {
+                    "StaticText": "<span id=\"route-panel-id\"> </span>",
+                    "Class": "<Default>",
+                    "BreakType": "None",
+                    "breakHeight": ".1in",
+                    "breakHorizontalSpace": ".1in",
+                    "id": "DIV_ROUTEPANEL",
+                    "labelClass": "<Default>",
+                    "labelPosition": "None",
+                    "labelWidth": "{Global.LabelWidth}",
+                    "labelAlignment": "Left",
+                    "precalc": {
+                        "javascriptAbstractSetupCode": ""
+                    }
+                },
+                "indentTree": 1,
+                "precalc": {
+                    "ControlHTML": "<div class=\"A5CWLayout\" style=\"width: \" >\n\t<div id=\"{dialog.componentName}.V.R{dialog.rownumber}.DIV_ROUTEPANEL\" title=\"\"  class=\"\" style=\"box-sizing: border-box; -moz-box-sizing: border-box; -ms-box-sizing: border-box; -webkit-box-sizing: border-box;\"   ><span id=\"route-panel-id\"> </span></div>\n</div>",
+                    "DesignViewHTML": ""
+                },
+                "inPanelCard": true,
+                "inTreeControl": false
+            },
+            {
+                "controlType": "dialog_formcontrol",
+                "display": "{B=White,Light Blue}{I:'vertLine'}{Data=e526861b_3e46_4dca_b163_419b7f14d03a}{I:'$$generic.map'} [SitesMap] �",
+                "displayODFlat": "{Data=e526861b_3e46_4dca_b163_419b7f14d03a}{I:'$$generic.map'} [SitesMap]",
+                "idInternal": "e526861b_3e46_4dca_b163_419b7f14d03a",
+                "parentContainer": 1,
+                "displayOD": "{B=White,Light Blue}{I:'vertLine'}{Data=e526861b_3e46_4dca_b163_419b7f14d03a}{I:'$$generic.map'} [SitesMap]",
+                "repeatingSectionParentId": -1,
+                "displayODtree": "{B=White,Light Blue}{I:'vertLine'}{Data=e526861b_3e46_4dca_b163_419b7f14d03a}{I:'$$generic.map'} [SitesMap] �",
+                "crc": "4294941554",
+                "v": {
+                    "controlType": "Map",
+                    "variableName": "SitesMap",
+                    "type": "Character",
+                    "maxLength": -1,
+                    "watermark": {
+                        "text": "<FieldLabel>"
+                    },
+                    "precalc": {
+                        "javascriptAbstractSetupCode": "",
+                        "javascript_mapSettings": "{dialog.object}._mapSettings['SITESMAP'] = {theme: '{dialog.style}',ui: {overviewMap: false,draggable: false,zoomOnDblClick: true,panControl: false,scale: false,streetViewControl: false,zoomControl: false,mapTypeControl: false},route: {draggable: false,avoid: {highways: false,tolls: false},travelMode: 'Driving',units: 'Default',optimizeOrder: false,directionsPanel: 'route-panel-id'},type: 'ROADMAP',onZoomChange: function(data) { },onInitialize: function(data) { }}; ",
+                        "javascript_map": "{dialog.object}._controls['SITESMAP'] = { type: 'map', onInitialize: function() {  var mapObj = {dialog.object}.getControl('SITESMAP');\nmapObj.setCenter([40.108525,-75.290311],false);\nmapObj.setZoom(13);;} ,   settings:  {dialog.object}._mapSettings['SITESMAP'] }"
+                    },
+                    "textboxAutocorrect": true,
+                    "textboxAutoCapitalize": true,
+                    "class": "<Default>",
+                    "breakType": "After",
+                    "breakHeight": ".1in",
+                    "breakHorizontalSpace": ".1in",
+                    "labelClass": "<Default>",
+                    "labelPosition": "Above",
+                    "labelWidth": "{Global.LabelWidth}",
+                    "labelAlignment": "Left",
+                    "repeatingSectionColumnHeading": "<FieldLabel>",
+                    "embeddedJavascriptControl": true,
+                    "helpIcon": "images/$$generic.help.png.a5image",
+                    "showHelpIcon": "None",
+                    "helpIconBehavior": "ShowHelpOnClick",
+                    "clientSideFormat": {
+                        "type": "Mask"
+                    },
+                    "onChange_ValidationOption": "Client-side only",
+                    "dataBinding": {
+                        "updateable": true,
+                        "image": {
+                            "type": "JPG",
+                            "noImageFoundImage": "<None>",
+                            "newRecordImage": "<None>"
+                        }
+                    },
+                    "textboxSubTheme": "",
+                    "datePicker": {
+                        "displayTimePicker": false,
+                        "openMethod": "ClickIcon",
+                        "dateFormat": "<Default>",
+                        "iconNumber": 2,
+                        "OKButtonLabel": "OK",
+                        "CancelButtonLabel": "Cancel",
+                        "userMustSelectFromDatePicker": false,
+                        "multiple": {
+                            "allow": false,
+                            "separators": ".."
+                        },
+                        "hasMask": false,
+                        "format": {
+                            "mask": ""
+                        },
+                        "timePickerOptionsDefined": false,
+                        "display": false
+                    },
+                    "displayAsSlider": false,
+                    "flags": {
+                        "clientSideDefinition": false
+                    },
+                    "map": {
+                        "width": "100%",
+                        "height": "8in",
+                        "fillPanelContainer": false,
+                        "centerMapOnInitialize": true,
+                        "initialZoom": "13",
+                        "centerMap": {
+                            "lat": "40.108525",
+                            "lon": "-75.290311"
+                        },
+                        "type": "ROADMAP",
+                        "ui": {
+                            "overviewMap": false,
+                            "draggable": false,
+                            "zoomOnDblClick": true,
+                            "panControl": false,
+                            "scale": false,
+                            "streetViewControl": false,
+                            "zoomControl": false,
+                            "mapTypeControl": false
+                        },
+                        "route": {
+                            "draggable": false,
+                            "avoid": {
+                                "highways": false,
+                                "tolls": false
+                            },
+                            "travelMode": "Driving",
+                            "units": "Default",
+                            "optimizeOrder": false,
+                            "directionsPanel": "route-panel-id"
+                        },
+                        "javascript": {
+                            "onClick": "//get latitude/longitude of click position from the 'data' object\nvar lat = data.latLng.lat();\nvar lng = data.latLng.lng();\n",
+                            "onDblClick": "//get latitude/longitude of click position from the 'data' object\nvar lat = data.latLng.lat();\nvar lng = data.latLng.lng();\n",
+                            "onRightClick": "//get latitude/longitude of click position from the 'data' object\nvar lat = data.latLng.lat();\nvar lng = data.latLng.lng();\n",
+                            "onZoomChange": "/*Your code can use 'this' to refer to the Google map object.\n'data' is passed in and it contains: \ndata.zoom - numeric value of the zoom\ndata.oldZoom - old zoom value\n*/\n",
+                            "onInitialize": "/*Your code can use 'this' to refer to the Google map object.\n'data' is passed in and it contains: \ndata.zoom - numeric value of the zoom\ndata.center - an array of lat/lng values\n*/\n"
+                        },
+                        "google": {
+                            "usePremier": false,
+                            "clientID": false,
+                            "clientkey": "",
+                            "useSSL": false,
+                            "languageCode": "<Default>"
+                        }
+                    }
+                },
+                "indentTree": 1,
+                "precalc": {
+                    "ControlHTML": "<div class=\"A5CWLayout\" style=\"width: 100%\" >\n\t<!--LblS--><label id=\"{grid.componentname}.LBL.R{grid.rownumber}.SITESMAP\" for=\"{grid.componentname}.V.R{grid.rownumber}.SITESMAP\" title=\"\" class=\"[class.dialogFieldLabel]\" style=\"display:block;\">&nbsp;</label>\n<!--LblE-->\n\t<!--FldS--><div id=\"{grid.componentname}.V.R{grid.rownumber}.SITESMAP.CONTROL\"  style=\"width: 100%; height: 8in; box-sizing: border-box; -moz-box-sizing: border-box; -ms-box-sizing: border-box; -webkit-box-sizing: border-box; \"></div>\n<!--FldE-->\n</div><!--breakbegin--><br  style=\"clear:both; \" /><!--breakend-->",
+                    "DesignViewHTML": "",
+                    "columnInfo": "'SITESMAP': {info: {controlType: 'Map'}, hiddenVal: false, type: 'control', isCalc: false, hlp: '', isArray: false, dataType: 'C'  }\n"
+                },
+                "inPanelCard": true,
+                "inTreeControl": false
+            },
+            {
+                "controlType": "layout_directive_PanelCardEnd",
+                "display": "{C=#104+150+1120,White}{B=White,#104+150+112}{F=+B}{Data=02a2e1d4-d745-4a43-a381-0757dc63709a}{I:'vertLineCap'} [Panel Card End: PANELCARD]",
+                "displayODFlat": "{Data=02a2e1d4-d745-4a43-a381-0757dc63709a}{I:'vertlinecap'} [Panel Card End]",
+                "idInternal": "02a2e1d4-d745-4a43-a381-0757dc63709a",
+                "parentContainer": -1,
+                "displayOD": "{C=#104+150+1120,White}{B=White,#104+150+112}{F=+B}{Data=02a2e1d4-d745-4a43-a381-0757dc63709a}{I:'vertlinecap'} [Panel Card End]",
+                "repeatingSectionParentId": -1,
+                "displayODtree": "{C=#104+150+1120,White}{B=White,#104+150+112}{F=+B}{Data=02a2e1d4-d745-4a43-a381-0757dc63709a}{I:'vertLineCap'} [Panel Card End: PANELCARD]",
+                "indentTree": 0,
+                "precalc": {
+                    "ControlHTML": "'xbasic\nv._dirty = .f.\n",
+                    "DesignViewHTML": ""
+                },
+                "containerStartIndex": 1
+            }
+        ],
+        "builderType": "Dialog2",
+        "guid": "fbca2e08-11f5-40f5-aa17-cbbaa9f70e5a",
+        "componentName": "SITEMAP",
+        "componentFilename": "C:\\Users\\sbeales\\OneDrive\\Alpha Anywhere Projects.WebProjects\\CenterWatch App 1.0\\CenterWatch App.WebProjects\\Default.WebProject\\SiteMap.a5wcmp",
+        "_style_versionNumber": -1,
+        "controlflowdirection": "ltr",
+        "SVGLinkedFiles": "",
+        "localsvg": "",
+        "showLineNumbersInControlsList": false,
+        "customSettingsJSON": "",
+        "saveFileType": "Formatted JSON",
+        "keyboardShortcutsJSON": "",
+        "selected": "e526861b_3e46_4dca_b163_419b7f14d03a\n",
+        "designPaneIndex": 1,
+        "masterPaneC": "controls",
+        "serverSideEventIndex": 1,
+        "clientSideEventIndex": 1,
+        "clientSideEventIndexC": "1",
+        "lastControlSelected": "Insert_layout_directive_ContainerBegin",
+        "__WPhostName": "Internet Explorer",
+        "repeatingSectionsAreDirty": true,
+        "toolBox_value": "",
+        "addinBuildNumber": "4684",
+        "addinBuildNumberHighestUsed": "4684",
+        "alphaFiveBuildNumber": "12",
+        "openedFromTemplate": false,
+        "builtWithVersionNumer": 1,
+        "securityEnabled": false,
+        "showHideIsUsed": false,
+        "precalc": {
+            "customControl": {
+                "js_beforePrepare": "\n__replaceAtRuntime_CustomControlsSystemBeforePrepare",
+                "js_afterRender": "\n__replaceAtRuntime_CustomControlsSystemAfterRender",
+                "customControl_xbasicFunctions": ""
+            },
+            "injectibleHTML": "",
+            "containerWindowHTML": "",
+            "repeatingsectionInfoJs": "",
+            "framesInfoJS": "{dialog.object}.framesInfo = {\n\n};\n",
+            "jsActionJavascriptGlobalFunctions": "",
+            "xbActionJavascriptGlobalFunctions": "",
+            "javascriptSetupForGridLookups": "{\n}",
+            "javascript": {
+                "showWaitMessage": "",
+                "hideWaitMessage": "",
+                "embeddedUXComponents": ""
+            },
+            "fileUpload_controlInfo": "",
+            "javascript_cascadingDropdowns": "{dialog.object}._cascadingControls = [];\n{dialog.object}._cascadingControlsChildren = [];",
+            "template_html": "<!--div GLOBALERRORS-->\n<div class=\"errorTip\" style=\"margin-bottom: 2px; display: none; width: 8in; \" id=\"{dialog.componentname}.GLOBALERRORS\"></div>\n<!--End div GLOBALERRORS-->\n\n<div id=\"{dialog.componentname}.R1\">\n'xbasic\n\nv._dirty = .f.\n\n\n\n<div class=\"A5CWLayout\" style=\"width: 100%\" >\n\t<!--LblS--><label id=\"{grid.componentname}.LBL.R{grid.rownumber}.FROM\" for=\"{grid.componentname}.V.R{grid.rownumber}.FROM\" title=\"\" class=\"iOS7DialogLabel\" style=\"display:block;\">From</label>\n<!--LblE-->\n\t<!--FldS--><input\ttype=\"text\" id=\"{grid.componentname}.V.R{grid.rownumber}.FROM\" title=\"\"     class=\"iOS7Edit\" style=\"width: 100%; box-sizing: border-box; -moz-box-sizing: border-box; -ms-box-sizing: border-box; -webkit-box-sizing: border-box;\"    name=\"V.R{grid.rownumber}.FROM\"    value=\"\"    />\n<!--FldE-->\n</div><!--breakbegin--><br  style=\"clear:both; \" /><!--breakend-->\n<div class=\"A5CWLayout\" style=\"width: 100%\" >\n\t<!--LblS--><label id=\"{grid.componentname}.LBL.R{grid.rownumber}.TO\" for=\"{grid.componentname}.V.R{grid.rownumber}.TO\" title=\"\" class=\"iOS7DialogLabel\" style=\"display:block;\">To</label>\n<!--LblE-->\n\t<!--FldS--><input\ttype=\"text\" id=\"{grid.componentname}.V.R{grid.rownumber}.TO\" title=\"\"     class=\"iOS7Edit\" style=\"width: 100%; box-sizing: border-box; -moz-box-sizing: border-box; -ms-box-sizing: border-box; -webkit-box-sizing: border-box;\"    name=\"V.R{grid.rownumber}.TO\"    value=\"\"    />\n<!--FldE-->\n</div><!--breakbegin--><br  style=\"clear:both; \" /><!--breakend-->\n<div class=\"A5CWLayout\" style=\"width: \" >\n\t<button type=\"button\" id=\"{dialog.componentName}.V.R{dialog.rownumber}.BUTTON_DIRECTIONS\"    ></button>\n</div><!--breakbegin--><br  style=\"clear:both; \" /><!--breakend-->\n<div class=\"A5CWLayout\" style=\"width: \" >\n\t<div id=\"{dialog.componentName}.V.R{dialog.rownumber}.DIV_ROUTEPANEL\" title=\"\"  class=\"\" style=\"box-sizing: border-box; -moz-box-sizing: border-box; -ms-box-sizing: border-box; -webkit-box-sizing: border-box;\"   ><span id=\"route-panel-id\"> </span></div>\n</div>\n<div class=\"A5CWLayout\" style=\"width: 100%\" >\n\t<!--LblS--><label id=\"{grid.componentname}.LBL.R{grid.rownumber}.SITESMAP\" for=\"{grid.componentname}.V.R{grid.rownumber}.SITESMAP\" title=\"\" class=\"iOS7DialogLabel\" style=\"display:block;\">&nbsp;</label>\n<!--LblE-->\n\t<!--FldS--><div id=\"{grid.componentname}.V.R{grid.rownumber}.SITESMAP.CONTROL\"  style=\"width: 100%; height: 8in; box-sizing: border-box; -moz-box-sizing: border-box; -ms-box-sizing: border-box; -webkit-box-sizing: border-box; \"></div>\n<!--FldE-->\n</div><!--breakbegin--><br  style=\"clear:both; \" /><!--breakend-->\n'xbasic\nv._dirty = .f.\n\n\n\n</div>\n<!--div DEBUGUPDATECOMMANDS-->\n<div class=\"\" style=\"display: none; \" id=\"{dialog.componentname}.DEBUGUPDATECOMMANDS\"></div>\n<!--End div DEBUGUPDATECOMMANDS-->\n",
+            "panelDisplayNames": "PANELCARD : 'PANELCARD'",
+            "controlJavascript": "",
+            "controlJavascriptRepeatingSections": "",
+            "template_js": "",
+            "sessionVarsInShowHideExpns": "",
+            "themeSearchReplaceString": "",
+            "flagHasHTML5ImageCapture": false,
+            "flagUsesCordova": false,
+            "flagUseAmazonS3FileUpload": false,
+            "flagUseStripe": false,
+            "flagUseAudioPlayer": false,
+            "flagUseInk": false,
+            "flagUsesAudioLibrary": false,
+            "flagUsesPhoneGapFileSystemFunctions": false,
+            "flagUsesGetAccurateLocation": false,
+            "editorSet_for_editor": "{dialog.object}._EDITOR_EDITORSET = {};",
+            "otherJS": "",
+            "javascript_layoutRules": "",
+            "javascript_controlNesting": "{\n\n}",
+            "appcacheEvents": "",
+            "IconMap": "{images.RowExpander.Open}=\"<Specified by Style>\"\n{images.RowExpander.Close}=\"<Specified by Style>\"\n{images.EmbeddedSearch.Search}=\"<Specified by Style>\"\n{images.EmbeddedSearch.ClearSearch}=\"<Specified by Style>\"\n{images.EmbeddedSearch.ShowHideEmbeddedSearch}=\"<Specified by Style>\"\n{images.GridRow.NewRecordRow.NoFocus}=\"<Specified by Style>\"\n{images.GridRow.NewRecordRow.HasFocus}=\"<Specified by Style>\"\n{images.GridRow.SaveRecord}=\"<Specified by Style>\"\n{images.GridRow.SaveRecord.Disabled}=\"<Specified by Style>\"\n{images.GridRow.UndoChanges}=\"<Specified by Style>\"\n{images.GridRow.UndoChanges.Disabled}=\"<Specified by Style>\"\n{images.GridRow.EditRecord}=\"<Specified by Style>\"\n{images.GridRow.EditRecord.Disabled}=\"<Specified by Style>\"\n{images.GridRow.DeleteRecord}=\"<Specified by Style>\"\n{images.GridRow.DeleteRecord.Disabled}=\"<Specified by Style>\"\n{images.GridRow.CancelEditRecord}=\"<Specified by Style>\"\n{images.GridRow.CancelEditRecord.Disabled}=\"<Specified by Style>\"\n{images.GridRow.HasError}=\"<Specified by Style>\"\n{images.QBE.OperatorIsSelected}=\"<Specified by Style>\"\n{images.QBE.OpenQBEMenu}=\"<Specified by Style>\"\n{images.QBE.ShowHideQBERow}=\"<Specified by Style>\"\n{images.PopUpWindow.Lookup.Close}=\"<Specified by Style>\"\n{images.PopUpWindow.DetailView.Close}=\"<Specified by Style>\"\n{images.CollapseContainer.Open}=\"<Specified by Style>\"\n{images.CollapseContainer.Close}=\"<Specified by Style>\"\n{images.FieldHelpIcon}=\"<Specified by Style>\"\n{images.SearchPart.SaveSearchCriteria}=\"<Specified by Style>\"\n{images.SearchPart.LoadSearchCriteria}=\"<Specified by Style>\"\n{images.SearchPart.RunSearch}=\"<Specified by Style>\"\n{images.SearchPart.ClearSearch}=\"<Specified by Style>\"\n{images.GridRow.SelectionPointer}=\"<Specified by Style>\"\n{images.Grid.SortAsc}=\"<Specified by Style>\"\n{images.Grid.SortAscDisabled}=\"<Specified by Style>\"\n{images.Grid.sortDesc}=\"<Specified by Style>\"\n{images.grid.sortDescDisabled}=\"<Specified by Style>\"\n{images.grid.firstPage}=\"<Specified by Style>\"\n{images.grid.firstPageDisabled}=\"<Specified by Style>\"\n{images.grid.prevPage}=\"<Specified by Style>\"\n{images.grid.prevPageDisabled}=\"<Specified by Style>\"\n{images.grid.nextPage}=\"<Specified by Style>\"\n{images.grid.nextPageDisabled}=\"<Specified by Style>\"\n{images.grid.lastPage}=\"<Specified by Style>\"\n{images.grid.lastPageDisabled}=\"<Specified by Style>\"\n{images.edit.dropdownArrow}=\"<Specified by Style>\"\n{images.edit.datePicker}=\"<Specified by Style>\"\n{images.edit.dateTimePicker}=\"<Specified by Style>\"\n{images.edit.timePicker}=\"<Specified by Style>\"\n{images.edit.calculator}=\"<Specified by Style>\"\n{images.edit.lookup}=\"<Specified by Style>\"\n{images.javascript.deleteRowConfirmation}=\"<Specified by Style>\"\n{images.javascript.cancelEditRowConfirmation}=\"<Specified by Style>\"\n{images.javascript.UndoEditsConfirmation}=\"<Specified by Style>\"\n{images.javascript.UndoAllEditsConfirmation}=\"<Specified by Style>\"\n{images.javascript.dirtyRecordWarning}=\"<Specified by Style>\"\n{images.dv.close}=\"<Specified by Style>\"\n{images.dv.firstRecord}=\"<Specified by Style>\"\n{images.dv.prevRecord}=\"<Specified by Style>\"\n{images.dv.nextRecord}=\"<Specified by Style>\"\n{images.dv.lastRecord}=\"<Specified by Style>\"\n{images.dv.newRecord}=\"<Specified by Style>\"\n{images.dv.cancelEdits}=\"<Specified by Style>\"\n{images.dv.deleteRecord}=\"<Specified by Style>\"\n{images.dv.saveRecord}=\"<Specified by Style>\"\n{images.dv.saveAndEnter}=\"<Specified by Style>\"\n{images.dv.switchToEdit}=\"<Specified by Style>\"\n{images.dv.switchToView}=\"<Specified by Style>\"\n{images.disabled.dv.newRecord}=\"<Specified by Style>\"\n{images.disabled.dv.cancelEdits}=\"<Specified by Style>\"\n{images.disabled.dv.deleteRecord}=\"<Specified by Style>\"\n{images.disabled.dv.saveRecord}=\"<Specified by Style>\"\n{images.disabled.dv.saveAndEnter}=\"<Specified by Style>\"\n{images.dv.cancelNewRecord}=\"<Specified by Style>\"\n{images.grid.editError}=\"<Specified by Style>\"\n{images.dialog.editError}=\"<Specified by Style>\"\n{images.tabbedUI.menuExpandLeft}=\"<Specified by Style>\"\n{images.tabbedUI.menuCollapseLeft}=\"<Specified by Style>\"\n{images.tabbedUI.menuExpandRight}=\"<Specified by Style>\"\n{images.tabbedUI.menuCollapseRight}=\"<Specified by Style>\"",
+            "absoluteLayoutSetButtonSizes": "",
+            "js_editorSetInitialization": "",
+            "AdditionalGridStyles": ""
+        },
+        "FieldsInRepeatingSectionsDeletedBySecurity": "",
+        "repeatingSectionsToRecalc": "",
+        "dialogObject": "if(typeof {dialog.componentName}_DlgObj == 'object') {dialog.componentName}_DlgObj._destroy();\nvar {dialog.componentName}_DlgObj = new A5.DialogComponentHelper('{dialog.componentName}',{\n\tajaxURL: '{dialog.ajaxUrl}',\n\t_embeddedMode: {dialog.embeddedMode},\n\t_livePreviewInBuilder: {livePreviewInBuilder},\n\tcomponentGUID: 'fbca2e08-11f5-40f5-aa17-cbbaa9f70e5a',\n\tcolumnInfo: {columninfo},\n\toriginalValues: {dialog.jsOriginalValues},\n\tdefaultValues: {dialog.jsDefaultValues},\n\tdatePickerMonthNames: [{datePickerMonthNames}],\n\tdatePickerDayNames: [{datePickerDayNames}],\n\tdatePickerTodayButton: '{datePickerTodayButton}',\n\tdatePickerCloseButton: '{datePickerCloseButton}',\n\tdatePickerFirstDayOfWeek: {datePickerFirstDayOfWeek},\n\tresetFormMessage: '{resetFormMessage}',\n\tresetFormTitle: '{resetFormTitle}',\n\tresetFormIcon: '{resetFormIcon}',\n\tdirtyFormMessage: '{dirtyFormMessage}',\n\tdirtyFormTitle: '{dirtyFormTitle}',\n\tdirtyFormIcon: '{dirtyFormIcon}',\n\tdeleteRecordDialogTitle: '{deleteRecordTitle}',\n\tdeleteRecordDialogMessage: '{deleteRecordMessage}',\t\n\tssDateFormat: '{serverSideDateFormat}',\n\tstyleName: '{dialog.style}',\n\t_fieldHelpers_DIALOG2: [],\n\tparentComponentAlias: '{parentComponentAlias}',\n\tsubmitIfHasClientSideErrors: true, \n\trowErrors: {\n\t\t\t\tshowMessageBox: false,\n\t\t\t\tmessageBoxTitle: 'Error',\n\t\t\t\tstyle: 'color: red; width: 6in; height: 2in;'\n\t\t},\n\tfieldErrors: {\n\t\ttype: 'block', \n\t\tclassName: 'errorText',\n\t\tinputClassName: '[class.gridInputError]',\n\t\tedit: { \n\t\t\tcontainer: { className: '[class.gridInputContainerError]'}\n\t\t},\n\t\ticon: '{images.dialog.editError}',\n\t\tglobal: {\n\t\t\tcontId: '{dialog.componentname}.GLOBALERRORS',\n\t\t\thoverClassName: 'errorTextHighlight',\n\t\t\thoverInputClassName: 'errorInputHighlight'\n\t\t}\n\t}\n\n\t});\n\n",
+        "xbasiccode": {
+            "blankInitialValueIfVarNotFound": "",
+            "setValueProperties": "value.FROM=\"1 IMS Drive, Plymouth Meeting, PA\"\nvalue.TO=\"212 Carnegie Center, Princeton, NJ\"\nvalue.SITESMAP=\"\"",
+            "setValueProperties2": "value.FROM=\"1 IMS Drive, Plymouth Meeting, PA\"\nvalue.TO=\"212 Carnegie Center, Princeton, NJ\"\nvalue.SITESMAP=\"\"",
+            "setValueUnformattedProperties": "value.FROM=convert_type(\"1 IMS Drive, Plymouth Meeting, PA\",\"C\")\nvalue.TO=convert_type(\"212 Carnegie Center, Princeton, NJ\",\"C\")\nvalue.SITESMAP=convert_type(\"\",\"C\")\n"
+        },
+        "componentType": "Dialog2",
+        "version": 1,
+        "recNav": {
+            "slider": {
+                "showSlider": false
+            },
+            "listView": {
+                "showlistView": false
+            }
+        },
+        "flagDropdownCascadingChanged": false,
+        "Livepreview_permissions": "",
+        "__allowCascadingRecalc": true,
+        "temp": {
+            "_onRenderComplete": ""
+        },
+        "_flagStaticHTMLMode": false,
+        "showTimer": false,
+        "__flagUseFakeRequestVariables": false,
+        "__specialMode": false,
+        "alias": "{UXPRERENDEREDALIAS}",
+        "systemXbasicFunctionDeclarations": "",
+        "localPreviewFlag": false,
+        "flagStaticHTMLMode": false,
+        "flagInitialLoadIsAjax": false,
+        "_forceInitialLoadIsAjax": false,
+        "override_settings": "",
+        "flagForcerecalc": false,
+        "flagSaveDialogCache": true,
+        "__argumentValues": "",
+        "__argumentsFromGrid": "",
+        "flagExecuteOnDialogInitializeEvent": true,
+        "flagExecuteOnDialogExecuteEvent": true,
+        "__livePreviewMode": false,
+        "iconMapOverrides": "",
+        "resolveAbstractIconNamesAtDesignTime": true,
+        "customizationString": {
+            "javascriptDialogs": "",
+            "DetailView": {
+                "toolbar": ""
+            }
+        },
+        "linkedResources": "",
+        "flagReloadComponent": false,
+        "__flagPrerender": false,
+        "panelRootId": "{UXPRERENDEROUTPUTDIV}",
+        "__flagstatichtmlorphonegap": false,
+        "_sections": {
+            "flagHasSections": false
+        },
+        "disableAbstractEvents": false,
+        "jsRunAtBeginning": "",
+        "flagLoadDetailViewImageCaptureJS": false,
+        "_flagUsesAudioLibrary": false,
+        "_flagUsesInk": false,
+        "__staticHTML_setStaticHTMLFlag": false,
+        "sassProcessor": true,
+        "debugMode": false,
+        "bumpFilename": true,
+        "EmbeddedMode": false,
+        "containerSubTypeNew": "",
+        "containerSubTypeOld": "",
+        "prerendered": {
+            "_styledataVersion": 3,
+            "output": {
+                "Head": {
+                    "JavaScript": "\n<script type=\"text/javascript\" src=\"javascript/a5.js\"></script>\n<script type=\"text/javascript\" src=\"javascript/a5_url.js\"></script>\n\n<script type=\"text/javascript\" src=\"javascript/A5jQueryWithUI.js\"></script>\n\n<script>\n\tif(typeof jQuery != 'undefined') jQuery.noConflict();\n</script>\n\n<script type=\"text/javascript\"  src=\"main.js\"></script>\n\n<link rel=\"stylesheet\" type=\"text/css\" href=\"css/main.css\">\n\n\n__replaceatRuntime__cssstyletweaks__\n\n",
+                    "CSS_Link": "<style type=\"text/css\">\nhtml { -webkit-tap-highlight-color: rgba(0,0,0,0); -webkit-user-select: none; -ms-touch-action: none;}\n.A5container {float:left;padding:0px;}\n.A5CWLayout {padding: 4px; float: left; box-sizing: border-box; -moz-box-sizing: border-box; -ms-box-sizing: border-box; -webkit-box-sizing: border-box;}\n.A5GridHideErrorCol .A5GridErrorCol {display:none; }\n.A5GridRowErrorIcon {display:none;}\n.A5GridHasRowError .A5GridRowErrorIcon {display:inline;}\n.A5GridRowViewMode {display:block;}\n.A5GridRowEditMode {display:none;}\n.A5GridRowInEditMode .A5GridRowViewMode {display:none;}\n.A5GridRowInEditMode .A5GridRowEditMode {display:block;}\n.A5GridRowDirty {display:none;}\n.A5GridRowClean {display:inline;}\n.A5GridRowIsDirty .A5GridRowDirty {display:inline;}\n.A5GridRowIsDirty .A5GridRowClean {display:none;}\n.errorText {color:red;font-size:8pt;}\n.errorTextHighlight {font-weight:bold;font-size:8pt;}\n.errorTip {color:red;background:#fffafa url('images/$box/$size/8x8/$fill/Up%5FDiagonal:White%3A%23255%2C239%2C239.png.a5image');border:1px solid #f88;margin-top:2px;padding:2px;font-size:8pt;}\n.errorInput {color:red;border:1px solid red;margin:1px;}\n.errorInputHighlight {color:red;border:2px solid red;margin:0px;}\n.A5SelectedButton {opacity:.5;filter:alpha(opacity=50);}\n.A5InvisibleLock {background: rgba(0,0,0,0); }\n\n.A5AccordionTitleOn, .A5AccordionTitleOff, .A5AccordionTitleDisabled {display: block;border: 1px solid #999;padding: 2px;text-decoration: none;cursor: pointer;margin-bottom: 2px; padding: 2px}\n.A5AccordionPane {border: 1px solid #999;border-top: none;margin-bottom: 2px;margin-top: -2px;}\n.A5TabTopOn, .A5TabTopOff, .A5TabTopDisabled {display: block;float: left;border: 1px solid #999;border-bottom: none;margin-right: 2px;padding: 2px;text-decoration: none;cursor: pointer;}\n.A5TabTopOn {margin-bottom: -1px;padding-bottom: 3px;}\n.A5TabBottomOn, .A5TabBottomOff, .A5TabBottomDisabled {display: block;float: left;border: 1px solid #999;margin-right: 2px;padding: 2px;text-decoration: none;cursor: pointer;}\n.A5TabBottomOn {border-top: none;padding-top: 3px;}\n.A5TabLeftOn, .A5TabLeftOff, .A5TabLeftDisabled {display: block;border: 1px solid #999;margin-bottom: 2px;padding: 2px;text-decoration: none;cursor: pointer;}\n.A5TabLeftOn {margin-right: -1px;padding-right: 3px;border-right: none;}\n.A5TabRightOn, .A5TabRightOff, .A5TabRightDisabled {display: block;border: 1px solid #999;border-left: none;margin-bottom: 2px;padding: 2px;text-decoration: none;cursor: pointer;}\n.A5TabRightOn {margin-left: -1px;padding-left: 3px;}\n.A5TabTopPane, .A5TabBottomPane, .A5TabLeftPane, .A5TabRightPane {border: 1px solid #999; padding: 2px;}\n\n\n.A5TabBand {border: 1px solid #999; padding: 0px;}\n.A5TabBandTabOn, .A5TabBandTabOff, .A5TabBandTabDisabled {position: relative;display: block;border: 1px solid #999;border-bottom: none;margin-right: 2px;margin-top: 2px;padding: 2px;text-decoration: none;cursor: pointer;white-space: nowrap;}\n.A5TabBandTabOn {margin-bottom: -1px;padding-bottom: 3px;}\n.A5TabBandSeparator {border: none;border-top: 1px solid #999;height: 3px;padding: 0px;font: 0pt arial;}\n.A5TabBandLeftScroll {position: relative;display: block;padding: 2px;margin-bottom: -1px;padding-bottom: 3px;text-decoration: none;border: 1px solid #999;border-left: none;border-bottom: none;}\n.A5TabBandRightScroll {position: relative;display: block;padding: 2px;margin-bottom: -1px;padding-bottom: 3px;text-decoration: none;border: 1px solid #999;border-right: none;border-bottom: none;}\n.A5TabBandTabDisabled, .A5TabTopDisabled, .A5TabLeftDisabled, .A5TabRightDisabled, .A5TabBottomDisabled, .A5AccordionTitleDisabled {opacity: .5; filter: alpha(opacity: 50)}\n.A5Window {-moz-border-radius: 3px; -webkit-border-radius: 3px;}\n.A5WindowLock{border: 1px solid #000;background: #222;opacity: .25;filter: alpha(opacity: 25);}\n\n.A5AccordionTitleOn:hover, .A5AccordionTitleOff:hover, .A5TabBandTabOff:hover, .A5TabTopOff:hover, .A5TabLeftOff:hover, .A5TabRightOff:hover, .A5TabBottomOff:hover{text-decoration: underline;}\n\n.A5MenuItem {text-decoration:none;}\n.A5DialogRSSeparator {border-top: 1px dotted #ccc; line-height:5px; margin-top: 5px;}\n.A5DialogRSFooter {margin-top: 10px;}\n\n\n\n\n\n\n</style>\n\n<link rel=\"stylesheet\" type=\"text/css\" href=\"css/iOS7/style.css\">\n<script type=\"text/javascript\" src=\"css/iOS7/style.js\"></script>\n<style>\n</style>\n",
+                    "title": "<title>UX</title>"
+                },
+                "body": {
+                    "body_tag": "<body class=\"iOS7Page\">",
+                    "dialog2_html": "<style>\n</style><iframe style=\"display:none;\" id=\"{UXPRERENDEREDALIAS}.__IFRAME1\"></iframe>\n<input type=\"hidden\" value=\"\" id=\"{UXPRERENDEREDALIAS}.PARAMETERBUCKET\"/>\n<input type=\"file\" style=\"position:absolute; top:-1000px;visibility:hidden;\" accept=\"image/*\" id=\"{UXPRERENDEREDALIAS}._GETPHOTO\"/><input type=\"file\" style=\"position:absolute; top:-1000px;visibility:hidden;\" name=\"files[]\" multiple = \"\" id=\"{UXPRERENDEREDALIAS}._GETFILEMULTI\"/><input type=\"file\" style=\"position:absolute; top:-1000px;visibility:hidden;\" name=\"files[]\" id=\"{UXPRERENDEREDALIAS}._GETFILE\"/>\n<script type=\"text/javascript\" language=\"javascript\">\n\nif(typeof {UXPRERENDEREDALIAS}_DlgObj == 'object') {\n\t{UXPRERENDEREDALIAS}_DlgObj._destroy();\n\ttry {\n\t\tdelete {UXPRERENDEREDALIAS}_DlgObj;\n\t} catch(e) {\n\t\t{UXPRERENDEREDALIAS}_DlgObj = undefined;\n\t}\n};\n;if(typeof {UXPRERENDEREDALIAS}_PanelObj != 'undefined') {\n\tvar ele = $({UXPRERENDEREDALIAS}_PanelObj.getPanelId());\n\tif(ele) {\n\t\tif(ele.parentNode) ele.parentNode.removeChild(ele);\n\t}\n\tdelete {UXPRERENDEREDALIAS}_PanelObj;\n}\n;window['{UXPRERENDEREDALIAS}_PanelObj'] = new A5.PanelCard({\n\ttheme: 'iOS7',\n\tbody: {\n\t\tcontent: {\n\t\t\ttype: 'html',\n\t\t\tsrc: '<div class=\"A5CWLayout\" style=\"width: 100%\" >\\n\\t<label id=\"{UXPRERENDEREDALIAS}.LBL.R1.FROM\" for=\"{UXPRERENDEREDALIAS}.V.R1.FROM\" title=\"\" class=\"iOS7DialogLabel\" style=\"display:block;\">From</label>\\n\\n\\t<input\\ttype=\"text\" id=\"{UXPRERENDEREDALIAS}.V.R1.FROM\" title=\"\"     class=\"iOS7Edit\" style=\"width: 100%; box-sizing: border-box; -moz-box-sizing: border-box; -ms-box-sizing: border-box; -webkit-box-sizing: border-box;\"    name=\"V.R1.FROM\"    value=\"\"    />\\n\\n</div><br  style=\"clear:both; \" />\\n<div class=\"A5CWLayout\" style=\"width: 100%\" >\\n\\t<label id=\"{UXPRERENDEREDALIAS}.LBL.R1.TO\" for=\"{UXPRERENDEREDALIAS}.V.R1.TO\" title=\"\" class=\"iOS7DialogLabel\" style=\"display:block;\">To</label>\\n\\n\\t<input\\ttype=\"text\" id=\"{UXPRERENDEREDALIAS}.V.R1.TO\" title=\"\"     class=\"iOS7Edit\" style=\"width: 100%; box-sizing: border-box; -moz-box-sizing: border-box; -ms-box-sizing: border-box; -webkit-box-sizing: border-box;\"    name=\"V.R1.TO\"    value=\"\"    />\\n\\n</div><br  style=\"clear:both; \" />\\n<div class=\"A5CWLayout\" style=\"width: \" >\\n\\t<button type=\"button\" id=\"{UXPRERENDEREDALIAS}.V.R1.BUTTON_DIRECTIONS\"    ></button>\\n</div><br  style=\"clear:both; \" />\\n<div class=\"A5CWLayout\" style=\"width: \" >\\n\\t<div id=\"{UXPRERENDEREDALIAS}.V.R1.DIV_ROUTEPANEL\" title=\"\"  class=\"\" style=\"box-sizing: border-box; -moz-box-sizing: border-box; -ms-box-sizing: border-box; -webkit-box-sizing: border-box;\"   ><span id=\"route-panel-id\"> </span></div>\\n</div>\\n<div class=\"A5CWLayout\" style=\"width: 100%\" >\\n\\t<label id=\"{UXPRERENDEREDALIAS}.LBL.R1.SITESMAP\" for=\"{UXPRERENDEREDALIAS}.V.R1.SITESMAP\" title=\"\" class=\"iOS7DialogLabel\" style=\"display:block;\">&nbsp;</label>\\n\\n\\t<div id=\"{UXPRERENDEREDALIAS}.V.R1.SITESMAP.CONTROL\"  style=\"width: 100%; height: 8in; box-sizing: border-box; -moz-box-sizing: border-box; -ms-box-sizing: border-box; -webkit-box-sizing: border-box; \"></div>\\n\\n</div><br  style=\"clear:both; \" />\\n<div style=\"clear: both; font: 0px arial; height: 0px; width: 0px;\"></div>'\n\t\t},\n\t\tscroll: {\n\t\t\taxis: 'both',\n\t\t\tstopPropogation: false,\n\t\t\tpull: {\n\t\t\t\ty: 'auto',\n\t\t\t\tx: 'auto'\n\t\t\t},\n\t\t\tindicator: {\n\t\t\t\tshow: true,\n\t\t\t\th: {\n\t\t\t\t\tshow: true,\n\t\t\t\t\tlocation: 'right',\n\t\t\t\t\toffset: '0px',\n\t\t\t\t\tleft: '0px',\n\t\t\t\t\tright: '0px'\n\t\t\t\t},\n\t\t\t\tv: {\n\t\t\t\t\tshow: true,\n\t\t\t\t\tlocation: 'right',\n\t\t\t\t\toffset: '0px',\n\t\t\t\t\ttop: '0px',\n\t\t\t\t\tbottom: '0px'\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t},\n\theader: {\n\t\thtml: '<div style=\"display:none;\"></div>'\n\t},\n\tfooter: {\n\t},\n\toverlay: {\n\t},\n\tonSize: function() {;if(typeof {UXPRERENDEREDALIAS}_DlgObj != 'undefined') {\n\tif(typeof {UXPRERENDEREDALIAS}_DlgObj._findActiveLayoutRule != 'undefined') { \n\t\t{UXPRERENDEREDALIAS}_DlgObj._findActiveLayoutRule();\n\t}\n}}\n})\nvar ele = window['{UXPRERENDEREDALIAS}_PanelObj'].create('{UXPRERENDEREDALIAS}.R1');\n\t\tvar panelRootId = '{UXPRERENDEROUTPUTDIV}';\n\t\tvar flagSizeToParent = true;\n\t\tvar wf_alias = '{UXPRERENDEREDALIAS}';\n\t\tif(panelRootId != '') { \n\t\t\tif (!$(panelRootId)) panelRootId = '';\n\t\t}\n\t\tif(panelRootId != '') { \n\t\t\t$(panelRootId).appendChild(ele);\n\t\t\tif(flagSizeToParent) { \n\t\t\t\twindow[wf_alias + '_PanelObj'].bindSize('parent');\n\t\t\t}\n\t\t} else { \n\t\t\tdocument.body.insertBefore(ele,document.body.firstChild);\n\t\t\twindow[wf_alias + '_PanelObj'].bindSize('window');\n\t\t}\n{UXPRERENDEREDALIAS}_PanelObj._panelPath = {\n}\n{UXPRERENDEREDALIAS}_PanelObj._displayNames = {\nPANELCARD : 'PANELCARD'\n};\nif(typeof {UXPRERENDEREDALIAS}_DlgObj == 'object') {UXPRERENDEREDALIAS}_DlgObj._destroy();\nvar {UXPRERENDEREDALIAS}_DlgObj = new A5.DialogComponentHelper('{UXPRERENDEREDALIAS}',{\n\tajaxURL: '{UXPRERENDERAJAXURL}',\n\t_embeddedMode: false,\n\t_livePreviewInBuilder: false,\n\tcomponentGUID: 'fbca2e08-11f5-40f5-aa17-cbbaa9f70e5a',\n\tcolumnInfo: {'FROM': {info: {controlType: 'Textbox'}, hiddenVal: false, type: 'input,label', isCalc: false, hlp: '', isArray: false, dataType: 'C'  },'TO': {info: {controlType: 'Textbox'}, hiddenVal: false, type: 'input,label', isCalc: false, hlp: '', isArray: false, dataType: 'C'  },'SITESMAP': {info: {controlType: 'Map'}, hiddenVal: false, type: 'control', isCalc: false, hlp: '', isArray: false, dataType: 'C'  }},\n\toriginalValues: [{\n\t'FROM': '1 IMS Drive, Plymouth Meeting, PA',\n\t'TO': '212 Carnegie Center, Princeton, NJ',\n\t'SITESMAP': ''\n}],\n\tdefaultValues: {\n\tFROM: '1 IMS Drive, Plymouth Meeting, PA',\n\tTO: '212 Carnegie Center, Princeton, NJ',\n\tSITESMAP: ''\n},\n\tdatePickerMonthNames: ['January','February','March','April','May','June','July','August','September','October','November','December'],\n\tdatePickerDayNames: ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'],\n\tdatePickerTodayButton: 'Today',\n\tdatePickerCloseButton: '',\n\tdatePickerFirstDayOfWeek: 1,\n\tresetFormMessage: 'Are you sure you want to reset the form?',\n\tresetFormTitle: 'Warning',\n\tresetFormIcon: 'cssIcon=iOS7Icon iOS7IconHelp',\n\tdirtyFormMessage: 'You must first save your changes or cancel changes by clicking the Reset button.',\n\tdirtyFormTitle: 'Notice',\n\tdirtyFormIcon: 'cssIcon=iOS7Icon iOS7IconInfo',\n\tdeleteRecordDialogTitle: 'Delete Record',\n\tdeleteRecordDialogMessage: 'Are you sure you want to delete this record?',\t\n\tssDateFormat: 'MM/dd/yyyy',\n\tstyleName: 'iOS7',\n\t_fieldHelpers_DIALOG2: [],\n\tparentComponentAlias: '',\n\tsubmitIfHasClientSideErrors: true, \n\trowErrors: {\n\t\t\t\tshowMessageBox: false,\n\t\t\t\tmessageBoxTitle: 'Error',\n\t\t\t\tstyle: 'color: red; width: 6in; height: 2in;'\n\t\t},\n\tfieldErrors: {\n\t\ttype: 'block', \n\t\tclassName: 'errorText',\n\t\tinputClassName: 'iOS7EditError',\n\t\tedit: { \n\t\t\tcontainer: { className: 'iOS7EditBGError'}\n\t\t},\n\t\ticon: 'cssIcon=iOS7Icon iOS7IconError',\n\t\tglobal: {\n\t\t\tcontId: '{UXPRERENDEREDALIAS}.GLOBALERRORS',\n\t\t\thoverClassName: 'errorTextHighlight',\n\t\t\thoverInputClassName: 'errorInputHighlight'\n\t\t}\n\t}\n\t});\n{UXPRERENDEREDALIAS}_DlgObj._onOrientationChange =  function(e) { ;\n{UXPRERENDEREDALIAS}_DlgObj._findActiveLayoutRule();\n;  };\nA5.__componentObj = {UXPRERENDEREDALIAS}_DlgObj;\n__replaceAtRuntime_SystemAfterInitialize\n__replaceAtRuntime_SystemBeforePrepare\n__replaceDataForRadioOrCheckBoxRenderedAsButtonListAtRuntime__\nA5.map._fn='http://maps.googleapis.com/maps/api/js?sensor=true&libraries=geometry&callback=A5.map.init';\n{UXPRERENDEREDALIAS}_DlgObj._tabObjects = [];\n{UXPRERENDEREDALIAS}_DlgObj.lookups = {\n};\n{UXPRERENDEREDALIAS}_DlgObj.setStateInfo({\n\t__dialogGuid: 'e11f5337-aa1a-4841-8db3-a4585447c06a',\n\targumentsBoundToCotrols: '',\n\t__sgr: '',\n\t__dtfmt: 'MM/dd/yyyy',\n\t__tfmt: ''\n});\n{UXPRERENDEREDALIAS}_DlgObj._cascadingControls = [];\n{UXPRERENDEREDALIAS}_DlgObj._cascadingControlsChildren = [];\n{UXPRERENDEREDALIAS}_DlgObj.setStateInfo({ });\nA5.msgBox.theme = 'iOS7';\nA5.msgBox.buttonWidth = '1in';\n{UXPRERENDEREDALIAS}_DlgObj._defaultWindowTitleDirection = 'ltr';\n{UXPRERENDEREDALIAS}_DlgObj._controlContainers = {}\n{UXPRERENDEREDALIAS}_DlgObj._panelCardControls = {\nFROM:'PANELCARD',\nTO:'PANELCARD',\nSITESMAP:'PANELCARD'\n}\n{UXPRERENDEREDALIAS}_DlgObj._buttons = {};\n{UXPRERENDEREDALIAS}_DlgObj._buttons['BUTTON_DIRECTIONS'] = new A5.Button({\n\tlayout: 'text',\n\tstyle: 'box-sizing: border-box; -moz-box-sizing: border-box; -ms-box-sizing: border-box; -webkit-box-sizing: border-box;',\n\thtml: 'Directions',\n\tonClick: function() { \n},\n\ttheme: 'iOS7'\n});\n{UXPRERENDEREDALIAS}_DlgObj._buttons['BUTTON_DIRECTIONS'].bind('{UXPRERENDEREDALIAS}.V.R1.BUTTON_DIRECTIONS');\n{UXPRERENDEREDALIAS}_DlgObj._mapSettings['SITESMAP'] = {theme: 'iOS7',ui: {overviewMap: false,draggable: false,zoomOnDblClick: true,panControl: false,scale: false,streetViewControl: false,zoomControl: false,mapTypeControl: false},route: {draggable: false,avoid: {highways: false,tolls: false},travelMode: 'Driving',units: 'Default',optimizeOrder: false,directionsPanel: 'route-panel-id'},type: 'ROADMAP',onZoomChange: function(data) { },onInitialize: function(data) { }};\n{UXPRERENDEREDALIAS}_DlgObj._controls['SITESMAP'] = { type: 'map', onInitialize: function() {  var mapObj = {UXPRERENDEREDALIAS}_DlgObj.getControl('SITESMAP');\nmapObj.setCenter([40.108525,-75.290311],false);\nmapObj.setZoom(13);;} ,   settings:  {UXPRERENDEREDALIAS}_DlgObj._mapSettings['SITESMAP'] }\n{UXPRERENDEREDALIAS}_DlgObj.setVariables({});\n{UXPRERENDEREDALIAS}_DlgObj._dataBoundControls = [];\n{UXPRERENDEREDALIAS}_DlgObj._primaryTableAlias = '';\n{UXPRERENDEREDALIAS}_DlgObj._hasPanels = true;\n{UXPRERENDEREDALIAS}_DlgObj._hasOnSynchronizeEvent = false;\nA5.__dtfmt = 'MM/dd/yyyy';A5.__tfmt = '';\nA5.__flagWorkingPreview = false;\nA5.__flagIIS = false;\nA5.__flagSimulateIIS = true;\n{UXPRERENDEREDALIAS}_DlgObj._functions.calcOrientation = function() { \n\tif(typeof {UXPRERENDEREDALIAS}_DlgObj == 'undefined') return '';\n\tvar orientation = {UXPRERENDEREDALIAS}_DlgObj.getOrientation();\n\tif( orientation == 'landscape') {\n\t\t\t//landscape\n\t\t\tif({UXPRERENDEREDALIAS}_DlgObj._orientation != 'landscape') {\n\t\t\t\t{UXPRERENDEREDALIAS}_DlgObj._fireWatches(1);\t\n\t\t\t\t{UXPRERENDEREDALIAS}_DlgObj._orientation = 'landscape';\n\t\t\t\t{UXPRERENDEREDALIAS}_DlgObj._executeEvent('onOrientationChange',{orientation: 'landscape'});\n\t\t\t}\n\t} else {\n\t\t//portrait\n\t\tif({UXPRERENDEREDALIAS}_DlgObj._orientation != 'portrait') {\n\t\t\t\t{UXPRERENDEREDALIAS}_DlgObj._fireWatches(1);\t\n\t\t\t\t{UXPRERENDEREDALIAS}_DlgObj._orientation = 'portrait';\n\t\t\t\t{UXPRERENDEREDALIAS}_DlgObj._executeEvent('onOrientationChange',{orientation: 'portrait'});\n\t\t\t}\n\t}\n}\n\tA5.flags.cordovaLoaded = true;\n\ttry {\n\t\tdocument.addEventListener('deviceready', function() { \n\t\t\t{UXPRERENDEREDALIAS}_DlgObj._executeEvent('onCordovaReady',{});\n\t\t\t{UXPRERENDEREDALIAS}_DlgObj._executeEvent('onPhoneGapReady',{});\n\t\t\t{UXPRERENDEREDALIAS}_DlgObj._cordovaReady = true;\n\t\t\tnavigator.geolocation.getAccuratePosition = function(geolocationSuccess, geolocationError, options) {\n\tvar _lastCheckedPosition = null;\n\tvar _locationEventCount = 0;\n\toptions = options || {};\n\toptions.context = this;\n    function _checkLocation(pos) {\n        _lastCheckedPosition = pos;\n        _locationEventCount++;\n        if ((pos.coords.accuracy <= options.desiredAccuracy) && (_locationEventCount > options.ignoreResultCount)) {\n            clearTimeout(_timerID);\n            navigator.geolocation.clearWatch(_watchID);\n            _foundPosition(pos);\n        } \n    }\n    function _stopLocationCheck() {\n    \t var error = {};\n    \t error.code = 0;\n    \t error.message = 'Timeout: No results';\n        navigator.geolocation.clearWatch(_watchID);\n        _lastCheckedPosition ? _foundPosition(_lastCheckedPosition) : geolocationError.call(options.context,error);\n    }\n    function _onError(error) {\n        clearTimeout(_timerID);\n        navigator.geolocation.clearWatch(_watchID);\n        geolocationError.call(options.context,error);\n    }\n    function _foundPosition(pos) {\n        geolocationSuccess.call(options.context,pos);\n    }\n    if (!options.maxWait) {            \n    \toptions.maxWait = 10000; \n    }\t\n    if (!options.desiredAccuracy) {\n    \t  options.desiredAccuracy = 20; \n    }\n    if (!options.timeout) {\n        options.timeout = options.maxWait;\n\t }\n\t if (!options.ignoreResultCount) {\n\t \t\toptions.ignoreResultCount = 1;\n\t }\n    options.maximumAge = 0; \n    options.enableHighAccuracy = true; \n    var _watchID = navigator.geolocation.watchPosition(_checkLocation, _onError, options);\n    var _timerID = setTimeout(_stopLocationCheck, options.maxWait); \n}\n\t\t} , false);\t\n\t}\n\tcatch(err) {}\n{UXPRERENDEREDALIAS}_DlgObj._waitGif = 'css/A5System/Images/wait.gif';\n{UXPRERENDEREDALIAS}_DlgObj._layoutMode = 'containerwidth';\n{UXPRERENDEREDALIAS}_DlgObj._responsiveRulesMode = 'firsttrue';\n{UXPRERENDEREDALIAS}_DlgObj.__controlNesting = {\n}\n{UXPRERENDEREDALIAS}_DlgObj._listsDV = [];\n{UXPRERENDEREDALIAS}_DlgObj._listControls = [];\n{UXPRERENDEREDALIAS}_DlgObj._localStorageSettings = {namespace: 'ALPHA_fbca2e0811f540f5aa17cbbaa9f70e5a',friendlyName: '',description: '',persistVariableValues: false,__version: 1,persistComponentState: false,workingPreviewTestingFolder: '',restore: {variables: false,data: false,state: false},compressData: false,minify: false,variablesToNotPersist: '',workingPreviewTestingMode: 'Browser',compressListData: false}\n{UXPRERENDEREDALIAS}_DlgObj.__r = ['3rkeltoSdQc=']\n{UXPRERENDEREDALIAS}_DlgObj._staticHTMLMode = false\n{UXPRERENDEREDALIAS}_DlgObj._EDITOR_EDITORSET = {};\n{UXPRERENDEREDALIAS}_DlgObj.styleName = 'iOS7';\n{UXPRERENDEREDALIAS}_DlgObj.styleVersion = 3\n{UXPRERENDEREDALIAS}_DlgObj.framesInfo = {\n};\n{UXPRERENDEREDALIAS}_DlgObj._noPersist = []\n$e.add('{UXPRERENDEREDALIAS}.V.R1.BUTTON_DIRECTIONS',A5.d.evnts.click,function(e) {\n{UXPRERENDEREDALIAS}_DlgObj.getControl('SitesMap').plotRoute({UXPRERENDEREDALIAS}_DlgObj.getValue('From'), {UXPRERENDEREDALIAS}_DlgObj.getValue('To'));\n},this,false,'{UXPRERENDEREDALIAS}.V.R1.BUTTON_DIRECTIONS');\n__replaceAtRuntime_CustomControlsSystemBeforePrepare\n{UXPRERENDEREDALIAS}_DlgObj.prepare();{UXPRERENDEREDALIAS}_DlgObj.populate({UXPRERENDEREDALIAS}_DlgObj.originalValues[0]);\n{UXPRERENDEREDALIAS}_DlgObj._fireWatches(1);\n\n\nif(!A5.flags.isMobile) $e.add(window,'resize',{UXPRERENDEREDALIAS}_DlgObj._functions.calcOrientation);\nelse $e.add(window,'orientationchange',{UXPRERENDEREDALIAS}_DlgObj._orientationChangeHandler,{UXPRERENDEREDALIAS}_DlgObj,true);\n{UXPRERENDEREDALIAS}_DlgObj._functions.calcOrientation();\n\n\n\n\n\n\nsetTimeout(function() { },0);\n\n\n{UXPRERENDEREDALIAS}_DlgObj._executeEvent('onInitializeComplete');\n{UXPRERENDEREDALIAS}_DlgObj.initialized = true;\n\n\n\n\n\n__replaceAtRuntime_CustomControlsSystemAfterRender\n\n{UXPRERENDEREDALIAS}_DlgObj._onRenderComplete = function() { {UXPRERENDEREDALIAS}_DlgObj._runJSOnLoad(); {UXPRERENDEREDALIAS}_DlgObj._findActiveLayoutRule(); }; \n\nsetTimeout(function() { var p = {UXPRERENDEREDALIAS}_DlgObj.panelGet('PANELCARD'); if(p._sizing == 'window') { p._sizeWindow();} else { p.refresh(); } },100);\nsetTimeout(function() {{UXPRERENDEREDALIAS}_DlgObj._executeEvent('onRenderComplete'); {UXPRERENDEREDALIAS}_DlgObj.flagRenderComplete = true;  {UXPRERENDEREDALIAS}_DlgObj._restoreFromLocalStorage(); },1);\n\nvar o2 = 'portrait';\nif(window.innerHeight < window.innerWidth) o2 = 'landscape';\n{UXPRERENDEREDALIAS}_DlgObj._screen = {h: window.innerHeight, w: window.innerWidth, o: o2};\n\n{UXPRERENDEREDALIAS}_DlgObj._getOnlineStatus();\ntry {\nwindow.addEventListener(\"offline\",function() { {UXPRERENDEREDALIAS}_DlgObj._fireOnConnectionChangeEvent() });\nwindow.addEventListener(\"online\",function() { {UXPRERENDEREDALIAS}_DlgObj._fireOnConnectionChangeEvent() });\n} catch(err){}\n\n\nsetTimeout(function() {$e.execute('device.screen','a5resize')},1);\nsetTimeout(function() { },10);;\n{UXPRERENDEREDALIAS}_DlgObj._activeLanguage = '';\n</script>\n<script>\n\n</script>"
+                },
+                "ajaxResponse": "A5.u.element.setContent('{UXPRERENDEROUTPUTDIV}','<style>\\n</style><iframe style=\"display:none;\" id=\"{UXPRERENDEREDALIAS}.__IFRAME1\"></iframe>\\n<input type=\"hidden\" value=\"\" id=\"{UXPRERENDEREDALIAS}.PARAMETERBUCKET\"/>\\n<input type=\"file\" style=\"position:absolute; top:-1000px;visibility:hidden;\" accept=\"image/*\" id=\"{UXPRERENDEREDALIAS}._GETPHOTO\"/><input type=\"file\" style=\"position:absolute; top:-1000px;visibility:hidden;\" name=\"files[]\" multiple = \"\" id=\"{UXPRERENDEREDALIAS}._GETFILEMULTI\"/><input type=\"file\" style=\"position:absolute; top:-1000px;visibility:hidden;\" name=\"files[]\" id=\"{UXPRERENDEREDALIAS}._GETFILE\"/>');\n\nif(typeof {UXPRERENDEREDALIAS}_DlgObj == 'object') {\n\t{UXPRERENDEREDALIAS}_DlgObj._destroy();\n\ttry {\n\t\tdelete {UXPRERENDEREDALIAS}_DlgObj;\n\t} catch(e) {\n\t\t{UXPRERENDEREDALIAS}_DlgObj = undefined;\n\t}\n};\n;if(typeof {UXPRERENDEREDALIAS}_PanelObj != 'undefined') {\n\tvar ele = $({UXPRERENDEREDALIAS}_PanelObj.getPanelId());\n\tif(ele) {\n\t\tif(ele.parentNode) ele.parentNode.removeChild(ele);\n\t}\n\tdelete {UXPRERENDEREDALIAS}_PanelObj;\n}\n;window['{UXPRERENDEREDALIAS}_PanelObj'] = new A5.PanelCard({\n\ttheme: 'iOS7',\n\tbody: {\n\t\tcontent: {\n\t\t\ttype: 'html',\n\t\t\tsrc: '<div class=\"A5CWLayout\" style=\"width: 100%\" >\\n\\t<label id=\"{UXPRERENDEREDALIAS}.LBL.R1.FROM\" for=\"{UXPRERENDEREDALIAS}.V.R1.FROM\" title=\"\" class=\"iOS7DialogLabel\" style=\"display:block;\">From</label>\\n\\n\\t<input\\ttype=\"text\" id=\"{UXPRERENDEREDALIAS}.V.R1.FROM\" title=\"\"     class=\"iOS7Edit\" style=\"width: 100%; box-sizing: border-box; -moz-box-sizing: border-box; -ms-box-sizing: border-box; -webkit-box-sizing: border-box;\"    name=\"V.R1.FROM\"    value=\"\"    />\\n\\n</div><br  style=\"clear:both; \" />\\n<div class=\"A5CWLayout\" style=\"width: 100%\" >\\n\\t<label id=\"{UXPRERENDEREDALIAS}.LBL.R1.TO\" for=\"{UXPRERENDEREDALIAS}.V.R1.TO\" title=\"\" class=\"iOS7DialogLabel\" style=\"display:block;\">To</label>\\n\\n\\t<input\\ttype=\"text\" id=\"{UXPRERENDEREDALIAS}.V.R1.TO\" title=\"\"     class=\"iOS7Edit\" style=\"width: 100%; box-sizing: border-box; -moz-box-sizing: border-box; -ms-box-sizing: border-box; -webkit-box-sizing: border-box;\"    name=\"V.R1.TO\"    value=\"\"    />\\n\\n</div><br  style=\"clear:both; \" />\\n<div class=\"A5CWLayout\" style=\"width: \" >\\n\\t<button type=\"button\" id=\"{UXPRERENDEREDALIAS}.V.R1.BUTTON_DIRECTIONS\"    ></button>\\n</div><br  style=\"clear:both; \" />\\n<div class=\"A5CWLayout\" style=\"width: \" >\\n\\t<div id=\"{UXPRERENDEREDALIAS}.V.R1.DIV_ROUTEPANEL\" title=\"\"  class=\"\" style=\"box-sizing: border-box; -moz-box-sizing: border-box; -ms-box-sizing: border-box; -webkit-box-sizing: border-box;\"   ><span id=\"route-panel-id\"> </span></div>\\n</div>\\n<div class=\"A5CWLayout\" style=\"width: 100%\" >\\n\\t<label id=\"{UXPRERENDEREDALIAS}.LBL.R1.SITESMAP\" for=\"{UXPRERENDEREDALIAS}.V.R1.SITESMAP\" title=\"\" class=\"iOS7DialogLabel\" style=\"display:block;\">&nbsp;</label>\\n\\n\\t<div id=\"{UXPRERENDEREDALIAS}.V.R1.SITESMAP.CONTROL\"  style=\"width: 100%; height: 8in; box-sizing: border-box; -moz-box-sizing: border-box; -ms-box-sizing: border-box; -webkit-box-sizing: border-box; \"></div>\\n\\n</div><br  style=\"clear:both; \" />\\n<div style=\"clear: both; font: 0px arial; height: 0px; width: 0px;\"></div>'\n\t\t},\n\t\tscroll: {\n\t\t\taxis: 'both',\n\t\t\tstopPropogation: false,\n\t\t\tpull: {\n\t\t\t\ty: 'auto',\n\t\t\t\tx: 'auto'\n\t\t\t},\n\t\t\tindicator: {\n\t\t\t\tshow: true,\n\t\t\t\th: {\n\t\t\t\t\tshow: true,\n\t\t\t\t\tlocation: 'right',\n\t\t\t\t\toffset: '0px',\n\t\t\t\t\tleft: '0px',\n\t\t\t\t\tright: '0px'\n\t\t\t\t},\n\t\t\t\tv: {\n\t\t\t\t\tshow: true,\n\t\t\t\t\tlocation: 'right',\n\t\t\t\t\toffset: '0px',\n\t\t\t\t\ttop: '0px',\n\t\t\t\t\tbottom: '0px'\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t},\n\theader: {\n\t\thtml: '<div style=\"display:none;\"></div>'\n\t},\n\tfooter: {\n\t},\n\toverlay: {\n\t},\n\tonSize: function() {;if(typeof {UXPRERENDEREDALIAS}_DlgObj != 'undefined') {\n\tif(typeof {UXPRERENDEREDALIAS}_DlgObj._findActiveLayoutRule != 'undefined') { \n\t\t{UXPRERENDEREDALIAS}_DlgObj._findActiveLayoutRule();\n\t}\n}}\n})\nvar ele = window['{UXPRERENDEREDALIAS}_PanelObj'].create('{UXPRERENDEREDALIAS}.R1');\n\t\tvar panelRootId = '{UXPRERENDEROUTPUTDIV}';\n\t\tvar flagSizeToParent = true;\n\t\tvar wf_alias = '{UXPRERENDEREDALIAS}';\n\t\tif(panelRootId != '') { \n\t\t\tif (!$(panelRootId)) panelRootId = '';\n\t\t}\n\t\tif(panelRootId != '') { \n\t\t\t$(panelRootId).appendChild(ele);\n\t\t\tif(flagSizeToParent) { \n\t\t\t\twindow[wf_alias + '_PanelObj'].bindSize('parent');\n\t\t\t}\n\t\t} else { \n\t\t\tdocument.body.insertBefore(ele,document.body.firstChild);\n\t\t\twindow[wf_alias + '_PanelObj'].bindSize('window');\n\t\t}\n{UXPRERENDEREDALIAS}_PanelObj._panelPath = {\n}\n{UXPRERENDEREDALIAS}_PanelObj._displayNames = {\nPANELCARD : 'PANELCARD'\n};\nif(typeof {UXPRERENDEREDALIAS}_DlgObj == 'object') {UXPRERENDEREDALIAS}_DlgObj._destroy();\nwindow['{UXPRERENDEREDALIAS}_DlgObj'] = new A5.DialogComponentHelper('{UXPRERENDEREDALIAS}',{\n\tajaxURL: '{UXPRERENDERAJAXURL}',\n\t_embeddedMode: false,\n\t_livePreviewInBuilder: false,\n\tcomponentGUID: 'fbca2e08-11f5-40f5-aa17-cbbaa9f70e5a',\n\tcolumnInfo: {'FROM': {info: {controlType: 'Textbox'}, hiddenVal: false, type: 'input,label', isCalc: false, hlp: '', isArray: false, dataType: 'C'  },'TO': {info: {controlType: 'Textbox'}, hiddenVal: false, type: 'input,label', isCalc: false, hlp: '', isArray: false, dataType: 'C'  },'SITESMAP': {info: {controlType: 'Map'}, hiddenVal: false, type: 'control', isCalc: false, hlp: '', isArray: false, dataType: 'C'  }},\n\toriginalValues: [{\n\t'FROM': '1 IMS Drive, Plymouth Meeting, PA',\n\t'TO': '212 Carnegie Center, Princeton, NJ',\n\t'SITESMAP': ''\n}],\n\tdefaultValues: {\n\tFROM: '1 IMS Drive, Plymouth Meeting, PA',\n\tTO: '212 Carnegie Center, Princeton, NJ',\n\tSITESMAP: ''\n},\n\tdatePickerMonthNames: ['January','February','March','April','May','June','July','August','September','October','November','December'],\n\tdatePickerDayNames: ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'],\n\tdatePickerTodayButton: 'Today',\n\tdatePickerCloseButton: '',\n\tdatePickerFirstDayOfWeek: 1,\n\tresetFormMessage: 'Are you sure you want to reset the form?',\n\tresetFormTitle: 'Warning',\n\tresetFormIcon: 'cssIcon=iOS7Icon iOS7IconHelp',\n\tdirtyFormMessage: 'You must first save your changes or cancel changes by clicking the Reset button.',\n\tdirtyFormTitle: 'Notice',\n\tdirtyFormIcon: 'cssIcon=iOS7Icon iOS7IconInfo',\n\tdeleteRecordDialogTitle: 'Delete Record',\n\tdeleteRecordDialogMessage: 'Are you sure you want to delete this record?',\t\n\tssDateFormat: 'MM/dd/yyyy',\n\tstyleName: 'iOS7',\n\t_fieldHelpers_DIALOG2: [],\n\tparentComponentAlias: '',\n\tsubmitIfHasClientSideErrors: true, \n\trowErrors: {\n\t\t\t\tshowMessageBox: false,\n\t\t\t\tmessageBoxTitle: 'Error',\n\t\t\t\tstyle: 'color: red; width: 6in; height: 2in;'\n\t\t},\n\tfieldErrors: {\n\t\ttype: 'block', \n\t\tclassName: 'errorText',\n\t\tinputClassName: 'iOS7EditError',\n\t\tedit: { \n\t\t\tcontainer: { className: 'iOS7EditBGError'}\n\t\t},\n\t\ticon: 'cssIcon=iOS7Icon iOS7IconError',\n\t\tglobal: {\n\t\t\tcontId: '{UXPRERENDEREDALIAS}.GLOBALERRORS',\n\t\t\thoverClassName: 'errorTextHighlight',\n\t\t\thoverInputClassName: 'errorInputHighlight'\n\t\t}\n\t}\n\t});\n{UXPRERENDEREDALIAS}_DlgObj._onOrientationChange =  function(e) { ;\n{UXPRERENDEREDALIAS}_DlgObj._findActiveLayoutRule();\n;  };\nA5.__componentObj = {UXPRERENDEREDALIAS}_DlgObj;\n__replaceAtRuntime_SystemAfterInitialize\n__replaceAtRuntime_SystemBeforePrepare\n__replaceDataForRadioOrCheckBoxRenderedAsButtonListAtRuntime__\nA5.map._fn='http://maps.googleapis.com/maps/api/js?sensor=true&libraries=geometry&callback=A5.map.init';\n{UXPRERENDEREDALIAS}_DlgObj._tabObjects = [];\n{UXPRERENDEREDALIAS}_DlgObj.lookups = {\n};\n{UXPRERENDEREDALIAS}_DlgObj.setStateInfo({\n\t__dialogGuid: 'e11f5337-aa1a-4841-8db3-a4585447c06a',\n\targumentsBoundToCotrols: '',\n\t__sgr: '',\n\t__dtfmt: 'MM/dd/yyyy',\n\t__tfmt: ''\n});\n{UXPRERENDEREDALIAS}_DlgObj._cascadingControls = [];\n{UXPRERENDEREDALIAS}_DlgObj._cascadingControlsChildren = [];\n{UXPRERENDEREDALIAS}_DlgObj.setStateInfo({ });\nA5.msgBox.theme = 'iOS7';\nA5.msgBox.buttonWidth = '1in';\n{UXPRERENDEREDALIAS}_DlgObj._defaultWindowTitleDirection = 'ltr';\n{UXPRERENDEREDALIAS}_DlgObj._controlContainers = {}\n{UXPRERENDEREDALIAS}_DlgObj._panelCardControls = {\nFROM:'PANELCARD',\nTO:'PANELCARD',\nSITESMAP:'PANELCARD'\n}\n{UXPRERENDEREDALIAS}_DlgObj._buttons = {};\n{UXPRERENDEREDALIAS}_DlgObj._buttons['BUTTON_DIRECTIONS'] = new A5.Button({\n\tlayout: 'text',\n\tstyle: 'box-sizing: border-box; -moz-box-sizing: border-box; -ms-box-sizing: border-box; -webkit-box-sizing: border-box;',\n\thtml: 'Directions',\n\tonClick: function() { \n},\n\ttheme: 'iOS7'\n});\n{UXPRERENDEREDALIAS}_DlgObj._buttons['BUTTON_DIRECTIONS'].bind('{UXPRERENDEREDALIAS}.V.R1.BUTTON_DIRECTIONS');\n{UXPRERENDEREDALIAS}_DlgObj._mapSettings['SITESMAP'] = {theme: 'iOS7',ui: {overviewMap: false,draggable: false,zoomOnDblClick: true,panControl: false,scale: false,streetViewControl: false,zoomControl: false,mapTypeControl: false},route: {draggable: false,avoid: {highways: false,tolls: false},travelMode: 'Driving',units: 'Default',optimizeOrder: false,directionsPanel: 'route-panel-id'},type: 'ROADMAP',onZoomChange: function(data) { },onInitialize: function(data) { }};\n{UXPRERENDEREDALIAS}_DlgObj._controls['SITESMAP'] = { type: 'map', onInitialize: function() {  var mapObj = {UXPRERENDEREDALIAS}_DlgObj.getControl('SITESMAP');\nmapObj.setCenter([40.108525,-75.290311],false);\nmapObj.setZoom(13);;} ,   settings:  {UXPRERENDEREDALIAS}_DlgObj._mapSettings['SITESMAP'] }\n{UXPRERENDEREDALIAS}_DlgObj.setVariables({});\n{UXPRERENDEREDALIAS}_DlgObj._dataBoundControls = [];\n{UXPRERENDEREDALIAS}_DlgObj._primaryTableAlias = '';\n{UXPRERENDEREDALIAS}_DlgObj._hasPanels = true;\n{UXPRERENDEREDALIAS}_DlgObj._hasOnSynchronizeEvent = false;\nA5.__dtfmt = 'MM/dd/yyyy';A5.__tfmt = '';\nA5.__flagWorkingPreview = false;\nA5.__flagIIS = false;\nA5.__flagSimulateIIS = true;\n{UXPRERENDEREDALIAS}_DlgObj._functions.calcOrientation = function() { \n\tif(typeof {UXPRERENDEREDALIAS}_DlgObj == 'undefined') return '';\n\tvar orientation = {UXPRERENDEREDALIAS}_DlgObj.getOrientation();\n\tif( orientation == 'landscape') {\n\t\t\t//landscape\n\t\t\tif({UXPRERENDEREDALIAS}_DlgObj._orientation != 'landscape') {\n\t\t\t\t{UXPRERENDEREDALIAS}_DlgObj._fireWatches(1);\t\n\t\t\t\t{UXPRERENDEREDALIAS}_DlgObj._orientation = 'landscape';\n\t\t\t\t{UXPRERENDEREDALIAS}_DlgObj._executeEvent('onOrientationChange',{orientation: 'landscape'});\n\t\t\t}\n\t} else {\n\t\t//portrait\n\t\tif({UXPRERENDEREDALIAS}_DlgObj._orientation != 'portrait') {\n\t\t\t\t{UXPRERENDEREDALIAS}_DlgObj._fireWatches(1);\t\n\t\t\t\t{UXPRERENDEREDALIAS}_DlgObj._orientation = 'portrait';\n\t\t\t\t{UXPRERENDEREDALIAS}_DlgObj._executeEvent('onOrientationChange',{orientation: 'portrait'});\n\t\t\t}\n\t}\n}\n\tA5.flags.cordovaLoaded = true;\n\ttry {\n\t\tdocument.addEventListener('deviceready', function() { \n\t\t\t{UXPRERENDEREDALIAS}_DlgObj._executeEvent('onCordovaReady',{});\n\t\t\t{UXPRERENDEREDALIAS}_DlgObj._executeEvent('onPhoneGapReady',{});\n\t\t\t{UXPRERENDEREDALIAS}_DlgObj._cordovaReady = true;\n\t\t\tnavigator.geolocation.getAccuratePosition = function(geolocationSuccess, geolocationError, options) {\n\tvar _lastCheckedPosition = null;\n\tvar _locationEventCount = 0;\n\toptions = options || {};\n\toptions.context = this;\n    function _checkLocation(pos) {\n        _lastCheckedPosition = pos;\n        _locationEventCount++;\n        if ((pos.coords.accuracy <= options.desiredAccuracy) && (_locationEventCount > options.ignoreResultCount)) {\n            clearTimeout(_timerID);\n            navigator.geolocation.clearWatch(_watchID);\n            _foundPosition(pos);\n        } \n    }\n    function _stopLocationCheck() {\n    \t var error = {};\n    \t error.code = 0;\n    \t error.message = 'Timeout: No results';\n        navigator.geolocation.clearWatch(_watchID);\n        _lastCheckedPosition ? _foundPosition(_lastCheckedPosition) : geolocationError.call(options.context,error);\n    }\n    function _onError(error) {\n        clearTimeout(_timerID);\n        navigator.geolocation.clearWatch(_watchID);\n        geolocationError.call(options.context,error);\n    }\n    function _foundPosition(pos) {\n        geolocationSuccess.call(options.context,pos);\n    }\n    if (!options.maxWait) {            \n    \toptions.maxWait = 10000; \n    }\t\n    if (!options.desiredAccuracy) {\n    \t  options.desiredAccuracy = 20; \n    }\n    if (!options.timeout) {\n        options.timeout = options.maxWait;\n\t }\n\t if (!options.ignoreResultCount) {\n\t \t\toptions.ignoreResultCount = 1;\n\t }\n    options.maximumAge = 0; \n    options.enableHighAccuracy = true; \n    var _watchID = navigator.geolocation.watchPosition(_checkLocation, _onError, options);\n    var _timerID = setTimeout(_stopLocationCheck, options.maxWait); \n}\n\t\t} , false);\t\n\t}\n\tcatch(err) {}\n{UXPRERENDEREDALIAS}_DlgObj._waitGif = 'css/A5System/Images/wait.gif';\n{UXPRERENDEREDALIAS}_DlgObj._layoutMode = 'containerwidth';\n{UXPRERENDEREDALIAS}_DlgObj._responsiveRulesMode = 'firsttrue';\n{UXPRERENDEREDALIAS}_DlgObj.__controlNesting = {\n}\n{UXPRERENDEREDALIAS}_DlgObj._listsDV = [];\n{UXPRERENDEREDALIAS}_DlgObj._listControls = [];\n{UXPRERENDEREDALIAS}_DlgObj._localStorageSettings = {namespace: 'ALPHA_fbca2e0811f540f5aa17cbbaa9f70e5a',friendlyName: '',description: '',persistVariableValues: false,__version: 1,persistComponentState: false,workingPreviewTestingFolder: '',restore: {variables: false,data: false,state: false},compressData: false,minify: false,variablesToNotPersist: '',workingPreviewTestingMode: 'Browser',compressListData: false}\n{UXPRERENDEREDALIAS}_DlgObj.__r = ['3rkeltoSdQc=']\n{UXPRERENDEREDALIAS}_DlgObj._staticHTMLMode = false\n{UXPRERENDEREDALIAS}_DlgObj._EDITOR_EDITORSET = {};\n{UXPRERENDEREDALIAS}_DlgObj.styleName = 'iOS7';\n{UXPRERENDEREDALIAS}_DlgObj.styleVersion = 3\n{UXPRERENDEREDALIAS}_DlgObj.framesInfo = {\n};\n{UXPRERENDEREDALIAS}_DlgObj._noPersist = []\n$e.add('{UXPRERENDEREDALIAS}.V.R1.BUTTON_DIRECTIONS',A5.d.evnts.click,function(e) {\n{UXPRERENDEREDALIAS}_DlgObj.getControl('SitesMap').plotRoute({UXPRERENDEREDALIAS}_DlgObj.getValue('From'), {UXPRERENDEREDALIAS}_DlgObj.getValue('To'));\n},this,false,'{UXPRERENDEREDALIAS}.V.R1.BUTTON_DIRECTIONS');\n__replaceAtRuntime_CustomControlsSystemBeforePrepare\n{UXPRERENDEREDALIAS}_DlgObj.prepare();{UXPRERENDEREDALIAS}_DlgObj.populate({UXPRERENDEREDALIAS}_DlgObj.originalValues[0]);\n{UXPRERENDEREDALIAS}_DlgObj._fireWatches(1);\n\n\nif(!A5.flags.isMobile) $e.add(window,'resize',{UXPRERENDEREDALIAS}_DlgObj._functions.calcOrientation);\nelse $e.add(window,'orientationchange',{UXPRERENDEREDALIAS}_DlgObj._orientationChangeHandler,{UXPRERENDEREDALIAS}_DlgObj,true);\n{UXPRERENDEREDALIAS}_DlgObj._functions.calcOrientation();\n\n\n\n\n\n\nsetTimeout(function() { },0);\n\n\n{UXPRERENDEREDALIAS}_DlgObj._executeEvent('onInitializeComplete');\n{UXPRERENDEREDALIAS}_DlgObj.initialized = true;\n\n\n\n\n\n__replaceAtRuntime_CustomControlsSystemAfterRender\n\n{UXPRERENDEREDALIAS}_DlgObj._onRenderComplete = function() { {UXPRERENDEREDALIAS}_DlgObj._runJSOnLoad(); {UXPRERENDEREDALIAS}_DlgObj._findActiveLayoutRule(); }; \n\nsetTimeout(function() { var p = {UXPRERENDEREDALIAS}_DlgObj.panelGet('PANELCARD'); if(p._sizing == 'window') { p._sizeWindow();} else { p.refresh(); } },100);\nsetTimeout(function() {{UXPRERENDEREDALIAS}_DlgObj._executeEvent('onRenderComplete'); {UXPRERENDEREDALIAS}_DlgObj.flagRenderComplete = true;  {UXPRERENDEREDALIAS}_DlgObj._restoreFromLocalStorage(); },1);\n\nvar o2 = 'portrait';\nif(window.innerHeight < window.innerWidth) o2 = 'landscape';\n{UXPRERENDEREDALIAS}_DlgObj._screen = {h: window.innerHeight, w: window.innerWidth, o: o2};\n\n{UXPRERENDEREDALIAS}_DlgObj._getOnlineStatus();\ntry {\nwindow.addEventListener(\"offline\",function() { {UXPRERENDEREDALIAS}_DlgObj._fireOnConnectionChangeEvent() });\nwindow.addEventListener(\"online\",function() { {UXPRERENDEREDALIAS}_DlgObj._fireOnConnectionChangeEvent() });\n} catch(err){}\n\n\nsetTimeout(function() {$e.execute('device.screen','a5resize')},1);\nsetTimeout(function() { },10);;\n{UXPRERENDEREDALIAS}_DlgObj._activeLanguage = '';"
+            },
+            "iconMap": "{images.RowExpander.Open}=\"cssIcon=iOS7Icon iOS7IconRight\"\n{images.RowExpander.Close}=\"cssIcon=iOS7Icon iOS7IconDown\"\n{images.EmbeddedSearch.Search}=\"cssIcon=iOS7Icon iOS7IconSearch\"\n{images.EmbeddedSearch.ClearSearch}=\"cssIcon=iOS7Icon iOS7IconDisabled iOS7IconFilter\"\n{images.EmbeddedSearch.ShowHideEmbeddedSearch}=\"cssIcon=iOS7Icon iOS7IconFilter\"\n{images.GridRow.NewRecordRow.NoFocus}=\"cssIcon=iOS7Icon iOS7IconDisabled iOS7IconNew\"\n{images.GridRow.NewRecordRow.HasFocus}=\"cssIcon=iOS7Icon iOS7IconNew\"\n{images.GridRow.SaveRecord}=\"cssIcon=iOS7Icon iOS7IconSave\"\n{images.GridRow.SaveRecord.Disabled}=\"cssIcon=iOS7Icon iOS7IconDisabled iOS7IconSave\"\n{images.GridRow.UndoChanges}=\"cssIcon=iOS7Icon iOS7IconUndo\"\n{images.GridRow.UndoChanges.Disabled}=\"cssIcon=iOS7Icon iOS7IconDisabled iOS7IconUndo\"\n{images.GridRow.EditRecord}=\"cssIcon=iOS7Icon iOS7IconEdit\"\n{images.GridRow.EditRecord.Disabled}=\"cssIcon=iOS7Icon iOS7IconDisabled iOS7IconEdit\"\n{images.GridRow.DeleteRecord}=\"cssIcon=iOS7Icon iOS7IconDelete\"\n{images.GridRow.DeleteRecord.Disabled}=\"cssIcon=iOS7Icon iOS7IconDisabled iOS7IconDelete\"\n{images.GridRow.CancelEditRecord}=\"cssIcon=iOS7Icon iOS7IconCancelEdit\"\n{images.GridRow.CancelEditRecord.Disabled}=\"cssIcon=iOS7Icon iOS7IconDisabled iOS7IconCancelEdit\"\n{images.GridRow.HasError}=\"cssIcon=iOS7Icon iOS7IconError\"\n{images.QBE.OperatorIsSelected}=\"cssIcon=iOS7IconSm iOS7IconCheck\"\n{images.QBE.OpenQBEMenu}=\"cssIcon=iOS7Icon iOS7IconFilter\"\n{images.QBE.ShowHideQBERow}=\"cssIcon=iOS7Icon iOS7IconFilter\"\n{images.PopUpWindow.Lookup.Close}=\"cssIcon=iOS7Icon iOS7IconClose\"\n{images.PopUpWindow.DetailView.Close}=\"cssIcon=iOS7Icon iOS7IconClose\"\n{images.CollapseContainer.Open}=\"cssIcon=iOS7Icon iOS7IconRight\"\n{images.CollapseContainer.Close}=\"cssIcon=iOS7Icon iOS7IconDown\"\n{images.FieldHelpIcon}=\"cssIcon=iOS7Icon iOS7IconHelp\"\n{images.SearchPart.SaveSearchCriteria}=\"cssIcon=iOS7Icon iOS7IconSave\"\n{images.SearchPart.LoadSearchCriteria}=\"cssIcon=iOS7Icon iOS7IconLoad\"\n{images.SearchPart.RunSearch}=\"cssIcon=iOS7Icon iOS7IconSearch\"\n{images.SearchPart.ClearSearch}=\"cssIcon=iOS7Icon iOS7IconDisabled iOS7IconFilter\"\n{images.GridRow.SelectionPointer}=\"cssIcon=iOS7Icon iOS7IconRight\"\n{images.Grid.SortAsc}=\"cssIcon=iOS7IconSm iOS7IconUp\"\n{images.Grid.SortAscDisabled}=\"cssIcon=iOS7IconSm iOS7IconDisabled iOS7IconUp\"\n{images.Grid.sortDesc}=\"cssIcon=iOS7IconSm iOS7IconDown\"\n{images.grid.sortDescDisabled}=\"cssIcon=iOS7IconSm iOS7IconDisabled iOS7IconDown\"\n{images.grid.firstPage}=\"cssIcon=iOS7Icon iOS7IconFirst\"\n{images.grid.firstPageDisabled}=\"cssIcon=iOS7Icon iOS7IconDisabled iOS7IconFirst\"\n{images.grid.prevPage}=\"cssIcon=iOS7Icon iOS7IconLeft\"\n{images.grid.prevPageDisabled}=\"cssIcon=iOS7Icon iOS7IconDisabled iOS7IconLeft\"\n{images.grid.nextPage}=\"cssIcon=iOS7Icon iOS7IconRight\"\n{images.grid.nextPageDisabled}=\"cssIcon=iOS7Icon iOS7IconDisabled iOS7IconRight\"\n{images.grid.lastPage}=\"cssIcon=iOS7Icon iOS7IconLast\"\n{images.grid.lastPageDisabled}=\"cssIcon=iOS7Icon iOS7IconDisabled iOS7IconLast\"\n{images.edit.dropdownArrow}=\"cssIcon=iOS7Icon iOS7IconDown\"\n{images.edit.datePicker}=\"cssIcon=iOS7Icon iOS7IconDown\"\n{images.edit.dateTimePicker}=\"cssIcon=iOS7Icon iOS7IconDown\"\n{images.edit.timePicker}=\"cssIcon=iOS7Icon iOS7IconDown\"\n{images.edit.calculator}=\"cssIcon=iOS7Icon iOS7IconDown\"\n{images.edit.lookup}=\"cssIcon=iOS7Icon iOS7IconDown\"\n{images.javascript.deleteRowConfirmation}=\"cssIcon=iOS7Icon iOS7IconHelp\"\n{images.javascript.cancelEditRowConfirmation}=\"cssIcon=iOS7Icon iOS7IconHelp\"\n{images.javascript.UndoEditsConfirmation}=\"cssIcon=iOS7Icon iOS7IconInfo\"\n{images.javascript.UndoAllEditsConfirmation}=\"cssIcon=iOS7Icon iOS7IconInfo\"\n{images.javascript.dirtyRecordWarning}=\"cssIcon=iOS7Icon iOS7IconInfo\"\n{images.dv.close}=\"cssIcon=iOS7Icon iOS7IconClose\"\n{images.dv.firstRecord}=\"cssIcon=iOS7Icon iOS7IconFirst\"\n{images.dv.prevRecord}=\"cssIcon=iOS7Icon iOS7IconLeft\"\n{images.dv.nextRecord}=\"cssIcon=iOS7Icon iOS7IconRight\"\n{images.dv.lastRecord}=\"cssIcon=iOS7Icon iOS7IconLast\"\n{images.dv.newRecord}=\"cssIcon=iOS7Icon iOS7IconNew\"\n{images.dv.cancelEdits}=\"cssIcon=iOS7Icon iOS7IconCancelEdit\"\n{images.dv.deleteRecord}=\"cssIcon=iOS7Icon iOS7IconDelete\"\n{images.dv.saveRecord}=\"cssIcon=iOS7Icon iOS7IconSave\"\n{images.dv.saveAndEnter}=\"cssIcon=iOS7Icon iOS7IconSaveAndEnter\"\n{images.dv.switchToEdit}=\"cssIcon=iOS7Icon iOS7IconEdit\"\n{images.dv.switchToView}=\"cssIcon=iOS7Icon iOS7IconCancel\"\n{images.disabled.dv.newRecord}=\"cssIcon=iOS7Icon iOS7IconNew\"\n{images.disabled.dv.cancelEdits}=\"cssIcon=iOS7Icon iOS7IconCancelEdit\"\n{images.disabled.dv.deleteRecord}=\"cssIcon=iOS7Icon iOS7IconDelete\"\n{images.disabled.dv.saveRecord}=\"cssIcon=iOS7Icon iOS7IconSave\"\n{images.disabled.dv.saveAndEnter}=\"cssIcon=iOS7Icon iOS7IconSaveAndEnter\"\n{images.dv.cancelNewRecord}=\"cssIcon=iOS7Icon iOS7IconCancelEdit\"\n{images.grid.editError}=\"cssIcon=iOS7Icon iOS7IconError\"\n{images.dialog.editError}=\"cssIcon=iOS7Icon iOS7IconError\"\n{images.tabbedUI.menuExpandLeft}=\"cssIcon=iOS7Icon iOS7IconLast\"\n{images.tabbedUI.menuCollapseLeft}=\"cssIcon=iOS7Icon iOS7IconFirst\"\n{images.tabbedUI.menuExpandRight}=\"cssIcon=iOS7Icon iOS7IconFirst\"\n{images.tabbedUI.menuCollapseRight}=\"cssIcon=iOS7Icon iOS7IconLast\"\n{images.dialog.repeatingSectionActiveRowIcon}=\"cssIcon=iOS7Icon iOS7IconRight\"\n{images.dialog.repeatingSectionAddRowIcon}=\"cssIcon=iOS7IconBtn iOS7IconAdd\"\n{images.dialog.repeatingSectionDeleteRowIcon}=\"cssIcon=iOS7IconBtn iOS7IconDelete\"\n{images.dialog.repeatingSectionErrorRowIcon}=\"cssIcon=iOS7IconBtn iOS7IconError\"\n{images.dialog.deleteRowMessage.icon}=\"cssIcon=iOS7Icon iOS7IconHelp\"\n{images.dialog.resetForm.icon}=\"cssIcon=iOS7Icon iOS7IconHelp\"\n{images.dialog.dirtyForm.icon}=\"cssIcon=iOS7Icon iOS7IconInfo\"\n{images.dialog.editError}=\"cssIcon=iOS7Icon iOS7IconError\"\n{images.dialog.listNav}=\"cssIcon=iOS7Icon iOS7IconRight\"\n{images.dialog.listNavSubtle}=\"cssIcon=iOS7Icon iOS7IconRight\"\n{images.dialog.menu}=\"cssIcon=iOS7Icon iOS7IconMenu\"\n{images.dialog.refresh}=\"cssIcon=iOS7Icon iOS7IconRefresh\"\n{images.dialog.refreshDisabled}=\"cssIcon=iOS7Icon iOS7IconDisabled iOS7IconRefresh\""
+        }
+    }
+}
