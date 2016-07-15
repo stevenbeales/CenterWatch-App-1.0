@@ -4,7 +4,7 @@
 	"_ssL": "C:\\Users\\sbeales\\OneDrive\\Alpha Anywhere Projects.WebProjects\\CenterWatch App 1.0\\CenterWatch App.WebProjects\\Default.WebProject\\splash-landscape.png",
 	"_ssP": "C:\\Users\\sbeales\\OneDrive\\Alpha Anywhere Projects.WebProjects\\CenterWatch App 1.0\\CenterWatch App.WebProjects\\Default.WebProject\\splash.png",
 	"_initialUxComponent": "ClinicalTrials",
-	"_componentLastUpdated": "07/12/2016 05:48:56 09 pm",
+	"_componentLastUpdated": "07/14/2016 03:32:32 16 pm",
 	"_ajaxUrl": "http://69.7.228.180/centerappv1",
 	"_additionalFiles": "",
 	"_userName": "xzeouPUz1CjBB+bh4G74x0KUiDcQ+onH",

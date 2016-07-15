@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.epharmasolutions.centerwatch" version="0.9" versionCode="1" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
+<widget id="com.epharmasolutions.centerwatch" version="0.9.29" versionCode="1" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
     <name>Centerwatch App Beta</name>
     <description>
         CenterWatch App to help patients find the best clinical trials for them.
@@ -112,27 +112,32 @@
 	<splash platform="winphone" src ="res/screen/windows-phone/screen.scale-240.png" />
     <access origin="*" />
 	<allow-navigation href="*" />
-	<platform name="ios" />
+	<allow-intent href="http://*/*" />
+	<allow-intent href="https://*/*" />
+	<allow-intent href="tel:*" />
+	<allow-intent href="sms:*" />
+	<allow-intent href="mailto:*" />
+	<allow-intent href="geo:*" />
+	<platform name="android">
+		<allow-intent href="market:*" />
+	</platform>
+	<platform name="ios"> 
+		<allow-intent href="itms:*" />
+		<allow-intent href="itms-apps:*" />
+	</platform>
 	<feature name="http://api.phonegap.com/1.0/geolocation" />
 	<plugin name="cordova-plugin-geolocation" source="npm" />
-	<plugin name="cordova-plugin-inappbrowser" source="npm" />
 	<plugin name="cordova-plugin-network-information" source="npm" />
 	<plugin name="cordova-plugin-splashscreen" source="npm" />
 	<plugin name="cordova-plugin-x-toast" source="npm" />
 	<plugin name="cordova-plugin-whitelist" source="npm" />
 	<plugin name="cordova-plugin-dialogs" source="npm" />
 	<plugin name="cordova-plugin-statusbar" source="npm" />
-	<plugin name="cordova-plugin-google-analytics" source="npm" />
-	<feature name="debug-server" required="true" >
-		<param name="domain" value="http://10.16.64.130:8080" />
-		<param name="key" value="CenterWatch" />
-	</feature>
-	<plugin name="org.transistorsoft.cordova.background-geolocation" source="pgb" />
-
-	<gap:config-file platform="ios" parent="UIBackgroundModes" overwrite="true">
-		<array>
-			<string>location</string>
-		</array>
+	<plugin name="cordova-plugin-inappbrowser" source="npm" />
+	<gap:config-file target="*-Info.plist" parent="NSAppTransportSecurity" platform="ios" >
+		<dict>
+			<key>NSAllowsArbitraryLoads</key>
+			<true/>
+		</dict>
 	</gap:config-file>
-
 </widget>

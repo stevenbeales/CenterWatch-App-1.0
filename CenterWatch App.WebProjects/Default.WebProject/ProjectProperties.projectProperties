@@ -29,7 +29,7 @@
 <cordova<loadFrom="BuiltIn">
 >
 >
-<cssLibraries<links="css/main.scss">
+<cssLibraries<links="main.css">
 <jQuery="No Theme">
 >
 <autoBackupFolder="">

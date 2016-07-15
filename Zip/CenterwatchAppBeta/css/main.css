@@ -2,5 +2,7 @@ html {
     -webkit-text-size-adjust: 100%;
 }
 
-li { cursor: pointer; }
-
+li { 
+	cursor: pointer;
+}
+	
