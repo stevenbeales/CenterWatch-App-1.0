@@ -286,7 +286,7 @@ USER_GUID	USER_GUID%str%>
 	</Column>
 	<Index Type="SQL::IndexInfo">
 	<SQLIndexInfo Type="SQL::IndexInfo">
-		<Name Type="C">PK__WebSecur__3823F69A682E41B6</Name>
+		<Name Type="C">PK__WebSecur__3823F69A38112C18</Name>
 		<Comment Type="C"></Comment>
 		<Unique Type="L">1</Unique>
 		<PrimaryKey Type="L">1</PrimaryKey>

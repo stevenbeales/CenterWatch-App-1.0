@@ -228,7 +228,7 @@ LASTUSED	LASTUSED%str%>
 	</Column>
 	<Index Type="SQL::IndexInfo">
 	<SQLIndexInfo Type="SQL::IndexInfo">
-		<Name Type="C">PK__WebSecur__A2176BDCB861FD04</Name>
+		<Name Type="C">PK__WebSecur__A2176BDCA5FC7718</Name>
 		<Comment Type="C"></Comment>
 		<Unique Type="L">1</Unique>
 		<PrimaryKey Type="L">1</PrimaryKey>

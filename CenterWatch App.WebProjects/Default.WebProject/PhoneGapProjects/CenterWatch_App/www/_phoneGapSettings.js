@@ -19,11 +19,11 @@ function _phoneGapSettings() {
         "android-installLocation": "internalOnly",
         "phonegap-version": "cli-6.1.0",
         "FadeSplashScreen": "true",
-        "FadeSplashScreenDuration": "2",
+        "FadeSplashScreenDuration": "4.0",
         "EnableViewportScale": "true",
         "MediaPlaybackRequiresUserAction": "false",
         "AllowInlineMediaPlayback": "true",
-        "TopActivityIndicator": "white",
+        "TopActivityIndicator": "gray",
         "BackupWebStorage": "cloud",
         "iosPersistentFileLocation": "Library",
         "KeyboardDisplayRequiresUserAction": "true",
@@ -47,7 +47,8 @@ function _phoneGapSettings() {
         "whitelist": "npm",
         "dialogs": "npm",
         "statusbar": "npm",
-        "inappbrowser": "npm"
+        "inappbrowser": "npm",
+        "console": "npm"
     }
 };
 }

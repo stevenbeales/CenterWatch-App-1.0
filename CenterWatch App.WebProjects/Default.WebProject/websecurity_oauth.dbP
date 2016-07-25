@@ -574,7 +574,7 @@ WHERE 	Key_Value = :KEY_VALUE%str%>
 	</Column>
 	<Index Type="SQL::IndexInfo">
 	<SQLIndexInfo Type="SQL::IndexInfo">
-		<Name Type="C">PK__WebSecur__A9777ADC7AACE2C8</Name>
+		<Name Type="C">PK__WebSecur__A9777ADCA1EDE71D</Name>
 		<Comment Type="C"></Comment>
 		<Unique Type="L">1</Unique>
 		<PrimaryKey Type="L">1</PrimaryKey>

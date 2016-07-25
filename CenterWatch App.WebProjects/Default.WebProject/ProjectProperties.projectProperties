@@ -1,4 +1,4 @@
-<aexFiles<fileNames="CenterWatch App.aex">
+<aexFiles<fileNames="">
 >
 <fileDownload<allowedFilenamePatterns="">
 <allowedFolderPatterns="">
@@ -20,7 +20,7 @@
 <HTMLReportOffload=.F.>
 <jsLibraries<jQueryCore="None">
 <jQueryUI="None">
-<links="main.js">
+<links="app.js">
 <includeImageGallery=.F.>
 <includeGoogleJSAPI=.F.>
 <includeCKEdit=.F.>
@@ -29,13 +29,14 @@
 <cordova<loadFrom="BuiltIn">
 >
 >
-<cssLibraries<links="main.css">
+<cssLibraries<links="app.css">
 <jQuery="No Theme">
 >
 <autoBackupFolder="">
 <designTime<autoCompileAEXForWorkingPreview=.T.>
 <promptToStartServerForLivePreview=.T.>
 <encryptConnectionStrings=.T.>
+<saveFileType="">
 >
 <NamedResources="">
 <websocket<enable=.F.>

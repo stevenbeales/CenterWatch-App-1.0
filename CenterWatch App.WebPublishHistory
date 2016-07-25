@@ -1891,77 +1891,77 @@
 <[379]<type="file">
 <name="{c:\users\sbeales\onedrive\alpha anywhere projects.webprojects\centerwatch app 1.0\centerwatch app.webprojects\default.webproject\pages.securitysettings}">
 <target_folder="c:\a5webroot\centerappv1">
-<timestamp=CTODT('07/14/2016 02:27:08 91 pm')>
+<timestamp=CTODT('07/16/2016 01:20:47 03 pm')>
 >
 <[380]<type="file">
 <name="{c:\users\sbeales\onedrive\alpha anywhere projects.webprojects\centerwatch app 1.0\centerwatch app.webprojects\default.webproject\project.securitysettings}">
 <target_folder="c:\a5webroot\centerappv1">
-<timestamp=CTODT('07/14/2016 02:27:09 03 pm')>
+<timestamp=CTODT('07/16/2016 01:20:47 12 pm')>
 >
 <[381]<type="calendaricons">
 <name="calendaricons">
 <target_folder="c:\a5webroot\centerappv1">
-<timestamp=CTODT('07/14/2016 02:27:03 15 pm')>
+<timestamp=CTODT('07/16/2016 01:20:35 65 pm')>
 >
 <[382]<type="javascript">
 <name="javascript">
 <target_folder="c:\a5webroot\centerappv1">
-<timestamp=CTODT('07/14/2016 02:27:03 48 pm')>
+<timestamp=CTODT('07/16/2016 01:20:37 40 pm')>
 >
 <[383]<type="A5WPage">
 <name="{c:\users\sbeales\onedrive\alpha anywhere projects.webprojects\centerwatch app 1.0\centerwatch app.webprojects\default.webproject\index.a5w}">
 <target_folder="c:\a5webroot\centerappv1">
-<timestamp=CTODT('07/09/2016 03:00:23 84 pm')>
+<timestamp=CTODT('07/16/2016 01:21:19 06 pm')>
 >
 <[384]<type="A5WPage">
 <name="{c:\users\sbeales\onedrive\alpha anywhere projects.webprojects\centerwatch app 1.0\centerwatch app.webprojects\default.webproject\login.a5w}">
 <target_folder="c:\a5webroot\centerappv1">
-<timestamp=CTODT('07/09/2016 03:00:24 00 pm')>
+<timestamp=CTODT('07/16/2016 01:21:19 15 pm')>
 >
 <[385]<type="WebComponent">
 <name="{c:\users\sbeales\onedrive\alpha anywhere projects.webprojects\centerwatch app 1.0\centerwatch app.webprojects\default.webproject\clinicaltrials.a5wcmp}">
 <target_folder="c:\a5webroot\centerappv1">
-<timestamp=CTODT('07/14/2016 02:27:04 88 pm')>
+<timestamp=CTODT('07/16/2016 01:20:39 93 pm')>
 >
 <[386]<type="WebComponent">
 <name="{c:\users\sbeales\onedrive\alpha anywhere projects.webprojects\centerwatch app 1.0\centerwatch app.webprojects\default.webproject\communities.a5wcmp}">
 <target_folder="c:\a5webroot\centerappv1">
-<timestamp=CTODT('07/14/2016 02:27:04 97 pm')>
+<timestamp=CTODT('07/16/2016 01:20:40 00 pm')>
 >
 <[387]<type="WebComponent">
 <name="{c:\users\sbeales\onedrive\alpha anywhere projects.webprojects\centerwatch app 1.0\centerwatch app.webprojects\default.webproject\educationmaterial.a5wcmp}">
 <target_folder="c:\a5webroot\centerappv1">
-<timestamp=CTODT('07/14/2016 02:27:05 06 pm')>
+<timestamp=CTODT('07/16/2016 01:20:40 09 pm')>
 >
 <[388]<type="WebComponent">
 <name="{c:\users\sbeales\onedrive\alpha anywhere projects.webprojects\centerwatch app 1.0\centerwatch app.webprojects\default.webproject\findbycondition.a5wcmp}">
 <target_folder="c:\a5webroot\centerappv1">
-<timestamp=CTODT('07/14/2016 02:27:05 40 pm')>
+<timestamp=CTODT('07/16/2016 01:20:40 34 pm')>
 >
 <[389]<type="WebComponent">
 <name="{c:\users\sbeales\onedrive\alpha anywhere projects.webprojects\centerwatch app 1.0\centerwatch app.webprojects\default.webproject\findbykeywords.a5wcmp}">
 <target_folder="c:\a5webroot\centerappv1">
-<timestamp=CTODT('07/14/2016 02:27:05 59 pm')>
+<timestamp=CTODT('07/16/2016 01:20:40 48 pm')>
 >
 <[390]<type="WebComponent">
 <name="{c:\users\sbeales\onedrive\alpha anywhere projects.webprojects\centerwatch app 1.0\centerwatch app.webprojects\default.webproject\findbylocation.a5wcmp}">
 <target_folder="c:\a5webroot\centerappv1">
-<timestamp=CTODT('07/14/2016 02:27:05 87 pm')>
+<timestamp=CTODT('07/16/2016 01:20:40 67 pm')>
 >
 <[391]<type="WebComponent">
 <name="{c:\users\sbeales\onedrive\alpha anywhere projects.webprojects\centerwatch app 1.0\centerwatch app.webprojects\default.webproject\login.a5wcmp}">
 <target_folder="c:\a5webroot\centerappv1">
-<timestamp=CTODT('07/09/2016 03:00:25 72 pm')>
+<timestamp=CTODT('07/16/2016 01:21:19 28 pm')>
 >
 <[392]<type="WebComponent">
 <name="{c:\users\sbeales\onedrive\alpha anywhere projects.webprojects\centerwatch app 1.0\centerwatch app.webprojects\default.webproject\myprofile.a5wcmp}">
 <target_folder="c:\a5webroot\centerappv1">
-<timestamp=CTODT('07/14/2016 02:27:06 11 pm')>
+<timestamp=CTODT('07/16/2016 01:20:40 84 pm')>
 >
 <[393]<type="WebComponent">
 <name="{c:\users\sbeales\onedrive\alpha anywhere projects.webprojects\centerwatch app 1.0\centerwatch app.webprojects\default.webproject\screener.a5wcmp}">
 <target_folder="c:\a5webroot\centerappv1">
-<timestamp=CTODT('07/14/2016 02:27:06 31 pm')>
+<timestamp=CTODT('07/16/2016 01:20:41 01 pm')>
 >
 <[394]<type="WebComponent">
 <name="{c:\users\sbeales\onedrive\alpha anywhere projects.webprojects\centerwatch app 1.0\centerwatch app.webprojects\default.webproject\sitesmap.a5wcmp}">
@@ -1976,7 +1976,7 @@
 <[396]<type="file">
 <name="{c:\users\sbeales\onedrive\alpha anywhere projects.webprojects\centerwatch app 1.0\centerwatch app.webprojects\default.webproject\centerwatch app.aex}">
 <target_folder="c:\a5webroot\centerappv1">
-<timestamp=CTODT('07/09/2016 03:00:26 56 pm')>
+<timestamp=CTODT('07/16/2016 01:21:19 37 pm')>
 >
 <[397]<type="file">
 <name="{c:\users\sbeales\onedrive\alpha anywhere projects.webprojects\centerwatch app 1.0\centerwatch app.webprojects\default.webproject\css\cssicons\materialicons\css\materialicons.css}">
@@ -2121,7 +2121,7 @@
 <[425]<type="file">
 <name="{c:\users\sbeales\onedrive\alpha anywhere projects.webprojects\centerwatch app 1.0\centerwatch app.webprojects\default.webproject\images/svgicons.svg}">
 <target_folder="c:\a5webroot\centerappv1">
-<timestamp=CTODT('07/14/2016 02:27:06 51 pm')>
+<timestamp=CTODT('07/16/2016 01:20:41 31 pm')>
 >
 <[426]<type="file">
 <name="{c:\users\sbeales\onedrive\alpha anywhere projects.webprojects\centerwatch app 1.0\centerwatch app.webprojects\default.webproject\images\animated_favicon1.gif}">
@@ -2196,7 +2196,7 @@
 <[440]<type="file">
 <name="{c:\users\sbeales\onedrive\alpha anywhere projects.webprojects\centerwatch app 1.0\centerwatch app.webprojects\default.webproject\images\logo.png}">
 <target_folder="c:\a5webroot\centerappv1">
-<timestamp=CTODT('07/14/2016 02:27:06 56 pm')>
+<timestamp=CTODT('07/16/2016 01:20:41 34 pm')>
 >
 <[441]<type="file">
 <name="{c:\users\sbeales\onedrive\alpha anywhere projects.webprojects\centerwatch app 1.0\centerwatch app.webprojects\default.webproject\images\mystudies.png}">
@@ -2211,22 +2211,22 @@
 <[443]<type="file">
 <name="{c:\users\sbeales\onedrive\alpha anywhere projects.webprojects\centerwatch app 1.0\centerwatch app.webprojects\default.webproject\images\svgicons.svg}">
 <target_folder="c:\a5webroot\centerappv1">
-<timestamp=CTODT('07/09/2016 03:00:31 06 pm')>
+<timestamp=CTODT('07/16/2016 01:21:20 03 pm')>
 >
 <[444]<type="file">
 <name="{c:\users\sbeales\onedrive\alpha anywhere projects.webprojects\centerwatch app 1.0\centerwatch app.webprojects\default.webproject\loading.gif}">
 <target_folder="c:\a5webroot\centerappv1">
-<timestamp=CTODT('07/14/2016 02:27:06 62 pm')>
+<timestamp=CTODT('07/16/2016 01:20:41 40 pm')>
 >
 <[445]<type="file">
 <name="{c:\users\sbeales\onedrive\alpha anywhere projects.webprojects\centerwatch app 1.0\centerwatch app.webprojects\default.webproject\main.js}">
 <target_folder="c:\a5webroot\centerappv1">
-<timestamp=CTODT('07/09/2016 03:00:31 19 pm')>
+<timestamp=CTODT('07/16/2016 01:21:20 12 pm')>
 >
 <[446]<type="file">
 <name="{c:\users\sbeales\onedrive\alpha anywhere projects.webprojects\centerwatch app 1.0\centerwatch app.webprojects\default.webproject\projectproperties.projectproperties}">
 <target_folder="c:\a5webroot\centerappv1">
-<timestamp=CTODT('07/09/2016 03:00:31 25 pm')>
+<timestamp=CTODT('07/16/2016 01:21:20 15 pm')>
 >
 <[447]<type="file">
 <name="{c:\users\sbeales\onedrive\alpha anywhere projects.webprojects\centerwatch app 1.0\centerwatch app.webprojects\default.webproject\robots.txt}">
@@ -2236,21 +2236,96 @@
 <[448]<type="css">
 <name="a5system">
 <target_folder="c:\a5webroot\centerappv1">
-<timestamp=CTODT('07/14/2016 02:27:07 76 pm')>
+<timestamp=CTODT('07/16/2016 01:20:44 84 pm')>
 >
 <[449]<type="css">
 <name="ios7">
 <target_folder="c:\a5webroot\centerappv1">
-<timestamp=CTODT('07/14/2016 02:27:08 72 pm')>
+<timestamp=CTODT('07/16/2016 01:20:46 09 pm')>
 >
 <[450]<type="WebComponent">
 <name="{c:\users\sbeales\onedrive\alpha anywhere projects.webprojects\centerwatch app 1.0\centerwatch app.webprojects\default.webproject\sitemap.a5wcmp}">
 <target_folder="c:\a5webroot\centerappv1">
-<timestamp=CTODT('07/14/2016 02:27:06 38 pm')>
+<timestamp=CTODT('07/16/2016 01:20:41 06 pm')>
 >
 <[451]<type="file">
 <name="{c:\users\sbeales\onedrive\alpha anywhere projects.webprojects\centerwatch app 1.0\centerwatch app.webprojects\default.webproject\images/black-circle.svg}">
 <target_folder="c:\a5webroot\centerappv1">
-<timestamp=CTODT('07/14/2016 02:27:06 44 pm')>
+<timestamp=CTODT('07/16/2016 01:20:41 25 pm')>
+>
+<[452]<type="WebComponent">
+<name="{c:\users\sbeales\onedrive\alpha anywhere projects.webprojects\centerwatch app 1.0\centerwatch app.webprojects\default.webproject\trialdetails.a5wcmp}">
+<target_folder="c:\a5webroot\centerappv1">
+<timestamp=CTODT('07/16/2016 01:20:41 15 pm')>
+>
+<[453]<type="file">
+<name="{c:\users\sbeales\onedrive\alpha anywhere projects.webprojects\centerwatch app 1.0\centerwatch app.webprojects\default.webproject\apple-touch-icon.png}">
+<target_folder="c:\a5webroot\centerappv1">
+<timestamp=CTODT('07/16/2016 01:21:19 31 pm')>
+>
+<[454]<type="file">
+<name="{c:\users\sbeales\onedrive\alpha anywhere projects.webprojects\centerwatch app 1.0\centerwatch app.webprojects\default.webproject\css\cssicons\font-awesome\css\font-awesome.css}">
+<target_folder="c:\a5webroot\centerappv1">
+<timestamp=CTODT('07/16/2016 01:21:19 43 pm')>
+>
+<[455]<type="file">
+<name="{c:\users\sbeales\onedrive\alpha anywhere projects.webprojects\centerwatch app 1.0\centerwatch app.webprojects\default.webproject\css\cssicons\font-awesome\css\font-awesome.min.css}">
+<target_folder="c:\a5webroot\centerappv1">
+<timestamp=CTODT('07/16/2016 01:21:19 50 pm')>
+>
+<[456]<type="file">
+<name="{c:\users\sbeales\onedrive\alpha anywhere projects.webprojects\centerwatch app 1.0\centerwatch app.webprojects\default.webproject\css\cssicons\font-awesome\fonts\fontawesome-webfont.eot}">
+<target_folder="c:\a5webroot\centerappv1">
+<timestamp=CTODT('07/16/2016 01:21:19 56 pm')>
+>
+<[457]<type="file">
+<name="{c:\users\sbeales\onedrive\alpha anywhere projects.webprojects\centerwatch app 1.0\centerwatch app.webprojects\default.webproject\css\cssicons\font-awesome\fonts\fontawesome-webfont.svg}">
+<target_folder="c:\a5webroot\centerappv1">
+<timestamp=CTODT('07/16/2016 01:21:19 65 pm')>
+>
+<[458]<type="file">
+<name="{c:\users\sbeales\onedrive\alpha anywhere projects.webprojects\centerwatch app 1.0\centerwatch app.webprojects\default.webproject\css\cssicons\font-awesome\fonts\fontawesome-webfont.ttf}">
+<target_folder="c:\a5webroot\centerappv1">
+<timestamp=CTODT('07/16/2016 01:21:19 72 pm')>
+>
+<[459]<type="file">
+<name="{c:\users\sbeales\onedrive\alpha anywhere projects.webprojects\centerwatch app 1.0\centerwatch app.webprojects\default.webproject\css\cssicons\font-awesome\fonts\fontawesome-webfont.woff2}">
+<target_folder="c:\a5webroot\centerappv1">
+<timestamp=CTODT('07/16/2016 01:21:19 78 pm')>
+>
+<[460]<type="file">
+<name="{c:\users\sbeales\onedrive\alpha anywhere projects.webprojects\centerwatch app 1.0\centerwatch app.webprojects\default.webproject\css\cssicons\font-awesome\fonts\fontawesome-webfont.woff}">
+<target_folder="c:\a5webroot\centerappv1">
+<timestamp=CTODT('07/16/2016 01:21:19 84 pm')>
+>
+<[461]<type="file">
+<name="{c:\users\sbeales\onedrive\alpha anywhere projects.webprojects\centerwatch app 1.0\centerwatch app.webprojects\default.webproject\css\cssicons\font-awesome\fonts\fontawesome.otf}">
+<target_folder="c:\a5webroot\centerappv1">
+<timestamp=CTODT('07/16/2016 01:21:19 90 pm')>
+>
+<[462]<type="file">
+<name="{c:\users\sbeales\onedrive\alpha anywhere projects.webprojects\centerwatch app 1.0\centerwatch app.webprojects\default.webproject\error.html}">
+<target_folder="c:\a5webroot\centerappv1">
+<timestamp=CTODT('07/16/2016 01:21:19 95 pm')>
+>
+<[463]<type="file">
+<name="{c:\users\sbeales\onedrive\alpha anywhere projects.webprojects\centerwatch app 1.0\centerwatch app.webprojects\default.webproject\main.css}">
+<target_folder="c:\a5webroot\centerappv1">
+<timestamp=CTODT('07/16/2016 01:21:20 09 pm')>
+>
+<[464]<type="file">
+<name="{c:\users\sbeales\onedrive\alpha anywhere projects.webprojects\centerwatch app 1.0\centerwatch app.webprojects\default.webproject\splash-landscape.png}">
+<target_folder="c:\a5webroot\centerappv1">
+<timestamp=CTODT('07/16/2016 01:21:20 25 pm')>
+>
+<[465]<type="file">
+<name="{c:\users\sbeales\onedrive\alpha anywhere projects.webprojects\centerwatch app 1.0\centerwatch app.webprojects\default.webproject\splash.png}">
+<target_folder="c:\a5webroot\centerappv1">
+<timestamp=CTODT('07/16/2016 01:21:20 31 pm')>
+>
+<[466]<type="cssIcon">
+<name="font-awesome">
+<target_folder="c:\a5webroot\centerappv1">
+<timestamp=CTODT('07/16/2016 01:21:20 72 pm')>
 >
 >

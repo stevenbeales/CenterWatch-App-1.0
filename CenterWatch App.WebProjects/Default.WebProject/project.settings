@@ -88,7 +88,7 @@
 <SecurityGuid="a1b825fbdd18453fbbc6150e252beb28">
 <PublishAsBinary=.F.>
 <DefaultValueCheckSecurityAllowed=.F.>
-<DefaultValueCreateAEX=.T.>
+<DefaultValueCreateAEX=.F.>
 <DefaultValueCreateAEX as l=.F.>
 >
 <PublishLock="">
@@ -143,6 +143,8 @@
 <publishPrevConnectionString="">
 <version="2.0.0.0">
 <digest="70 81 02 4F AA E6 EB 62 8D 8D 5F 63 95 B7 AF D7 ">
+<providerClassParameters<[1]>
+>
 >
 <Role<type="SameAsMembershipProvider">
 <connectionString="">
@@ -160,6 +162,8 @@
 <publishPrevConnectionString="">
 <version="2.0.0.0">
 <digest="70 81 02 4F AA E6 EB 62 8D 8D 5F 63 95 B7 AF D7 ">
+<providerClassParameters<[1]>
+>
 >
 <SessionState<type="LocalStateServer">
 <connectionString="">
@@ -176,6 +180,8 @@
 <publishProviderName="System.Data.SqlClient">
 <publishPrevConnectionString="">
 <version="2.0.0.0">
+<providerClassParameters<[1]>
+>
 >
 <Profile<type="SameAsMembershipProvider">
 <connectionString="">
@@ -193,10 +199,12 @@
 <publishPrevConnectionString="">
 <version="2.0.0.0">
 <digest="70 81 02 4F AA E6 EB 62 8D 8D 5F 63 95 B7 AF D7 ">
+<providerClassParameters<[1]>
 >
 >
 >
-<securityStoreType="IISProviders">
+>
+<securityStoreType="WebConfig">
 <AlphaDAOConnectionStrings=<<%str%
 <arrVars<[1]<name="CenterWatch">
 <value="Encrypted:3MLNR/D8BLbOLVyV2vnymlT4970fFMs7f75fDdfEcUUuRVcU+j88CDMsv33BjMuiWtlN4W/B29ij0yJeOYfG0b2qmoEzpbUqeUcjkqnm56JhkzQvtRhkyT/Bslzb8hLjMOJFRX5MNlmHHomHSfJd3jYV4ToST9uMhahCJlb9lpHJJeisk9xLNJkvOZIr5s7lydZ4Loqo0t7YKoRaXO/bPqGdtruDQfWDTrupqoJfHVo=">
@@ -224,6 +232,7 @@
 <dataSource="">
 <membershipProviderClass="">
 >
+<websocket>
 <activeDirectory<name="">
 <serverName="">
 <userId="">

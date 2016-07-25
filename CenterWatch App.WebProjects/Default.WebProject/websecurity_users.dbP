@@ -806,7 +806,7 @@ WHERE 	Guid = :GUID%str%>
 	</Column>
 	<Index Type="SQL::IndexInfo">
 	<SQLIndexInfo Type="SQL::IndexInfo">
-		<Name Type="C">PK__WebSecur__A2B5777CC66A2E69</Name>
+		<Name Type="C">PK__WebSecur__A2B5777C4C639028</Name>
 		<Comment Type="C"></Comment>
 		<Unique Type="L">1</Unique>
 		<PrimaryKey Type="L">1</PrimaryKey>

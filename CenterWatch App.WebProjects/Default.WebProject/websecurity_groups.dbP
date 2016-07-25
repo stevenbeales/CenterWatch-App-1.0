@@ -284,7 +284,7 @@ WHERE 	Group_Guid = :GROUP_GUID%str%>
 	</Column>
 	<Index Type="SQL::IndexInfo">
 	<SQLIndexInfo Type="SQL::IndexInfo">
-		<Name Type="C">PK__WebSecur__80BB9E441BC7CF6D</Name>
+		<Name Type="C">PK__WebSecur__80BB9E44C5AB3DDE</Name>
 		<Comment Type="C"></Comment>
 		<Unique Type="L">1</Unique>
 		<PrimaryKey Type="L">1</PrimaryKey>
