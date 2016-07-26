@@ -1,7 +1,7 @@
 html {
 	font-family: sans-serif;
 	-ms-text-size-adjust: 100%;
-  	-webkit-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
 	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 * {
@@ -10,7 +10,11 @@ html {
 	box-sizing: border-box;
 }
 body {
-	margin: 0;
+	margin: 0px;
+	padding:0px;
+	height: 100%;
+	width: 100%;
+	-webkit-touch-callout: none;
 }
 b, strong {
 	font-weight: bold;
@@ -19,12 +23,12 @@ a {
 	text-decoration: none;
 	background-color: transparent;
 }
-li:hover { 
+li:hover {
 	cursor: pointer;
 }
 .panel-body-main {
-	transform: translate3d(0,0,0); 
-}	
+	transform: translate3d(0,0,0);
+}
 p {
 	margin: 0 0 11px;
 }

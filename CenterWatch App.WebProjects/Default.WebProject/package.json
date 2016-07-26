@@ -1,0 +1,13 @@
+{
+  "name": "centerapp",
+  "version": "1.0.0",
+  "description": "CenterWatch clinical trial finder for patients",
+  "main": "app.js",
+  "scripts": {
+    "test": "test"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+  }
+}
