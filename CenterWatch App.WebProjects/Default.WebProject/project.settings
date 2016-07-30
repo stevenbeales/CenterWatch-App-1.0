@@ -110,7 +110,7 @@
 <logPath="C:\ProgramData\Alpha Software\Alpha Anywhere Application Server for IIS Version 12.0\Default Web Site\CenterAppv1 ">
 <gridCacheEnabled=.T.>
 <gridCachePath="C:\ProgramData\Alpha Software\Alpha Anywhere Application Server for IIS Version 12.0\Grid Cache">
-<gridCacheSizeMB=55>
+<gridCacheSizeMB=100>
 <useIntegratedAuthentication=.T.>
 <username="">
 <password="">
@@ -232,7 +232,6 @@
 <dataSource="">
 <membershipProviderClass="">
 >
-<websocket>
 <activeDirectory<name="">
 <serverName="">
 <userId="">
@@ -240,6 +239,7 @@
 <connectionString="">
 <useImpersonation=.F.>
 >
+<websocket>
 >
 >
 <activeDirectory>

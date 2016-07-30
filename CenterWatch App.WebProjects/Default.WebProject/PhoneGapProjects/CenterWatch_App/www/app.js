@@ -135,7 +135,6 @@ var CWApp = (function () {
 
 		var _templateArray = [];
 		_templateArray.push(content);
-
 		var _template = _templateArray.join('\n');
 		var settings = { template: _template};
 		var html = A5.u.template.expand(_data,settings);

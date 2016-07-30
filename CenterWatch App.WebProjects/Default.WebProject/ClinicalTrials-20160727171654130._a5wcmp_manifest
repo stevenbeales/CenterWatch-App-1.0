@@ -1,0 +1,16 @@
+css:iOS7
+subComponent:FindByCondition.a5wcmp
+subComponent:FindByLocation.a5wcmp
+subComponent:FindByKeywords.a5wcmp
+subComponent:Communities.a5wcmp
+subComponent:EducationMaterial.a5wcmp
+subComponent:MyProfile.a5wcmp
+copyfile:{C:\Users\sbeales\OneDrive\Alpha Anywhere Projects.WebProjects\CenterWatch App 1.0\CenterWatch App.WebProjects\Default.WebProject\images\logo.png}
+copyfile:{C:\Users\sbeales\OneDrive\Alpha Anywhere Projects.WebProjects\CenterWatch App 1.0\CenterWatch App.WebProjects\Default.WebProject\loading.gif}
+subComponent:FindByCondition
+subComponent:FindByLocation
+subComponent:FindByKeywords
+subComponent:Communities
+subComponent:EducationMaterial
+subComponent:MyProfile
+copyfile:{C:\Users\sbeales\OneDrive\Alpha Anywhere Projects.WebProjects\CenterWatch App 1.0\CenterWatch App.WebProjects\Default.WebProject\images/SVGIcons.svg}

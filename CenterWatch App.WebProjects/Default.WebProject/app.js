@@ -4,16 +4,13 @@ var CWApp = (function () {
 		if (str.length === 0) {
 			return '';
 		}
-
 		if ((str = str.replace(/^\s+|\s+$/g, '').replace(/[\r\n]*\s*[\r\n]+/g, ' ').replace(/[ \t]+/g, ' ')).length <= max) {
 			return str;
 		}
-
 		var abbr = '';
 		str = str.split(' ');
 		suffix = (typeof suffix !== 'undefined' ? suffix : ' ...');
 		max -= suffix.length;
-
 		for (var len = str.length, i = 0; i < len; i++) {
 			if ((abbr + str[i]).length < max) {
 				abbr += str[i] + ' ';
@@ -54,7 +51,6 @@ var CWApp = (function () {
 			emphasize: false,
 			onAddComplete: false
 		};
-
 		var arr = [];
 		var lat, lon, city, state;
 		var _d = lObj._data;
@@ -117,7 +113,6 @@ var CWApp = (function () {
 		var moreinfo = self.getPointer('PLACEHOLDER_MOREINFO');
 		var contact = self.getPointer('PLACEHOLDER_CONTACT');
 		var lObj = self.getControl('LIST_TRIALS');
-
 		_populateOverview(overview, lObj);
 		_populateEligibility(eligibility, lObj);
 		_populateMoreInfo(moreinfo, lObj);
@@ -132,7 +127,6 @@ var CWApp = (function () {
 				 _data = lObj.getData(lObj.selection[0]);
 			}
 		}
-
 		var _templateArray = [];
 		_templateArray.push(content);
 		var _template = _templateArray.join('\n');
@@ -142,19 +136,19 @@ var CWApp = (function () {
 	};
 
 	var _populateContact = function(ele, lObj) {
-		_populate(ele, lObj, '{contact}');
+		_populate(ele, lObj, '<a href="#Contact">{contact}</a>');
 	};
 
 	var _populateEligibility = function(ele, lObj) {
-		_populate(ele, lObj, '{eligibility}');
+		_populate(ele, lObj, '<a href="#Eligibility">{eligibility}</a>');
 	};
 
 	var _populateMoreInfo = function(ele, lObj) {
-		_populate(ele, lObj, '{moreinfo}');
+		_populate(ele, lObj, '<a href="#MoreInfo">{moreinfo}</a>');
 	};
 
 	var _populateOverview = function(ele, lObj) {
-		_populate(ele, lObj, '{overview}');
+		_populate(ele, lObj, '<a href="#Overview">{overview}</a>');
 	};
 
 	var _isNumeric = function (n) {

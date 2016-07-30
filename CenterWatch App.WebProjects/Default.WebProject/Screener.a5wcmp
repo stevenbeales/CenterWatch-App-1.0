@@ -159,7 +159,7 @@
         "info": {
             "createdBy": "sbeales",
             "dateCreated": "2016-5-23",
-            "dateLastEdited": "2016-7-19"
+            "dateLastEdited": "2016-7-26"
         },
         "flagShowCommentsInTree": true,
         "treeCommentOffset": "6",
@@ -321,13 +321,6 @@
                 "repeatingSectionParentId": -1,
                 "displayODtree": "{C=Orange,White}{B=White,Orange}{F=+B}{I:'vertLine'}{I:'vertLine'}{Data=8175e8ee_704f_44ae_8aa1_24d03b17becd}{I:'$$web.panel.header'} [PanelHeader: PANELHEADER_1]",
                 "crc": "4294944257",
-                "indentTree": 2,
-                "precalc": {
-                    "ControlHTML": "<div \tid=\"{dialog.componentName}.V.R{dialog.rownumber}.PANELHEADER_1\"   \n\t\t\tclass=\"A5CWLayout \"  style=\"min-height: 40px; \"  ><!--DIV for Container control-->\n<div style=\"display: table; margin: auto;\">",
-                    "DesignViewHTML": ""
-                },
-                "isCollapsed": false,
-                "parentIsCollapsed": false,
                 "v": {
                     "container": {
                         "ID": "PANELHEADER_1",
@@ -379,7 +372,14 @@
                     "precalc": {
                         "javascriptAbstractSetupCode": ""
                     }
-                }
+                },
+                "indentTree": 2,
+                "precalc": {
+                    "ControlHTML": "<div \tid=\"{dialog.componentName}.V.R{dialog.rownumber}.PANELHEADER_1\"   \n\t\t\tclass=\"A5CWLayout \"  style=\"min-height: 40px; \"  ><!--DIV for Container control-->\n<div style=\"display: table; margin: auto;\">",
+                    "DesignViewHTML": ""
+                },
+                "isCollapsed": false,
+                "parentIsCollapsed": false
             },
             {
                 "controlType": "layout_directive_ContainerBegin",
@@ -503,6 +503,9 @@
                     "CalcExpression": "",
                     "EnableExpression": "",
                     "ShowExpression": "",
+                    "abstractJavascript": {
+                        "click": "var parentObject = {dialog.object}.getTopParentObject();\nvar mainPanel = parentObject.panelSetActive('PANEL_MAIN', true);"
+                    },
                     "precalc": {
                         "javascriptClientSideWatches": "",
                         "javascriptAbstractSetupCode": "$e.add('{dialog.componentName}.V.R{dialog.rownumber}.BUTTON_BACK1',A5.d.evnts.click,function(e) {\nvar parentObject = {dialog.object}.getTopParentObject();\nvar mainPanel = parentObject.panelSetActive('PANEL_MAIN', true);\n},this,false,'{dialog.componentName}.V.R{dialog.rownumber}.BUTTON_BACK1');\n",
@@ -513,10 +516,7 @@
                     "javascript": {
                         "onclick": ""
                     },
-                    "consumedInSpecialPanelButton": false,
-                    "abstractJavascript": {
-                        "click": "var parentObject = {dialog.object}.getTopParentObject();\nvar mainPanel = parentObject.panelSetActive('PANEL_MAIN', true);"
-                    }
+                    "consumedInSpecialPanelButton": false
                 },
                 "indentTree": 4,
                 "precalc": {
@@ -804,6 +804,9 @@
                     "CalcExpression": "",
                     "EnableExpression": "",
                     "ShowExpression": "",
+                    "abstractJavascript": {
+                        "click": "/* actionJavascript:05a9ed40-ee6b-486d-8228-46426861337d  */\n{dialog.object}.panelSetActive('PANELCARD_2',true);"
+                    },
                     "precalc": {
                         "javascriptClientSideWatches": "",
                         "javascriptAbstractSetupCode": "$e.add('{dialog.componentName}.V.R{dialog.rownumber}.BUTTON_NEXT1',A5.d.evnts.click,function(e) {\n{dialog.object}.panelSetActive('PANELCARD_2',true);\n},this,false,'{dialog.componentName}.V.R{dialog.rownumber}.BUTTON_NEXT1');\n",
@@ -814,10 +817,7 @@
                     "javascript": {
                         "onclick": ""
                     },
-                    "consumedInSpecialPanelButton": false,
-                    "abstractJavascript": {
-                        "click": "/* actionJavascript:05a9ed40-ee6b-486d-8228-46426861337d  */\n{dialog.object}.panelSetActive('PANELCARD_2',true);"
-                    }
+                    "consumedInSpecialPanelButton": false
                 },
                 "indentTree": 4,
                 "precalc": {
@@ -1449,13 +1449,6 @@
                 "repeatingSectionParentId": -1,
                 "displayODtree": "{C=Orange,White}{B=White,Orange}{F=+B}{I:'vertLine'}{I:'vertLine'}{Data=df716f2c_6e39_4335_b8bf_fd4fa7197daa}{I:'$$web.panel.header'} [PanelHeader: PANELHEADER_2]",
                 "crc": "4294919660",
-                "indentTree": 2,
-                "precalc": {
-                    "ControlHTML": "<div \tid=\"{dialog.componentName}.V.R{dialog.rownumber}.PANELHEADER_2\"   \n\t\t\tclass=\"A5CWLayout \"  style=\"min-height: 40px; \"  ><!--DIV for Container control-->\n<div style=\"display: table; margin: auto;\">",
-                    "DesignViewHTML": ""
-                },
-                "isCollapsed": false,
-                "parentIsCollapsed": false,
                 "v": {
                     "container": {
                         "ID": "PANELHEADER_2",
@@ -1507,7 +1500,14 @@
                     "precalc": {
                         "javascriptAbstractSetupCode": ""
                     }
-                }
+                },
+                "indentTree": 2,
+                "precalc": {
+                    "ControlHTML": "<div \tid=\"{dialog.componentName}.V.R{dialog.rownumber}.PANELHEADER_2\"   \n\t\t\tclass=\"A5CWLayout \"  style=\"min-height: 40px; \"  ><!--DIV for Container control-->\n<div style=\"display: table; margin: auto;\">",
+                    "DesignViewHTML": ""
+                },
+                "isCollapsed": false,
+                "parentIsCollapsed": false
             },
             {
                 "controlType": "layout_directive_ContainerBegin",
@@ -1631,6 +1631,9 @@
                     "CalcExpression": "",
                     "EnableExpression": "",
                     "ShowExpression": "",
+                    "abstractJavascript": {
+                        "click": "/* actionJavascript:ed4f4d2d-87e2-4e22-a39d-657bc0179de4 */\n{dialog.object}.panelSetActive('PANELCARD_1',true);"
+                    },
                     "precalc": {
                         "javascriptClientSideWatches": "",
                         "javascriptAbstractSetupCode": "$e.add('{dialog.componentName}.V.R{dialog.rownumber}.BUTTON_BACK2',A5.d.evnts.click,function(e) {\n{dialog.object}.panelSetActive('PANELCARD_1',true);\n},this,false,'{dialog.componentName}.V.R{dialog.rownumber}.BUTTON_BACK2');\n",
@@ -1641,10 +1644,7 @@
                     "javascript": {
                         "onclick": ""
                     },
-                    "consumedInSpecialPanelButton": false,
-                    "abstractJavascript": {
-                        "click": "/* actionJavascript:ed4f4d2d-87e2-4e22-a39d-657bc0179de4 */\n{dialog.object}.panelSetActive('PANELCARD_1',true);"
-                    }
+                    "consumedInSpecialPanelButton": false
                 },
                 "indentTree": 4,
                 "precalc": {
@@ -1932,6 +1932,9 @@
                     "CalcExpression": "",
                     "EnableExpression": "",
                     "ShowExpression": "",
+                    "abstractJavascript": {
+                        "click": "/* actionJavascript:11c75f5e-dd2c-4d32-9ba4-70cabfe39681  */\n{dialog.object}.panelSetActive('PANELCARD_3',true);"
+                    },
                     "precalc": {
                         "javascriptClientSideWatches": "",
                         "javascriptAbstractSetupCode": "$e.add('{dialog.componentName}.V.R{dialog.rownumber}.BUTTON_NEXT2',A5.d.evnts.click,function(e) {\n{dialog.object}.panelSetActive('PANELCARD_3',true);\n},this,false,'{dialog.componentName}.V.R{dialog.rownumber}.BUTTON_NEXT2');\n",
@@ -1942,10 +1945,7 @@
                     "javascript": {
                         "onclick": ""
                     },
-                    "consumedInSpecialPanelButton": false,
-                    "abstractJavascript": {
-                        "click": "/* actionJavascript:11c75f5e-dd2c-4d32-9ba4-70cabfe39681  */\n{dialog.object}.panelSetActive('PANELCARD_3',true);"
-                    }
+                    "consumedInSpecialPanelButton": false
                 },
                 "indentTree": 4,
                 "precalc": {
@@ -2642,13 +2642,6 @@
                 "repeatingSectionParentId": -1,
                 "displayODtree": "{C=Orange,White}{B=White,Orange}{F=+B}{I:'vertLine'}{I:'vertLine'}{Data=eeec4333_56d2_4fdf_b423_9d7c5fd4d771}{I:'$$web.panel.header'} [PanelHeader: PANELHEADER_3]",
                 "crc": "4294941591",
-                "indentTree": 2,
-                "precalc": {
-                    "ControlHTML": "<div \tid=\"{dialog.componentName}.V.R{dialog.rownumber}.PANELHEADER_3\"   \n\t\t\tclass=\"A5CWLayout \"  style=\"min-height: 40px; \"  ><!--DIV for Container control-->\n<div style=\"display: table; margin: auto;\">",
-                    "DesignViewHTML": ""
-                },
-                "isCollapsed": false,
-                "parentIsCollapsed": false,
                 "v": {
                     "container": {
                         "ID": "PANELHEADER_3",
@@ -2700,7 +2693,14 @@
                     "precalc": {
                         "javascriptAbstractSetupCode": ""
                     }
-                }
+                },
+                "indentTree": 2,
+                "precalc": {
+                    "ControlHTML": "<div \tid=\"{dialog.componentName}.V.R{dialog.rownumber}.PANELHEADER_3\"   \n\t\t\tclass=\"A5CWLayout \"  style=\"min-height: 40px; \"  ><!--DIV for Container control-->\n<div style=\"display: table; margin: auto;\">",
+                    "DesignViewHTML": ""
+                },
+                "isCollapsed": false,
+                "parentIsCollapsed": false
             },
             {
                 "controlType": "layout_directive_ContainerBegin",
@@ -2824,6 +2824,9 @@
                     "CalcExpression": "",
                     "EnableExpression": "",
                     "ShowExpression": "",
+                    "abstractJavascript": {
+                        "click": "/* actionJavascript:17745e43-7ac6-4596-baee-2dc6745739f4  */\n{dialog.object}.panelSetActive('PANELCARD_2',true);"
+                    },
                     "precalc": {
                         "javascriptClientSideWatches": "",
                         "javascriptAbstractSetupCode": "$e.add('{dialog.componentName}.V.R{dialog.rownumber}.BUTTON_BACK3',A5.d.evnts.click,function(e) {\n{dialog.object}.panelSetActive('PANELCARD_2',true);\n},this,false,'{dialog.componentName}.V.R{dialog.rownumber}.BUTTON_BACK3');\n",
@@ -2834,10 +2837,7 @@
                     "javascript": {
                         "onclick": ""
                     },
-                    "consumedInSpecialPanelButton": false,
-                    "abstractJavascript": {
-                        "click": "/* actionJavascript:17745e43-7ac6-4596-baee-2dc6745739f4  */\n{dialog.object}.panelSetActive('PANELCARD_2',true);"
-                    }
+                    "consumedInSpecialPanelButton": false
                 },
                 "indentTree": 4,
                 "precalc": {
@@ -3125,6 +3125,9 @@
                     "CalcExpression": "",
                     "EnableExpression": "",
                     "ShowExpression": "",
+                    "abstractJavascript": {
+                        "click": "/* actionJavascript:eb308cb3-45a3-49f6-8b12-bd59511df95c  */\n{dialog.object}.panelSetActive('PANELCARD_4',true);"
+                    },
                     "precalc": {
                         "javascriptClientSideWatches": "",
                         "javascriptAbstractSetupCode": "$e.add('{dialog.componentName}.V.R{dialog.rownumber}.BUTTON_NEXT3',A5.d.evnts.click,function(e) {\n{dialog.object}.panelSetActive('PANELCARD_4',true);\n},this,false,'{dialog.componentName}.V.R{dialog.rownumber}.BUTTON_NEXT3');\n",
@@ -3135,10 +3138,7 @@
                     "javascript": {
                         "onclick": ""
                     },
-                    "consumedInSpecialPanelButton": false,
-                    "abstractJavascript": {
-                        "click": "/* actionJavascript:eb308cb3-45a3-49f6-8b12-bd59511df95c  */\n{dialog.object}.panelSetActive('PANELCARD_4',true);"
-                    }
+                    "consumedInSpecialPanelButton": false
                 },
                 "indentTree": 4,
                 "precalc": {
@@ -3618,13 +3618,6 @@
                 "repeatingSectionParentId": -1,
                 "displayODtree": "{C=Orange,White}{B=White,Orange}{F=+B}{I:'vertLine'}{I:'vertLine'}{Data=befc1cab_1e3d_4591_938d_49a8d43bfea1}{I:'$$web.panel.header'} [PanelHeader: PANELHEADER_4]",
                 "crc": "4294956093",
-                "indentTree": 2,
-                "precalc": {
-                    "ControlHTML": "<div \tid=\"{dialog.componentName}.V.R{dialog.rownumber}.PANELHEADER_4\"   \n\t\t\tclass=\"A5CWLayout \"  style=\"min-height: 40px; \"  ><!--DIV for Container control-->\n<div style=\"display: table; margin: auto;\">",
-                    "DesignViewHTML": ""
-                },
-                "isCollapsed": false,
-                "parentIsCollapsed": false,
                 "v": {
                     "container": {
                         "ID": "PANELHEADER_4",
@@ -3676,7 +3669,14 @@
                     "precalc": {
                         "javascriptAbstractSetupCode": ""
                     }
-                }
+                },
+                "indentTree": 2,
+                "precalc": {
+                    "ControlHTML": "<div \tid=\"{dialog.componentName}.V.R{dialog.rownumber}.PANELHEADER_4\"   \n\t\t\tclass=\"A5CWLayout \"  style=\"min-height: 40px; \"  ><!--DIV for Container control-->\n<div style=\"display: table; margin: auto;\">",
+                    "DesignViewHTML": ""
+                },
+                "isCollapsed": false,
+                "parentIsCollapsed": false
             },
             {
                 "controlType": "layout_directive_ContainerBegin",
@@ -3800,6 +3800,9 @@
                     "CalcExpression": "",
                     "EnableExpression": "",
                     "ShowExpression": "",
+                    "abstractJavascript": {
+                        "click": "/* actionJavascript:dc3e13c9-d029-4854-a311-6d73b142643e  */\n{dialog.object}.panelSetActive('PANELCARD_3',true);"
+                    },
                     "precalc": {
                         "javascriptClientSideWatches": "",
                         "javascriptAbstractSetupCode": "$e.add('{dialog.componentName}.V.R{dialog.rownumber}.BUTTON_BACK4',A5.d.evnts.click,function(e) {\n{dialog.object}.panelSetActive('PANELCARD_3',true);\n},this,false,'{dialog.componentName}.V.R{dialog.rownumber}.BUTTON_BACK4');\n",
@@ -3810,10 +3813,7 @@
                     "javascript": {
                         "onclick": ""
                     },
-                    "consumedInSpecialPanelButton": false,
-                    "abstractJavascript": {
-                        "click": "/* actionJavascript:dc3e13c9-d029-4854-a311-6d73b142643e  */\n{dialog.object}.panelSetActive('PANELCARD_3',true);"
-                    }
+                    "consumedInSpecialPanelButton": false
                 },
                 "indentTree": 4,
                 "precalc": {
@@ -4101,6 +4101,9 @@
                     "CalcExpression": "",
                     "EnableExpression": "",
                     "ShowExpression": "",
+                    "abstractJavascript": {
+                        "click": "/* actionJavascript:b191921b-98a1-443d-8639-4c85076c4d32   */\n{dialog.object}.panelSetActive('PANELCARD_5',true);"
+                    },
                     "precalc": {
                         "javascriptClientSideWatches": "",
                         "javascriptAbstractSetupCode": "$e.add('{dialog.componentName}.V.R{dialog.rownumber}.BUTTON_NEXT4',A5.d.evnts.click,function(e) {\n{dialog.object}.panelSetActive('PANELCARD_5',true);\n},this,false,'{dialog.componentName}.V.R{dialog.rownumber}.BUTTON_NEXT4');\n",
@@ -4111,10 +4114,7 @@
                     "javascript": {
                         "onclick": ""
                     },
-                    "consumedInSpecialPanelButton": false,
-                    "abstractJavascript": {
-                        "click": "/* actionJavascript:b191921b-98a1-443d-8639-4c85076c4d32   */\n{dialog.object}.panelSetActive('PANELCARD_5',true);"
-                    }
+                    "consumedInSpecialPanelButton": false
                 },
                 "indentTree": 4,
                 "precalc": {
@@ -4911,13 +4911,6 @@
                 "repeatingSectionParentId": -1,
                 "displayODtree": "{C=Orange,White}{B=White,Orange}{F=+B}{I:'vertLine'}{I:'vertLine'}{Data=2a0cc649_877d_46ad_a76d_c0922ac1c4ad}{I:'$$web.panel.header'} [PanelHeader: PANELHEADER_5]",
                 "crc": "4294953827",
-                "indentTree": 2,
-                "precalc": {
-                    "ControlHTML": "<div \tid=\"{dialog.componentName}.V.R{dialog.rownumber}.PANELHEADER_5\"   \n\t\t\tclass=\"A5CWLayout \"  style=\"min-height: 40px; \"  ><!--DIV for Container control-->\n<div style=\"display: table; margin: auto;\">",
-                    "DesignViewHTML": ""
-                },
-                "isCollapsed": false,
-                "parentIsCollapsed": false,
                 "v": {
                     "container": {
                         "ID": "PANELHEADER_5",
@@ -4969,7 +4962,14 @@
                     "precalc": {
                         "javascriptAbstractSetupCode": ""
                     }
-                }
+                },
+                "indentTree": 2,
+                "precalc": {
+                    "ControlHTML": "<div \tid=\"{dialog.componentName}.V.R{dialog.rownumber}.PANELHEADER_5\"   \n\t\t\tclass=\"A5CWLayout \"  style=\"min-height: 40px; \"  ><!--DIV for Container control-->\n<div style=\"display: table; margin: auto;\">",
+                    "DesignViewHTML": ""
+                },
+                "isCollapsed": false,
+                "parentIsCollapsed": false
             },
             {
                 "controlType": "layout_directive_ContainerBegin",
@@ -5093,6 +5093,9 @@
                     "CalcExpression": "",
                     "EnableExpression": "",
                     "ShowExpression": "",
+                    "abstractJavascript": {
+                        "click": "/* actionJavascript:d7df1097-12e8-4651-862d-d9d690a57ee1  */\n{dialog.object}.panelSetActive('PANELCARD_4',true);"
+                    },
                     "precalc": {
                         "javascriptClientSideWatches": "",
                         "javascriptAbstractSetupCode": "$e.add('{dialog.componentName}.V.R{dialog.rownumber}.BUTTON_BACK5',A5.d.evnts.click,function(e) {\n{dialog.object}.panelSetActive('PANELCARD_4',true);\n},this,false,'{dialog.componentName}.V.R{dialog.rownumber}.BUTTON_BACK5');\n",
@@ -5103,10 +5106,7 @@
                     "javascript": {
                         "onclick": ""
                     },
-                    "consumedInSpecialPanelButton": false,
-                    "abstractJavascript": {
-                        "click": "/* actionJavascript:d7df1097-12e8-4651-862d-d9d690a57ee1  */\n{dialog.object}.panelSetActive('PANELCARD_4',true);"
-                    }
+                    "consumedInSpecialPanelButton": false
                 },
                 "indentTree": 4,
                 "precalc": {
@@ -5394,6 +5394,9 @@
                     "CalcExpression": "",
                     "EnableExpression": "",
                     "ShowExpression": "",
+                    "abstractJavascript": {
+                        "click": "{dialog.object}.getTopParentObject().panelSetActive('PANEL_MAIN',true);"
+                    },
                     "precalc": {
                         "javascriptClientSideWatches": "",
                         "javascriptAbstractSetupCode": "$e.add('{dialog.componentName}.V.R{dialog.rownumber}.BUTTON_HOME',A5.d.evnts.click,function(e) {\n{dialog.object}.getTopParentObject().panelSetActive('PANEL_MAIN',true);\n},this,false,'{dialog.componentName}.V.R{dialog.rownumber}.BUTTON_HOME');\n",
@@ -5404,10 +5407,7 @@
                     "javascript": {
                         "onclick": ""
                     },
-                    "consumedInSpecialPanelButton": false,
-                    "abstractJavascript": {
-                        "click": "{dialog.object}.getTopParentObject().panelSetActive('PANEL_MAIN',true);"
-                    }
+                    "consumedInSpecialPanelButton": false
                 },
                 "indentTree": 4,
                 "precalc": {
@@ -5593,6 +5593,9 @@
                     "CalcExpression": "",
                     "EnableExpression": "true",
                     "ShowExpression": "",
+                    "abstractJavascript": {
+                        "click": "{dialog.object}.submit();\n{dialog.object}.getTopParentObject().panelSetActive('PANEL_MAIN', true);\n//To include current location in the submitted data, use this syntax:\n//{dialog.object}.submit('','',{getLocationData: true})"
+                    },
                     "precalc": {
                         "javascriptClientSideWatches": "{dialog.object}.dialogWatches['ENABLE_BUTTON_SUBMIT'] = {\n\t\twatch: [],\n\t\tvariables: [],\n\t\tonChange: function(data) {\n\t\n\t\n\tvar dialog = {};\n\tvar summary = {};\n\t{dialog.object}._getDialogVariables(dialog,summary,data);\n\tvar enable = (true == true);\n\tvar eles = $cetp($n('V.R' + data.rowNumber + '.BUTTON_SUBMIT'),$('{dialog.componentName}.R'+data.rowNumber));\n\tif(typeof eles.length == 'undefined' || eles.length == 0) eles = [$('{grid.componentname}.'+'V.R' + data.rowNumber + '.BUTTON_SUBMIT')];\n\tvar pObj = {dialog.object}.getControl('BUTTON_SUBMIT'); if(pObj) { if(typeof pObj.setDisabled != 'undefined') {  pObj.setDisabled(!enable,eles); return true;  } }\n\tif(typeof {dialog.object}._buttons['BUTTON_SUBMIT'] != 'undefined') {\n\t{dialog.object}._buttons['BUTTON_SUBMIT'].setDisabled(!enable,eles)\n\t} else {\n\tfor(var i=0; i<eles.length;i++) eles[i].disabled = !enable;\n\t}\n\t;}\n}\n\n",
                         "javascriptAbstractSetupCode": "$e.add('{dialog.componentName}.V.R{dialog.rownumber}.BUTTON_SUBMIT',A5.d.evnts.click,function(e) {\n{dialog.object}.submit();\n{dialog.object}.getTopParentObject().panelSetActive('PANEL_MAIN', true);\n},this,false,'{dialog.componentName}.V.R{dialog.rownumber}.BUTTON_SUBMIT');\n",
@@ -5604,9 +5607,6 @@
                         "onclick": "/* actionJavascript:00005deb-7514-4628-85c9-83b753fd66d1          */\nfunction tempfunction_329c8e88_56ba_400b_bd99_65083cc1eedb() {\n{grid.componentName}_O_ACTIONBUTTON_1_B80F9863AA934AD3979D1223011EE3F4({grid.rownumber},'{grid.rowId}',this);\n}\n\nfunction tempfunction_60b3e6db_51aa_432d_a8cf_29f923e5437e() {\n{grid.componentName}_O_ACTIONBUTTON_2_5757481FA84C4EAF8C905B422FBA44F5({grid.rownumber},'{grid.rowId}',this);\n}\n\n\nA5.executeThisThenThat(tempfunction_329c8e88_56ba_400b_bd99_65083cc1eedb,tempfunction_60b3e6db_51aa_432d_a8cf_29f923e5437e);"
                     },
                     "consumedInSpecialPanelButton": false,
-                    "abstractJavascript": {
-                        "click": "{dialog.object}.submit();\n{dialog.object}.getTopParentObject().panelSetActive('PANEL_MAIN', true);\n//To include current location in the submitted data, use this syntax:\n//{dialog.object}.submit('','',{getLocationData: true})"
-                    },
                     "javascriptDeclarationsGlobal": {
                         "onclick": "window['{grid.componentName}_O_ACTIONBUTTON_1_B80F9863AA934AD3979D1223011EE3F4'] = function(rowNum,rowId,objEle) {\n\n{grid.Object}.ajaxCallback('O',1,'__a5SystemSendEmail','','_getData=true&__metaDataFunction=sendEmail_993f034c_f14f_4720_84a4_6bbcfe3c5400&_part=O');\n}\n\nwindow['{grid.componentName}_O_ACTIONBUTTON_2_5757481FA84C4EAF8C905B422FBA44F5'] = function(rowNum,rowId,objEle) {\n\n{grid.Object}.ajaxCallback('O',1,'__a5SystemSendEmail','','_getData=true&__metaDataFunction=sendEmail_7f1dff5b_29b6_4367_9e13_d62e440f8d90&_part=O');\n}"
                     },
@@ -5676,6 +5676,9 @@
                     "CalcExpression": "",
                     "EnableExpression": "true",
                     "ShowExpression": "",
+                    "abstractJavascript": {
+                        "click": "{dialog.object}.submit();\n{dialog.object}.getTopParentObject().panelSetActive('PANEL_MAIN', true);\n//To include current location in the submitted data, use this syntax:\n//{dialog.object}.submit('','',{getLocationData: true})"
+                    },
                     "precalc": {
                         "javascriptClientSideWatches": "{dialog.object}.dialogWatches['ENABLE_BUTTON_SAVE'] = {\n\t\twatch: [],\n\t\tvariables: [],\n\t\tonChange: function(data) {\n\t\n\t\n\tvar dialog = {};\n\tvar summary = {};\n\t{dialog.object}._getDialogVariables(dialog,summary,data);\n\tvar enable = (true == true);\n\tvar eles = $cetp($n('V.R' + data.rowNumber + '.BUTTON_SAVE'),$('{dialog.componentName}.R'+data.rowNumber));\n\tif(typeof eles.length == 'undefined' || eles.length == 0) eles = [$('{grid.componentname}.'+'V.R' + data.rowNumber + '.BUTTON_SAVE')];\n\tvar pObj = {dialog.object}.getControl('BUTTON_SAVE'); if(pObj) { if(typeof pObj.setDisabled != 'undefined') {  pObj.setDisabled(!enable,eles); return true;  } }\n\tif(typeof {dialog.object}._buttons['BUTTON_SAVE'] != 'undefined') {\n\t{dialog.object}._buttons['BUTTON_SAVE'].setDisabled(!enable,eles)\n\t} else {\n\tfor(var i=0; i<eles.length;i++) eles[i].disabled = !enable;\n\t}\n\t;}\n}\n\n",
                         "javascriptAbstractSetupCode": "$e.add('{dialog.componentName}.V.R{dialog.rownumber}.BUTTON_SAVE',A5.d.evnts.click,function(e) {\n{dialog.object}.submit();\n{dialog.object}.getTopParentObject().panelSetActive('PANEL_MAIN', true);\n},this,false,'{dialog.componentName}.V.R{dialog.rownumber}.BUTTON_SAVE');\n",
@@ -5686,10 +5689,7 @@
                     "javascript": {
                         "onclick": ""
                     },
-                    "consumedInSpecialPanelButton": false,
-                    "abstractJavascript": {
-                        "click": "{dialog.object}.submit();\n{dialog.object}.getTopParentObject().panelSetActive('PANEL_MAIN', true);\n//To include current location in the submitted data, use this syntax:\n//{dialog.object}.submit('','',{getLocationData: true})"
-                    }
+                    "consumedInSpecialPanelButton": false
                 },
                 "indentTree": 2,
                 "precalc": {
@@ -5753,6 +5753,9 @@
                     "CalcExpression": "",
                     "EnableExpression": "true",
                     "ShowExpression": "",
+                    "abstractJavascript": {
+                        "click": "{dialog.object}.resetForm(false);\n{dialog.object}.getTopParentObject().panelSetActive('PANEL_MAIN', true);"
+                    },
                     "precalc": {
                         "javascriptClientSideWatches": "{dialog.object}.dialogWatches['ENABLE_BUTTON_RESET'] = {\n\t\twatch: [],\n\t\tvariables: [],\n\t\tonChange: function(data) {\n\t\n\t\n\tvar dialog = {};\n\tvar summary = {};\n\t{dialog.object}._getDialogVariables(dialog,summary,data);\n\tvar enable = (true == true);\n\tvar eles = $cetp($n('V.R' + data.rowNumber + '.BUTTON_RESET'),$('{dialog.componentName}.R'+data.rowNumber));\n\tif(typeof eles.length == 'undefined' || eles.length == 0) eles = [$('{grid.componentname}.'+'V.R' + data.rowNumber + '.BUTTON_RESET')];\n\tvar pObj = {dialog.object}.getControl('BUTTON_RESET'); if(pObj) { if(typeof pObj.setDisabled != 'undefined') {  pObj.setDisabled(!enable,eles); return true;  } }\n\tif(typeof {dialog.object}._buttons['BUTTON_RESET'] != 'undefined') {\n\t{dialog.object}._buttons['BUTTON_RESET'].setDisabled(!enable,eles)\n\t} else {\n\tfor(var i=0; i<eles.length;i++) eles[i].disabled = !enable;\n\t}\n\t;}\n}\n\n",
                         "javascriptAbstractSetupCode": "$e.add('{dialog.componentName}.V.R{dialog.rownumber}.BUTTON_RESET',A5.d.evnts.click,function(e) {\n{dialog.object}.resetForm(false);\n{dialog.object}.getTopParentObject().panelSetActive('PANEL_MAIN', true);\n},this,false,'{dialog.componentName}.V.R{dialog.rownumber}.BUTTON_RESET');\n",
@@ -5763,10 +5766,7 @@
                     "javascript": {
                         "onclick": ""
                     },
-                    "consumedInSpecialPanelButton": false,
-                    "abstractJavascript": {
-                        "click": "{dialog.object}.resetForm(false);\n{dialog.object}.getTopParentObject().panelSetActive('PANEL_MAIN', true);"
-                    }
+                    "consumedInSpecialPanelButton": false
                 },
                 "indentTree": 2,
                 "precalc": {
@@ -5815,7 +5815,7 @@
         ],
         "builderType": "Dialog2",
         "guid": "fdc1a0d5-5a97-480d-8367-f06258569d19",
-        "componentName": "SCREENER",
+        "componentName": "Screener",
         "componentFilename": "C:\\Users\\sbeales\\OneDrive\\Alpha Anywhere Projects.WebProjects\\CenterWatch App 1.0\\CenterWatch App.WebProjects\\Default.WebProject\\Screener.a5wcmp",
         "_style_versionNumber": -1,
         "controlflowdirection": "ltr",
@@ -5827,7 +5827,7 @@
         "keyboardShortcutsJSON": "",
         "selected": "8175e8ee_704f_44ae_8aa1_24d03b17becd\n",
         "designPaneIndex": 1,
-        "masterPaneC": "controls",
+        "masterPaneC": "TabbedUIProps",
         "serverSideEventIndex": 1,
         "clientSideEventIndex": 1,
         "clientSideEventIndexC": "1",
@@ -5835,8 +5835,8 @@
         "__WPhostName": "Internet Explorer",
         "repeatingSectionsAreDirty": true,
         "toolBox_value": "",
-        "addinBuildNumber": "4694",
-        "addinBuildNumberHighestUsed": "4694",
+        "addinBuildNumber": "4702",
+        "addinBuildNumberHighestUsed": "4702",
         "alphaFiveBuildNumber": "12",
         "openedFromTemplate": false,
         "builtWithVersionNumer": 1,
@@ -5960,12 +5960,6 @@
         "EmbeddedMode": false,
         "_forceMobileSimulation": false,
         "mobileDeviceDefault": "iphone6Plus_v",
-        "a_UnboundActionJavascript": [
-            {
-                "idInternal": "",
-                "name": ""
-            }
-        ],
         "a_actionJavascript": [
             {
                 "actionGuid": "05a9ed40-ee6b-486d-8228-46426861337d ",
@@ -6007,21 +6001,14 @@
         "informixFix": false,
         "showJavascriptActions": false,
         "showResponsiveLayoutHelp": false,
-        "lastbutton": "OK",
-        "has_QBE_row": false,
-        "arguments": [
+        "a_UnboundActionJavascript": [
             {
-                "Name": "Condition",
-                "DataType": "Character",
-                "Source": "Variable",
-                "VariableScope": "Session Variable",
-                "VariableName": "sCondition",
-                "DefaultValue": "Coronary Artery Bypass Graft",
-                "runtimeValue": "Coronary Artery Bypass Graft",
-                "sr": "{Condition}=\"Coronary Artery Bypass Graft\""
+                "idInternal": "",
+                "name": ""
             }
         ],
-        "flagAddPKToORDER": true,
+        "lastbutton": "OK",
+        "has_QBE_row": false,
         "prerendered": {
             "_styledataVersion": 3,
             "output": {
@@ -6037,6 +6024,19 @@
                 "ajaxResponse": "A5.u.element.setContent('{UXPRERENDEROUTPUTDIV}','<style>\\n</style><iframe style=\"display:none;\" id=\"{UXPRERENDEREDALIAS}.__IFRAME1\"></iframe>\\n<input type=\"hidden\" value=\"\" id=\"{UXPRERENDEREDALIAS}.PARAMETERBUCKET\"/>\\n<input type=\"file\" style=\"position:absolute; top:-1000px;visibility:hidden;\" accept=\"image/*\" id=\"{UXPRERENDEREDALIAS}._GETPHOTO\"/><input type=\"file\" style=\"position:absolute; top:-1000px;visibility:hidden;\" name=\"files[]\" multiple = \"\" id=\"{UXPRERENDEREDALIAS}._GETFILEMULTI\"/><input type=\"file\" style=\"position:absolute; top:-1000px;visibility:hidden;\" name=\"files[]\" id=\"{UXPRERENDEREDALIAS}._GETFILE\"/><input id=\"{UXPRERENDEREDALIAS}.V.R1.RADIOBUTTONCONDITION\" name=\"V.R1.RADIOBUTTONCONDITION\" type=\"hidden\"/>\\n<input id=\"{UXPRERENDEREDALIAS}.V.R1.YEARLIST1\" name=\"V.R1.YEARLIST1\" type=\"hidden\"/>\\n<input id=\"{UXPRERENDEREDALIAS}.V.R1.TRAVELLIST1\" name=\"V.R1.TRAVELLIST1\" type=\"hidden\"/>\\n<input id=\"{UXPRERENDEREDALIAS}.V.R1.RADIOBUTTONPREGNANCY\" name=\"V.R1.RADIOBUTTONPREGNANCY\" type=\"hidden\"/>\\n<input id=\"{UXPRERENDEREDALIAS}.V.R1.ALCOHOLDRUGLIST2\" name=\"V.R1.ALCOHOLDRUGLIST2\" type=\"hidden\"/>\\n<input id=\"{UXPRERENDEREDALIAS}.V.R1.RADIOBUTTONCLINICALTRIAL\" name=\"V.R1.RADIOBUTTONCLINICALTRIAL\" type=\"hidden\"/>\\n<input id=\"{UXPRERENDEREDALIAS}.V.R1.RADIOBUTTONCANCER\" name=\"V.R1.RADIOBUTTONCANCER\" type=\"hidden\"/>\\n<input id=\"{UXPRERENDEREDALIAS}.V.R1.GENDER\" name=\"V.R1.GENDER\" type=\"hidden\"/>\\n<input id=\"{UXPRERENDEREDALIAS}.V.R1.TRIALALERT\" name=\"V.R1.TRIALALERT\" type=\"hidden\"/>\\n');\n\nif(typeof {UXPRERENDEREDALIAS}_DlgObj == 'object') {\n\t{UXPRERENDEREDALIAS}_DlgObj._destroy();\n\ttry {\n\t\tdelete {UXPRERENDEREDALIAS}_DlgObj;\n\t} catch(e) {\n\t\t{UXPRERENDEREDALIAS}_DlgObj = undefined;\n\t}\n};\n;if(typeof {UXPRERENDEREDALIAS}_PanelObj != 'undefined') {\n\tvar ele = $({UXPRERENDEREDALIAS}_PanelObj.getPanelId());\n\tif(ele) {\n\t\tif(ele.parentNode) ele.parentNode.removeChild(ele);\n\t}\n\tdelete {UXPRERENDEREDALIAS}_PanelObj;\n}\n;window['{UXPRERENDEREDALIAS}_PanelObj'] = new A5.PanelNavigator([\n{\n\tname: 'PANELCARD_1',\n\tsrc: new A5.PanelCard({\n\ttheme: 'iOS7',\n\tbody: {\n\t\tcontent: {\n\t\t\ttype: 'html',\n\t\t\tsrc: '<div class=\"A5CWLayout\" style=\"width: 100%\" >\\n\\t<label id=\"{UXPRERENDEREDALIAS}.LBL.R1.RADIOBUTTONCONDITION\" for=\"{UXPRERENDEREDALIAS}.V.R1.RADIOBUTTONCONDITION\" title=\"\" class=\"iOS7DialogLabel\" style=\"display:block;\">Have you been diagnosed with <span id=\"{dialog.object.argumentValue(Condition)}\"> condition by a medical professional?</label>\\n\\n\\t\\n<div id=\"{UXPRERENDEREDALIAS}.V.R1.RADIOBUTTONCONDITION.CONTROL\"  style=\"width: 100%; box-sizing: border-box; -moz-box-sizing: border-box; -ms-box-sizing: border-box; -webkit-box-sizing: border-box; \"></div>\\n{dialog.buttonListchoices.RADIOBUTTONCONDITION}[[dialog.buttonListParameters.RADIOBUTTONCONDITION||pressedIcon=images/$$generic.check.png.a5image|unpressedIcon=|tooltip=|buttonListType=radioButton]]\\n</div><br  style=\"clear:both; \" /><div  style=\"height:10px; font: 0pt;\"></div>\\n<div class=\"A5CWLayout\" style=\"width: 2in\" >\\n\\t<label id=\"{UXPRERENDEREDALIAS}.LBL.R1.YEARLIST1\" for=\"{UXPRERENDEREDALIAS}.V.R1.YEARLIST1\" title=\"\" class=\"iOS7DialogLabel\" style=\"display:block;\">What year were you born?</label>\\n\\n\\t\\n<div id=\"{UXPRERENDEREDALIAS}.V.R1.YEARLIST1.CONTROL\"  style=\"width: 100%; box-sizing: border-box; -moz-box-sizing: border-box; -ms-box-sizing: border-box; -webkit-box-sizing: border-box; \"></div>\\n\\n</div><br  style=\"clear:both; \" /><div  style=\"height:10px; font: 0pt;\"></div>\\n<div class=\"A5CWLayout\" style=\"width: 100%\" >\\n\\t<label id=\"{UXPRERENDEREDALIAS}.LBL.R1.COUNTRY1\" for=\"{UXPRERENDEREDALIAS}.V.R1.COUNTRY1\" title=\"\" class=\"iOS7DialogLabel\" style=\"display:block;\">Country</label>\\n\\n\\t<select \\t\\n\\t\\tsize=\"10\" \\n\\t\\tclass=\"iOS7Edit\"  \\n\\t\\tname=\"V.R1.COUNTRY1\" \\n\\t\\ttitle=\"\"\\n\\t\\tstyle=\"width: 100%; box-sizing: border-box; -moz-box-sizing: border-box; -ms-box-sizing: border-box; -webkit-box-sizing: border-box;\"\\n\\t\\tid=\"{UXPRERENDEREDALIAS}.V.R1.COUNTRY1\"  \\n\\t\\t   >\\n{dialog.dropdownboxchoices.COUNTRY1}\\n</select>\\n\\n</div><br  style=\"clear:both; \" />\\n<div class=\"A5CWLayout\" style=\"width: 100%\" >\\n\\t<input\\ttype=\"text\" id=\"{UXPRERENDEREDALIAS}.V.R1.ZIPCODE1\" title=\"\"  autocorrect=\"off\"     class=\"iOS7Edit\" style=\"width: 100%; box-sizing: border-box; -moz-box-sizing: border-box; -ms-box-sizing: border-box; -webkit-box-sizing: border-box;\"    name=\"V.R1.ZIPCODE1\"    value=\"\"    />\\n\\n</div><br  style=\"clear:both; \" />\\n<div style=\"clear: both; font: 0px arial; height: 0px; width: 0px;\"></div>'\n\t\t},\n\t\tscroll: {\n\t\t\taxis: 'y',\n\t\t\tstopPropogation: false,\n\t\t\tpull: {\n\t\t\t\ty: 'auto',\n\t\t\t\tx: 'auto'\n\t\t\t},\n\t\t\tindicator: {\n\t\t\t\tshow: true,\n\t\t\t\th: {\n\t\t\t\t\tshow: true,\n\t\t\t\t\tlocation: 'right',\n\t\t\t\t\toffset: '0px',\n\t\t\t\t\tleft: '0px',\n\t\t\t\t\tright: '0px'\n\t\t\t\t},\n\t\t\t\tv: {\n\t\t\t\t\tshow: true,\n\t\t\t\t\tlocation: 'right',\n\t\t\t\t\toffset: '0px',\n\t\t\t\t\ttop: '0px',\n\t\t\t\t\tbottom: '0px'\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t},\n\theader: {\n\t\thtml: '<div style=\"display:table; margin:auto;\"><div \\tid=\"{UXPRERENDEREDALIAS}.V.R1.LEFT_BUTTONS1\"    \\t\\t\\tclass=\"A5CWLayout \"  style=\"position: absolute; left: 2px; \"  > <div class=\"A5CWLayout\" style=\"width: \" > \\t<button type=\"button\" id=\"{UXPRERENDEREDALIAS}.V.R1.BUTTON_BACK1\"    ></button> </div> <div style=\"font: 0pt arial;clear:both;\"></div> \\t</div> <div \\tid=\"{UXPRERENDEREDALIAS}.V.R1.CONTAINER_CENTER1\"    \\t\\t\\tclass=\"A5CWLayout \"  style=\"\"  > <div style=\"display: table; margin: auto;\"> <div class=\"A5CWLayout\" style=\"width: \" > \\t<div id=\"{UXPRERENDEREDALIAS}.V.R1.STATICTEXT_1\" title=\"\"  class=\"iOS7Heading\" style=\"text-shadow: 2px 2px #ccc; box-sizing: border-box; -moz-box-sizing: border-box; -ms-box-sizing: border-box; -webkit-box-sizing: border-box;\"   >Page 1 of 5</div> </div> <div style=\"font: 0pt arial;clear:both;\"></div> \\t</div> \\t</div> <div \\tid=\"{UXPRERENDEREDALIAS}.V.R1.RIGHT_BUTTONS1\"    \\t\\t\\tclass=\"A5CWLayout \"  style=\"position: absolute; right: 2px; \"  > <div style=\"float: right;\"> <div class=\"A5CWLayout\" style=\"width: \" > \\t<button type=\"button\" id=\"{UXPRERENDEREDALIAS}.V.R1.BUTTON_NEXT1\"    ></button> </div> <div style=\"font: 0pt arial;clear:both;\"></div> \\t</div> \\t</div> </div><div style=\"display:none;\"></div>',\n\t\tshow: true,\n\t\tstyle: 'min-height:40px'\n\t},\n\tfooter: {\n\t},\n\toverlay: {\n\t}\n})\n},\n{\n\tname: 'PANELCARD_2',\n\tsrc: new A5.PanelCard({\n\ttheme: 'iOS7',\n\tbody: {\n\t\tcontent: {\n\t\t\ttype: 'html',\n\t\t\tsrc: '<div class=\"A5CWLayout\" style=\"width: 100%\" >\\n\\t<label id=\"{UXPRERENDEREDALIAS}.LBL.R1.TRAVELLIST1\" for=\"{UXPRERENDEREDALIAS}.V.R1.TRAVELLIST1\" title=\"\" class=\"iOS7DialogLabel\" style=\"display:block;\">How far would you travel to a doctors office to participate in this trial? </label>\\n\\n\\t\\n<div id=\"{UXPRERENDEREDALIAS}.V.R1.TRAVELLIST1.CONTROL\"  style=\"width: 100%; box-sizing: border-box; -moz-box-sizing: border-box; -ms-box-sizing: border-box; -webkit-box-sizing: border-box; ; white-space:nowrap;\"></div>\\n\\n</div><br  style=\"clear:both; \" /><div  style=\"height:10px; font: 0pt;\"></div>\\n<div class=\"A5CWLayout\" style=\"width: 100%\" >\\n\\t<label id=\"{UXPRERENDEREDALIAS}.LBL.R1.RADIOBUTTONPREGNANCY\" for=\"{UXPRERENDEREDALIAS}.V.R1.RADIOBUTTONPREGNANCY\" title=\"\" class=\"iOS7DialogLabel\" style=\"display:block;\">Are you pregnant or planning to become pregnant?</label>\\n\\n\\t\\n<div id=\"{UXPRERENDEREDALIAS}.V.R1.RADIOBUTTONPREGNANCY.CONTROL\"  style=\"width: 100%; box-sizing: border-box; -moz-box-sizing: border-box; -ms-box-sizing: border-box; -webkit-box-sizing: border-box; \"></div>\\n{dialog.buttonListchoices.RADIOBUTTONPREGNANCY}[[dialog.buttonListParameters.RADIOBUTTONPREGNANCY||pressedIcon=images/$$generic.check.png.a5image|unpressedIcon=|tooltip=|buttonListType=radioButton]]\\n</div><br  style=\"clear:both; \" /><div  style=\"height:10px; font: 0pt;\"></div>\\n<div class=\"A5CWLayout\" style=\"width: 100%\" >\\n\\t<label id=\"{UXPRERENDEREDALIAS}.LBL.R1.ALCOHOLDRUGLIST2\" for=\"{UXPRERENDEREDALIAS}.V.R1.ALCOHOLDRUGLIST2\" title=\"\" class=\"iOS7DialogLabel\" style=\"margin-top: 30px; display: block; \">Do you have a history of drug or alcohol abuse?</label>\\n\\n\\t\\n<div id=\"{UXPRERENDEREDALIAS}.V.R1.ALCOHOLDRUGLIST2.CONTROL\"  style=\"width: 100%; box-sizing: border-box; -moz-box-sizing: border-box; -ms-box-sizing: border-box; -webkit-box-sizing: border-box; ; white-space:nowrap;\"></div>\\n\\n</div><br  style=\"clear:both; \" />\\n<div style=\"clear: both; font: 0px arial; height: 0px; width: 0px;\"></div>'\n\t\t},\n\t\tscroll: {\n\t\t\taxis: 'y',\n\t\t\tstopPropogation: false,\n\t\t\tpull: {\n\t\t\t\ty: 'auto',\n\t\t\t\tx: 'auto'\n\t\t\t},\n\t\t\tindicator: {\n\t\t\t\tshow: true,\n\t\t\t\th: {\n\t\t\t\t\tshow: true,\n\t\t\t\t\tlocation: 'right',\n\t\t\t\t\toffset: '0px',\n\t\t\t\t\tleft: '0px',\n\t\t\t\t\tright: '0px'\n\t\t\t\t},\n\t\t\t\tv: {\n\t\t\t\t\tshow: true,\n\t\t\t\t\tlocation: 'right',\n\t\t\t\t\toffset: '0px',\n\t\t\t\t\ttop: '0px',\n\t\t\t\t\tbottom: '0px'\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t},\n\theader: {\n\t\thtml: '<div style=\"display:table; margin:auto;\"><div \\tid=\"{UXPRERENDEREDALIAS}.V.R1.LEFT_BUTTONS2\"    \\t\\t\\tclass=\"A5CWLayout \"  style=\"position: absolute; left: 2px; \"  > <div class=\"A5CWLayout\" style=\"width: \" > \\t<button type=\"button\" id=\"{UXPRERENDEREDALIAS}.V.R1.BUTTON_BACK2\"    ></button> </div> <div style=\"font: 0pt arial;clear:both;\"></div> \\t</div> <div \\tid=\"{UXPRERENDEREDALIAS}.V.R1.CONTAINER_CENTER2\"    \\t\\t\\tclass=\"A5CWLayout \"  style=\"\"  > <div style=\"display: table; margin: auto;\"> <div class=\"A5CWLayout\" style=\"width: \" > \\t<div id=\"{UXPRERENDEREDALIAS}.V.R1.STATICTEXT_2\" title=\"\"  class=\"iOS7Heading\" style=\"text-shadow: 2px 2px #ccc; box-sizing: border-box; -moz-box-sizing: border-box; -ms-box-sizing: border-box; -webkit-box-sizing: border-box;\"   >Page 2 of 5</div> </div> <div style=\"font: 0pt arial;clear:both;\"></div> \\t</div> \\t</div> <div \\tid=\"{UXPRERENDEREDALIAS}.V.R1.RIGHT_BUTTONS2\"    \\t\\t\\tclass=\"A5CWLayout \"  style=\"position: absolute; right: 2px; \"  > <div style=\"float: right;\"> <div class=\"A5CWLayout\" style=\"width: \" > \\t<button type=\"button\" id=\"{UXPRERENDEREDALIAS}.V.R1.BUTTON_NEXT2\"    ></button> </div> <div style=\"font: 0pt arial;clear:both;\"></div> \\t</div> \\t</div> </div><div style=\"display:none;\"></div>',\n\t\tshow: true,\n\t\tstyle: 'min-height:40px'\n\t},\n\tfooter: {\n\t},\n\toverlay: {\n\t}\n})\n},\n{\n\tname: 'PANELCARD_3',\n\tsrc: new A5.PanelCard({\n\ttheme: 'iOS7',\n\tbody: {\n\t\tcontent: {\n\t\t\ttype: 'html',\n\t\t\tsrc: '<div class=\"A5CWLayout\" style=\"width: 100%\" >\\n\\t<label id=\"{UXPRERENDEREDALIAS}.LBL.R1.RADIOBUTTONCLINICALTRIAL\" for=\"{UXPRERENDEREDALIAS}.V.R1.RADIOBUTTONCLINICALTRIAL\" title=\"\" class=\"iOS7DialogLabel\" style=\"display:block;\">Are you currently participating in a clinical trial?</label>\\n\\n\\t\\n<div id=\"{UXPRERENDEREDALIAS}.V.R1.RADIOBUTTONCLINICALTRIAL.CONTROL\"  style=\"width: 100%; box-sizing: border-box; -moz-box-sizing: border-box; -ms-box-sizing: border-box; -webkit-box-sizing: border-box; \"></div>\\n{dialog.buttonListchoices.RADIOBUTTONCLINICALTRIAL}[[dialog.buttonListParameters.RADIOBUTTONCLINICALTRIAL||pressedIcon=images/$$generic.check.png.a5image|unpressedIcon=|tooltip=|buttonListType=radioButton]]\\n</div><br  style=\"clear:both; \" /><div  style=\"height:10px; font: 0pt;\"></div>\\n<div class=\"A5CWLayout\" style=\"width: 100%\" >\\n\\t<label id=\"{UXPRERENDEREDALIAS}.LBL.R1.RADIOBUTTONCANCER\" for=\"{UXPRERENDEREDALIAS}.V.R1.RADIOBUTTONCANCER\" title=\"\" class=\"iOS7DialogLabel\" style=\"display:block;\">Do you have cancer of any type?</label>\\n\\n\\t\\n<div id=\"{UXPRERENDEREDALIAS}.V.R1.RADIOBUTTONCANCER.CONTROL\"  style=\"width: 100%; box-sizing: border-box; -moz-box-sizing: border-box; -ms-box-sizing: border-box; -webkit-box-sizing: border-box; \"></div>\\n{dialog.buttonListchoices.RADIOBUTTONCANCER}[[dialog.buttonListParameters.RADIOBUTTONCANCER||pressedIcon=images/$$generic.check.png.a5image|unpressedIcon=|tooltip=|buttonListType=radioButton]]\\n</div><br  style=\"clear:both; \" /><div  style=\"height:10px; font: 0pt;\"></div>\\n<div style=\"clear: both; font: 0px arial; height: 0px; width: 0px;\"></div>'\n\t\t},\n\t\tscroll: {\n\t\t\taxis: 'y',\n\t\t\tstopPropogation: false,\n\t\t\tpull: {\n\t\t\t\ty: 'auto',\n\t\t\t\tx: 'auto'\n\t\t\t},\n\t\t\tindicator: {\n\t\t\t\tshow: true,\n\t\t\t\th: {\n\t\t\t\t\tshow: true,\n\t\t\t\t\tlocation: 'right',\n\t\t\t\t\toffset: '0px',\n\t\t\t\t\tleft: '0px',\n\t\t\t\t\tright: '0px'\n\t\t\t\t},\n\t\t\t\tv: {\n\t\t\t\t\tshow: true,\n\t\t\t\t\tlocation: 'right',\n\t\t\t\t\toffset: '0px',\n\t\t\t\t\ttop: '0px',\n\t\t\t\t\tbottom: '0px'\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t},\n\theader: {\n\t\thtml: '<div style=\"display:table; margin:auto;\"><div \\tid=\"{UXPRERENDEREDALIAS}.V.R1.LEFT_BUTTONS3\"    \\t\\t\\tclass=\"A5CWLayout \"  style=\"position: absolute; left: 2px; \"  > <div class=\"A5CWLayout\" style=\"width: \" > \\t<button type=\"button\" id=\"{UXPRERENDEREDALIAS}.V.R1.BUTTON_BACK3\"    ></button> </div> <div style=\"font: 0pt arial;clear:both;\"></div> \\t</div> <div \\tid=\"{UXPRERENDEREDALIAS}.V.R1.CONTAINER_CENTER3\"    \\t\\t\\tclass=\"A5CWLayout \"  style=\"\"  > <div style=\"display: table; margin: auto;\"> <div class=\"A5CWLayout\" style=\"width: \" > \\t<div id=\"{UXPRERENDEREDALIAS}.V.R1.STATICTEXT_3\" title=\"\"  class=\"iOS7Heading\" style=\"text-shadow: 2px 2px #ccc; box-sizing: border-box; -moz-box-sizing: border-box; -ms-box-sizing: border-box; -webkit-box-sizing: border-box;\"   >Page 3 of 5</div> </div> <div style=\"font: 0pt arial;clear:both;\"></div> \\t</div> \\t</div> <div \\tid=\"{UXPRERENDEREDALIAS}.V.R1.RIGHT_BUTTONS3\"    \\t\\t\\tclass=\"A5CWLayout \"  style=\"position: absolute; right: 2px; \"  > <div style=\"float: right;\"> <div class=\"A5CWLayout\" style=\"width: \" > \\t<button type=\"button\" id=\"{UXPRERENDEREDALIAS}.V.R1.BUTTON_NEXT3\"    ></button> </div> <div style=\"font: 0pt arial;clear:both;\"></div> \\t</div> \\t</div> </div><div style=\"display:none;\"></div>',\n\t\tshow: true,\n\t\tstyle: 'min-height:40px'\n\t},\n\tfooter: {\n\t},\n\toverlay: {\n\t}\n})\n},\n{\n\tname: 'PANELCARD_4',\n\tsrc: new A5.PanelCard({\n\ttheme: 'iOS7',\n\tbody: {\n\t\tcontent: {\n\t\t\ttype: 'html',\n\t\t\tsrc: '<div \\tid=\"{UXPRERENDEREDALIAS}.V.R1.CONTAINER_4\"   \\n\\t\\t\\tclass=\"A5CWLayout \"  style=\"width: 100%; \"  >\\n<div class=\"A5CWLayout\" style=\"width: 100%\" >\\n\\t<input\\ttype=\"text\" id=\"{UXPRERENDEREDALIAS}.V.R1.FIRSTNAME\" title=\"\"     class=\"iOS7Edit\" style=\"width: 100%; box-sizing: border-box; -moz-box-sizing: border-box; -ms-box-sizing: border-box; -webkit-box-sizing: border-box;\"    name=\"V.R1.FIRSTNAME\"    value=\"\"    />\\n\\n</div><br  style=\"clear:both; \" />\\n<div class=\"A5CWLayout\" style=\"width: 100%\" >\\n\\t<input\\ttype=\"text\" id=\"{UXPRERENDEREDALIAS}.V.R1.LASTNAME\" title=\"\"     class=\"iOS7Edit\" style=\"width: 100%; box-sizing: border-box; -moz-box-sizing: border-box; -ms-box-sizing: border-box; -webkit-box-sizing: border-box;\"    name=\"V.R1.LASTNAME\"    value=\"\"    />\\n\\n</div><br  style=\"clear:both; \" />\\n<div class=\"A5CWLayout\" style=\"width: 100%\" >\\n\\t<input\\ttype=\"text\" id=\"{UXPRERENDEREDALIAS}.V.R1.EMAILADDRESS\" title=\"\"     class=\"iOS7Edit\" style=\"width: 100%; box-sizing: border-box; -moz-box-sizing: border-box; -ms-box-sizing: border-box; -webkit-box-sizing: border-box;\"    name=\"V.R1.EMAILADDRESS\"    value=\"\"    />\\n\\n</div><br  style=\"clear:both; \" />\\n<div class=\"A5CWLayout\" style=\"width: 100%\" >\\n\\t<input\\ttype=\"text\" id=\"{UXPRERENDEREDALIAS}.V.R1.PHONENUMBER\" title=\"\"     class=\"iOS7Edit\" style=\"width: 100%; box-sizing: border-box; -moz-box-sizing: border-box; -ms-box-sizing: border-box; -webkit-box-sizing: border-box;\"    name=\"V.R1.PHONENUMBER\"    value=\"\"    />\\n\\n</div><br  style=\"clear:both; \" /><div  style=\"height:10px; font: 0pt;\"></div>\\n<div class=\"A5CWLayout\" style=\"width: 50%\" >\\n\\t<label id=\"{UXPRERENDEREDALIAS}.LBL.R1.GENDER\" for=\"{UXPRERENDEREDALIAS}.V.R1.GENDER\" title=\"\" class=\"iOS7DialogLabel\" style=\"display:block;\">Gender</label>\\n\\n\\t\\n<div id=\"{UXPRERENDEREDALIAS}.V.R1.GENDER.CONTROL\"  style=\"width: 100%; box-sizing: border-box; -moz-box-sizing: border-box; -ms-box-sizing: border-box; -webkit-box-sizing: border-box; \"></div>\\n\\n</div><br  style=\"clear:both; \" />\\n<div class=\"A5CWLayout\" style=\"width: 50%\" >\\n\\t<label id=\"{UXPRERENDEREDALIAS}.LBL.R1.TRIALALERT\" for=\"{UXPRERENDEREDALIAS}.V.R1.TRIALALERT\" title=\"\" class=\"iOS7DialogLabel\" style=\"display:block;\">Do you want to be alerted about trials that meet your criteria?</label>\\n\\n\\t\\n<div id=\"{UXPRERENDEREDALIAS}.V.R1.TRIALALERT.CONTROL\"  style=\"width: 100%; box-sizing: border-box; -moz-box-sizing: border-box; -ms-box-sizing: border-box; -webkit-box-sizing: border-box; \"></div>\\n\\n</div><br  style=\"clear:both; \" />\\n<div style=\"font: 0pt arial;clear:both;\"></div>\\n\\t</div>\\n<br  id=\"{UXPRERENDEREDALIAS}.V.R1.CONTAINER_4.BREAK\"  style=\"clear:both; \" />\\n<div style=\"clear: both; font: 0px arial; height: 0px; width: 0px;\"></div>'\n\t\t},\n\t\tscroll: {\n\t\t\taxis: 'y',\n\t\t\tstopPropogation: false,\n\t\t\tpull: {\n\t\t\t\ty: 'auto',\n\t\t\t\tx: 'auto'\n\t\t\t},\n\t\t\tindicator: {\n\t\t\t\tshow: true,\n\t\t\t\th: {\n\t\t\t\t\tshow: true,\n\t\t\t\t\tlocation: 'right',\n\t\t\t\t\toffset: '0px',\n\t\t\t\t\tleft: '0px',\n\t\t\t\t\tright: '0px'\n\t\t\t\t},\n\t\t\t\tv: {\n\t\t\t\t\tshow: true,\n\t\t\t\t\tlocation: 'right',\n\t\t\t\t\toffset: '0px',\n\t\t\t\t\ttop: '0px',\n\t\t\t\t\tbottom: '0px'\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t},\n\theader: {\n\t\thtml: '<div style=\"display:table; margin:auto;\"><div \\tid=\"{UXPRERENDEREDALIAS}.V.R1.LEFT_BUTTONS4\"    \\t\\t\\tclass=\"A5CWLayout \"  style=\"position: absolute; left: 2px; \"  > <div class=\"A5CWLayout\" style=\"width: \" > \\t<button type=\"button\" id=\"{UXPRERENDEREDALIAS}.V.R1.BUTTON_BACK4\"    ></button> </div> <div style=\"font: 0pt arial;clear:both;\"></div> \\t</div> <div \\tid=\"{UXPRERENDEREDALIAS}.V.R1.CONTAINER_CENTER4\"    \\t\\t\\tclass=\"A5CWLayout \"  style=\"\"  > <div style=\"display: table; margin: auto;\"> <div class=\"A5CWLayout\" style=\"width: \" > \\t<div id=\"{UXPRERENDEREDALIAS}.V.R1.STATICTEXT_4\" title=\"\"  class=\"iOS7Heading\" style=\"text-shadow: 2px 2px #ccc; box-sizing: border-box; -moz-box-sizing: border-box; -ms-box-sizing: border-box; -webkit-box-sizing: border-box;\"   >Page 4 of 5</div> </div> <div style=\"font: 0pt arial;clear:both;\"></div> \\t</div> \\t</div> <div \\tid=\"{UXPRERENDEREDALIAS}.V.R1.RIGHT_BUTTONS4\"    \\t\\t\\tclass=\"A5CWLayout \"  style=\"position: absolute; right: 2px; \"  > <div style=\"float: right;\"> <div class=\"A5CWLayout\" style=\"width: \" > \\t<button type=\"button\" id=\"{UXPRERENDEREDALIAS}.V.R1.BUTTON_NEXT4\"    ></button> </div> <div style=\"font: 0pt arial;clear:both;\"></div> \\t</div> \\t</div> </div><div style=\"display:none;\"></div>',\n\t\tshow: true,\n\t\tstyle: 'min-height:40px'\n\t},\n\tfooter: {\n\t},\n\toverlay: {\n\t}\n})\n},\n{\n\tname: 'PANELCARD_5',\n\tsrc: new A5.PanelCard({\n\ttheme: 'iOS7',\n\tbody: {\n\t\tcontent: {\n\t\t\ttype: 'html',\n\t\t\tsrc: '<div class=\"A5CWLayout\" style=\"width: \" >\\n\\t<div id=\"{UXPRERENDEREDALIAS}.V.R1.STATICTEXT_CONGRATS\" title=\"\"  class=\"\" style=\"font-size: 24px; margin-bottom: 20px; box-sizing: border-box; -moz-box-sizing: border-box; -ms-box-sizing: border-box; -webkit-box-sizing: border-box;\"   >Congratulations, you may qualify for this study!  </div>\\n</div><br  style=\"clear:both; \" />\\n<div class=\"A5CWLayout\" style=\"width: \" >\\n\\t<div id=\"{UXPRERENDEREDALIAS}.V.R1.STATICTEXT_SUBMITINFO\" title=\"\"  class=\"\" style=\"font-size: 24px; padding-bottom: 20px; margin-bottom: 20px; height: 20%; box-sizing: border-box; -moz-box-sizing: border-box; -ms-box-sizing: border-box; -webkit-box-sizing: border-box;\"   >Would you like your information to be submitted to the physician conducting this study?  \\n<br>\\n<br>\\nYou will receive an email with the physician\\'s name and contact information when you click submit.</div>\\n</div><br  style=\"clear:both; \" /><div  style=\"height:15px; font: 0pt;\"></div>\\n<div class=\"A5CWLayout\" style=\"width: \" >\\n\\t<button type=\"button\" id=\"{UXPRERENDEREDALIAS}.V.R1.BUTTON_SUBMIT\"    ></button>\\n</div>\\n<div class=\"A5CWLayout\" style=\"width: \" >\\n\\t<button type=\"button\" id=\"{UXPRERENDEREDALIAS}.V.R1.BUTTON_SAVE\"    ></button>\\n</div>\\n<div class=\"A5CWLayout\" style=\"width: \" >\\n\\t<button type=\"button\" id=\"{UXPRERENDEREDALIAS}.V.R1.BUTTON_RESET\"    ></button>\\n</div><br  style=\"clear:both; \" />\\n<div style=\"clear: both; font: 0px arial; height: 0px; width: 0px;\"></div>'\n\t\t},\n\t\tscroll: {\n\t\t\taxis: 'y',\n\t\t\tstopPropogation: false,\n\t\t\tpull: {\n\t\t\t\ty: 'auto',\n\t\t\t\tx: 'auto'\n\t\t\t},\n\t\t\tindicator: {\n\t\t\t\tshow: true,\n\t\t\t\th: {\n\t\t\t\t\tshow: true,\n\t\t\t\t\tlocation: 'right',\n\t\t\t\t\toffset: '0px',\n\t\t\t\t\tleft: '0px',\n\t\t\t\t\tright: '0px'\n\t\t\t\t},\n\t\t\t\tv: {\n\t\t\t\t\tshow: true,\n\t\t\t\t\tlocation: 'right',\n\t\t\t\t\toffset: '0px',\n\t\t\t\t\ttop: '0px',\n\t\t\t\t\tbottom: '0px'\n\t\t\t\t}\n\t\t\t}\n\t\t},\n\t\tstyle: 'padding: 20px;'\n\t},\n\theader: {\n\t\thtml: '<div style=\"display:table; margin:auto;\"><div \\tid=\"{UXPRERENDEREDALIAS}.V.R1.LEFT_BUTTONS5\"    \\t\\t\\tclass=\"A5CWLayout \"  style=\"position: absolute; left: 2px; \"  > <div class=\"A5CWLayout\" style=\"width: \" > \\t<button type=\"button\" id=\"{UXPRERENDEREDALIAS}.V.R1.BUTTON_BACK5\"    ></button> </div> <div style=\"font: 0pt arial;clear:both;\"></div> \\t</div> <div \\tid=\"{UXPRERENDEREDALIAS}.V.R1.CONTAINER_CENTER5\"    \\t\\t\\tclass=\"A5CWLayout \"  style=\"\"  > <div style=\"display: table; margin: auto;\"> <div class=\"A5CWLayout\" style=\"width: \" > \\t<div id=\"{UXPRERENDEREDALIAS}.V.R1.STATICTEXT_7\" title=\"\"  class=\"iOS7Heading\" style=\"text-shadow: 2px 2px #ccc; box-sizing: border-box; -moz-box-sizing: border-box; -ms-box-sizing: border-box; -webkit-box-sizing: border-box;\"   >Page 5 of 5</div> </div> <div style=\"font: 0pt arial;clear:both;\"></div> \\t</div> \\t</div> <div \\tid=\"{UXPRERENDEREDALIAS}.V.R1.RIGHT_BUTTONS5\"    \\t\\t\\tclass=\"A5CWLayout \"  style=\"position: absolute; right: 2px; \"  > <div style=\"float: right;\"> <div class=\"A5CWLayout\" style=\"width: \" > \\t<button type=\"button\" id=\"{UXPRERENDEREDALIAS}.V.R1.BUTTON_HOME\"    ></button> </div> <div style=\"font: 0pt arial;clear:both;\"></div> \\t</div> \\t</div> </div><div style=\"display:none;\"></div>',\n\t\tshow: true,\n\t\tstyle: 'min-height:40px'\n\t},\n\tfooter: {\n\t},\n\toverlay: {\n\t}\n})\n}\n],{\n\ttype: 'programmatic',\n\tflow: 'ltr',\n\tloopNavigate: false,\n\tonPanelActivate: function() {{UXPRERENDEREDALIAS}_DlgObj.refreshClientSideComputations();},\n\tonSize: function() {;if(typeof {UXPRERENDEREDALIAS}_DlgObj != 'undefined') {\n\tif(typeof {UXPRERENDEREDALIAS}_DlgObj._findActiveLayoutRule != 'undefined') { \n\t\t{UXPRERENDEREDALIAS}_DlgObj._findActiveLayoutRule();\n\t}\n}},\n\ttheme: 'iOS7',\n\theader: {\n\t\tshow: false\n\t},\n\tfooter: {\n\t},\n\toverlay: {\n\t},\n\tcontrols: {\n\t\tprev: {\n\t\t\thas: false\n\t\t},\n\t\tnext: {\n\t\t\thas: false\n\t\t},\n\t\tback: {\n\t\t\thas: false\n\t\t},\n\t\tforward: {\n\t\t\thas: false\n\t\t}\n\t},\n\tbody: {\n\t},\n\tanimation: {\n\t\ttype: 'fade',\n\t\tduration: 400\n\t}\n})\nvar ele = window['{UXPRERENDEREDALIAS}_PanelObj'].create('{UXPRERENDEREDALIAS}.R1');\n\t\tvar panelRootId = '{UXPRERENDEROUTPUTDIV}';\n\t\tvar flagSizeToParent = true;\n\t\tvar wf_alias = '{UXPRERENDEREDALIAS}';\n\t\tif(panelRootId != '') { \n\t\t\tif (!$(panelRootId)) panelRootId = '';\n\t\t}\n\t\tif(panelRootId != '') { \n\t\t\t$(panelRootId).appendChild(ele);\n\t\t\tif(flagSizeToParent) { \n\t\t\t\twindow[wf_alias + '_PanelObj'].bindSize('parent');\n\t\t\t}\n\t\t} else { \n\t\t\tdocument.body.insertBefore(ele,document.body.firstChild);\n\t\t\twindow[wf_alias + '_PanelObj'].bindSize('window');\n\t\t}\n{UXPRERENDEREDALIAS}_PanelObj._panelPath = {\n\tPANELCARD_1: 'PANELCARD_1',\n\tPANELCARD_2: 'PANELCARD_2',\n\tPANELCARD_3: 'PANELCARD_3',\n\tPANELCARD_4: 'PANELCARD_4',\n\tPANELCARD_5: 'PANELCARD_5'\n}\n{UXPRERENDEREDALIAS}_PanelObj._displayNames = {\nPANELCARD_1 : 'PANELCARD_1',PANELCARD_2 : 'PANELCARD_2',PANELCARD_3 : 'PANELCARD_3',PANELCARD_4 : 'PANELCARD_4',PANELCARD_5 : 'PANELCARD_5',PANELNAVIGATOR : 'PANELNAVIGATOR'\n};\nif(typeof {UXPRERENDEREDALIAS}_DlgObj == 'object') {UXPRERENDEREDALIAS}_DlgObj._destroy();\nwindow['{UXPRERENDEREDALIAS}_DlgObj'] = new A5.DialogComponentHelper('{UXPRERENDEREDALIAS}',{\n\tajaxURL: '{UXPRERENDERAJAXURL}',\n\t_embeddedMode: false,\n\t_livePreviewInBuilder: false,\n\tcomponentGUID: 'fdc1a0d5-5a97-480d-8367-f06258569d19',\n\tcolumnInfo: {'RADIOBUTTONCONDITION': {info: {controlType: 'RadioButton'}, hiddenVal: false, type: 'control', isCalc: false, hlp: '', isArray: false, dataType: 'C'  },'YEARLIST1': {info: {controlType: 'SpinList'}, hiddenVal: false, type: 'control', isCalc: false, hlp: '', isArray: false, dataType: 'C'  },'COUNTRY1': {info: {controlType: 'DropDownBox'}, hiddenVal: false, type: 'input,label', isCalc: false, hlp: '', isArray: false, dataType: 'C'  },'ZIPCODE1': {info: {controlType: 'Textbox'}, hiddenVal: false, type: 'input,label', isCalc: false, hlp: '', isArray: false, dataType: 'C'  },'TRAVELLIST1': {info: {controlType: 'ButtonList'}, hiddenVal: false, type: 'control', isCalc: false, hlp: '', isArray: false, dataType: 'C'  },'RADIOBUTTONPREGNANCY': {info: {controlType: 'RadioButton'}, hiddenVal: false, type: 'control', isCalc: false, hlp: '', isArray: false, dataType: 'C'  },'ALCOHOLDRUGLIST2': {info: {controlType: 'ButtonList'}, hiddenVal: false, type: 'control', isCalc: false, hlp: '', isArray: false, dataType: 'C'  },'RADIOBUTTONCLINICALTRIAL': {info: {controlType: 'RadioButton'}, hiddenVal: false, type: 'control', isCalc: false, hlp: '', isArray: false, dataType: 'C'  },'RADIOBUTTONCANCER': {info: {controlType: 'RadioButton'}, hiddenVal: false, type: 'control', isCalc: false, hlp: '', isArray: false, dataType: 'C'  },'FIRSTNAME': {info: {controlType: 'Textbox'}, hiddenVal: false, type: 'input,label', isCalc: false, hlp: '', isArray: false, dataType: 'C'  },'LASTNAME': {info: {controlType: 'Textbox'}, hiddenVal: false, type: 'input,label', isCalc: false, hlp: '', isArray: false, dataType: 'C'  },'EMAILADDRESS': {info: {controlType: 'Textbox'}, hiddenVal: false, type: 'input,label', isCalc: false, hlp: '', isArray: false, dataType: 'C'  },'PHONENUMBER': {info: {controlType: 'Textbox'}, hiddenVal: false, type: 'input,label', isCalc: false, hlp: '', isArray: false, dataType: 'C'  },'GENDER': {info: {controlType: 'Switch'}, hiddenVal: false, type: 'control', isCalc: false, hlp: '', isArray: false, dataType: 'C'  },'TRIALALERT': {info: {controlType: 'Switch'}, hiddenVal: false, type: 'control', isCalc: false, hlp: '', isArray: false, dataType: 'C'  }},\n\toriginalValues: [{\n\t'RADIOBUTTONCONDITION': '',\n\t'YEARLIST1': '',\n\t'COUNTRY1': '',\n\t'ZIPCODE1': '',\n\t'TRAVELLIST1': '',\n\t'RADIOBUTTONPREGNANCY': '',\n\t'ALCOHOLDRUGLIST2': '',\n\t'RADIOBUTTONCLINICALTRIAL': '',\n\t'RADIOBUTTONCANCER': '',\n\t'FIRSTNAME': '',\n\t'LASTNAME': '',\n\t'EMAILADDRESS': '',\n\t'PHONENUMBER': '',\n\t'GENDER': '',\n\t'TRIALALERT': ''\n}],\n\tdefaultValues: {\n\tRADIOBUTTONCONDITION: '',\n\tYEARLIST1: '',\n\tCOUNTRY1: '',\n\tZIPCODE1: '',\n\tTRAVELLIST1: '',\n\tRADIOBUTTONPREGNANCY: '',\n\tALCOHOLDRUGLIST2: '',\n\tRADIOBUTTONCLINICALTRIAL: '',\n\tRADIOBUTTONCANCER: '',\n\tFIRSTNAME: '',\n\tLASTNAME: '',\n\tEMAILADDRESS: '',\n\tPHONENUMBER: '',\n\tGENDER: '',\n\tTRIALALERT: ''\n},\n\tdatePickerMonthNames: ['January','February','March','April','May','June','July','August','September','October','November','December'],\n\tdatePickerDayNames: ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'],\n\tdatePickerTodayButton: 'Today',\n\tdatePickerCloseButton: '',\n\tdatePickerFirstDayOfWeek: 1,\n\tresetFormMessage: '<div style=\"padding: .25in;\">Are you sure you want to reset the form?<div>',\n\tresetFormTitle: 'Warning',\n\tresetFormIcon: 'cssIcon=iOS7Icon iOS7IconHelp',\n\tdirtyFormMessage: 'You must first save your changes or cancel changes by clicking the Reset button.',\n\tdirtyFormTitle: 'Notice',\n\tdirtyFormIcon: 'cssIcon=iOS7Icon iOS7IconInfo',\n\tdeleteRecordDialogTitle: 'Delete Record',\n\tdeleteRecordDialogMessage: 'Are you sure you want to delete this record?',\t\n\tssDateFormat: 'MM/dd/yyyy',\n\tstyleName: 'iOS7',\n\t_fieldHelpers_DIALOG2: [],\n\tparentComponentAlias: '',\n\tsubmitIfHasClientSideErrors: true, \n\trowErrors: {\n\t\t\t\tshowMessageBox: false,\n\t\t\t\tmessageBoxTitle: 'Error',\n\t\t\t\tstyle: 'color: red; width: 6in; height: 2in;'\n\t\t},\n\tfieldErrors: {\n\t\ttype: 'block', \n\t\tclassName: 'errorText',\n\t\tinputClassName: 'iOS7EditError',\n\t\tedit: { \n\t\t\tcontainer: { className: 'iOS7EditBGError'}\n\t\t},\n\t\ticon: 'cssIcon=iOS7Icon iOS7IconError',\n\t\tglobal: {\n\t\t\tcontId: '{UXPRERENDEREDALIAS}.GLOBALERRORS',\n\t\t\thoverClassName: 'errorTextHighlight',\n\t\t\thoverInputClassName: 'errorInputHighlight'\n\t\t}\n\t},\n\t\t_canAjaxCallback: function(e) {\n{UXPRERENDEREDALIAS}_DlgObj.showWaitMessage('page',{useCSSAnimation: true,cssAnimationSettings: {size: '32'}});\n\t\t},\n\t\t__afterAjaxCallbackComplete: function(e) {\n{UXPRERENDEREDALIAS}_DlgObj.hideWaitMessage('page');\n\t\t}\n\t});\n{UXPRERENDEREDALIAS}_DlgObj._onOrientationChange =  function(e) { ;\n{UXPRERENDEREDALIAS}_DlgObj._findActiveLayoutRule();\n;  };\nA5.__componentObj = {UXPRERENDEREDALIAS}_DlgObj;\n__replaceAtRuntime_SystemAfterInitialize\n__replaceAtRuntime_SystemBeforePrepare\n__replaceDataForRadioOrCheckBoxRenderedAsButtonListAtRuntime__\n{UXPRERENDEREDALIAS}_DlgObj._tabObjects = [];\n{UXPRERENDEREDALIAS}_DlgObj.fieldHelpers['ZIPCODE1'] = new A5.Edit({\n\twatermark: {\n\t\ttext: 'ZIP Code'\n\t}\n});\n{UXPRERENDEREDALIAS}_DlgObj.fieldHelpers['FIRSTNAME'] = new A5.Edit({\n\twatermark: {\n\t\ttext: 'First Name'\n\t}\n});\n{UXPRERENDEREDALIAS}_DlgObj.fieldHelpers['LASTNAME'] = new A5.Edit({\n\twatermark: {\n\t\ttext: 'Last Name'\n\t}\n});\n{UXPRERENDEREDALIAS}_DlgObj.fieldHelpers['EMAILADDRESS'] = new A5.Edit({\n\twatermark: {\n\t\ttext: 'Email'\n\t}\n});\n{UXPRERENDEREDALIAS}_DlgObj.fieldHelpers['PHONENUMBER'] = new A5.Edit({\n\twatermark: {\n\t\ttext: 'Phone Number'\n\t}\n});\n{UXPRERENDEREDALIAS}_DlgObj.lookups = {\n};\n{UXPRERENDEREDALIAS}_DlgObj.dialogWatches['ENABLE_BUTTON_SUBMIT'] = {\n\t\twatch: [],\n\t\tvariables: [],\n\t\tonChange: function(data) {\n\tvar dialog = {};\n\tvar summary = {};\n\t{UXPRERENDEREDALIAS}_DlgObj._getDialogVariables(dialog,summary,data);\n\tvar enable = (true == true);\n\tvar eles = $cetp($n('V.R' + data.rowNumber + '.BUTTON_SUBMIT'),$('{UXPRERENDEREDALIAS}.R'+data.rowNumber));\n\tif(typeof eles.length == 'undefined' || eles.length == 0) eles = [$('{UXPRERENDEREDALIAS}.'+'V.R' + data.rowNumber + '.BUTTON_SUBMIT')];\n\tvar pObj = {UXPRERENDEREDALIAS}_DlgObj.getControl('BUTTON_SUBMIT'); if(pObj) { if(typeof pObj.setDisabled != 'undefined') {  pObj.setDisabled(!enable,eles); return true;  } }\n\tif(typeof {UXPRERENDEREDALIAS}_DlgObj._buttons['BUTTON_SUBMIT'] != 'undefined') {\n\t{UXPRERENDEREDALIAS}_DlgObj._buttons['BUTTON_SUBMIT'].setDisabled(!enable,eles)\n\t} else {\n\tfor(var i=0; i<eles.length;i++) eles[i].disabled = !enable;\n\t}\n\t;}\n}\n{UXPRERENDEREDALIAS}_DlgObj.dialogWatches['ENABLE_BUTTON_SAVE'] = {\n\t\twatch: [],\n\t\tvariables: [],\n\t\tonChange: function(data) {\n\tvar dialog = {};\n\tvar summary = {};\n\t{UXPRERENDEREDALIAS}_DlgObj._getDialogVariables(dialog,summary,data);\n\tvar enable = (true == true);\n\tvar eles = $cetp($n('V.R' + data.rowNumber + '.BUTTON_SAVE'),$('{UXPRERENDEREDALIAS}.R'+data.rowNumber));\n\tif(typeof eles.length == 'undefined' || eles.length == 0) eles = [$('{UXPRERENDEREDALIAS}.'+'V.R' + data.rowNumber + '.BUTTON_SAVE')];\n\tvar pObj = {UXPRERENDEREDALIAS}_DlgObj.getControl('BUTTON_SAVE'); if(pObj) { if(typeof pObj.setDisabled != 'undefined') {  pObj.setDisabled(!enable,eles); return true;  } }\n\tif(typeof {UXPRERENDEREDALIAS}_DlgObj._buttons['BUTTON_SAVE'] != 'undefined') {\n\t{UXPRERENDEREDALIAS}_DlgObj._buttons['BUTTON_SAVE'].setDisabled(!enable,eles)\n\t} else {\n\tfor(var i=0; i<eles.length;i++) eles[i].disabled = !enable;\n\t}\n\t;}\n}\n{UXPRERENDEREDALIAS}_DlgObj.dialogWatches['ENABLE_BUTTON_RESET'] = {\n\t\twatch: [],\n\t\tvariables: [],\n\t\tonChange: function(data) {\n\tvar dialog = {};\n\tvar summary = {};\n\t{UXPRERENDEREDALIAS}_DlgObj._getDialogVariables(dialog,summary,data);\n\tvar enable = (true == true);\n\tvar eles = $cetp($n('V.R' + data.rowNumber + '.BUTTON_RESET'),$('{UXPRERENDEREDALIAS}.R'+data.rowNumber));\n\tif(typeof eles.length == 'undefined' || eles.length == 0) eles = [$('{UXPRERENDEREDALIAS}.'+'V.R' + data.rowNumber + '.BUTTON_RESET')];\n\tvar pObj = {UXPRERENDEREDALIAS}_DlgObj.getControl('BUTTON_RESET'); if(pObj) { if(typeof pObj.setDisabled != 'undefined') {  pObj.setDisabled(!enable,eles); return true;  } }\n\tif(typeof {UXPRERENDEREDALIAS}_DlgObj._buttons['BUTTON_RESET'] != 'undefined') {\n\t{UXPRERENDEREDALIAS}_DlgObj._buttons['BUTTON_RESET'].setDisabled(!enable,eles)\n\t} else {\n\tfor(var i=0; i<eles.length;i++) eles[i].disabled = !enable;\n\t}\n\t;}\n}\nwindow['{UXPRERENDEREDALIAS}_O_ACTIONBUTTON_1_B80F9863AA934AD3979D1223011EE3F4'] = function(rowNum,rowId,objEle) {\n{UXPRERENDEREDALIAS}_DlgObj.ajaxCallback('O',1,'__a5SystemSendEmail','','_getData=true&__metaDataFunction=sendEmail_993f034c_f14f_4720_84a4_6bbcfe3c5400&_part=O');\n}\nwindow['{UXPRERENDEREDALIAS}_O_ACTIONBUTTON_2_5757481FA84C4EAF8C905B422FBA44F5'] = function(rowNum,rowId,objEle) {\n{UXPRERENDEREDALIAS}_DlgObj.ajaxCallback('O',1,'__a5SystemSendEmail','','_getData=true&__metaDataFunction=sendEmail_7f1dff5b_29b6_4367_9e13_d62e440f8d90&_part=O');\n}\n{UXPRERENDEREDALIAS}_DlgObj.setStateInfo({\n\t__dialogGuid: 'b1393aff-6304-4150-ab47-d105e5e3dae0',\n\targumentsBoundToCotrols: '',\n\t__sgr: '',\n\t__dtfmt: 'MM/dd/yyyy',\n\t__tfmt: ''\n});\n{UXPRERENDEREDALIAS}_DlgObj._cascadingControls = [];\n{UXPRERENDEREDALIAS}_DlgObj._cascadingControlsChildren = [];\n{UXPRERENDEREDALIAS}_DlgObj.setStateInfo({ \t__args_C_Condition: 'Coronary Artery Bypass Graft' });\nA5.msgBox.theme = 'iOS7';\nA5.msgBox.buttonWidth = '1in';\n{UXPRERENDEREDALIAS}_DlgObj._defaultWindowTitleDirection = 'ltr';\n{UXPRERENDEREDALIAS}_DlgObj._controlContainers = {}\n{UXPRERENDEREDALIAS}_DlgObj._panelCardControls = {\nRADIOBUTTONCONDITION:'PANELCARD_1',\nYEARLIST1:'PANELCARD_1',\nCOUNTRY1:'PANELCARD_1',\nZIPCODE1:'PANELCARD_1',\nTRAVELLIST1:'PANELCARD_2',\nRADIOBUTTONPREGNANCY:'PANELCARD_2',\nALCOHOLDRUGLIST2:'PANELCARD_2',\nRADIOBUTTONCLINICALTRIAL:'PANELCARD_3',\nRADIOBUTTONCANCER:'PANELCARD_3',\nFIRSTNAME:'PANELCARD_4',\nLASTNAME:'PANELCARD_4',\nEMAILADDRESS:'PANELCARD_4',\nPHONENUMBER:'PANELCARD_4',\nGENDER:'PANELCARD_4',\nTRIALALERT:'PANELCARD_4'\n}\n{UXPRERENDEREDALIAS}_DlgObj._buttons = {};\n{UXPRERENDEREDALIAS}_DlgObj._buttons['BUTTON_BACK1'] = new A5.Button({\n\tlayout: 'text',\n\tstyle: 'box-sizing: border-box; -moz-box-sizing: border-box; -ms-box-sizing: border-box; -webkit-box-sizing: border-box;',\n\thtml: 'Back',\n\tonClick: function() { \n},\n\ttheme: 'iOS7:left'\n});\n{UXPRERENDEREDALIAS}_DlgObj._buttons['BUTTON_NEXT1'] = new A5.Button({\n\tlayout: 'text',\n\tstyle: 'box-sizing: border-box; -moz-box-sizing: border-box; -ms-box-sizing: border-box; -webkit-box-sizing: border-box;',\n\thtml: 'Next',\n\tonClick: function() { \n},\n\ttheme: 'iOS7:right'\n});\n{UXPRERENDEREDALIAS}_DlgObj._buttons['BUTTON_BACK2'] = new A5.Button({\n\tlayout: 'text',\n\tstyle: 'box-sizing: border-box; -moz-box-sizing: border-box; -ms-box-sizing: border-box; -webkit-box-sizing: border-box;',\n\thtml: 'Back',\n\tonClick: function() { \n},\n\ttheme: 'iOS7:left'\n});\n{UXPRERENDEREDALIAS}_DlgObj._buttons['BUTTON_NEXT2'] = new A5.Button({\n\tlayout: 'text',\n\tstyle: 'box-sizing: border-box; -moz-box-sizing: border-box; -ms-box-sizing: border-box; -webkit-box-sizing: border-box;',\n\thtml: 'Next',\n\tonClick: function() { \n},\n\ttheme: 'iOS7:right'\n});\n{UXPRERENDEREDALIAS}_DlgObj._buttons['BUTTON_BACK3'] = new A5.Button({\n\tlayout: 'text',\n\tstyle: 'box-sizing: border-box; -moz-box-sizing: border-box; -ms-box-sizing: border-box; -webkit-box-sizing: border-box;',\n\thtml: 'Back',\n\tonClick: function() { \n},\n\ttheme: 'iOS7:left'\n});\n{UXPRERENDEREDALIAS}_DlgObj._buttons['BUTTON_NEXT3'] = new A5.Button({\n\tlayout: 'text',\n\tstyle: 'box-sizing: border-box; -moz-box-sizing: border-box; -ms-box-sizing: border-box; -webkit-box-sizing: border-box;',\n\thtml: 'Next',\n\tonClick: function() { \n},\n\ttheme: 'iOS7:right'\n});\n{UXPRERENDEREDALIAS}_DlgObj._buttons['BUTTON_BACK4'] = new A5.Button({\n\tlayout: 'text',\n\tstyle: 'box-sizing: border-box; -moz-box-sizing: border-box; -ms-box-sizing: border-box; -webkit-box-sizing: border-box;',\n\thtml: 'Back',\n\tonClick: function() { \n},\n\ttheme: 'iOS7:left'\n});\n{UXPRERENDEREDALIAS}_DlgObj._buttons['BUTTON_NEXT4'] = new A5.Button({\n\tlayout: 'text',\n\tstyle: 'box-sizing: border-box; -moz-box-sizing: border-box; -ms-box-sizing: border-box; -webkit-box-sizing: border-box;',\n\thtml: 'Finish',\n\tonClick: function() { \n},\n\ttheme: 'iOS7:right'\n});\n{UXPRERENDEREDALIAS}_DlgObj._buttons['BUTTON_BACK5'] = new A5.Button({\n\tlayout: 'text',\n\tstyle: 'box-sizing: border-box; -moz-box-sizing: border-box; -ms-box-sizing: border-box; -webkit-box-sizing: border-box;',\n\thtml: 'Back',\n\tonClick: function() { \n},\n\ttheme: 'iOS7:left'\n});\n{UXPRERENDEREDALIAS}_DlgObj._buttons['BUTTON_HOME'] = new A5.Button({\n\tlayout: 'text',\n\tstyle: 'box-sizing: border-box; -moz-box-sizing: border-box; -ms-box-sizing: border-box; -webkit-box-sizing: border-box;',\n\thtml: 'Home',\n\tonClick: function() { \n},\n\ttheme: 'iOS7:base'\n});\n{UXPRERENDEREDALIAS}_DlgObj._buttons['BUTTON_SUBMIT'] = new A5.Button({\n\tlayout: 'icon text',\n\tstyle: 'box-sizing: border-box; -moz-box-sizing: border-box; -ms-box-sizing: border-box; -webkit-box-sizing: border-box;',\n\ttip: 'Submit the form.',\n\thtml: 'Submit',\n\ticon: 'cssIcon=iOS7Icon iOS7IconSaveAndEnter',\n\tdisabledIcon: 'cssIcon=iOS7Icon iOS7IconDisabled iOS7IconSave',\n\tonClick: function() { /* actionJavascript:00005deb-7514-4628-85c9-83b753fd66d1          */\nfunction tempfunction_329c8e88_56ba_400b_bd99_65083cc1eedb() {\n{UXPRERENDEREDALIAS}_O_ACTIONBUTTON_1_B80F9863AA934AD3979D1223011EE3F4(1,'1',this);\n}\nfunction tempfunction_60b3e6db_51aa_432d_a8cf_29f923e5437e() {\n{UXPRERENDEREDALIAS}_O_ACTIONBUTTON_2_5757481FA84C4EAF8C905B422FBA44F5(1,'1',this);\n}\nA5.executeThisThenThat(tempfunction_329c8e88_56ba_400b_bd99_65083cc1eedb,tempfunction_60b3e6db_51aa_432d_a8cf_29f923e5437e);\n},\n\ttheme: 'iOS7'\n});\n{UXPRERENDEREDALIAS}_DlgObj._buttons['BUTTON_SAVE'] = new A5.Button({\n\tlayout: 'icon text',\n\tstyle: 'box-sizing: border-box; -moz-box-sizing: border-box; -ms-box-sizing: border-box; -webkit-box-sizing: border-box;',\n\ttip: 'Save but do not submit the form.',\n\thtml: 'Save',\n\ticon: 'cssIcon=iOS7Icon iOS7IconSave',\n\tdisabledIcon: 'cssIcon=iOS7Icon iOS7IconDisabled iOS7IconSave',\n\tonClick: function() { \n},\n\ttheme: 'iOS7'\n});\n{UXPRERENDEREDALIAS}_DlgObj._buttons['BUTTON_RESET'] = new A5.Button({\n\tlayout: 'icon text',\n\tstyle: 'box-sizing: border-box; -moz-box-sizing: border-box; -ms-box-sizing: border-box; -webkit-box-sizing: border-box;',\n\ttip: 'Discard the value of all controls in the form.',\n\thtml: 'Do not submit',\n\ticon: 'cssIcon=iOS7Icon iOS7IconUndo',\n\tdisabledIcon: 'cssIcon=iOS7Icon iOS7IconDisabled iOS7IconUndo',\n\tonClick: function() { \n},\n\ttheme: 'iOS7'\n});\n{UXPRERENDEREDALIAS}_DlgObj._buttons['BUTTON_BACK1'].bind('{UXPRERENDEREDALIAS}.V.R1.BUTTON_BACK1');\n{UXPRERENDEREDALIAS}_DlgObj._buttons['BUTTON_NEXT1'].bind('{UXPRERENDEREDALIAS}.V.R1.BUTTON_NEXT1');\n{UXPRERENDEREDALIAS}_DlgObj._buttons['BUTTON_BACK2'].bind('{UXPRERENDEREDALIAS}.V.R1.BUTTON_BACK2');\n{UXPRERENDEREDALIAS}_DlgObj._buttons['BUTTON_NEXT2'].bind('{UXPRERENDEREDALIAS}.V.R1.BUTTON_NEXT2');\n{UXPRERENDEREDALIAS}_DlgObj._buttons['BUTTON_BACK3'].bind('{UXPRERENDEREDALIAS}.V.R1.BUTTON_BACK3');\n{UXPRERENDEREDALIAS}_DlgObj._buttons['BUTTON_NEXT3'].bind('{UXPRERENDEREDALIAS}.V.R1.BUTTON_NEXT3');\n{UXPRERENDEREDALIAS}_DlgObj._buttons['BUTTON_BACK4'].bind('{UXPRERENDEREDALIAS}.V.R1.BUTTON_BACK4');\n{UXPRERENDEREDALIAS}_DlgObj._buttons['BUTTON_NEXT4'].bind('{UXPRERENDEREDALIAS}.V.R1.BUTTON_NEXT4');\n{UXPRERENDEREDALIAS}_DlgObj._buttons['BUTTON_BACK5'].bind('{UXPRERENDEREDALIAS}.V.R1.BUTTON_BACK5');\n{UXPRERENDEREDALIAS}_DlgObj._buttons['BUTTON_HOME'].bind('{UXPRERENDEREDALIAS}.V.R1.BUTTON_HOME');\n{UXPRERENDEREDALIAS}_DlgObj._buttons['BUTTON_SUBMIT'].bind('{UXPRERENDEREDALIAS}.V.R1.BUTTON_SUBMIT');\n{UXPRERENDEREDALIAS}_DlgObj._buttons['BUTTON_SAVE'].bind('{UXPRERENDEREDALIAS}.V.R1.BUTTON_SAVE');\n{UXPRERENDEREDALIAS}_DlgObj._buttons['BUTTON_RESET'].bind('{UXPRERENDEREDALIAS}.V.R1.BUTTON_RESET');\n{UXPRERENDEREDALIAS}_DlgObj._buttonListData['TRAVELLIST1'] = [{html: '5 miles or less',value: '5 miles or less',tip: ''},{html: '10 miles or less',value: '10 miles or less',tip: ''},{html: '20 miles or less',value: '20 miles or less',tip: ''},{html: '30 miles or less',value: '30 miles or less',tip: ''},{html: '50 miles or less',value: '50 miles or less',tip: ''},{html: '100 miles or less',value: '100 miles or less',tip: ''},{html: 'As long as it takes',value: 'As long as it takes',tip: ''}];\n{UXPRERENDEREDALIAS}_DlgObj._buttonListData['ALCOHOLDRUGLIST2'] = [{html: 'No',value: 'No',tip: ''},{html: 'Yes - within the last 6 months',value: 'Yes - within the last 6 months',tip: ''},{html: 'Yes - 7-12 months ago',value: 'Yes - 7-12 months ago',tip: ''},{html: 'Yes over a year ago',value: 'Yes over a year ago',tip: ''},{html: 'Yes more than 2 years ago ',value: 'Yes more than 2 years ago ',tip: ''}];\n{UXPRERENDEREDALIAS}_DlgObj._spinListData['YEARLIST1'] = [\n{html: '1950', value: '1950'},\n{html: '1951', value: '1951'},\n{html: '1952', value: '1952'},\n{html: '1953', value: '1953'},\n{html: '1954', value: '1954'},\n{html: '1955', value: '1955'},\n{html: '1956', value: '1956'},\n{html: '1957', value: '1957'},\n{html: '1958', value: '1958'},\n{html: '1959', value: '1959'},\n{html: '1960', value: '1960'},\n{html: '1961', value: '1961'},\n{html: '1962', value: '1962'},\n{html: '1963', value: '1963'},\n{html: '1964', value: '1964'},\n{html: '1965', value: '1965'},\n{html: '1966', value: '1966'},\n{html: '1967', value: '1967'},\n{html: '1968', value: '1968'},\n{html: '1969', value: '1969'},\n{html: '1970', value: '1970'},\n{html: '1971', value: '1971'},\n{html: '1972', value: '1972'},\n{html: '1973', value: '1973'},\n{html: '1974', value: '1974'},\n{html: '1975', value: '1975'},\n{html: '1976', value: '1976'},\n{html: '1977', value: '1977'},\n{html: '1978', value: '1978'},\n{html: '1979', value: '1979'},\n{html: '1980', value: '1980'},\n{html: '1981', value: '1981'},\n{html: '1982', value: '1982'},\n{html: '1983', value: '1983'},\n{html: '1984', value: '1984'},\n{html: '1985', value: '1985'},\n{html: '1986', value: '1986'},\n{html: '1987', value: '1987'},\n{html: '1988', value: '1988'},\n{html: '1989', value: '1989'},\n{html: '1990', value: '1990'},\n{html: '1991', value: '1991'},\n{html: '1992', value: '1992'},\n{html: '1993', value: '1993'},\n{html: '1994', value: '1994'},\n{html: '1995', value: '1995'},\n{html: '1996', value: '1996'},\n{html: '1997', value: '1997'},\n{html: '1998', value: '1998'},\n{html: '1999', value: '1999'},\n{html: '2000', value: '2000'}\n];\n{UXPRERENDEREDALIAS}_DlgObj._controls['GENDER'] = { type: 'switch',  settings:  {theme: 'iOS7',flow: 'ltr',text: {on: 'Male',off: 'Female'},values: {on: 'Male',off: 'Female'}} }\n{UXPRERENDEREDALIAS}_DlgObj._controls['TRIALALERT'] = { type: 'switch',  settings:  {theme: 'iOS7',flow: 'ltr',text: {on: 'Yes',off: 'No'},values: {on: 'on',off: 'off'}} }\n{UXPRERENDEREDALIAS}_DlgObj._controls['RADIOBUTTONCONDITION'] = { type: 'buttonList', data: {UXPRERENDEREDALIAS}_DlgObj._buttonListData['RADIOBUTTONCONDITION'],  settings:  {theme: 'iOS7',button: {layout: 'icon text',style: 'text-align: left;',iconStyle: 'float: right;',keepPressed: false},allowNullSelection: 'auto'} }\n{UXPRERENDEREDALIAS}_DlgObj._controls['TRAVELLIST1'] = { type: 'buttonList', data: {UXPRERENDEREDALIAS}_DlgObj._buttonListData['TRAVELLIST1'],  settings:  {theme: 'iOS7:vertical',button: {layout: 'text',keepPressed: true},allowNullSelection: 'auto'} }\n{UXPRERENDEREDALIAS}_DlgObj._controls['RADIOBUTTONPREGNANCY'] = { type: 'buttonList', data: {UXPRERENDEREDALIAS}_DlgObj._buttonListData['RADIOBUTTONPREGNANCY'],  settings:  {theme: 'iOS7',button: {layout: 'icon text',style: 'text-align: left;',iconStyle: 'float: right;',keepPressed: false},allowNullSelection: 'auto'} }\n{UXPRERENDEREDALIAS}_DlgObj._controls['ALCOHOLDRUGLIST2'] = { type: 'buttonList', data: {UXPRERENDEREDALIAS}_DlgObj._buttonListData['ALCOHOLDRUGLIST2'],  settings:  {theme: 'iOS7:vertical',button: {layout: 'text',keepPressed: true},allowNullSelection: 'auto'} }\n{UXPRERENDEREDALIAS}_DlgObj._controls['RADIOBUTTONCLINICALTRIAL'] = { type: 'buttonList', data: {UXPRERENDEREDALIAS}_DlgObj._buttonListData['RADIOBUTTONCLINICALTRIAL'],  settings:  {theme: 'iOS7',button: {layout: 'icon text',style: 'text-align: left;',iconStyle: 'float: right;',keepPressed: false},allowNullSelection: 'auto'} }\n{UXPRERENDEREDALIAS}_DlgObj._controls['RADIOBUTTONCANCER'] = { type: 'buttonList', data: {UXPRERENDEREDALIAS}_DlgObj._buttonListData['RADIOBUTTONCANCER'],  settings:  {theme: 'iOS7',button: {layout: 'icon text',style: 'text-align: left;',iconStyle: 'float: right;',keepPressed: false},allowNullSelection: 'auto'} }\n{UXPRERENDEREDALIAS}_DlgObj._controls['YEARLIST1'] = { type: 'spinList', data: {UXPRERENDEREDALIAS}_DlgObj._spinListData['YEARLIST1'],   settings:  {theme: 'iOS7'} }\n{UXPRERENDEREDALIAS}_DlgObj.setVariables({});\n{UXPRERENDEREDALIAS}_DlgObj._dataBoundControls = ['COUNTRY1'];\n{UXPRERENDEREDALIAS}_DlgObj._primaryTableAlias = '';\n{UXPRERENDEREDALIAS}_DlgObj._hasPanels = true;\n{UXPRERENDEREDALIAS}_DlgObj._hasOnSynchronizeEvent = false;\nA5.__dtfmt = 'MM/dd/yyyy';A5.__tfmt = '';\nA5.__flagWorkingPreview = false;\nA5.__flagIIS = false;\nA5.__flagSimulateIIS = true;\n{UXPRERENDEREDALIAS}_DlgObj._functions.calcOrientation = function() { \n\tif(typeof {UXPRERENDEREDALIAS}_DlgObj == 'undefined') return '';\n\tvar orientation = {UXPRERENDEREDALIAS}_DlgObj.getOrientation();\n\tif( orientation == 'landscape') {\n\t\t\t//landscape\n\t\t\tif({UXPRERENDEREDALIAS}_DlgObj._orientation != 'landscape') {\n\t\t\t\t{UXPRERENDEREDALIAS}_DlgObj._fireWatches(1);\t\n\t\t\t\t{UXPRERENDEREDALIAS}_DlgObj._orientation = 'landscape';\n\t\t\t\t{UXPRERENDEREDALIAS}_DlgObj._executeEvent('onOrientationChange',{orientation: 'landscape'});\n\t\t\t}\n\t} else {\n\t\t//portrait\n\t\tif({UXPRERENDEREDALIAS}_DlgObj._orientation != 'portrait') {\n\t\t\t\t{UXPRERENDEREDALIAS}_DlgObj._fireWatches(1);\t\n\t\t\t\t{UXPRERENDEREDALIAS}_DlgObj._orientation = 'portrait';\n\t\t\t\t{UXPRERENDEREDALIAS}_DlgObj._executeEvent('onOrientationChange',{orientation: 'portrait'});\n\t\t\t}\n\t}\n}\n\tA5.flags.cordovaLoaded = true;\n\ttry {\n\t\tdocument.addEventListener('deviceready', function() { \n\t\t\t{UXPRERENDEREDALIAS}_DlgObj._executeEvent('onCordovaReady',{});\n\t\t\t{UXPRERENDEREDALIAS}_DlgObj._executeEvent('onPhoneGapReady',{});\n\t\t\t{UXPRERENDEREDALIAS}_DlgObj._cordovaReady = true;\n\t\t\tnavigator.geolocation.getAccuratePosition = function(geolocationSuccess, geolocationError, options) {\n\tvar _lastCheckedPosition = null;\n\tvar _locationEventCount = 0;\n\toptions = options || {};\n\toptions.context = this;\n    function _checkLocation(pos) {\n        _lastCheckedPosition = pos;\n        _locationEventCount++;\n        if ((pos.coords.accuracy <= options.desiredAccuracy) && (_locationEventCount > options.ignoreResultCount)) {\n            clearTimeout(_timerID);\n            navigator.geolocation.clearWatch(_watchID);\n            _foundPosition(pos);\n        } \n    }\n    function _stopLocationCheck() {\n    \t var error = {};\n    \t error.code = 0;\n    \t error.message = 'Timeout: No results';\n        navigator.geolocation.clearWatch(_watchID);\n        _lastCheckedPosition ? _foundPosition(_lastCheckedPosition) : geolocationError.call(options.context,error);\n    }\n    function _onError(error) {\n        clearTimeout(_timerID);\n        navigator.geolocation.clearWatch(_watchID);\n        geolocationError.call(options.context,error);\n    }\n    function _foundPosition(pos) {\n        geolocationSuccess.call(options.context,pos);\n    }\n    if (!options.maxWait) {            \n    \toptions.maxWait = 10000; \n    }\t\n    if (!options.desiredAccuracy) {\n    \t  options.desiredAccuracy = 20; \n    }\n    if (!options.timeout) {\n        options.timeout = options.maxWait;\n\t }\n\t if (!options.ignoreResultCount) {\n\t \t\toptions.ignoreResultCount = 1;\n\t }\n    options.maximumAge = 0; \n    options.enableHighAccuracy = true; \n    var _watchID = navigator.geolocation.watchPosition(_checkLocation, _onError, options);\n    var _timerID = setTimeout(_stopLocationCheck, options.maxWait); \n}\n\t\t} , false);\t\n\t}\n\tcatch(err) {}\n{UXPRERENDEREDALIAS}_DlgObj._waitGif = 'css/A5System/Images/wait.gif';\n{UXPRERENDEREDALIAS}_DlgObj._layoutMode = 'containerwidth';\n{UXPRERENDEREDALIAS}_DlgObj._responsiveRulesMode = 'firsttrue';\n{UXPRERENDEREDALIAS}_DlgObj.__controlNesting = {\nPANELHEADER_1: ['container:LEFT_BUTTONS1','container:CONTAINER_CENTER1','container:RIGHT_BUTTONS1'],\nLEFT_BUTTONS1: [],\nCONTAINER_CENTER1: [],\nRIGHT_BUTTONS1: [],\nPANELHEADER_2: ['container:LEFT_BUTTONS2','container:CONTAINER_CENTER2','container:RIGHT_BUTTONS2'],\nLEFT_BUTTONS2: [],\nCONTAINER_CENTER2: [],\nRIGHT_BUTTONS2: [],\nPANELHEADER_3: ['container:LEFT_BUTTONS3','container:CONTAINER_CENTER3','container:RIGHT_BUTTONS3'],\nLEFT_BUTTONS3: [],\nCONTAINER_CENTER3: [],\nRIGHT_BUTTONS3: [],\nPANELHEADER_4: ['container:LEFT_BUTTONS4','container:CONTAINER_CENTER4','container:RIGHT_BUTTONS4'],\nLEFT_BUTTONS4: [],\nCONTAINER_CENTER4: [],\nRIGHT_BUTTONS4: [],\nCONTAINER_4: ['FirstName','LastName','EmailAddress','PhoneNumber','Gender','TrialAlert'],\nPANELHEADER_5: ['container:LEFT_BUTTONS5','container:CONTAINER_CENTER5','container:RIGHT_BUTTONS5'],\nLEFT_BUTTONS5: [],\nCONTAINER_CENTER5: [],\nRIGHT_BUTTONS5: []\n}\n{UXPRERENDEREDALIAS}_DlgObj._listsDV = [];\n{UXPRERENDEREDALIAS}_DlgObj._listControls = [];\n{UXPRERENDEREDALIAS}_DlgObj._localStorageSettings = {namespace: 'ALPHA_CWScreener',friendlyName: 'CenterWatch Screener',description: 'Screener',persistVariableValues: false,__version: 1,persistComponentState: false,workingPreviewTestingFolder: '',restore: {variables: false,data: false,state: false},compressData: true,minify: true,variablesToNotPersist: '',workingPreviewTestingMode: 'Browser',compressListData: true}\n{UXPRERENDEREDALIAS}_DlgObj.__r = ['3rkeltoSdQc=']\n{UXPRERENDEREDALIAS}_DlgObj._staticHTMLMode = false\n{UXPRERENDEREDALIAS}_DlgObj._EDITOR_EDITORSET = {};\n{UXPRERENDEREDALIAS}_DlgObj.styleName = 'iOS7';\n{UXPRERENDEREDALIAS}_DlgObj.styleVersion = 3\n{UXPRERENDEREDALIAS}_DlgObj.framesInfo = {\n};\n{UXPRERENDEREDALIAS}_DlgObj._noPersist = []\n$e.add('{UXPRERENDEREDALIAS}.V.R1.BUTTON_BACK1',A5.d.evnts.click,function(e) {\nvar parentObject = {UXPRERENDEREDALIAS}_DlgObj.getTopParentObject();\nvar mainPanel = parentObject.panelSetActive('PANEL_MAIN', true);\n},this,false,'{UXPRERENDEREDALIAS}.V.R1.BUTTON_BACK1');\n\n\n\n\n\n\n$e.add('{UXPRERENDEREDALIAS}.V.R1.BUTTON_NEXT1',A5.d.evnts.click,function(e) {\n{UXPRERENDEREDALIAS}_DlgObj.panelSetActive('PANELCARD_2',true);\n},this,false,'{UXPRERENDEREDALIAS}.V.R1.BUTTON_NEXT1');\n\n\n\n\n\n\n\n\n\n\n\n$e.add('{UXPRERENDEREDALIAS}.V.R1.BUTTON_BACK2',A5.d.evnts.click,function(e) {\n{UXPRERENDEREDALIAS}_DlgObj.panelSetActive('PANELCARD_1',true);\n},this,false,'{UXPRERENDEREDALIAS}.V.R1.BUTTON_BACK2');\n\n\n\n\n\n\n$e.add('{UXPRERENDEREDALIAS}.V.R1.BUTTON_NEXT2',A5.d.evnts.click,function(e) {\n{UXPRERENDEREDALIAS}_DlgObj.panelSetActive('PANELCARD_3',true);\n},this,false,'{UXPRERENDEREDALIAS}.V.R1.BUTTON_NEXT2');\n\n\n\n\n\n\n\n\n\n\n$e.add('{UXPRERENDEREDALIAS}.V.R1.BUTTON_BACK3',A5.d.evnts.click,function(e) {\n{UXPRERENDEREDALIAS}_DlgObj.panelSetActive('PANELCARD_2',true);\n},this,false,'{UXPRERENDEREDALIAS}.V.R1.BUTTON_BACK3');\n\n\n\n\n\n\n$e.add('{UXPRERENDEREDALIAS}.V.R1.BUTTON_NEXT3',A5.d.evnts.click,function(e) {\n{UXPRERENDEREDALIAS}_DlgObj.panelSetActive('PANELCARD_4',true);\n},this,false,'{UXPRERENDEREDALIAS}.V.R1.BUTTON_NEXT3');\n\n\n\n\n\n\n\n\n\n$e.add('{UXPRERENDEREDALIAS}.V.R1.BUTTON_BACK4',A5.d.evnts.click,function(e) {\n{UXPRERENDEREDALIAS}_DlgObj.panelSetActive('PANELCARD_3',true);\n},this,false,'{UXPRERENDEREDALIAS}.V.R1.BUTTON_BACK4');\n\n\n\n\n\n\n$e.add('{UXPRERENDEREDALIAS}.V.R1.BUTTON_NEXT4',A5.d.evnts.click,function(e) {\n{UXPRERENDEREDALIAS}_DlgObj.panelSetActive('PANELCARD_5',true);\n},this,false,'{UXPRERENDEREDALIAS}.V.R1.BUTTON_NEXT4');\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n$e.add('{UXPRERENDEREDALIAS}.V.R1.BUTTON_BACK5',A5.d.evnts.click,function(e) {\n{UXPRERENDEREDALIAS}_DlgObj.panelSetActive('PANELCARD_4',true);\n},this,false,'{UXPRERENDEREDALIAS}.V.R1.BUTTON_BACK5');\n\n\n\n\n\n\n$e.add('{UXPRERENDEREDALIAS}.V.R1.BUTTON_HOME',A5.d.evnts.click,function(e) {\n{UXPRERENDEREDALIAS}_DlgObj.getTopParentObject().panelSetActive('PANEL_MAIN',true);\n},this,false,'{UXPRERENDEREDALIAS}.V.R1.BUTTON_HOME');\n\n\n\n\n\n$e.add('{UXPRERENDEREDALIAS}.V.R1.BUTTON_SUBMIT',A5.d.evnts.click,function(e) {\n{UXPRERENDEREDALIAS}_DlgObj.submit();\n{UXPRERENDEREDALIAS}_DlgObj.getTopParentObject().panelSetActive('PANEL_MAIN', true);\n},this,false,'{UXPRERENDEREDALIAS}.V.R1.BUTTON_SUBMIT');\n\n$e.add('{UXPRERENDEREDALIAS}.V.R1.BUTTON_SAVE',A5.d.evnts.click,function(e) {\n{UXPRERENDEREDALIAS}_DlgObj.submit();\n{UXPRERENDEREDALIAS}_DlgObj.getTopParentObject().panelSetActive('PANEL_MAIN', true);\n},this,false,'{UXPRERENDEREDALIAS}.V.R1.BUTTON_SAVE');\n\n$e.add('{UXPRERENDEREDALIAS}.V.R1.BUTTON_RESET',A5.d.evnts.click,function(e) {\n{UXPRERENDEREDALIAS}_DlgObj.resetForm(false);\n{UXPRERENDEREDALIAS}_DlgObj.getTopParentObject().panelSetActive('PANEL_MAIN', true);\n},this,false,'{UXPRERENDEREDALIAS}.V.R1.BUTTON_RESET');\n__replaceAtRuntime_CustomControlsSystemBeforePrepare\n{UXPRERENDEREDALIAS}_DlgObj.prepare();{UXPRERENDEREDALIAS}_DlgObj.populate({UXPRERENDEREDALIAS}_DlgObj.originalValues[0]);\n{UXPRERENDEREDALIAS}_DlgObj._fireWatches(1);\n\n\nif(!A5.flags.isMobile) $e.add(window,'resize',{UXPRERENDEREDALIAS}_DlgObj._functions.calcOrientation);\nelse $e.add(window,'orientationchange',{UXPRERENDEREDALIAS}_DlgObj._orientationChangeHandler,{UXPRERENDEREDALIAS}_DlgObj,true);\n{UXPRERENDEREDALIAS}_DlgObj._functions.calcOrientation();\n\n\n\n\n\n\nsetTimeout(function() { },0);\n\n\n{UXPRERENDEREDALIAS}_DlgObj._executeEvent('onInitializeComplete');\n{UXPRERENDEREDALIAS}_DlgObj.initialized = true;\n\n\n\n\n\n__replaceAtRuntime_CustomControlsSystemAfterRender\n\n{UXPRERENDEREDALIAS}_DlgObj._onRenderComplete = function() { {UXPRERENDEREDALIAS}_DlgObj._runJSOnLoad(); {UXPRERENDEREDALIAS}_DlgObj._findActiveLayoutRule(); }; \n\nsetTimeout(function() { var p = {UXPRERENDEREDALIAS}_DlgObj.panelGet('PANELNAVIGATOR'); if(p._sizing == 'window') { p._sizeWindow();} else { p.refresh(); } },100);\nsetTimeout(function() {{UXPRERENDEREDALIAS}_DlgObj._executeEvent('onRenderComplete'); {UXPRERENDEREDALIAS}_DlgObj.flagRenderComplete = true;  {UXPRERENDEREDALIAS}_DlgObj._restoreFromLocalStorage(); },1);\n\nvar o2 = 'portrait';\nif(window.innerHeight < window.innerWidth) o2 = 'landscape';\n{UXPRERENDEREDALIAS}_DlgObj._screen = {h: window.innerHeight, w: window.innerWidth, o: o2};\n\n{UXPRERENDEREDALIAS}_DlgObj._getOnlineStatus();\ntry {\nwindow.addEventListener(\"offline\",function() { {UXPRERENDEREDALIAS}_DlgObj._fireOnConnectionChangeEvent() });\nwindow.addEventListener(\"online\",function() { {UXPRERENDEREDALIAS}_DlgObj._fireOnConnectionChangeEvent() });\n} catch(err){}\n\n\nsetTimeout(function() {$e.execute('device.screen','a5resize')},1);\nsetTimeout(function() { },10);;\n{UXPRERENDEREDALIAS}_DlgObj._activeLanguage = '';"
             },
             "iconMap": "{images.RowExpander.Open}=\"cssIcon=iOS7Icon iOS7IconRight\"\n{images.RowExpander.Close}=\"cssIcon=iOS7Icon iOS7IconDown\"\n{images.EmbeddedSearch.Search}=\"cssIcon=iOS7Icon iOS7IconSearch\"\n{images.EmbeddedSearch.ClearSearch}=\"cssIcon=iOS7Icon iOS7IconDisabled iOS7IconFilter\"\n{images.EmbeddedSearch.ShowHideEmbeddedSearch}=\"cssIcon=iOS7Icon iOS7IconFilter\"\n{images.GridRow.NewRecordRow.NoFocus}=\"cssIcon=iOS7Icon iOS7IconDisabled iOS7IconNew\"\n{images.GridRow.NewRecordRow.HasFocus}=\"cssIcon=iOS7Icon iOS7IconNew\"\n{images.GridRow.SaveRecord}=\"cssIcon=iOS7Icon iOS7IconSave\"\n{images.GridRow.SaveRecord.Disabled}=\"cssIcon=iOS7Icon iOS7IconDisabled iOS7IconSave\"\n{images.GridRow.UndoChanges}=\"cssIcon=iOS7Icon iOS7IconUndo\"\n{images.GridRow.UndoChanges.Disabled}=\"cssIcon=iOS7Icon iOS7IconDisabled iOS7IconUndo\"\n{images.GridRow.EditRecord}=\"cssIcon=iOS7Icon iOS7IconEdit\"\n{images.GridRow.EditRecord.Disabled}=\"cssIcon=iOS7Icon iOS7IconDisabled iOS7IconEdit\"\n{images.GridRow.DeleteRecord}=\"cssIcon=iOS7Icon iOS7IconDelete\"\n{images.GridRow.DeleteRecord.Disabled}=\"cssIcon=iOS7Icon iOS7IconDisabled iOS7IconDelete\"\n{images.GridRow.CancelEditRecord}=\"cssIcon=iOS7Icon iOS7IconCancelEdit\"\n{images.GridRow.CancelEditRecord.Disabled}=\"cssIcon=iOS7Icon iOS7IconDisabled iOS7IconCancelEdit\"\n{images.GridRow.HasError}=\"cssIcon=iOS7Icon iOS7IconError\"\n{images.QBE.OperatorIsSelected}=\"cssIcon=iOS7IconSm iOS7IconCheck\"\n{images.QBE.OpenQBEMenu}=\"cssIcon=iOS7Icon iOS7IconFilter\"\n{images.QBE.ShowHideQBERow}=\"cssIcon=iOS7Icon iOS7IconFilter\"\n{images.PopUpWindow.Lookup.Close}=\"cssIcon=iOS7Icon iOS7IconClose\"\n{images.PopUpWindow.DetailView.Close}=\"cssIcon=iOS7Icon iOS7IconClose\"\n{images.CollapseContainer.Open}=\"cssIcon=iOS7Icon iOS7IconRight\"\n{images.CollapseContainer.Close}=\"cssIcon=iOS7Icon iOS7IconDown\"\n{images.FieldHelpIcon}=\"cssIcon=iOS7Icon iOS7IconHelp\"\n{images.SearchPart.SaveSearchCriteria}=\"cssIcon=iOS7Icon iOS7IconSave\"\n{images.SearchPart.LoadSearchCriteria}=\"cssIcon=iOS7Icon iOS7IconLoad\"\n{images.SearchPart.RunSearch}=\"cssIcon=iOS7Icon iOS7IconSearch\"\n{images.SearchPart.ClearSearch}=\"cssIcon=iOS7Icon iOS7IconDisabled iOS7IconFilter\"\n{images.GridRow.SelectionPointer}=\"cssIcon=iOS7Icon iOS7IconRight\"\n{images.Grid.SortAsc}=\"cssIcon=iOS7IconSm iOS7IconUp\"\n{images.Grid.SortAscDisabled}=\"cssIcon=iOS7IconSm iOS7IconDisabled iOS7IconUp\"\n{images.Grid.sortDesc}=\"cssIcon=iOS7IconSm iOS7IconDown\"\n{images.grid.sortDescDisabled}=\"cssIcon=iOS7IconSm iOS7IconDisabled iOS7IconDown\"\n{images.grid.firstPage}=\"cssIcon=iOS7Icon iOS7IconFirst\"\n{images.grid.firstPageDisabled}=\"cssIcon=iOS7Icon iOS7IconDisabled iOS7IconFirst\"\n{images.grid.prevPage}=\"cssIcon=iOS7Icon iOS7IconLeft\"\n{images.grid.prevPageDisabled}=\"cssIcon=iOS7Icon iOS7IconDisabled iOS7IconLeft\"\n{images.grid.nextPage}=\"cssIcon=iOS7Icon iOS7IconRight\"\n{images.grid.nextPageDisabled}=\"cssIcon=iOS7Icon iOS7IconDisabled iOS7IconRight\"\n{images.grid.lastPage}=\"cssIcon=iOS7Icon iOS7IconLast\"\n{images.grid.lastPageDisabled}=\"cssIcon=iOS7Icon iOS7IconDisabled iOS7IconLast\"\n{images.edit.dropdownArrow}=\"cssIcon=iOS7Icon iOS7IconDown\"\n{images.edit.datePicker}=\"cssIcon=iOS7Icon iOS7IconDown\"\n{images.edit.dateTimePicker}=\"cssIcon=iOS7Icon iOS7IconDown\"\n{images.edit.timePicker}=\"cssIcon=iOS7Icon iOS7IconDown\"\n{images.edit.calculator}=\"cssIcon=iOS7Icon iOS7IconDown\"\n{images.edit.lookup}=\"cssIcon=iOS7Icon iOS7IconDown\"\n{images.javascript.deleteRowConfirmation}=\"cssIcon=iOS7Icon iOS7IconHelp\"\n{images.javascript.cancelEditRowConfirmation}=\"cssIcon=iOS7Icon iOS7IconHelp\"\n{images.javascript.UndoEditsConfirmation}=\"cssIcon=iOS7Icon iOS7IconInfo\"\n{images.javascript.UndoAllEditsConfirmation}=\"cssIcon=iOS7Icon iOS7IconInfo\"\n{images.javascript.dirtyRecordWarning}=\"cssIcon=iOS7Icon iOS7IconInfo\"\n{images.dv.close}=\"cssIcon=iOS7Icon iOS7IconClose\"\n{images.dv.firstRecord}=\"cssIcon=iOS7Icon iOS7IconFirst\"\n{images.dv.prevRecord}=\"cssIcon=iOS7Icon iOS7IconLeft\"\n{images.dv.nextRecord}=\"cssIcon=iOS7Icon iOS7IconRight\"\n{images.dv.lastRecord}=\"cssIcon=iOS7Icon iOS7IconLast\"\n{images.dv.newRecord}=\"cssIcon=iOS7Icon iOS7IconNew\"\n{images.dv.cancelEdits}=\"cssIcon=iOS7Icon iOS7IconCancelEdit\"\n{images.dv.deleteRecord}=\"cssIcon=iOS7Icon iOS7IconDelete\"\n{images.dv.saveRecord}=\"cssIcon=iOS7Icon iOS7IconSave\"\n{images.dv.saveAndEnter}=\"cssIcon=iOS7Icon iOS7IconSaveAndEnter\"\n{images.dv.switchToEdit}=\"cssIcon=iOS7Icon iOS7IconEdit\"\n{images.dv.switchToView}=\"cssIcon=iOS7Icon iOS7IconCancel\"\n{images.disabled.dv.newRecord}=\"cssIcon=iOS7Icon iOS7IconNew\"\n{images.disabled.dv.cancelEdits}=\"cssIcon=iOS7Icon iOS7IconCancelEdit\"\n{images.disabled.dv.deleteRecord}=\"cssIcon=iOS7Icon iOS7IconDelete\"\n{images.disabled.dv.saveRecord}=\"cssIcon=iOS7Icon iOS7IconSave\"\n{images.disabled.dv.saveAndEnter}=\"cssIcon=iOS7Icon iOS7IconSaveAndEnter\"\n{images.dv.cancelNewRecord}=\"cssIcon=iOS7Icon iOS7IconCancelEdit\"\n{images.grid.editError}=\"cssIcon=iOS7Icon iOS7IconError\"\n{images.dialog.editError}=\"cssIcon=iOS7Icon iOS7IconError\"\n{images.tabbedUI.menuExpandLeft}=\"cssIcon=iOS7Icon iOS7IconLast\"\n{images.tabbedUI.menuCollapseLeft}=\"cssIcon=iOS7Icon iOS7IconFirst\"\n{images.tabbedUI.menuExpandRight}=\"cssIcon=iOS7Icon iOS7IconFirst\"\n{images.tabbedUI.menuCollapseRight}=\"cssIcon=iOS7Icon iOS7IconLast\"\n{images.dialog.repeatingSectionActiveRowIcon}=\"cssIcon=iOS7Icon iOS7IconRight\"\n{images.dialog.repeatingSectionAddRowIcon}=\"cssIcon=iOS7IconBtn iOS7IconAdd\"\n{images.dialog.repeatingSectionDeleteRowIcon}=\"cssIcon=iOS7IconBtn iOS7IconDelete\"\n{images.dialog.repeatingSectionErrorRowIcon}=\"cssIcon=iOS7IconBtn iOS7IconError\"\n{images.dialog.deleteRowMessage.icon}=\"cssIcon=iOS7Icon iOS7IconHelp\"\n{images.dialog.resetForm.icon}=\"cssIcon=iOS7Icon iOS7IconHelp\"\n{images.dialog.dirtyForm.icon}=\"cssIcon=iOS7Icon iOS7IconInfo\"\n{images.dialog.editError}=\"cssIcon=iOS7Icon iOS7IconError\"\n{images.dialog.listNav}=\"cssIcon=iOS7Icon iOS7IconRight\"\n{images.dialog.listNavSubtle}=\"cssIcon=iOS7Icon iOS7IconRight\"\n{images.dialog.menu}=\"cssIcon=iOS7Icon iOS7IconMenu\"\n{images.dialog.refresh}=\"cssIcon=iOS7Icon iOS7IconRefresh\"\n{images.dialog.refreshDisabled}=\"cssIcon=iOS7Icon iOS7IconDisabled iOS7IconRefresh\""
-        }
+        },
+        "arguments": [
+            {
+                "Name": "Condition",
+                "DataType": "Character",
+                "Source": "Variable",
+                "VariableScope": "Session Variable",
+                "VariableName": "sCondition",
+                "DefaultValue": "Coronary Artery Bypass Graft",
+                "runtimeValue": "Coronary Artery Bypass Graft",
+                "sr": "{Condition}=\"Coronary Artery Bypass Graft\""
+            }
+        ],
+        "flagAddPKToORDER": true
     }
 }

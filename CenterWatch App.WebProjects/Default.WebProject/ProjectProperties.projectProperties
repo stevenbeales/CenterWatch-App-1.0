@@ -36,7 +36,7 @@
 <designTime<autoCompileAEXForWorkingPreview=.T.>
 <promptToStartServerForLivePreview=.T.>
 <encryptConnectionStrings=.T.>
-<saveFileType="">
+<saveFileType="Formatted JSON">
 >
 <NamedResources="">
 <websocket<enable=.F.>
