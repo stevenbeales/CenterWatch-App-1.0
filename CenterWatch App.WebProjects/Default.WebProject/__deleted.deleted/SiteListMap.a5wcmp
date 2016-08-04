@@ -1,0 +1,413 @@
+{
+    "$schema": "UX",
+    "$definition": {
+        "style_name": "iOS7",
+        "style_type": "Alpha Five",
+        "resolveAbstractClassNames": true,
+        "builderVersionNumber": 1,
+        "overrideStyleName": "Default",
+        "FontSize": "Medium",
+        "A5ContainerClassPadding": "0px",
+        "A5ContainerClassPaddingForContainerWidthMode": "4px",
+        "layoutType": "ContainerWidth",
+        "previewMode": "MobileDevice",
+        "useDragScrolling": "Auto",
+        "pageTitle": "UX",
+        "waitMsg": {
+            "message": {
+                "text": "Wait...",
+                "waitIcon": "css/A5System/Images/wait.gif"
+            },
+            "cssAnimation": {
+                "size": "32"
+            }
+        },
+        "globalSettings": {
+            "labelWidth": "1in"
+        },
+        "serverSideEvents": {
+            "canAjaxCallback": "",
+            "afterAjaxCallback": ""
+        },
+        "onTimerEventInterval": 60,
+        "securityDeniedAction": "Redirect to login page",
+        "clientSideEvents": {
+            "_canAjaxCallback": "",
+            "__afterAjaxCallbackComplete": "",
+            "onAjaxCallbackFailed": "",
+            "onAjaxCallbackNotAvailable": "",
+            "onServerSideEventHandlerError": "",
+            "onFieldValidationError": "",
+            "beforePrepare": "",
+            "afterPrepare": "",
+            "afterValidate": "",
+            "onTabPaneChanged": "",
+            "beforeRptSectionRowPrepare": "",
+            "afterRptSectionRowPrepare": "",
+            "canRptSectionRowAdd": "",
+            "afterRptSectionRowAdd": "",
+            "canRptSectionRowDelete": "",
+            "afterRptSectionRowDelete": "",
+            "onStateChange": "",
+            "onDataStateChange": "",
+            "onControlFocus": "",
+            "onRptSectionFocus": "",
+            "onRptSectionRowChange": "",
+            "canResetForm": "",
+            "afterResetForm": "",
+            "canRecordNavigate": "",
+            "afterRecordNavigate": "",
+            "onSynchronizeDialog": "",
+            "afterPopulateFromTable": "",
+            "onRenderComplete": "var mapObj = {dialog.object}.getControl('MAP_TRIALS');\nvar lObj = {dialog.object}.getParentObject().getControl('LIST_TRIALS');\nCWApp.addSiteMarkers(mapObj, lObj, 'GROUPSITES');\n",
+            "onPanelActivate": "",
+            "afterSaveToRepository": "",
+            "afterLoadFromRepository": "",
+            "afterGoogleVisualization": "",
+            "canDeleteParentRecord": "",
+            "afterDeleteParentRecord": "",
+            "onOrientationChange": "",
+            "onKeyboard": "",
+            "onCordovaReady": "",
+            "onPhoneGapReady": "",
+            "onImageError": "",
+            "onSignatureCaptureToggle": "",
+            "onSignatureCaptureAccept": "",
+            "onTimer": "",
+            "beforeOnTimer": "",
+            "canLogin": "",
+            "afterLogin": "",
+            "afterFailedLogin": "",
+            "canLogout": "",
+            "afterLogout": "",
+            "onSessionTimeoutWarning": "",
+            "onServerSideListSummaryCompute": "",
+            "beforeHTMLReportExport": "",
+            "onConnectionChange": "",
+            "appCache_cached": "",
+            "appCache_checking": "",
+            "appCache_downloading": "",
+            "appCache_error": "",
+            "appCache_noupdate": "",
+            "appCache_obsolete": "",
+            "appCache_progress": "",
+            "appCache_updateready": "",
+            "onControlBlur": "",
+            "onControlChange": "",
+            "onBeforePersistControlValuesToLocalStorage": "",
+            "onPersistControlValuesToLocalStorage": "",
+            "onRestoreVariablesFromLocalStorage": "",
+            "onRestoreComponentStateFromLocalStorage": "",
+            "localStorageEncryption": "",
+            "localStorageDecryption": "",
+            "securityNotAuthenticated": "",
+            "securityPermissionDenied": "",
+            "webSocketOnMessage": "",
+            "webSocketServerClose": "",
+            "webSocketSendMessageFail": ""
+        },
+        "onlyValidateChangedFields": true,
+        "edit": {
+            "field_error_style": {
+                "type": "Block",
+                "showWarning": true,
+                "icon": "<Specified by Style>",
+                "controlContainer_classname": ""
+            },
+            "row_errors_window_title": "Error",
+            "row_errors_window_style": "color: red; width: 6in; height: 2in;",
+            "fieldValidationErrorMessage": "Form has errors."
+        },
+        "submitDialogIfHasClientSideValidationErrors": true,
+        "activeLanguage": "<Default>",
+        "datePicker": {
+            "dayNames": "Sun,Mon,Tue,Wed,Thu,Fri,Sat",
+            "monthNames": "January,February,March,April,May,June,July,August,September,October,November,December",
+            "firstDayOfWeek": 1,
+            "todayButtonText": "Today",
+            "closeButtonText": "Close"
+        },
+        "clientSideDateFormat": "MM/dd/yyyy",
+        "fontScalingOption": "All",
+        "helpTableType": "DBF",
+        "fieldHelpWindowStyle": "modal-resizeable",
+        "customization": {
+            "resetFormMessage": "Are you sure you want to reset the form?",
+            "resetFormTitle": "Warning",
+            "resetFormIcon": "<Specified by Style>",
+            "resetFormYesButton": "Yes",
+            "resetFormNoButton": "No",
+            "windowTitleDirection": "ltr",
+            "dirtyWarning": "You must first save your changes or cancel changes by clicking the Reset button.",
+            "dirtyWarningTitle": "Notice",
+            "dirtyWarningIcon": "<Specified by Style>",
+            "deleteRecordWarningTitle": "Delete Record",
+            "deleteRecordWarningMessage": "Are you sure you want to delete this record?"
+        },
+        "dataBinding": {
+            "computeDataBindingCodeAtDesignTimePrompt": "Prompt",
+            "autoRefreshSchemaOnLoad": true,
+            "autoRefreshPromptFirst": "Prompt"
+        },
+        "info": {
+            "createdBy": "sbeales",
+            "dateCreated": "2016-8-3",
+            "dateLastEdited": "2016-8-3"
+        },
+        "flagShowCommentsInTree": true,
+        "treeCommentOffset": "6",
+        "renderUXLocation": {
+            "type": "window",
+            "sizeToElement": true
+        },
+        "checkSessionEvery": 1,
+        "warningIntervalBeforeExpiration": 1,
+        "sessionTimeOutWarningMessage": "Your session will expire in {secondsToSessionEnd} seconds. Click the button to extend your session.",
+        "sessionExtendSessionButtonLabel": "Extend Session",
+        "sessionTimeoutWarningDialogTitle": "Warning",
+        "sessionHasExpiredMessage": "Your session has expired.",
+        "sessionHasExpiredButtonLabel": "OK",
+        "sessionHasExpiredAction": "Nothing",
+        "sessionHasExpiredRedirectPage": "<self>",
+        "sessionHasExpiredDialogTitle": "Notice",
+        "sessionHasExpiredOKButtonJavascript": "<ReloadThisPage>",
+        "login": {
+            "errorMessageStyle": "color: red;",
+            "logoutDoesFullPageReload": true
+        },
+        "applyResponsiveDesignSettings": true,
+        "responseDesignRulesMode": "FirstTrue",
+        "localStorage": {
+            "namespace": "<Default>",
+            "__version": 1,
+            "workingPreviewTestingMode": "Browser",
+            "variablesToNotPersist": ""
+        },
+        "preRenderComputeWhen": "Every time component is saved",
+        "page_fields": [
+            {
+                "controlType": "dialog_formcontrol",
+                "display": "{B=White,Light Blue}{Data=972cdb9d_bf70_45b9_ae1d_8b18546090e1}{I:'$$generic.map'} [MAP_TRIALS]",
+                "displayODFlat": "{Data=972cdb9d_bf70_45b9_ae1d_8b18546090e1}{I:'$$generic.map'} [MAP_TRIALS]",
+                "idInternal": "972cdb9d_bf70_45b9_ae1d_8b18546090e1",
+                "parentContainer": -1,
+                "displayOD": "{B=White,Light Blue}{Data=972cdb9d_bf70_45b9_ae1d_8b18546090e1}{I:'$$generic.map'} [MAP_TRIALS]",
+                "repeatingSectionParentId": -1,
+                "displayODtree": "{B=White,Light Blue}{Data=972cdb9d_bf70_45b9_ae1d_8b18546090e1}{I:'$$generic.map'} [MAP_TRIALS]",
+                "crc": "4294966578",
+                "v": {
+                    "controlType": "Map",
+                    "variableName": "MAP_TRIALS",
+                    "type": "Character",
+                    "maxLength": -1,
+                    "hasWatermark": true,
+                    "watermark": {
+                        "text": "<FieldLabel>"
+                    },
+                    "precalc": {
+                        "javascriptAbstractSetupCode": "",
+                        "javascript_mapSettings": "{dialog.object}._mapSettings['MAP_TRIALS'] = {theme: '{dialog.style}',ui: {overviewMap: false,draggable: true,zoomOnDblClick: true,panControl: false,scale: false,streetViewControl: false,zoomControl: false,mapTypeControl: false},route: {draggable: false,avoid: {highways: false,tolls: false},travelMode: 'Driving',units: 'Default',optimizeOrder: false,directionsPanel: ''},type: 'ROADMAP',onZoomChange: function(data) { },onInitialize: function(data) { var options = {\n  enableHighAccuracy: true,\n  timeout: 5000,\n  maximumAge: 0\n};\n\nfunction onSuccess(pos) {\n  var crd = pos.coords;\n  {dialog.object}.getControl('MAP_TRIALS').setCenter([crd.latitude, crd.longitude], true);\n  console.log('Your current position is:');\n  console.log('Latitude : ' + crd.latitude);\n  console.log('Longitude: ' + crd.longitude);\n};\n\nfunction onError(err) {\n  console.warn('ERROR(' + err.code + '): ' + err.message);\n};\n\nif (\"geolocation\" in navigator) {\n\tnavigator.geolocation.getCurrentPosition(onSuccess, onError, options);\n} else {\n  console.log('Unable to determine your location.');\n}}}; ",
+                        "javascript_map": "{dialog.object}._controls['MAP_TRIALS'] = { type: 'map', onInitialize: function() {  var mapObj = {dialog.object}.getControl('MAP_TRIALS');\nmapObj.setZoom(13);;} ,   settings:  {dialog.object}._mapSettings['MAP_TRIALS'] }"
+                    },
+                    "textboxAutocorrect": true,
+                    "textboxAutoCapitalize": true,
+                    "class": "<Default>",
+                    "breakType": "None",
+                    "breakHeight": ".1in",
+                    "breakHorizontalSpace": ".1in",
+                    "labelClass": "<Default>",
+                    "labelPosition": "None",
+                    "labelWidth": "{Global.LabelWidth}",
+                    "labelAlignment": "Left",
+                    "repeatingSectionColumnHeading": "<FieldLabel>",
+                    "embeddedJavascriptControl": true,
+                    "helpIcon": "images/$$generic.help.png.a5image",
+                    "showHelpIcon": "None",
+                    "helpIconBehavior": "ShowHelpOnClick",
+                    "clientSideFormat": {
+                        "type": "Mask"
+                    },
+                    "onChange_ValidationOption": "Client-side only",
+                    "dataBinding": {
+                        "updateable": true,
+                        "image": {
+                            "type": "JPG",
+                            "noImageFoundImage": "<None>",
+                            "newRecordImage": "<None>"
+                        }
+                    },
+                    "textboxSubTheme": "",
+                    "datePicker": {
+                        "displayTimePicker": false,
+                        "openMethod": "ClickIcon",
+                        "dateFormat": "<Default>",
+                        "iconNumber": 2,
+                        "OKButtonLabel": "OK",
+                        "CancelButtonLabel": "Cancel",
+                        "userMustSelectFromDatePicker": false,
+                        "multiple": {
+                            "allow": false,
+                            "separators": ".."
+                        },
+                        "hasMask": false,
+                        "format": {
+                            "mask": ""
+                        },
+                        "timePickerOptionsDefined": false,
+                        "display": false
+                    },
+                    "displayAsSlider": false,
+                    "flags": {
+                        "clientSideDefinition": false
+                    },
+                    "map": {
+                        "width": "100%",
+                        "height": "6in",
+                        "fillPanelContainer": false,
+                        "centerMapOnInitialize": false,
+                        "initialZoom": "13",
+                        "centerMap": {
+                            "lat": "",
+                            "lon": ""
+                        },
+                        "type": "ROADMAP",
+                        "ui": {
+                            "overviewMap": false,
+                            "draggable": true,
+                            "zoomOnDblClick": true,
+                            "panControl": false,
+                            "scale": false,
+                            "streetViewControl": false,
+                            "zoomControl": false,
+                            "mapTypeControl": false
+                        },
+                        "route": {
+                            "draggable": false,
+                            "avoid": {
+                                "highways": false,
+                                "tolls": false
+                            },
+                            "travelMode": "Driving",
+                            "units": "Default",
+                            "optimizeOrder": false,
+                            "directionsPanel": ""
+                        },
+                        "javascript": {
+                            "onClick": "",
+                            "onDblClick": "//get latitude/longitude of click position from the 'data' object\nvar lat = data.latLng.lat();\nvar lng = data.latLng.lng();\n",
+                            "onRightClick": "//get latitude/longitude of click position from the 'data' object\nvar lat = data.latLng.lat();\nvar lng = data.latLng.lng();\n",
+                            "onZoomChange": "/*Your code can use 'this' to refer to the Google map object.\n'data' is passed in and it contains: \ndata.zoom - numeric value of the zoom\ndata.oldZoom - old zoom value\n*/\n",
+                            "onInitialize": "/*Your code can use 'this' to refer to the Google map object.\n'data' is passed in and it contains: \ndata.zoom - numeric value of the zoom\ndata.center - an array of lat/lng values\n*/\nvar options = {\n  enableHighAccuracy: true,\n  timeout: 5000,\n  maximumAge: 0\n};\n\nfunction onSuccess(pos) {\n  var crd = pos.coords;\n  {dialog.object}.getControl('MAP_TRIALS').setCenter([crd.latitude, crd.longitude], true);\n  console.log('Your current position is:');\n  console.log('Latitude : ' + crd.latitude);\n  console.log('Longitude: ' + crd.longitude);\n};\n\nfunction onError(err) {\n  console.warn('ERROR(' + err.code + '): ' + err.message);\n};\n\nif (\"geolocation\" in navigator) {\n\tnavigator.geolocation.getCurrentPosition(onSuccess, onError, options);\n} else {\n  console.log('Unable to determine your location.');\n}"
+                        },
+                        "google": {
+                            "usePremier": false,
+                            "clientID": false,
+                            "clientkey": "",
+                            "useSSL": false,
+                            "languageCode": "<Default>",
+                            "apikey": ""
+                        }
+                    }
+                },
+                "indentTree": 0,
+                "precalc": {
+                    "ControlHTML": "<div class=\"A5CWLayout\" style=\"width: 100%\" >\n\t<!--FldS--><div id=\"{grid.componentname}.V.R{grid.rownumber}.MAP_TRIALS.CONTROL\"  style=\"width: 100%; height: 6in; box-sizing: border-box; -moz-box-sizing: border-box; -ms-box-sizing: border-box; -webkit-box-sizing: border-box; \"></div>\n<!--FldE-->\n</div>",
+                    "DesignViewHTML": "",
+                    "columnInfo": "'MAP_TRIALS': {info: {controlType: 'Map'}, hiddenVal: false, type: 'control', isCalc: false, hlp: '', isArray: false, dataType: 'C'  }\n"
+                },
+                "parentIsCollapsed": true,
+                "inPanelCard": false,
+                "inTreeControl": false
+            }
+        ],
+        "builderType": "Dialog2",
+        "guid": "0c0fba43-ddb9-4865-aa1d-5703bd1f796d",
+        "componentName": "SiteListMap",
+        "componentFilename": "C:\\Users\\sbeales\\OneDrive\\Alpha Anywhere Projects.WebProjects\\CenterWatch App 1.0\\CenterWatch App.WebProjects\\Default.WebProject\\SiteListMap.a5wcmp",
+        "_style_versionNumber": -1,
+        "controlflowdirection": "ltr",
+        "SVGLinkedFiles": "",
+        "localsvg": "",
+        "showLineNumbersInControlsList": false,
+        "customSettingsJSON": "",
+        "saveFileType": "Formatted JSON",
+        "keyboardShortcutsJSON": "",
+        "selected": "972cdb9d_bf70_45b9_ae1d_8b18546090e1\n",
+        "designPaneIndex": 1,
+        "masterPaneC": "EventsClientSide",
+        "serverSideEventIndex": 1,
+        "clientSideEventIndex": 31,
+        "clientSideEventIndexC": "31",
+        "lastControlSelected": "",
+        "__WPhostName": "Internet Explorer",
+        "repeatingSectionsAreDirty": true,
+        "toolBox_value": "",
+        "addinBuildNumber": "4702",
+        "addinBuildNumberHighestUsed": "4702",
+        "alphaFiveBuildNumber": "12",
+        "openedFromTemplate": false,
+        "builtWithVersionNumer": 1,
+        "securityEnabled": false,
+        "showHideIsUsed": false,
+        "precalc": {
+            "customControl": {
+                "js_beforePrepare": "",
+                "js_afterRender": "",
+                "customControl_xbasicFunctions": ""
+            },
+            "injectibleHTML": "",
+            "containerWindowHTML": "",
+            "repeatingsectionInfoJs": "",
+            "framesInfoJS": "{dialog.object}.framesInfo = {\n\n};\n",
+            "jsActionJavascriptGlobalFunctions": "",
+            "xbActionJavascriptGlobalFunctions": "",
+            "javascriptSetupForGridLookups": "{\n}",
+            "javascript": {
+                "showWaitMessage": "",
+                "hideWaitMessage": "",
+                "embeddedUXComponents": ""
+            },
+            "fileUpload_controlInfo": "",
+            "javascript_cascadingDropdowns": "{dialog.object}._cascadingControls = [];\n{dialog.object}._cascadingControlsChildren = [];",
+            "template_html": "<!--div GLOBALERRORS-->\n<div class=\"errorTip\" style=\"margin-bottom: 2px; display: none; width: 8in; \" id=\"{dialog.componentname}.GLOBALERRORS\"></div>\n<!--End div GLOBALERRORS-->\n\n<div id=\"{dialog.componentname}.R1\">\n<div class=\"A5CWLayout\" style=\"width: 100%\" >\n\t<!--FldS--><div id=\"{grid.componentname}.V.R{grid.rownumber}.MAP_TRIALS.CONTROL\"  style=\"width: 100%; height: 6in; box-sizing: border-box; -moz-box-sizing: border-box; -ms-box-sizing: border-box; -webkit-box-sizing: border-box; \"></div>\n<!--FldE-->\n</div>\n\n\n</div>\n<!--div DEBUGUPDATECOMMANDS-->\n<div class=\"\" style=\"display: none; \" id=\"{dialog.componentname}.DEBUGUPDATECOMMANDS\"></div>\n<!--End div DEBUGUPDATECOMMANDS-->\n",
+            "panelDisplayNames": "",
+            "controlJavascript": "",
+            "controlJavascriptRepeatingSections": "",
+            "template_js": "",
+            "sessionVarsInShowHideExpns": "",
+            "themeSearchReplaceString": "",
+            "flagHasHTML5ImageCapture": false,
+            "flagUsesCordova": false,
+            "flagUseAmazonS3FileUpload": false,
+            "flagUseStripe": false,
+            "flagUseAudioPlayer": false,
+            "flagUseInk": false,
+            "flagUsesAudioLibrary": false,
+            "flagUsesPhoneGapFileSystemFunctions": false,
+            "flagUsesGetAccurateLocation": false,
+            "editorSet_for_editor": "{dialog.object}._EDITOR_EDITORSET = {};",
+            "otherJS": "",
+            "javascript_layoutRules": "",
+            "javascript_controlNesting": "{\n\n}",
+            "appcacheEvents": ""
+        },
+        "FieldsInRepeatingSectionsDeletedBySecurity": "",
+        "repeatingSectionsToRecalc": "",
+        "dialogObject": "if(typeof {dialog.componentName}_DlgObj == 'object') {dialog.componentName}_DlgObj._destroy();\nvar {dialog.componentName}_DlgObj = new A5.DialogComponentHelper('{dialog.componentName}',{\n\tajaxURL: '{dialog.ajaxUrl}',\n\t_embeddedMode: {dialog.embeddedMode},\n\t_livePreviewInBuilder: {livePreviewInBuilder},\n\tcomponentGUID: '0c0fba43-ddb9-4865-aa1d-5703bd1f796d',\n\tcolumnInfo: {columninfo},\n\toriginalValues: {dialog.jsOriginalValues},\n\tdefaultValues: {dialog.jsDefaultValues},\n\tdatePickerMonthNames: [{datePickerMonthNames}],\n\tdatePickerDayNames: [{datePickerDayNames}],\n\tdatePickerTodayButton: '{datePickerTodayButton}',\n\tdatePickerCloseButton: '{datePickerCloseButton}',\n\tdatePickerFirstDayOfWeek: {datePickerFirstDayOfWeek},\n\tresetFormMessage: '{resetFormMessage}',\n\tresetFormTitle: '{resetFormTitle}',\n\tresetFormIcon: '{resetFormIcon}',\n\tdirtyFormMessage: '{dirtyFormMessage}',\n\tdirtyFormTitle: '{dirtyFormTitle}',\n\tdirtyFormIcon: '{dirtyFormIcon}',\n\tdeleteRecordDialogTitle: '{deleteRecordTitle}',\n\tdeleteRecordDialogMessage: '{deleteRecordMessage}',\t\n\tssDateFormat: '{serverSideDateFormat}',\n\tstyleName: '{dialog.style}',\n\t_fieldHelpers_DIALOG2: [],\n\tparentComponentAlias: '{parentComponentAlias}',\n\tsubmitIfHasClientSideErrors: true, \n\trowErrors: {\n\t\t\t\tshowMessageBox: false,\n\t\t\t\tmessageBoxTitle: 'Error',\n\t\t\t\tstyle: 'color: red; width: 6in; height: 2in;'\n\t\t},\n\tfieldErrors: {\n\t\ttype: 'block', \n\t\tclassName: 'errorText',\n\t\tinputClassName: '[class.gridInputError]',\n\t\tedit: { \n\t\t\tcontainer: { className: '[class.gridInputContainerError]'}\n\t\t},\n\t\ticon: '{images.dialog.editError}',\n\t\tglobal: {\n\t\t\tcontId: '{dialog.componentname}.GLOBALERRORS',\n\t\t\thoverClassName: 'errorTextHighlight',\n\t\t\thoverInputClassName: 'errorInputHighlight'\n\t\t}\n\t},\n\t\tonRenderComplete: function(e) {\nvar mapObj = {dialog.object}.getControl('MAP_TRIALS');\nvar lObj = {dialog.object}.getParentObject().getControl('LIST_TRIALS');\nCWApp.addSiteMarkers(mapObj, lObj, 'GROUPSITES');\n\t\t}\n\n\t});\n\n",
+        "xbasiccode": {
+            "blankInitialValueIfVarNotFound": "",
+            "setValueProperties": "value.MAP_TRIALS=\"\"",
+            "setValueProperties2": "value.MAP_TRIALS=\"\"",
+            "setValueUnformattedProperties": "value.MAP_TRIALS=convert_type(\"\",\"C\")\n"
+        },
+        "componentType": "Dialog2",
+        "version": 1,
+        "recNav": {
+            "slider": {
+                "showSlider": false
+            }
+        },
+        "flagDropdownCascadingChanged": false,
+        "__allowCascadingRecalc": true
+    }
+}

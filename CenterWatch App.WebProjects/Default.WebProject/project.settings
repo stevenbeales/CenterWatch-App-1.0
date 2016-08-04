@@ -114,7 +114,7 @@
 <useIntegratedAuthentication=.T.>
 <username="">
 <password="">
-<ignoreCertificateErrors=.F.>
+<ignoreCertificateErrors=.T.>
 <appServerLocationType="Default">
 <appServerBuildNumber="">
 <appServerPath="C:\Program Files (x86)\A5V12 Application Server for IIS">

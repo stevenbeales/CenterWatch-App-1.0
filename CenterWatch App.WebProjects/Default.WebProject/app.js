@@ -1,5 +1,17 @@
-var CWApp = (function () {
-	"use strict";
+var CWApp = CWApp || {};//check if CWApp already defined
+
+//application - revealing module pattern
+CWApp = (function () {
+	"use strict"; //encapsulated to avoid breaking legacy Alpha Anywhere scripts
+
+	var config = {
+  	options: {
+			enableHighAccuracy: true, //Geolocation accuracy
+  		timeout: 5000,  //Geolocation timeout
+  		maximumAge: 600000 //cache for 10 minutes
+		}
+  };
+
 	var abbreviate = function (str, max, suffix) {
 		if (str.length === 0) {
 			return '';
@@ -158,6 +170,7 @@ var CWApp = (function () {
 	return {
 		abbreviate: abbreviate,
 		addSiteMarkers: addSiteMarkers,
+		config: config,
 		executeMenuAction: executeMenuAction,
 		goBackToMainMenu: goBackToMainMenu,
 		populateDetailTabs: populateDetailTabs

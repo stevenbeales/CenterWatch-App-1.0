@@ -549,13 +549,13 @@
             },
             {
                 "controlType": "layout_directive_ContainerEnd",
-                "display": "{C=Orange,White}{B=White,Orange}{F=+B}{I:'vertLine'}{I:'vertLine'}{Data=4c3a653c-b5e1-4202-bc04-a4a59328ea95}{I:'vertLineCap'} [PanelHeader End: PANELHEADER] ¶",
+                "display": "{C=Orange,White}{B=White,Orange}{F=+B}{I:'vertLine'}{I:'vertLine'}{Data=4c3a653c-b5e1-4202-bc04-a4a59328ea95}{I:'vertLineCap'} [PanelHeader End: PANELHEADER] ï¿½",
                 "displayODFlat": "{Data=4c3a653c-b5e1-4202-bc04-a4a59328ea95}{I:'$$format.border.style.dash'} [Container End]",
                 "idInternal": "4c3a653c-b5e1-4202-bc04-a4a59328ea95",
                 "parentContainer": 2,
                 "displayOD": "{C=#0+0+127,White}{B=White,Light Blue}{F=+B}{I:'vertLine'}{I:'vertLine'}{Data=4c3a653c-b5e1-4202-bc04-a4a59328ea95}{I:'vertLineCap'} [Container End]",
                 "repeatingSectionParentId": -1,
-                "displayODtree": "{C=Orange,White}{B=White,Orange}{F=+B}{I:'vertLine'}{I:'vertLine'}{Data=4c3a653c-b5e1-4202-bc04-a4a59328ea95}{I:'vertLineCap'} [PanelHeader End: PANELHEADER] ¶",
+                "displayODtree": "{C=Orange,White}{B=White,Orange}{F=+B}{I:'vertLine'}{I:'vertLine'}{Data=4c3a653c-b5e1-4202-bc04-a4a59328ea95}{I:'vertLineCap'} [PanelHeader End: PANELHEADER] ï¿½",
                 "crc": "4294939698",
                 "v": {
                     "container": {
@@ -735,13 +735,13 @@
             },
             {
                 "controlType": "layout_directive_containerend",
-                "display": "{C=#0+0+127,White}{B=White,Light Blue}{F=+B}{I:'vertLine'}{I:'vertLine'}{Data=7bdf56ba_c0a9_4a20_a518_92841366856f}{I:'vertLineCap'} [Container End: CONTAINER_FAQSEARCH] ¶",
+                "display": "{C=#0+0+127,White}{B=White,Light Blue}{F=+B}{I:'vertLine'}{I:'vertLine'}{Data=7bdf56ba_c0a9_4a20_a518_92841366856f}{I:'vertLineCap'} [Container End: CONTAINER_FAQSEARCH] ï¿½",
                 "displayODFlat": "{Data=7bdf56ba_c0a9_4a20_a518_92841366856f}{I:''} []",
                 "idInternal": "7bdf56ba_c0a9_4a20_a518_92841366856f",
                 "parentContainer": 2,
                 "displayOD": "{C=#0+0+127,White}{B=White,Light Blue}{F=+B}{I:'vertLine'}{I:'vertLine'}{Data=7bdf56ba_c0a9_4a20_a518_92841366856f}{I:''} []",
                 "repeatingSectionParentId": -1,
-                "displayODtree": "{C=#0+0+127,White}{B=White,Light Blue}{F=+B}{I:'vertLine'}{I:'vertLine'}{Data=7bdf56ba_c0a9_4a20_a518_92841366856f}{I:'vertLineCap'} [Container End: CONTAINER_FAQSEARCH] ¶",
+                "displayODtree": "{C=#0+0+127,White}{B=White,Light Blue}{F=+B}{I:'vertLine'}{I:'vertLine'}{Data=7bdf56ba_c0a9_4a20_a518_92841366856f}{I:'vertLineCap'} [Container End: CONTAINER_FAQSEARCH] ï¿½",
                 "crc": "4294961322",
                 "v": {
                     "container": {
@@ -1052,22 +1052,22 @@
                                 "dirtyDetailViewRecord": {
                                     "title": "Warning",
                                     "icon": "<Defined in Style>",
-                                    "message": "You must first save or undo the changes you have made to the List's Detail View."
+                                    "message": ""
                                 },
                                 "confirmFormResetWarning": {
                                     "title": "Warning",
                                     "icon": "<Defined in Style>",
-                                    "message": "Are you sure you want to undo changes made to the List's Detail View?"
+                                    "message": ""
                                 },
                                 "confirmRowResetWarning": {
                                     "title": "Warning",
                                     "icon": "<Defined in Style>",
-                                    "message": "Are you sure you want to undo changes made to this record?"
+                                    "message": ""
                                 },
                                 "confirmDeleteWarning": {
                                     "title": "Warning",
                                     "icon": "<Defined in Style>",
-                                    "message": "Are you sure you want to delete this record?"
+                                    "message": ""
                                 },
                                 "writeConflict": {
                                     "message": "Write conflict. Tap here to resolve.",

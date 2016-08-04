@@ -48,7 +48,8 @@ function _phoneGapSettings() {
         "dialogs": "npm",
         "statusbar": "npm",
         "inappbrowser": "npm",
-        "console": "npm"
+        "console": "npm",
+        "device-motion": "npm"
     }
 };
 }

@@ -129,4 +129,5 @@
 	<platform name="ios" />
 	<feature name="http://api.phonegap.com/1.0/notification" />
 	<plugin name="cordova-plugin-console" source="npm" />
+	<plugin name="cordova-plugin-device-motion" source="npm" />
 </widget>

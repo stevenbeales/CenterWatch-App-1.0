@@ -1,0 +1,28 @@
+css:iOS7
+subComponent:FindByCondition.a5wcmp
+subComponent:FindByLocation.a5wcmp
+subComponent:FindByKeywords.a5wcmp
+subComponent:Communities.a5wcmp
+subComponent:EducationMaterial.a5wcmp
+subComponent:MyProfile.a5wcmp
+copyfile:{C:\Users\sbeales\OneDrive\Alpha Anywhere Projects.WebProjects\CenterWatch App 1.0\CenterWatch App.WebProjects\Default.WebProject\images\logo.png}
+copyfile:{C:\Users\sbeales\OneDrive\Alpha Anywhere Projects.WebProjects\CenterWatch App 1.0\CenterWatch App.WebProjects\Default.WebProject\loading.gif}
+subComponent:FindByCondition
+subComponent:FindByLocation
+subComponent:FindByKeywords
+subComponent:Communities
+subComponent:EducationMaterial
+subComponent:MyProfile
+precomputedUXComponent: {functionName: 'PRECOMPUTEDUX_563f3ecc02d8427ebfa83ff170567c8f_FindByCondition', uxname: 'FindByCondition', alias: '{alias}_FINDBYCONDITION'}
+precomputedUXComponent: {functionName: 'PRECOMPUTEDUX_60d0cb1e1d3d420eb265098a83c22e99_FindByLocation', uxname: 'FindByLocation', alias: '{alias}_FINDBYLOCATION'}
+precomputedUXComponent: {functionName: 'PRECOMPUTEDUX_9ecf2c9c29e54d6ea72586eefe9ae733_FindByKeywords', uxname: 'FindByKeywords', alias: '{alias}_FINDBYKEYWORDS'}
+precomputedUXComponent: {functionName: 'PRECOMPUTEDUX_e873694ebea34fbeb5fbcd97f1c0df20_Communities', uxname: 'Communities', alias: '{alias}_COMMUNITIES'}
+precomputedUXComponent: {functionName: 'PRECOMPUTEDUX_df23d13acfdd446eaa5a41a694dc8263_EducationMaterial', uxname: 'EducationMaterial', alias: '{alias}_EDUCATIONMATERIAL'}
+precomputedUXComponent: {functionName: 'PRECOMPUTEDUX_8f156da91ace403bbc7221b1e24b4e25_MyProfile', uxname: 'MyProfile', alias: '{alias}_MYPROFILE'}
+precomputedUXComponent: {functionName: 'PRECOMPUTEDUX_563f3ecc02d8427ebfa83ff170567c8f_FindByCondition', uxname: 'FindByCondition', alias: '{UXPRERENDEREDALIAS}_FINDBYCONDITION'}
+precomputedUXComponent: {functionName: 'PRECOMPUTEDUX_60d0cb1e1d3d420eb265098a83c22e99_FindByLocation', uxname: 'FindByLocation', alias: '{UXPRERENDEREDALIAS}_FINDBYLOCATION'}
+precomputedUXComponent: {functionName: 'PRECOMPUTEDUX_9ecf2c9c29e54d6ea72586eefe9ae733_FindByKeywords', uxname: 'FindByKeywords', alias: '{UXPRERENDEREDALIAS}_FINDBYKEYWORDS'}
+precomputedUXComponent: {functionName: 'PRECOMPUTEDUX_e873694ebea34fbeb5fbcd97f1c0df20_Communities', uxname: 'Communities', alias: '{UXPRERENDEREDALIAS}_COMMUNITIES'}
+precomputedUXComponent: {functionName: 'PRECOMPUTEDUX_df23d13acfdd446eaa5a41a694dc8263_EducationMaterial', uxname: 'EducationMaterial', alias: '{UXPRERENDEREDALIAS}_EDUCATIONMATERIAL'}
+precomputedUXComponent: {functionName: 'PRECOMPUTEDUX_8f156da91ace403bbc7221b1e24b4e25_MyProfile', uxname: 'MyProfile', alias: '{UXPRERENDEREDALIAS}_MYPROFILE'}
+copyfile:{C:\Users\sbeales\OneDrive\Alpha Anywhere Projects.WebProjects\CenterWatch App 1.0\CenterWatch App.WebProjects\Default.WebProject\images/SVGIcons.svg}
